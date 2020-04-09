@@ -48,10 +48,12 @@ public class ShiroBean implements Serializable {
         try {
             subject.login(token);
             if (subject.hasRole("Administrador")) {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/adminInicio.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/inicioAdministrador.xhtml");
+				//ALGUIEN QUE HAGA EL XHTML DE ESTA VISTA DEL LOG DE ADMI, va dentro de webapp
 			} 
-			else if (subject.hasRole("Usuario")) {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/comunidadInicio.xhtml");
+			else if (subject.hasRole("Proponente")) {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/inicioUsuarios.xhtml");
+				//ALGUIEN QUE HAGA EL XHTML DE ESTA VISTA DEL LOG DE USUARIO, va dentro de webapp
 			}	
 			
         } 

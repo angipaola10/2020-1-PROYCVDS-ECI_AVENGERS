@@ -14,5 +14,9 @@ CREATE TABLE IF NO EXISTS Usuario(
 ;
 
 INSERT INTO Rol(tipo) VALUES ('Administrador');
+INSERT INTO Rol(tipo) VALUES ('Proponente');
+INSERT INTO Rol(tipo) VALUES ('Personal PMO');
+INSERT INTO Rol(tipo) VALUES ('Publico');
 
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1234, 'CC', 'Angi Jimenez', 9303130, 'angi.jimenez@mail.escuelaing.edu.co', 'Angie2000', 'Activo', 'Administrador');
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (12345, 'CC', 'Daniela Ruiz', 1019150998, 'angied.ruiz@gmail.com', 'Ruiz123', 'Activo', 'Proponente');

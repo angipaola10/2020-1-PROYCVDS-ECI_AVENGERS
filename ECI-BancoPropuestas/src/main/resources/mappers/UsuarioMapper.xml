@@ -10,20 +10,50 @@
 		<id property='telefono' column='telefono' \>
 		<id property='correo' column='correo' \>
 		<id property='estado' column='estado' \>
+		<id property='clave' column='clave' \>
 		<id property='rol' column='rol' \>
 	</resultMap>
 	
-	<select id="consultaUsuario" resultMap="UsuarioResult">
+	<select id="consultarUsuarios" resultMap="UsuarioResult">
 		SELECT
 		u.tid,
 		u.nombre,
 		u.correo,
 		u.telefono,
 		u.estado,
+		u.clave
+		u.rol,
+		FROM 
+		Usuario as u 
+	</select>
+	
+	<select id="consultarUsuario" resultMap="UsuarioResult">
+		SELECT
+		u.tid,
+		u.nombre,
+		u.correo,
+		u.telefono,
+		u.estado,
+		u.clave
 		u.rol,
 		FROM 
 		Usuario as u 
 		WHERE u.id = #{idU}
 	</select>
+	
+	<select id="consultarUsuarioLog" resultMap="UsuarioResult">
+		SELECT
+		u.tid,
+		u.nombre,
+		u.correo,
+		u.telefono,
+		u.estado,
+		u.clave
+		u.rol,
+		FROM 
+		Usuario as u 
+		WHERE u.id = #{idU} and u.clave = #{claveU}
+	</select>
+	
 </mapper>
 	

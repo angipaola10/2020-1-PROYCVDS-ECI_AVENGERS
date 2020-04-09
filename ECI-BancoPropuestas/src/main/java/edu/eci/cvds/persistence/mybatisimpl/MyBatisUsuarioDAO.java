@@ -26,10 +26,35 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              
-             throw new PersistenceException("Error al consultar usuario:",e);
+             throw new PersistenceException("Error al consultar este usuario:",e);
+             
+         }	
+    }
+	
+	 @Override
+    public List<Usuario> cargarTodosLosUsuarios() throws PersistenceException {
+        try{
+             return usuarioMapper.consultarUsuarios();
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             
+             throw new PersistenceException("Error al consultar los usuarios:",e);
+             
+         }	
+    }
+	
+	@Override
+    public Usuario obtenerUsuarioLog(int id, String clave) throws PersistenceException {
+        try{
+             return usuarioMapper.consultarUsuarioLog();
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             
+             throw new PersistenceException("Error al consultar las credenciales del usuario:",e);
              
          }	
     }
 
+	
 	
 }

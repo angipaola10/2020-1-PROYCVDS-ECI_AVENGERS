@@ -9,8 +9,8 @@ public class Usuario implements Serializable {
     private String nombre;
     private int telefono;
     private String correo;
-    private String clave;
     private String estado;
+	private String clave;
     private String rol;
 
     public Usuario(int id, String tid, String nombre, int telefono, String correo, String clave, String rol, String estado) {
@@ -64,21 +64,20 @@ public class Usuario implements Serializable {
         this.correo = correo;
     }
     
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String cl) {
-        this.clave = cl;
-    }
-    
     public String getEstado() {
         return estado;
     }
 
     public void setEstado(String esta) {
         this.estado = esta;
+    }
+	
+	 public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String cl) {
+        this.clave = cl;
     }
 
     public String getRol() {
