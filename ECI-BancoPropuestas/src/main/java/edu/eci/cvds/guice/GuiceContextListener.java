@@ -1,4 +1,5 @@
 package edu.eci.cvds.guice;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -8,7 +9,6 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import edu.eci.cvds.persistence.UsuarioDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisUsuarioDAO;
-
 
 public class GuiceContextListener implements ServletContextListener {
 

@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,14 +5,12 @@
  */
 package edu.eci.cvds.persistence.mybatisimpl;
 
-
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.*;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.*;
 import java.util.List;
-
 
 public class MyBatisUsuarioDAO implements UsuarioDAO {
     @Inject
