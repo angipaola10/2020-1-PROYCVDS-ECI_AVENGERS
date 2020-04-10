@@ -33,7 +33,7 @@ public class ShiroBean implements Serializable {
 
     private static final Logger log = LoggerFactory.getLogger(ShiroBean.class);
 
-    private String username;
+    private int username;
     private String password;
     private Boolean rememberMe = false;
     private String redirectUrl = "/faces/index.html";

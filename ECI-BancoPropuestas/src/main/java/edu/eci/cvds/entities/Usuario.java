@@ -10,10 +10,10 @@ public class Usuario implements Serializable {
     private int telefono;
     private String correo;
     private String estado;
-	private String clave;
-    private String rol;
+    private String clave;
+    private Rol rol;
 
-    public Usuario(int id, String tid, String nombre, int telefono, String correo, String clave, String rol, String estado) {
+    public Usuario(int id, String tid, String nombre, int telefono, String correo, String clave, Rol rol, String estado) {
     	this.id = id;
         this.tid = tid;
     	this.nombre = nombre;
@@ -80,11 +80,11 @@ public class Usuario implements Serializable {
         this.clave = cl;
     }
 
-    public String getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 
