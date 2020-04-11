@@ -43,7 +43,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
 	@Override
     public Usuario obtenerUsuarioLog(int id, String clave) throws PersistenceException {
         try{
-             return usuarioMapper.consultarUsuarioLog();
+             return usuarioMapper.consultarUsuarioLog(id,clave);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              
