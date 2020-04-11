@@ -41,7 +41,7 @@
 		u.rol,
 		FROM 
 		Usuario as u 
-		WHERE u.id = #{idU}
+		WHERE u.correo = #{correoU}
 	</select>
 	
 	<select id="consultarUsuarioLog" resultMap="UsuarioResult">
@@ -56,7 +56,7 @@
 		u.rol,
 		FROM 
 		Usuario as u 
-		WHERE u.id = #{idU} and u.clave = #{claveU}
+		WHERE u.correo = #{correoU} and u.clave = #{claveU}
 	</select>
 	
 </mapper>

@@ -6,9 +6,9 @@ import org.apache.ibatis.annotations.Param;
 
 public interface UsuarioMapper {
     
-    public Usuario consultarUsuario(@Param ("idU") String id);
+    public Usuario consultarUsuario(@Param ("correoU") String correo);
 	public List<Usuario> consultarUsuarios();
-	public Usuario consultarUsuarioLog(@Param("idU") String id,  @Param("claveU") String clave);
+	public Usuario consultarUsuarioLog(@Param("correoU") String correo,  @Param("claveU") String clave);
     
 }
 

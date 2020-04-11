@@ -12,8 +12,8 @@ public interface UsuarioDAO {
 	
 	public List<Usuario> cargarTodosLosUsuarios() throws PersistenceException;
 
-    public Usuario consultarUsuario(String id) throws PersistenceException;
+    public Usuario consultarUsuario(String correo) throws PersistenceException;
 	
-	public Usuario obtenerUsuarioLog(String id, String clave) throws PersistenceException;
+	public Usuario obtenerUsuarioLog(String correo, String clave) throws PersistenceException;
 
 }
