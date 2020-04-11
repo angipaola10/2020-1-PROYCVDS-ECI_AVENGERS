@@ -5,10 +5,11 @@
   
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper">
         <resultMap type='Usuario' id='UsuarioResult'>
+		<id property='id' column='id' \>
 	    <id property='tid' column='tid' \>
 		<id property='nombre' column='nombre' \>
-		<id property='telefono' column='telefono' \>
 		<id property='correo' column='correo' \>
+		<id property='telefono' column='telefono' \>
 		<id property='estado' column='estado' \>
 		<id property='clave' column='clave' \>
 		<id property='rol' column='rol' \>
@@ -16,6 +17,7 @@
 	
 	<select id="consultarUsuarios" resultMap="UsuarioResult">
 		SELECT
+		u.id,
 		u.tid,
 		u.nombre,
 		u.correo,
@@ -29,6 +31,7 @@
 	
 	<select id="consultarUsuario" resultMap="UsuarioResult">
 		SELECT
+		u.id,
 		u.tid,
 		u.nombre,
 		u.correo,
@@ -43,6 +46,7 @@
 	
 	<select id="consultarUsuarioLog" resultMap="UsuarioResult">
 		SELECT
+		u.id,
 		u.tid,
 		u.nombre,
 		u.correo,

@@ -17,7 +17,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
     private UsuarioMapper usuarioMapper;
 
     @Override
-    public Usuario consultarUsuario(int id) throws PersistenceException {
+    public Usuario consultarUsuario(String id) throws PersistenceException {
         try{
              return usuarioMapper.consultarUsuario(id);
          }
@@ -41,7 +41,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
     }
 	
 	@Override
-    public Usuario obtenerUsuarioLog(int id, String clave) throws PersistenceException {
+    public Usuario obtenerUsuarioLog(String id, String clave) throws PersistenceException {
         try{
              return usuarioMapper.consultarUsuarioLog(id,clave);
          }
