@@ -11,4 +11,5 @@ CREATE TABLE IF NOT EXISTS Usuario(
   estado VARCHAR(15) NOT NULL,
   rol VARCHAR(12) REFERENCES Rol(tipo),
   PRIMARY KEY (correo),
+  UNIQUE KEY (id),
   UNIQUE KEY (telefono));
