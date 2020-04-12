@@ -10,9 +10,9 @@ body{
 
 .login-box {
 	width: 355px;
-	height: 280px;
+	height: 350px;
 	background: #000;
-	color: #fff;
+	color: #000;
 	top: 50%;
 	left: 50%;
 	position: absolute;
@@ -21,6 +21,8 @@ body{
 	padding: 70px 30px;
 	border-color: #fff;
 	border-radius: 10px;
+	border-top: 2px solid #b80f22;
+	border-bottom: 2px solid #b80f22;
 }
 
 .login-box .avatar {
@@ -33,6 +35,13 @@ body{
 } 
 
 .login-box .form-control{
+	margin-bottom:10px;
+	box-shadow: none;
+	background: transparent;
+	border:none;
+	border-bottom: 1px solid #AAAAAA;
+	color: #AAAAAA;
+	width: 100%;
 	width: 100%;
 	margin-bottom: 25px;
 	background-color: #000;
@@ -40,21 +49,28 @@ body{
 	border-bottom: 1px solid #fff;
 	outline: none;
 	height: 40px;
-	color: #fff;
 	font-size: 16px;
-	width: 100%;
-	margin-bottom: 20px;
-	font-family: sans-serif;
-	float: none;
+	text-shadow: none;
 }
 
-.login-box .footer-text-center{
+.login-box button{
+	box-shadow: none;
+	width: 100%;
 	border: none;
 	outline: none;
 	height: 32px;
-	background: #b80f22;;
+	background: #b80f22;
 	color: #fff;
 	font-size: 16px;
 	border-radius: 5px;
-	font-family: sans-serif;
+	margin-top: 18px;
+	width: 100%;
+	text-shadow: none;
+	font-family: Impact;
+	enabled: 
+}
+
+.login-box .control-label{
+	color: #AAAAAA;
+	font-family: Impact;
 }
