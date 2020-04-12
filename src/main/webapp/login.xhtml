@@ -20,13 +20,13 @@
 			<div class="login-box">
 			<img class="avatar" src= "assets/img/logo.jpg" alt="Logo de login">
 			
-			<input>Nombre de usuario</input>
+			<input type="text">Nombre de usuario</input>
 			<p:inputText id="email" value="#{shiroBean.username}" type="email" class="form-control"/>
 
-			<input>Contraseña</label>
+			<input type="password">Contraseña</label>
 			<p:inputText type="password" class="form-control" value="#{shiroBean.password}"/>
 				
-			<input type="submit" value="Log in">
+			<input type="submit">Ingresar</input>
 			<p:commandButton value="Iniciar sesión"
 							class="btn btn-rose btn-simple btn-wd btn-lg"
 							action="#{shiroBean.doLogin()}"/>
