@@ -32,13 +32,9 @@ body{
 	left: calc(50% - 58px);
 } 
 
-.login-box .input-group{
+.login-box .control-label{
 	width: 100%;
 	margin-bottom: 25px;
-}
-
-.login-box input[type="text"],
-.login-box input[type="password"]{
 	background-color: #000;
 	border: none;
 	border-bottom: 1px solid #fff;
@@ -51,7 +47,7 @@ body{
 	font-family: sans-serif;
 }
 
-.login-box input[type="submit"]{
+.login-box .footer-text-center{
 	border: none;
 	outline: none;
 	height: 32px;
