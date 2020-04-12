@@ -32,7 +32,7 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 public class ShiroBean implements Serializable {
 
     private static final Logger log = LoggerFactory.getLogger(ShiroBean.class);
-	private String username;
+    private String username;
     private String password;
     private Boolean rememberMe = false;
     private String redirectUrl = "/faces/index.html";
