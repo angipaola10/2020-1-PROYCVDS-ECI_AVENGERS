@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper">
+
+    <resultMap type='Iniciativa' id='IniciativaResult'>
+        <id property='id' column='id'/>
+        <result property='nombre' column='nombreIniciativa'/>  
+		<result property='descripcion' column='descripcion'/>
+		<result property='fechaInicio' column='fechaInicio'/>
+		<result property='area' column='area'/>
+		<result property='estado' column='estado'/>
+		<association property='usuario' javaType='Usuario' resultMap='edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper.UsuarioResult'></association>
+		<collection property='palabrasClaves' ofType='java.lang.String' javaType="list">
+			<result column='palabrasClave' />
+		</collection>
+    </resultMap>   
+    <resultMap type="PalabraClave" id="PalabraClaveResult">
+    	<id property='id' column='id'/>        
+        <result property='palabraClave' column='palabraClave'/>
+    </resultMap>
+	 <resultMap type='TypeStatus' id='StatusResult'>
+    	<id property='id' column='id'/>        
+        <result property='estado' column='estado'/>
+    </resultMap>
+    
+    <insert id="insertKeyword" parameterType="String">
+    	INSERT INTO "key_words" VALUES ((select count(*)+1 from "key_words"), #{PalabraClave});
+    </insert>
+    
+    <insert id="insertWordInitiative">
+    	INSERT INTO "word_initiative" (initiative_id, key_words_id) VALUES ((select max(id) from "initiative"), (select max(id) from "key_words"));
+    </insert>
+    
+    <insert id="insertWordInitiativeId" parameterType="int">
+    	INSERT INTO "word_initiative" (initiative_id, key_words_id) VALUES ((select max(id) from "initiative"), #{id});
+    </insert>
+    
+	<insert id="insertInitiative" parameterType="Initiative">
+		INSERT INTO "initiative"
+		(id, nombreIniciativa, descripcion, fechaInicio, area, usuario_id,type_status_id) 
+		VALUES((select count(*)+1 from "initiative"),#{nombreIniciativa}#{descripcion},#{area},#{fechaInicio},#{idus},#{estado})
+	</insert>
+	
+	<select id="loadAll" resultMap="IniciativaResult" parameterType="map">
+        SELECT distinct on (i.id)
+	    		i.id,
+	        	i.nombre as nombreIniciativa,
+				i.descripcion,
+				i.fechaInicio,
+				i.area,
+				i.estado,
+				i.usuario_id,
+				ts.status as status,
+				pc.word,
+				u.id idUsuario,
+				u.tid tidUsuario,
+				u.nombre,
+				u.correo,
+				u.telefono,
+				u.rol,
+				u.estado,
+	    FROM Iniciativa as i, Key_words as pc, word_initiative as wi, type_status as ts, "Usuario" as u
+	    where kw.id=wi.Key_words_id and ts.status = i.type_status_id and i.user_id = u.id and wi.initiative_id = i.id;
+	
+    </select>
+    
+    <select id="loadKeywordInitiative" resultMap="KeywordResult" parameterType="map">
+        SELECT kw.id,kw.word
+		from iniciativa as i, word_initiative as wi, key_words as kw
+		where i.id=#{id} and wi.initiative_id=i.id and kw.id=wi.key_words_id
+    </select>
+    
+    <select id="listStatus" resultMap="StatusResult" parameterType="map">
+    	select status from type_status;
+    </select>
+    
+    <select id="listKeywords" resultMap= "KeywordResult" parameterType="map">
+    	select id, word from key_words;
+    </select>
+    
+    
+	<update id="modifyInitiative">
+		update initiative set type_status_id= #{newStatus} where "Nombre"= #{nombre};
+	</update>
+	
+</mapper>
