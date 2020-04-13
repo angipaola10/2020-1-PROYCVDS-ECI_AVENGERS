@@ -1,6 +1,7 @@
 package edu.eci.cvds.persistence.mybatisimpl.mappers;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.lang.String;
 import org.apache.ibatis.annotations.Param;
@@ -14,7 +15,7 @@ public interface IniciativaMapper {
 	public void insertInitiative(@Param("nombreIniciativa")String nombreIniciativa, 
 			@Param("description")String description, 
 			@Param("area")String area,
-			@Param("fechaInicio")Date fechaInicio, 
+			@Param("fechaInicio")LocalDate creationDate, 
 			@Param("idus")int idus, 
 			@Param("estado")String estado);
 			

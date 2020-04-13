@@ -14,16 +14,19 @@ import edu.eci.cvds.persistence.IniciativaDAO;
 import edu.eci.cvds.services.BancoPropuestasException;
 
 
-public class MyBatisIniciativaDAO implements IniciativaDAO{
+public class MyBatisIniciativaDAO implements IniciativaDAO {
 	
 	@Inject
 	IniciativaMapper iniciativaMapper;
 
-	public void addInitiative(String nombreIniciativa, String description, String area, Date fechaInicio, int idus, String estado) throws BancoPropuestasException{
+	
+	
+	
+	public void addInitiative(String nombreIniciativa, String description, String area, int idus, List<String> keywords,String estado) throws BancoPropuestasException{
 		try {
 			LocalDate creationDate = LocalDate.now();
 			
-			iniciativaMapper.insertInitiative(nombreIniciativa, description, area, fechaInicio, idus, "En espera");
+			iniciativaMapper.insertInitiative(nombreIniciativa, description, area, creationDate, idus, "En espera");
 			List<PalabraClave> kw= iniciativaMapper.listKeywords();
 			/*
 			 * Se revisará si ya existe la palabra clave, para no tener datos duplicados en la BD.
@@ -68,5 +71,6 @@ public class MyBatisIniciativaDAO implements IniciativaDAO{
 	public List<PalabraClave> listKeywords() throws BancoPropuestasException {
 		return iniciativaMapper.listKeywords();
 	}
+
 	
 }
