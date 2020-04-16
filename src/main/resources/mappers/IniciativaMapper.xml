@@ -21,7 +21,7 @@
     	<id property='id' column='id'/>        
         <result property='palabraClave' column='palabraClave'/>
     </resultMap>
-	 <resultMap type='TypeStatus' id='StatusResult'>
+	 <resultMap type='Estado' id='StatusResult'>
     	<id property='id' column='id'/>        
         <result property='estado' column='estado'/>
     </resultMap>
@@ -38,7 +38,7 @@
     	INSERT INTO "word_initiative" (initiative_id, key_words_id) VALUES ((select max(id) from "initiative"), #{id});
     </insert>
     
-	<insert id="insertInitiative" parameterType="Initiative">
+	<insert id="insertInitiative" parameterType="Iniciativa">
 		INSERT INTO "initiative"
 		(id, nombreIniciativa, descripcion, fechaInicio, area, usuario_id,type_status_id) 
 		VALUES((select count(*)+1 from "initiative"),#{nombreIniciativa}#{descripcion},#{area},#{fechaInicio},#{idus},#{estado})
