@@ -63,7 +63,7 @@ _A continuación explicaremos las tecnologias usadas en cada una de ellas._
 
 
 ### Capa de persistencia sobre los datos:
-_Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**, la cual se encarga de la persistencia 
++ _Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**, la cual se encarga de la persistencia 
 (mappea sentencias SQL y procedimientos almacenados con objetos a partir de ficheros XML o anotaciones)._
 
 
@@ -76,7 +76,7 @@ ACA VA EL LINK DE LA PAGINA
 
 
 ## Descripción del proceso. 📋
-_Integrantes responsabilidades:_
+_**Integrantes responsabilidades:**_
 + _Angi Jiménez. (Views)_
 + _Daniela Ruiz. (BD)_
 + _Edwin Rodríguez. (Back)_
