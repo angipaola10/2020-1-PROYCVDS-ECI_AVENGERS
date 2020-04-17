@@ -98,7 +98,7 @@ al final del proyecto se hace estop
 
 # SPRINTS. ⚙️
 ## Primer Sprint:
-## Sprint-backlog:
+### Sprint-backlog:
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/1erSprint.jpeg) 
 
 
@@ -113,15 +113,15 @@ Y por problemas con el tiempo y el trabajo en equipo nos quedaron flatando las s
 
 
 ## Segundo Sprint:
-Imagen del 'sprint-backlog'
-Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas 
-encontrados y mejoras realizadas al proceso.
+### Sprint-backlog:
+### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
+### Sprint-burndown chart:
 
 
 ## Tercer Sprint:
-Imagen del 'sprint-backlog'
-Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas 
-encontrados y mejoras realizadas al proceso.
+### Sprint-backlog:
+### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
+### Sprint-burndown chart:
 
 
 ## Reporte de pruebas y de cubrimiento. 📖
