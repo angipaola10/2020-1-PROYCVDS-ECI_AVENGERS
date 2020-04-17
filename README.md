@@ -99,7 +99,7 @@ al final del proyecto se hace estop
 ## SPRINTS. ⚙️
 ### Primer Sprint:
 ## Sprint-backlog:
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/int.jpeg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/1erSprint.jpeg) 
 
 
 ## Descripción breve de los problemas encontrados y  mejoras realizadas al proceso: 
