@@ -96,8 +96,8 @@ Generar el 'release-burndown chart' del proyecto, e indicar los puntos de histor
 al final del proyecto se hace estop
 
 
-## SPRINTS. ⚙️
-### Primer Sprint:
+# SPRINTS. ⚙️
+## Primer Sprint:
 ## Sprint-backlog:
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/1erSprint.jpeg) 
 
@@ -112,13 +112,13 @@ Y por problemas con el tiempo y el trabajo en equipo nos quedaron flatando las s
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog.jpeg) 
 
 
-### Segundo Sprint:
+## Segundo Sprint:
 Imagen del 'sprint-backlog'
 Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas 
 encontrados y mejoras realizadas al proceso.
 
 
-### Tercer Sprint:
+## Tercer Sprint:
 Imagen del 'sprint-backlog'
 Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas 
 encontrados y mejoras realizadas al proceso.
