@@ -68,7 +68,7 @@ _A continuación explicaremos las tecnologias usadas en cada una de ellas._
 
 
 ## Enlace a la aplicación en Heroku. 📢
-ACA VA EL LINK DE LA PAGINA 
+https://proyecto-cvds-bd.herokuapp.com/
 
 
 ## Enlace al sistema de integración continua. 😊
