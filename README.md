@@ -76,7 +76,7 @@ ACA VA EL LINK DE LA PAGINA
 
 
 ## Descripción del proceso. 📋
-_**Integrantes responsabilidades:**_
+_**Responsabilidades de los integrantes:**_
 + _Angi Jiménez. (Views)_
 + _Daniela Ruiz. (BD)_
 + _Edwin Rodríguez. (Back)_
