@@ -43,33 +43,40 @@ public class ShiroBean implements Serializable {
      */
     public void doLogin() {
         subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(getUsername(), new Sha256Hash(getPassword()).toHex());
+        System.err.println("entro");
+        UsernamePasswordToken token = new UsernamePasswordToken(getUsername(), getPassword());
         try {
             subject.login(token);
             if (subject.hasRole("Administrador")) {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/inicioAdministrador.xhtml");
+                redirectUrl = "/faces/inicioAdministrador.xhtml";
 				//ALGUIEN QUE HAGA EL XHTML DE ESTA VISTA DEL LOG DE ADMI, va dentro de webapp
 			} 
 			else if (subject.hasRole("Proponente")) {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/inicioUsuarios.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/inicioUsuarioProponente.xhtml");
+                redirectUrl = "/faces/inicioProponente.html";
 				//ALGUIEN QUE HAGA EL XHTML DE ESTA VISTA DEL LOG DE USUARIO, va dentro de webapp
 			}	
 			
         } 
 		catch (UnknownAccountException ex) {
+			System.err.println("uknowacount");
             facesError("Unknown account");
             log.error(ex.getMessage(), ex);
         } 
 		catch (IncorrectCredentialsException ex) {
+			System.err.println("pasword");
             System.err.println("wrong password");
             facesError("Wrong password");
             log.error(ex.getMessage(), ex);
         } 
 		catch (LockedAccountException ex) {
+			System.err.println("loked");
             facesError("Locked account");
             log.error(ex.getMessage(), ex);
         } 
 		catch (AuthenticationException | IOException ex) {
+			System.err.println("uknow");
             facesError("Unknown error: " + ex.getMessage());
             log.error(ex.getMessage(), ex);
         } 
