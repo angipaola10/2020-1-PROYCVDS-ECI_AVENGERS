@@ -24,7 +24,7 @@ Julián Mauricio Velazco Briceño. (Product Owner)
 ## Descripción del producto.
 
 
-### Descripción general.
+### Descripción general:
 
 
 La Plataforma banco de iniciativas de proyectos, es una herramienta donde la comunidad universitaria 
@@ -32,16 +32,17 @@ de la Escuela Colombiana de Ingenieria Julio Garavito pueden registrar sus inici
 proyectos para ser desarrollados o gestionados por la PMO de la Escuela
 
 
-### Manual de usuario.
+### Manual de usuario:
 acá va el manual, equis de.
 
-ACA VAN --> Imágenes y descripción de las funcionalidades más importantes.
+
+en el manual van --> Imágenes y descripción de las funcionalidades más importantes.
 
 
-## Arquitectura y Diseño detallado:
+## Arquitectura y Diseño detallado.
 
 
-### Modelo E-R.
+### Modelo E-R:
 acá va el modelo de clases :3
 
 
@@ -51,19 +52,19 @@ La aplicación está construida en 3 capas: Aplicación, Presentación y Persist
 
 A continuación explicaremos las tecnologias usadas en cada una de ellas.
 
-### Capa de aplicación.
+### Capa de aplicación:
 +  Java.
 +  Google Guice (Un framework para la inyección de dependencias).
 +  Maven (Herramienta para la gestión de dependencias).
 +  Apache Shiro (Framework para la autentiticación).
 
 
-### Capa de presentación.
+### Capa de presentación:
 +  JSF (Java Server Faces).
 +  Primefaces.
 
 
-### Capa de persistencia sobre los datos.
+### Capa de persistencia sobre los datos:
 Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**, la cual se encarga de la persistencia 
 (mappea sentencias SQL y procedimientos almacenados con objetos a partir de ficheros XML o anotaciones).
 
@@ -76,7 +77,7 @@ ACA VA EL LINK DE LA PAGINA
 [![CircleCI](https://circleci.com/gh/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS.svg?style=svg)](https://circleci.com/gh/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS)
 
 
-## Descripción del proceso:
+## Descripción del proceso.
 Integrantes responsabilidades:
 + Angi Jiménez. (Views)
 + Daniela Ruiz. (BD)
@@ -84,32 +85,32 @@ Integrantes responsabilidades:
 + Henry Sánchez. (Back)
 
 
-### Descripción de la Metodología.
+### Descripción de la Metodología:
 aca va la descripcion de la metodologia usada. --> al final del proyecto
 
 
-### Enlace a Taiga 
+### Enlace a Taiga:
 aca va el taiga ---> (hacer público el Backlog).
 
 
-### Release-burndown chart.
+### Release-burndown chart:
 Generar el 'release-burndown chart' del proyecto, e indicar los puntos de historia realizados y los faltantes.
 al final del proyecto se hace estop
 
 
-## SPRINTS
-### Primer Sprint
+## SPRINTS.
+### Primer Sprint:
 Imagen del 'sprint-backlog'
 Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas 
 encontrados y mejoras realizadas al proceso.
 
-### Segundo Sprint
+### Segundo Sprint:
 Imagen del 'sprint-backlog'
 Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas 
 encontrados y mejoras realizadas al proceso.
 
 
-### Tercer Sprint
+### Tercer Sprint:
 Imagen del 'sprint-backlog'
 Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas 
 encontrados y mejoras realizadas al proceso.
