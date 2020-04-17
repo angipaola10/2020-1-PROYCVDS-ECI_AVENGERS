@@ -1,4 +1,4 @@
-# Banco de Iniciativas ECI 🚀
+# Banco de Iniciativas ECI. 🚀
 
 
 _Proyecto Final: Ciclos de Vida de Desarrollo de Software._
@@ -11,25 +11,23 @@ _ECI_AVENGERS: 2020-1._
 
 
 ### Integrantes: ✒️
-+ Angi Jiménez. (Team developer)
-+ Daniela Ruiz. (Team developer)
-+ Edwin Rodríguez. (Team developer)
-+ Henry Sánchez. (Team developer)
++ _Angi Jiménez. (Team developer)_
++ _Daniela Ruiz. (Team developer)_
++ _Edwin Rodríguez. (Team developer)_
++ _Henry Sánchez. (Team developer)_
 
 
 ### Profesor: 📌
-+ Julián Mauricio Velazco Briceño. (Product Owner)
++ _Julián Mauricio Velazco Briceño. (Product Owner)_
 
 
 ## Descripción del producto. 📄
-
-
 ### Descripción general: 
 
 
-La Plataforma banco de iniciativas de proyectos, es una herramienta donde la comunidad universitaria 
+_La Plataforma banco de iniciativas de proyectos, es una herramienta donde la comunidad universitaria 
 de la Escuela Colombiana de Ingenieria Julio Garavito pueden registrar sus iniciativas e ideas de 
-proyectos para ser desarrollados o gestionados por la PMO de la Escuela
+proyectos para ser desarrollados o gestionados por la PMO de la Escuela._
 
 
 ### Manual de usuario: 
@@ -47,26 +45,26 @@ acá va el modelo de clases :3
 
 
 ## Descripción de la arquitectura y tecnologías utilizadas. 🛠️
-La aplicación está construida en 3 capas: Aplicación, Presentación y Persistencia sobre los Datos.
+_La aplicación está construida en 3 capas: Aplicación, Presentación y Persistencia sobre los Datos._
 
 
-A continuación explicaremos las tecnologias usadas en cada una de ellas.
+_A continuación explicaremos las tecnologias usadas en cada una de ellas._
 
 ### Capa de aplicación:
-+  Java.
-+  Google Guice (Un framework para la inyección de dependencias).
-+  Maven (Herramienta para la gestión de dependencias).
-+  Apache Shiro (Framework para la autentiticación).
++ _Java._
++ _Google Guice (Un framework para la inyección de dependencias)._
++ _Maven (Herramienta para la gestión de dependencias)._
++ _Apache Shiro (Framework para la autentiticación)._
 
 
 ### Capa de presentación:
-+  JSF (Java Server Faces).
-+  Primefaces.
++ _JSF (Java Server Faces)._
++ _Primefaces._
 
 
 ### Capa de persistencia sobre los datos:
-Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**, la cual se encarga de la persistencia 
-(mappea sentencias SQL y procedimientos almacenados con objetos a partir de ficheros XML o anotaciones).
+_Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**, la cual se encarga de la persistencia 
+(mappea sentencias SQL y procedimientos almacenados con objetos a partir de ficheros XML o anotaciones)._
 
 
 ## Enlace a la aplicación en Heroku. 📢
@@ -78,11 +76,11 @@ ACA VA EL LINK DE LA PAGINA
 
 
 ## Descripción del proceso. 📋
-Integrantes responsabilidades:
-+ Angi Jiménez. (Views)
-+ Daniela Ruiz. (BD)
-+ Edwin Rodríguez. (Back)
-+ Henry Sánchez. (Back)
+_Integrantes responsabilidades:_
++ _Angi Jiménez. (Views)_
++ _Daniela Ruiz. (BD)_
++ _Edwin Rodríguez. (Back)_
++ _Henry Sánchez. (Back)_
 
 
 ### Descripción de la Metodología:
