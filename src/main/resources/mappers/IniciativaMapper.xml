@@ -39,9 +39,9 @@
     </insert>
     
 	<insert id="insertInitiative" parameterType="Iniciativa">
-		INSERT INTO "initiative"
-		(id, nombreIniciativa, descripcion, fechaInicio, area, usuario_id,type_status_id) 
-		VALUES((select count(*)+1 from "initiative"),#{nombreIniciativa}#{descripcion},#{area},#{fechaInicio},#{idus},#{estado})
+		INSERT INTO "iniciativa"
+		(nombrepropuesta, id, descripcion, fechainicio, area, usuario_id,estado) 
+		VALUES(#{nombreIniciativa},(select count(*)+1 from "iniciativa"),#{descripcion},#{fechaInicio},#{area},#{idus},#{estado});
 	</insert>
 	
 	<select id="loadAll" resultMap="IniciativaResult" parameterType="map">

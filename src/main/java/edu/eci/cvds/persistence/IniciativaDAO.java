@@ -12,7 +12,7 @@ import edu.eci.cvds.services.BancoPropuestasException;
 public interface IniciativaDAO {
 	
 	
-	public void addInitiative(String nombreIniciativa, String description, String area, int idus, List<String> keywords, String estado) throws BancoPropuestasException;
+	public void addInitiative(String nombreIniciativa, String description, String area, int idus, String estado) throws BancoPropuestasException;
 
 	public void modifyInitiative(String newStatus, String name) throws BancoPropuestasException;
 

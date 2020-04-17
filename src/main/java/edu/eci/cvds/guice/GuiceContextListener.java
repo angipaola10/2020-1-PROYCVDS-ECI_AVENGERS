@@ -7,7 +7,10 @@ import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+
+import edu.eci.cvds.persistence.IniciativaDAO;
 import edu.eci.cvds.persistence.UsuarioDAO;
+import edu.eci.cvds.persistence.mybatisimpl.MyBatisIniciativaDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisUsuarioDAO;
 
 public class GuiceContextListener implements ServletContextListener {
@@ -28,6 +31,7 @@ public class GuiceContextListener implements ServletContextListener {
 				
 				//binds
 				bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
+				bind(IniciativaDAO.class).to(MyBatisIniciativaDAO.class);
             }
         }
         );

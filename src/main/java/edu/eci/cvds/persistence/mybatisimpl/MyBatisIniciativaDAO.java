@@ -22,28 +22,11 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	
 	
 	
-	public void addInitiative(String nombreIniciativa, String description, String area, int idus, List<String> keywords,String estado) throws BancoPropuestasException{
+	public void addInitiative(String nombreIniciativa, String description, String area, int idus, String estado) throws BancoPropuestasException{
 		try {
 			LocalDate creationDate = LocalDate.now();
 			
 			iniciativaMapper.insertInitiative(nombreIniciativa, description, area, creationDate, idus, "En espera");
-			List<PalabraClave> kw= iniciativaMapper.listKeywords();
-			/*
-			 * Se revisará si ya existe la palabra clave, para no tener datos duplicados en la BD.
-			 */
-			int idKw ;
-			for (String k: keywords) {
-				idKw= -1;
-				for (PalabraClave w: kw) {
-					if(w.getPalabraClave().equals(k)) {idKw= w.getId(); break;}}
-				if (idKw == -1) {
-					iniciativaMapper.insertKeyword(k);
-					iniciativaMapper.insertWordInitiative();
-				}
-				else {
-					iniciativaMapper.insertWordInitiativeId(idKw);
-				}
-			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();

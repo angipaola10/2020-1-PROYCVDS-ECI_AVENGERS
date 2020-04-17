@@ -13,12 +13,10 @@ public class Iniciativa{
 	private Usuario usuario;
 	private String estado;
 	
-	public Iniciativa(String nombre, int id, String descripcion, Date fechaInicio, List<PalabraClave> palabrasClaves, String area, Usuario usuario, String estado){
+	public Iniciativa(String nombre, String descripcion, String area, Usuario usuario, String estado){
 		this.nombre = nombre;
-		this.id =  id;
 		this.descripcion= descripcion;
 		this.fechaInicio = fechaInicio;
-		this.palabrasClaves = palabrasClaves;
 		this.area= area;
 		this.usuario = usuario;
 		this.estado = estado;
