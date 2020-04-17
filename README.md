@@ -101,6 +101,7 @@ al final del proyecto se hace estop
 Imagen del 'sprint-backlog'
 Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas 
 encontrados y mejoras realizadas al proceso.
+![alt text](https://github.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/tree/master/Imagenes/to/backlog.jpeg)
 
 ### Segundo Sprint:
 Imagen del 'sprint-backlog'
