@@ -17,3 +17,5 @@ INSERT INTO Rol(tipo) VALUES ('Publico');
 
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (9303130, 'CC', 'Angi Jimenez', 3186759533, 'angi.jimenez', 'Angie2020', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1019150998, 'CC', 'Daniela Ruiz', 3178484579, 'angied.ruiz', 'RuizAlf123', 'Activo', 'Proponente');
+INSERT INTO public.usuario(id, tid, nombre, telefono, correo, clave, estado, rol)VALUES(1003587553, 'CC', 'Edwin Yesid', 3008427536, 'edyesid2000@gmail.com', '123456789', 'Activo', 'Administrador');
+INSERT INTO public.usuario(id, tid, nombre, telefono, correo, clave, estado, rol)VALUES(1015442700, 'CC', 'Henry Sanchez', 305 7786453, 'hasancheza123@gmail.com', 'santafe1948', 'Activo', 'Proponente');
