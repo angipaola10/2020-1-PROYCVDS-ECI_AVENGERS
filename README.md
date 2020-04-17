@@ -2,8 +2,8 @@
 
 
 ## Proyecto Final: Ciclos de Vida de Desarrollo de Software.
-## Banco de Iniciativas Escuela Colombiana de Ingeniería Julio Garavito. 
-## ECI_AVENGERS: 2020-1.
+Banco de Iniciativas Escuela Colombiana de Ingeniería Julio Garavito. 
+ECI_AVENGERS: 2020-1.
 
 
 ### Integrantes: 
