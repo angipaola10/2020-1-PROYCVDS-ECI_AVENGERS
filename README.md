@@ -1,8 +1,12 @@
 # Banco de Iniciativas ECI
 
 
-## Proyecto Final: Ciclos de Vida de Desarrollo de Software.
+Proyecto Final: Ciclos de Vida de Desarrollo de Software.
+
+
 Banco de Iniciativas Escuela Colombiana de Ingeniería Julio Garavito. 
+
+
 ECI_AVENGERS: 2020-1.
 
 
@@ -17,10 +21,10 @@ Henry Sánchez. (Team developer)
 Julián Mauricio Velazco Briceño. (Product Owner)
 
 
-### Descripción del producto.
+## Descripción del producto.
 
 
-## Descripción general.
+### Descripción general.
 
 
 La Plataforma banco de iniciativas de proyectos, es una herramienta donde la comunidad universitaria 
@@ -28,16 +32,16 @@ de la Escuela Colombiana de Ingenieria Julio Garavito pueden registrar sus inici
 proyectos para ser desarrollados o gestionados por la PMO de la Escuela
 
 
-# Manual de usuario.
+### Manual de usuario.
 acá va el manual, equis de.
 
 ACA VAN --> Imágenes y descripción de las funcionalidades más importantes.
 
 
-## Arquitectura y Diseño detallado:
+### Arquitectura y Diseño detallado:
 
 
-# Modelo E-R.
+## Modelo E-R.
 acá va el modelo de clases :3
 
 
@@ -64,15 +68,15 @@ Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**, 
 (mappea sentencias SQL y procedimientos almacenados con objetos a partir de ficheros XML o anotaciones).
 
 
-# Enlace a la aplicación en Heroku.
+### Enlace a la aplicación en Heroku.
 ACA VA EL LINK DE LA PAGINA 
 
 
-# Enlace al sistema de integración continua.
+### Enlace al sistema de integración continua.
 [![CircleCI](https://circleci.com/gh/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS.svg?style=svg)](https://circleci.com/gh/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS)
 
 
-## Descripción del proceso:
+### Descripción del proceso:
 Integrantes responsabilidades:
 Angi Jiménez. (Views)
 Daniela Ruiz. (BD)
@@ -80,11 +84,11 @@ Edwin Rodríguez. (Back)
 Henry Sánchez. (Back)
 
 
-# Descripción de la Metodología.
+## Descripción de la Metodología.
+aca va la descripcion de la metodologia usada. --> al final del proyecto
 
 
-
-# Enlace a Taiga 
+## Enlace a Taiga 
 aca va el taiga ---> (hacer público el Backlog).
 
 
@@ -111,12 +115,12 @@ Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una d
 encontrados y mejoras realizadas al proceso.
 
 
-## Reporte de pruebas y de cubrimiento.
+### Reporte de pruebas y de cubrimiento.
 aca va el reporte ---> (sólo la foto del reporte principal). 
 Para la cobertura, pueden usar los plugins disponibles (EclEmma, Jacoco, etc.)
 
 
-## Reporte de análisis estático de código. 
+### Reporte de análisis estático de código. 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a70a519783d4905a1dc5140955316dd)](https://app.codacy.com/manual/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS?utm_source=github.com&utm_medium=referral&utm_content=Edyesid/2020-1-PROYCVDS-ECI_AVENGERS&utm_campaign=Badge_Grade_Dashboard)
 
 
