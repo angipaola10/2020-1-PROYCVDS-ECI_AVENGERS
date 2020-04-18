@@ -1,12 +1,12 @@
-CREATE TABLE IF NOT EXISTS Rol(tipo VARCHAR(12) PRIMARY KEY);
+CREATE TABLE IF NOT EXISTS Rol(tipo VARCHAR(14) PRIMARY KEY);
 
 CREATE TABLE IF NOT EXISTS Usuario(id BIGINT NOT NULL, tid VARCHAR(2) NOT NULL, nombre VARCHAR(50) NOT NULL, telefono BIGINT NOT NULL, correo VARCHAR(50) PRIMARY KEY, clave VARCHAR(20) NOT NULL, estado VARCHAR(15) NOT NULL, rol VARCHAR(12) REFERENCES Rol(tipo));
-  
-CREATE TABLE IF NOT EXISTS Iniciativa (nombrePropuesta VARCHAR(50) NOT NULL, id SERIAL PRIMARY KEY, descripcion varchar(150)  NOT NULL, fechaInicio date  NOT NULL, area varchar(100)  NOT NULL, usuario_id INT REFERENCES Usuario(id), estado VARCHAR(50) NOT NULL);
-
-CREATE TABLE IF NOT EXISTS PalabraClave (id INT PRIMARY KEY, palabraClave VARCHAR(20) NOT NULL);
 
 ALTER TABLE Usuario ADD CONSTRAINT id_unico UNIQUE(id);
 
+CREATE TABLE IF NOT EXISTS Iniciativa (nombrePropuesta VARCHAR(50) NOT NULL, id SERIAL PRIMARY KEY, descripcion varchar(150)  NOT NULL, fechaInicio date  NOT NULL, area varchar(100)  NOT NULL, usuario_id INT REFERENCES Usuario(id), estado VARCHAR(50) NOT NULL);
+
 ALTER TABLE Iniciativa ADD CONSTRAINT nombrePropuesta_unico UNIQUE(nombrePropuesta);
+
+CREATE TABLE IF NOT EXISTS PalabraClave (id SERIAL PRIMARY KEY, palabraClave VARCHAR(20) NOT NULL);
 
