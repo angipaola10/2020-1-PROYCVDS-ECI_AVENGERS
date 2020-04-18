@@ -105,6 +105,8 @@ al final del proyecto se hace estop
 ### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
 _Nos quedó faltando asociar las palabras claves a la iniciativa porque aún no entendemos bien como realizarlo.
 Y por problemas con el tiempo y el trabajo en equipo nos quedaron flatando las siguientes cosas de la historia de usuario número 5._
+
+
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/faltando1sprint.jpeg)
 
 
