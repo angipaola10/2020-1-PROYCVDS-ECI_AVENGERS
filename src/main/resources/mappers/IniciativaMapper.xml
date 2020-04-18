@@ -12,23 +12,9 @@
 		<result property='fechaInicio' column='fechaInicio'/>
 		<result property='area' column='area'/>
 		<result property='estado' column='estado'/>
-		<!-- <association property='usuario' javaType='Usuario' resultMap='edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper.UsuarioResult'></association>
-		<collection property='palabrasClaves' ofType='java.lang.String' javaType="list">
-			<result column='palabrasClave' />
-		</collection>-->
-    </resultMap>   
-    <!-- 
-    <resultMap type="PalabraClave" id="PalabraClaveResult">
-    	<id property='id' column='id'/>        
-        <result property='palabraClave' column='palabraClave'/>
-    </resultMap>
-	 <resultMap type='Estado' id='StatusResult'>
-    	<id property='id' column='id'/>        
-        <result property='estado' column='estado'/>
-    </resultMap> -->
+    </resultMap>  
     
-   
-	
+
 	<select id="loadAll" resultMap="IniciativaResult" parameterType="map">
         SELECT distinct on (i.id)
 	    		i.id,
