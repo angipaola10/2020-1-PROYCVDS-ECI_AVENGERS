@@ -8,6 +8,7 @@
 	<typeAliases>
 		<typeAlias alias="Usuario" type="edu.eci.cvds.entities.Usuario"/>
 		<typeAlias alias="Iniciativa" type="edu.eci.cvds.entities.Iniciativa"/>
+		<typeAlias alias="Estado" type="edu.eci.cvds.entities.Estado"/>
 		<typeAlias alias="PalabraClave" type="edu.eci.cvds.entities.PalabraClave"/>
 		<typeAlias alias="Rol" type="edu.eci.cvds.entities.Rol"/>
 	</typeAliases>
