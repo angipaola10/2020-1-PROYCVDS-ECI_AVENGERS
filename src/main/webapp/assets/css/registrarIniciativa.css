@@ -1,0 +1,113 @@
+body{
+	
+}
+
+.header{
+	padding:0px;
+	width: 100%;
+	background-color: #b80f22;
+	height: 36px;
+}
+
+ul, ol{
+	list-style:none;
+}
+
+.nav li a{
+	text-align: center;
+	height:16px;
+	width: 140px;
+	padding:0px;
+	background-color: #b80f22;
+	color: #fff;
+	text-decoration:none;
+	padding:10px 15px;
+	display:block;
+}
+
+.nav > li{
+	float:left;
+}
+
+.nav li a:hover{
+	background-color: #DBDBDB;
+	color: #000;
+}
+
+.nav li ul{
+	padding:0px;
+	display:none;
+	position:absolute;
+	min-width:140px;
+}
+
+.nav li:hover > ul{
+	display: block;
+}
+
+.registrar-iniciativa{
+	width: 40%;
+	height: 108vh;
+	background-color: #fff;
+	position:absolute;
+	left: calc(30%);
+	margin:10px;
+	border:none;
+	border-left: 1px solid #AAAAAA;
+	border-right: 1px solid #AAAAAA;
+}
+
+.registrar-iniciativa p{
+	color: #727070;
+	padding-left: 10px;
+	font-family: Impact;
+}
+.registrar-iniciativa label{
+	padding-top:15px;
+	display: block;
+	margin-left: calc(50% - 175px);
+	font-family: Impact;
+	color: #b80f22;
+}
+
+.registrar-iniciativa input[type="text"]{
+	width: 350px;
+	height: 40px;
+	display: block;
+	margin-left: calc(50% - 175px);
+	border:none;
+	border-bottom: 2px solid #727070;
+}
+
+.registrar-iniciativa input[id="descripcion"]{
+	height: 100px;
+}
+
+.registrar-iniciativa input[value="Agregar"]{
+	font-family: Impact;
+	background-color: #b80f22;
+	color: #fff;
+	border:none;
+	width:100px;
+	height:25px;
+	margin-top: 5px;
+	margin-left: calc(50% + 75px);
+}
+
+.registrar-iniciativa input[value="Registrar iniciativa"]{
+	font-family: Impact;
+	background-color: #b80f22;
+	color: #fff;
+	border:none;
+	width:350px;
+	height:25px;
+	margin-top: 35px;
+	margin-left: calc(50% - 175px);
+}
+
+.registrar-iniciativa .avatar{
+	width: 90px;
+	height:90px;
+	padding-bottom: 15px;
+	padding-left: calc(50% - 40px);
+}

@@ -1,0 +1,150 @@
+.banner{
+	position: relative;
+	width: 100%;
+	height: 50vh;
+	background-color: #F5F5F5;
+	background-size: cover;
+	background-position: center;
+	transition: all .1s ease-in-out;
+	background-image: url(../img/img1.jpg);
+	animation: banner 24s infinite linear;
+}
+
+.banner-content{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	background-color: rgba(0,22,40,.2);
+}
+
+.avatar {
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;
+	position: absolute;
+	top:calc(50vh - 80px);
+	left:calc(50% - 80px);
+} 
+.info {
+	background-color: #fff;
+	width:50%;
+	height:50vh;
+	padding-left:50px;
+	padding-top:20px;
+}
+
+.info .infoico{
+	width: 25px;
+	height:25px;
+	position:absolute;
+	left: 100px;
+	top: calc(50% + 50px);
+}
+
+.info .parrafo{
+	border: 1px solid  #b80f22;
+	background-color: #fff;
+	color: #727070;
+	width: 70%;
+	height:80%;
+	border-radius: 15px;
+	position:center;
+}
+
+.info .parrafo label{
+	color: #b80f22;
+	position:absolute;
+	top:calc(50vh + 45px);
+	left:135px;
+	font-family: calibri;
+	font-size:16x;
+}
+
+.info p{
+	padding-left:40px;
+	padding-right:40px;
+	padding-top:50px;
+	font-family: arial;
+}
+
+.bancoiniciativas{
+	width:50%;
+	height:50vh;
+	top:50vh;
+	left:50%;
+	position:absolute;
+	padding-left:130px;
+	padding-top:30px;
+}
+
+.bancoiniciativas .imagenes{
+	border: 1px solid  #b80f22;
+	background-color: #fff;
+	color: #727070;
+	width: 70%;
+	height:80%;
+	border-radius: 15px;
+	position:center;
+}
+
+
+.bancoiniciativas .imagenes .idea{
+	width:90%;
+	height:65%;
+	padding-top:40px;
+	padding-left:20px;
+}
+
+a{
+	position:absolute;
+	height:40px;
+	width:120px;
+	top:calc(100vh - 25vh);
+	left:calc(50% - 60px);
+	border-radius:5px;
+	background-color: #b80f22;
+	border:none;
+	color: #fff;
+	text-decoration:none;
+	text-align: center;
+	padding-top:16px;
+}
+
+a:hover{
+	background-color: #fff;
+	border:1px solid #b80f22;
+	color: #b80f22;
+}
+
+@keyframes banner{
+	0%{
+		background-image: url(../img/banner1.jpg);
+	}
+	25%{
+		background-image: url(../img/banner1.jpg);
+	}
+	
+	26%{
+		background-image: url(../img/banner2.jpg);
+	}
+	50%{
+		background-image: url(../img/banner2.jpg);
+	}
+	
+	51%{
+		background-image: url(../img/banner3.jpg);
+	}
+	75%{
+		background-image: url(../img/banner3.jpg);
+	}
+	
+	76%{
+		background-image: url(../img/banner4.jpg);
+	}
+	100%{
+		background-image: url(../img/banner4.jpg);
+	}
+}
+
