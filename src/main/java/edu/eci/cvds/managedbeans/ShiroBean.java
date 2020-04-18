@@ -35,7 +35,7 @@ public class ShiroBean implements Serializable {
 	private String username;
     private String password;
     private Boolean rememberMe = false;
-    private String redirectUrl = "/faces/index.html";
+    private String redirectUrl = "/faces/login.xhtml";
     Subject subject;
 
     /**
@@ -49,12 +49,12 @@ public class ShiroBean implements Serializable {
             subject.login(token);
             if (subject.hasRole("Administrador")) {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/inicioAdministrador.xhtml");
-                redirectUrl = "/faces/inicioAdministrador.xhtml";
+            
 				//ALGUIEN QUE HAGA EL XHTML DE ESTA VISTA DEL LOG DE ADMI, va dentro de webapp
 			} 
 			else if (subject.hasRole("Proponente")) {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/inicioUsuarioProponente.xhtml");
-                redirectUrl = "/faces/inicioProponente.html";
+            
 				//ALGUIEN QUE HAGA EL XHTML DE ESTA VISTA DEL LOG DE USUARIO, va dentro de webapp
 			}	
 			
