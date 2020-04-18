@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS Iniciativa (nombrePropuesta VARCHAR(50) NOT NULL, id 
 
 ALTER TABLE Iniciativa ADD CONSTRAINT nombrePropuesta_unico UNIQUE(nombrePropuesta);
 
-CREATE TABLE IF NOT EXISTS PalabraClave (id INT PRIMARY KEY, palabraClave VARCHAR(20) NOT NULL);
+CREATE TABLE IF NOT EXISTS PalabraClave (id SERIAL PRIMARY KEY, palabraClave VARCHAR(20) NOT NULL);
 
 INSERT INTO Rol(tipo) VALUES ('Administrador');
 INSERT INTO Rol(tipo) VALUES ('Proponente');
@@ -17,5 +17,5 @@ INSERT INTO Rol(tipo) VALUES ('Publico');
 
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (9303130, 'CC', 'Angi Jimenez', 3186759533, 'angi.jimenez', 'Angie2020', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1019150998, 'CC', 'Daniela Ruiz', 3178484579, 'angied.ruiz', 'RuizAlf123', 'Activo', 'Proponente');
-INSERT INTO public.usuario(id, tid, nombre, telefono, correo, clave, estado, rol)VALUES(1003587553, 'CC', 'Edwin Yesid', 3008427536, 'edyesid2000@gmail.com', '123456789', 'Activo', 'Administrador');
-INSERT INTO public.usuario(id, tid, nombre, telefono, correo, clave, estado, rol)VALUES(1015442700, 'CC', 'Henry Sanchez', 305 7786453, 'hasancheza123@gmail.com', 'santafe1948', 'Activo', 'Proponente');
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol)VALUES(1003587553, 'CC', 'Edwin Yesid', 3008427536, 'edwin.rodriguez', '123456789', 'Activo', 'Administrador');
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol)VALUES(1015442700, 'CC', 'Henry Sanchez', 305 7786453, 'henry-sanchez', 'santafe1948', 'Activo', 'Proponente');
