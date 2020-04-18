@@ -6,10 +6,14 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Busqueda de usuarios</title>
-		<link rel="stylesheet" type="text/css" href="assets/css/consultaUsuarios.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/consultaru.css"/>
     </h:head>
     <h:body >
+		<div class="cabecera">
+			<img src= "assets/img/cabecera.jpg"/>
+		</div>
         <div class = "header">
+			<b>Consultar usuarios</b>
 			<ul class="nav">
 				<li><a href="">Usuarios</a>
 					<ul>
@@ -29,13 +33,17 @@
 				</li>
 			</ul>
 		</div>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
         <h:form id="busquedaUsuarioForm"> 
-			<p:dataTable var="usuario" value="#{BancoPropuestasBean.consultarUsuarios()}"
-                     paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                     rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.GetUsuario()}"
-                     rowKey="#{usuario.correo}">
+				<p:dataTable var="usuario" value="#{BancoPropuestasBean.consultarUsuarios()}"
+				paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.GetUsuario()}"
+				rowKey="#{usuario.correo}">
 				<p:column headerText="No. Documento" filterBy="#{usuario.getId()}">
-					<h:outputText value="#{usuario.getId()}"/>
+				<h:outputText value="#{usuario.getId()}"/>
 				</p:column>
 			
 				<p:column headerText="Tipo de documento" filterBy="#{usuario.tid}" >

@@ -23,6 +23,7 @@ ul, ol{
 	text-decoration:none;
 	padding:10px 15px;
 	display:block;
+	font-family: impact;
 }
 
 .nav > li{
@@ -110,4 +111,25 @@ ul, ol{
 	height:90px;
 	padding-bottom: 15px;
 	padding-left: calc(50% - 40px);
+}
+
+.header button{
+	width: 140px;
+	background: #b80f22;
+	top: 140px;
+	left: calc(100% - 150px);
+	box-shadow: none;
+	text-shadow:none;
+	color: #C0C0C0;
+	border:none;
+	font-family: impact;
+	position:absolute;
+}
+
+.header button:hover{
+	color: #fff;
+}
+
+.cabecera img{
+	margin-left:20px;
 }

@@ -46,6 +46,12 @@ ul, ol{
 	display: block;
 }
 
+.panelinicio{
+	width:100%;
+	height:100vh;
+	background-color:#fff;
+}
+
 .header button{
 	width: 140px;
 	background: #b80f22;
@@ -61,6 +67,7 @@ ul, ol{
 .header button:hover{
 	color: #fff;
 }
+
 
 .cabecera img{
 	margin-left:40px;
@@ -83,7 +90,7 @@ ul, ol{
 }
 
 .cuenta label{
-	margin-left: calc(50% - 48px);
+	margin-left: calc(50% - 40px);
 	font-family:impact;
 }
 
