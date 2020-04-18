@@ -62,15 +62,6 @@
 				<p:column headerText="Estado" filterBy="#{Iniciativa.estado}" sortBy="#{Iniciativa.estado}">
 					<h:outputText value="" />
 				</p:column>
-				
-				<p:column headerText="Rol" filterBy="#{Usuario.rol}" sortBy="#{Usuario.rol}">
-					<f:facet name="filter">
-                            <p:selectOneMenu onchange="PF('UsuarioTable').filter()" >
-                                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
-                                <f:selectItems value="#{adminBean.roles}" />
-                            </p:selectOneMenu>
-                        </f:facet>
-				</p:column>
 			</p:dataTable>          
         </h:form>   
 	</body>
