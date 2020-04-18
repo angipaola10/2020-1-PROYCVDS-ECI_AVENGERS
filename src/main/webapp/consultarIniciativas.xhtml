@@ -5,12 +5,16 @@
       xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<title>Banco de iniciativas ECI</title>
-		<link href="assets/css/consultarIniciativas.css" rel="stylesheet"/>
+		<link href="assets/css/consultari.css" rel="stylesheet"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
 	</h:head>
 	<body>
-		<h:form>
+		<h:form id="busquedaUsuarioForm"> 
+			<div class="cabecera">
+				<img src= "assets/img/cabecera.jpg"/>
+			</div>
 			<div class = "header">
+			<b>Consultar iniciativas</b>
 				<ul class="nav">
 					<li><a>Usuarios</a>
 						<ul>
@@ -25,12 +29,49 @@
 					<li>
 						<p:commandButton value="Cerrar sesión"
 									class="btn btn-rose btn-simple btn-wd btn-lg"
-									action="#{shiroBean.doLogOut()}"/>	
+									action="#{shiroBean.doLogOut()}"/>					
 					</li>
 				</ul>
 			</div>
-			<div class = "consultariniciativas">
-			</div>
-		</h:form>
+			<p:dataTable var="car" value="" rows="10" class="tabla"
+						paginator="true"
+						paginatorPosition = "bottom"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						currentPageReportTemplate="{startRecord} of {totalRecords} records"
+						rowsPerPageTemplate="5,10,15">
+				<p:column headerText="Iniciativa No." filterBy="#{Iniciativa.id}" sortBy="#{Iniciativa.id}">
+					<h:outputText value=""/>
+				</p:column>
+			
+				<p:column headerText="Nombre" filterBy="#{Iniciativa.nombre}" sortBy="#{Iniciativa.nombre}">
+					<h:outputText value="" />
+				</p:column>
+			 
+				<p:column headerText="Descripcion" filterBy="#{Iniciativa.descripcion}" sortBy="#{Iniciativa.descripcion}">
+					<h:outputText value="" />
+				</p:column>
+			 
+				<p:column headerText="Area" filterBy="#{Iniciativa.area}" sortBy="#{Iniciativa.area}">
+					<h:outputText value="" />
+				</p:column>
+				
+				<p:column headerText="Propuesta por" filterBy="#{Iniciativa.usuario}" sortBy="#{Iniciativa.usuario}">
+					<h:outputText value="" />
+				</p:column>
+				
+				<p:column headerText="Estado" filterBy="#{Iniciativa.estado}" sortBy="#{Iniciativa.estado}">
+					<h:outputText value="" />
+				</p:column>
+				
+				<p:column headerText="Rol" filterBy="#{Usuario.rol}" sortBy="#{Usuario.rol}">
+					<f:facet name="filter">
+                            <p:selectOneMenu onchange="PF('UsuarioTable').filter()" >
+                                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                                <f:selectItems value="#{adminBean.roles}" />
+                            </p:selectOneMenu>
+                        </f:facet>
+				</p:column>
+			</p:dataTable>          
+        </h:form>   
 	</body>
 </html>

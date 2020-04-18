@@ -23,6 +23,7 @@ ul, ol{
 	text-decoration:none;
 	padding:10px 15px;
 	display:block;
+	font-family: impact;
 }
 
 .nav > li{
@@ -51,7 +52,8 @@ ul, ol{
 	background-color:#AAAAA;
 }
 .tabla{
-	margin-top:150px;
+	width:100%;
+	margin-top:70px;
 	font-size:14px;
 }
 .tabla th{
@@ -62,4 +64,33 @@ ul, ol{
 	text-shadow:none;
 	font-size:14px;
 	font-family:arial;
+}
+
+.header button{
+	width: 140px;
+	background: #b80f22;
+	top: 140px;
+	left: calc(100% - 150px);
+	box-shadow: none;
+	text-shadow:none;
+	color: #C0C0C0;
+	border:none;
+	font-family: impact;
+	position:absolute;
+}
+
+.header button:hover{
+	color: #fff;
+}
+
+.header b{
+	font-family: impact;
+	position: absolute;
+	top: 210px;
+	left: 20px;
+	color: #727070;
+}
+
+.cabecera img{
+	margin-left:40px;
 }
