@@ -3,28 +3,37 @@
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
-	<head>
+	<h:head>
 		<title>Banco de iniciativas ECI</title>
 		<link href="assets/css/admin.css" rel="stylesheet"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
-	</head>
+	</h:head>
 	<body>
-		<div class = "header">
-			<ul class="nav">
-				<li><a href="">Usuarios</a>
-					<ul>
-						<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
-					</ul>
-				</li>
-				<li><a href="">Iniciativas</a>
-					<ul>
-						<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	
-		<div class = "panelinicio">
-		</div>
+		<h:form>
+			<div class = "header">
+				<ul class="nav">
+					<li><a href="">Usuarios</a>
+						<ul>
+							<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
+						</ul>
+					</li>
+					<li><a href="">Iniciativas</a>
+						<ul>
+							<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
+						</ul>
+					</li>
+					<li>
+						<p:commandButton value="Cerrar sesión"
+									class="btn btn-rose btn-simple btn-wd btn-lg"
+									action="#{shiroBean.doLogOut()}"/>	
+					</li>
+				</ul>
+			</div>
+		
+			<div class = "panelinicio">
+			</div>
+		</h:form>
 	</body>
+	
+	<script type="text/javascript" src="assets/js/proponente.js"/>
 </html>

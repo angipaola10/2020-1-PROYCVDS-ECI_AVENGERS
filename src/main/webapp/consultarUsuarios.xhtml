@@ -6,8 +6,6 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Busqueda de usuarios</title>
- <f:metadata>        	
-         </f:metadata>
 		<link rel="stylesheet" type="text/css" href="assets/css/consultaUsuarios.css"/>
     </h:head>
     <h:body >
@@ -22,6 +20,11 @@
 					<ul>
 						<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
 					</ul>
+				</li>
+				<li>
+					<p:commandButton value="Cerrar sesión"
+								class="btn btn-rose btn-simple btn-wd btn-lg"
+								action="#{shiroBean.doLogOut()}"/>	
 				</li>
 			</ul>
 		</div>
