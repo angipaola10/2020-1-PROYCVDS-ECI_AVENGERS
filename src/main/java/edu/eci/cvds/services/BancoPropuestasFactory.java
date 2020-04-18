@@ -37,7 +37,7 @@ public class BancoPropuestasFactory {
         optInjector = Optional.empty();
     }
 
-    public ShiroBean getServiciosAlquiler(){
+    public ShiroBean detShiroBean(){
         if (!optInjector.isPresent()) {
             optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
         }
@@ -46,7 +46,7 @@ public class BancoPropuestasFactory {
     }
 
 
-    public ShiroBean getServiciosAlquilerTesting(){
+    public ShiroBean getBancoPropuestasTest(){
         if (!optInjector.isPresent()) {
             optInjector = Optional.of(myBatisInjector("test","mybatis-config-h2.xml"));
         }
