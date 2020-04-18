@@ -22,38 +22,20 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	
 	
 	
-	public void addInitiative(String nombreIniciativa, String description, String area, int idus, String estado) throws BancoPropuestasException{
-		try {
-			LocalDate creationDate = LocalDate.now();
-			
-			iniciativaMapper.insertInitiative(nombreIniciativa, description, area, creationDate, idus, "En espera");
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-			throw new BancoPropuestasException("Ocurrio un error al insertar");
-		}
-	}
 
 	@Override
-	public void modifyInitiative(String newStatus, String name) throws BancoPropuestasException {
-		iniciativaMapper.modifyInitiative(newStatus,name);
-		
-	}
-
-	@Override
-	public List<Iniciativa> loadAll() throws BancoPropuestasException {
+	public List<Iniciativa> ConsularIniciativas() throws BancoPropuestasException {
 		return iniciativaMapper.loadAll();
-	}
+	} 
 
 	@Override
-	public List<Estado> listStatus() throws BancoPropuestasException {
-		return iniciativaMapper.listStatus();
-	}
-
-	@Override
-	public List<PalabraClave> listKeywords() throws BancoPropuestasException {
-		return iniciativaMapper.listKeywords();
+	public Iniciativa ConsultarIniciativa(int id) throws BancoPropuestasException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
+		
 }
+
+	

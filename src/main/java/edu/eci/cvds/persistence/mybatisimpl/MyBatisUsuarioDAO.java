@@ -17,9 +17,9 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
     private UsuarioMapper usuarioMapper;
 
     @Override
-    public Usuario consultarUsuario(String correo) throws PersistenceException {
+    public Usuario consultarUsuario (long docu) throws PersistenceException {
         try{
-             return usuarioMapper.consultarUsuario(correo);
+             return usuarioMapper.consultarUsuario(docu);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              
@@ -29,21 +29,25 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
     }
 	
 	 @Override
-    public List<Usuario> cargarTodosLosUsuarios() throws PersistenceException {
+    public List<Usuario> ConsultarUsuarios() throws PersistenceException {
         try{
+            System.out.println("hola 111");
+
              return usuarioMapper.consultarUsuarios();
          }
-         catch(org.apache.ibatis.exceptions.PersistenceException e){
-             
+         catch(Exception e){
+             System.out.println("hola 222");
+
+             System.out.println(e);
              throw new PersistenceException("Error al consultar los usuarios:",e);
              
          }	
     }
 	
 	@Override
-    public Usuario obtenerUsuarioLog(String correo, String clave) throws PersistenceException {
+    public Usuario obtenerUsuarioLog(long id, String clave) throws PersistenceException {
         try{
-             return usuarioMapper.consultarUsuarioLog(correo,clave);
+             return usuarioMapper.consultarUsuarioLog(id,clave);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              

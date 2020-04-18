@@ -10,10 +10,10 @@ import java.util.List;
 
 public interface UsuarioDAO {
 	
-	public List<Usuario> cargarTodosLosUsuarios() throws PersistenceException;
+	public List<Usuario> ConsultarUsuarios() throws PersistenceException;
 
-    public Usuario consultarUsuario(String correo) throws PersistenceException;
+    public Usuario consultarUsuario(long docu) throws PersistenceException;
 	
-	public Usuario obtenerUsuarioLog(String correo, String clave) throws PersistenceException;
+	public Usuario obtenerUsuarioLog(long id, String clave) throws PersistenceException;
 
 }

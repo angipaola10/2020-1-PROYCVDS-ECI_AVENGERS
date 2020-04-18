@@ -12,24 +12,20 @@
 		<result property='telefono' column='telefono'/>
 		<result property='estado' column='estado'/>
 		<result property='clave' column='clave'/>
-		<result property='rol' column='rol'/>
 	</resultMap>
 	
-	<select id="consultarUsuarios" resultMap="UsuarioResult">
-		SELECT
-		u.id,
-		u.tid,
-		u.nombre,
-		u.correo,
-		u.telefono,
-		u.estado,
-		u.clave
-		u.rol,
-		FROM 
-		Usuario as u 
+	<select parameterType="map" id="consultarUsuarios" resultMap="UsuarioResult">
+		select 
+		nombre,
+		id,
+		tid,
+		correo,
+		estado,
+		telefono
+		FROM usuario ;
 	</select>
 	
-	<select id="consultarUsuario" resultMap="UsuarioResult">
+	<select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult">
 		SELECT
 		u.id,
 		u.tid,
@@ -40,8 +36,8 @@
 		u.clave
 		u.rol,
 		FROM 
-		Usuario as u 
-		WHERE u.correo = #{correoU}
+		usuario as u 
+		WHERE u.id = #{id}
 	</select>
 	
 	<select id="consultarUsuarioLog" resultMap="UsuarioResult">
@@ -55,8 +51,8 @@
 		u.clave
 		u.rol,
 		FROM 
-		Usuario as u 
-		WHERE u.correo = #{correoU} and u.clave = #{claveU}
+		usuario as u 
+		WHERE u.id = #{id} and u.clave = #{claveU}
 	</select>
 	
 </mapper>

@@ -12,6 +12,8 @@ import edu.eci.cvds.persistence.IniciativaDAO;
 import edu.eci.cvds.persistence.UsuarioDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisIniciativaDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisUsuarioDAO;
+import edu.eci.cvds.services.BancoPropuestas;
+import edu.eci.cvds.services.impl.BancoPropuestasImpl;
 
 public class GuiceContextListener implements ServletContextListener {
 
@@ -32,6 +34,7 @@ public class GuiceContextListener implements ServletContextListener {
 				//binds
 				bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
 				bind(IniciativaDAO.class).to(MyBatisIniciativaDAO.class);
+				bind(BancoPropuestas.class).to(BancoPropuestasImpl.class);
             }
         }
         );

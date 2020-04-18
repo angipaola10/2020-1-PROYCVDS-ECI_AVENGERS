@@ -22,50 +22,43 @@
 					</ul>
 				</li>
 				<li>
-					<p:commandButton value="Cerrar sesión"
-								class="btn btn-rose btn-simple btn-wd btn-lg"
-								action="#{shiroBean.doLogOut()}"/>	
+					
+						<p:commandButton value="Cerrar sesión"
+									class="btn btn-rose btn-simple btn-wd btn-lg"
+									action="#{shiroBean.doLogOut()}"/>		
 				</li>
 			</ul>
 		</div>
         <h:form id="busquedaUsuarioForm"> 
-			<p:dataTable var="car" value="" rows="10" class="tabla"
-						paginator="true"
-						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-						currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-						rowsPerPageTemplate="5,10,15">
-				<p:column headerText="No. Documento" filterBy="#{Usuario.id}" sortBy="#{Usuario.id}">
-					<h:outputText value=""/>
+			<p:dataTable var="usuario" value="#{BancoPropuestasBean.consultarUsuarios()}"
+                     paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                     rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.GetUsuario()}"
+                     rowKey="#{usuario.correo}">
+				<p:column headerText="No. Documento" filterBy="#{usuario.getId()}">
+					<h:outputText value="#{usuario.getId()}"/>
 				</p:column>
 			
-				<p:column headerText="Tipo de documento" filterBy="#{Usuario.tid}" sortBy="#{Usuario.tid}">
-					<h:outputText value="" />
+				<p:column headerText="Tipo de documento" filterBy="#{usuario.tid}" >
+					<h:outputText value="#{usuario.tid}" />
 				</p:column>
 			 
-				<p:column headerText="Nombre" filterBy="#{Usuario.nombre}" sortBy="#{Usuario.nombre}">
-					<h:outputText value="" />
+				<p:column headerText="Nombre" filterBy="#{usuario.nombre}" sortBy="#{usuario.nombre}">
+					<h:outputText value="#{usuario.nombre}" />
 				</p:column>
 			 
-				<p:column headerText="Correo" filterBy="#{Usuario.correo}" sortBy="#{Usuario.correo}">
-					<h:outputText value="" />
+				<p:column headerText="Correo" filterBy="#{usuario.correo}" >
+					<h:outputText value="#{usuario.correo}" />
 				</p:column>
 				
-				<p:column headerText="Telefono" filterBy="#{Usuario.telefono}" sortBy="#{Usuario.telefono}">
-					<h:outputText value="" />
+				<p:column headerText="Telefono" filterBy="#{usuario.telefono}" >
+					<h:outputText value="#{usuario.telefono}" />
 				</p:column>
 				
-				<p:column headerText="Estado" filterBy="#{Usuario.estado}" sortBy="#{Usuario.estado}">
-					<h:outputText value="" />
+				<p:column headerText="Estado" filterBy="#{usuario.estado}">
+					<h:outputText value="#{usuario.estado}" />
 				</p:column>
 				
-				<p:column headerText="Rol" filterBy="#{Usuario.rol}" sortBy="#{Usuario.rol}">
-					<f:facet name="filter">
-                            <p:selectOneMenu onchange="PF('UsuarioTable').filter()" >
-                                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
-                                <f:selectItems value="#{adminBean.roles}" />
-                            </p:selectOneMenu>
-                        </f:facet>
-				</p:column>
+
 			</p:dataTable>          
         </h:form>   
     </h:body>
