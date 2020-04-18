@@ -35,7 +35,7 @@ public class ShiroBean implements Serializable {
 	private String username;
     private String password;
     private Boolean rememberMe = false;
-    private String redirectUrl = "/faces/login.xhtml";
+    private String redirectUrl = "/faces/index.html";
     Subject subject;
 
     /**
