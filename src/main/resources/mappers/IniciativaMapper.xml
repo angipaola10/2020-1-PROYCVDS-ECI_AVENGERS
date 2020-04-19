@@ -6,36 +6,45 @@
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper">
 
     <resultMap type='Iniciativa' id='IniciativaResult'>
-        <id property='id' column='id'/>
-        <result property='nombre' column='nombreIniciativa'/>  
+        <result property='nombrePropuesta' column='nombrePropuesta'/>  
 		<result property='descripcion' column='descripcion'/>
 		<result property='fechaInicio' column='fechaInicio'/>
 		<result property='area' column='area'/>
-		<result property='estado' column='estado'/>
+		<association property='usuario' javaType='Usuario' resultMap='edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper.UsuarioResult'></association>
+		<association property='estado_Propuesta' javaType='Estado' resultMap='edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper.EstadoResult'></association>
     </resultMap>  
     
-
-	<select id="loadAll" resultMap="IniciativaResult" parameterType="map">
-        SELECT distinct on (i.id)
-	    		i.id,
-	        	i.nombre as nombreIniciativa,
-				i.descripcion,
-				i.fechaInicio,
-				i.area,
-				i.estado,
-				i.usuario_id,
-				ts.status as status,
-				pc.word,
-				u.id idUsuario,
-				u.tid tidUsuario,
-				u.nombre,
-				u.correo,
-				u.telefono,
-				u.rol,
-				u.estado,
-	    FROM Iniciativa as i, Key_words as pc, word_initiative as wi, type_status as ts, "Usuario" as u
-	    where kw.id=wi.Key_words_id and ts.status = i.type_status_id and i.user_id = u.id and wi.initiative_id = i.id;
+	<resultMap type='Estado' id='EstadoResult'>     
+        <result property='estado' column='estado'/>
+    </resultMap>
 	
+
+	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
+		SELECT 
+	    i.nombrePropuesta,
+		i.descripcion,
+		i.fechaInicio,
+		i.area,
+		i.usuario,
+		i.estado_Propuesta,
+		FROM iniciativa as i;
+    </select>
+	
+	<insert id="insertarIniciativa" parameterType="Iniciativa">
+		INSERT INTO Iniciativa(nombrePropuesta, descripcion, fechaInicio, area, usuario_correo, estado_Propuesta) 
+		VALUES((#{nombrePropuesta}, #{descripcion}, #{fechaInicio}, #{area}, #{usuario_correo}, #{estado_Propuesta})
+	</insert>
+	
+	<select id="consultarPropuestaPorUsuario" resultMap="IniciativaResult" parameterType="map">
+		SELECT 
+	    i.nombrePropuesta,
+		i.descripcion,
+		i.fechaInicio,
+		i.area,
+		i.usuario,
+		i.estado_Propuesta,
+	    FROM iniciativa as i
+		WHERE i.usuario_correo = #{correo};
     </select>
   
 	

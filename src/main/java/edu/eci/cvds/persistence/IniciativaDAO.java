@@ -11,8 +11,10 @@ import edu.eci.cvds.services.BancoPropuestasException;
 
 public interface IniciativaDAO {
 
-	public List<Iniciativa> ConsularIniciativas() throws BancoPropuestasException;
+	public List<Iniciativa> consularIniciativas() throws BancoPropuestasException;
 
-	Iniciativa ConsultarIniciativa(int id) throws BancoPropuestasException;
+	public Iniciativa consultarIniciativa(String correo) throws BancoPropuestasException;
+	
+	public void agregarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estadoPropuesta) throws BancoPropuestasException;
 	
 }

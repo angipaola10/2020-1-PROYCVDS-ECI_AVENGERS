@@ -11,8 +11,14 @@
 	    <result property='nombre' column='nombre'/>
 		<result property='telefono' column='telefono'/>
 		<result property='estado' column='estado'/>
-		<result property='clave' column='clave'/>
+		<association property='rol' javaType='Rol' resultMap='edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper.RolResult'></association>
+		<result property='clave' column='clave'/>		
 	</resultMap>
+
+    
+	<resultMap type='Rol' id='RolResult'>     
+        <result property='rol' column='rol'/>
+    </resultMap>
 	
 	<select parameterType="map" id="consultarUsuarios" resultMap="UsuarioResult">
 		select 
@@ -21,8 +27,9 @@
 		tid,
 		correo,
 		estado,
-		telefono
-		FROM usuario ;
+		telefono,
+		rol,
+		FROM usuario;
 	</select>
 	
 	<select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult">
@@ -33,7 +40,6 @@
 		u.correo,
 		u.telefono,
 		u.estado,
-		u.clave
 		u.rol,
 		FROM 
 		usuario as u 
@@ -48,7 +54,7 @@
 		u.correo,
 		u.telefono,
 		u.estado,
-		u.clave
+		u.clave,
 		u.rol,
 		FROM 
 		usuario as u 

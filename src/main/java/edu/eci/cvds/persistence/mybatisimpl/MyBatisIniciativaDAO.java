@@ -21,14 +21,18 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 
 
 	@Override
-	public List<Iniciativa> ConsularIniciativas() throws BancoPropuestasException {
-		return iniciativaMapper.loadAll();
+	public List<Iniciativa> consularIniciativas() throws BancoPropuestasException {
+		return iniciativaMapper.consultarTodasLasPropuestas();
 	} 
-
+	
 	@Override
-	public Iniciativa ConsultarIniciativa(int id) throws BancoPropuestasException {
-		// TODO Auto-generated method stub
-		return null;
+	public void agregarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estadoPropuesta) throws BancoPropuestasException {
+		iniciativaMapper.insertarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estadoPropuesta);
+	} 
+	
+	@Override
+	public Iniciativa consultarIniciativa(String correo) throws BancoPropuestasException {
+		return iniciativaMapper.consultarPropuestaPorUsuario(correo);
 	}
 
 	

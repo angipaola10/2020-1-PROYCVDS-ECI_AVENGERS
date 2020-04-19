@@ -3,21 +3,19 @@ package edu.eci.cvds.services.impl;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.Usuario;
+import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.persistence.IniciativaDAO;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.UsuarioDAO;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException;
-
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.mybatis.guice.transactional.Transactional;
 
 @Singleton
@@ -45,7 +43,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     public List<Usuario> consultarUsuarios() throws BancoPropuestasException {
         try {
             System.out.println("hola 11");
-            return usuarioDAO.ConsultarUsuarios();
+            return usuarioDAO.consultarUsuarios();
         } catch (PersistenceException e) {
         	System.out.println("hola 22");
             throw new BancoPropuestasException("Error al consultar Usuarios",e);
@@ -53,25 +51,29 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     }
 
     @Override
-    public Iniciativa consultarIniciativa(int id) throws BancoPropuestasException {
+    public Iniciativa consultarIniciativa(String correo) throws BancoPropuestasException {
         try {
-            return iniciativaDAO.ConsultarIniciativa(id);
+            return iniciativaDAO.consultarIniciativa(correo);
         } catch (Exception ex) {
-            throw new BancoPropuestasException("Error al consultar la iniciativa "+id,ex);
+            throw new BancoPropuestasException("Error al consultar la iniciativa "+correo,ex);
         }
     }
 
     @Override
-    public List<Iniciativa> ConsultarIniciativas() throws BancoPropuestasException {
+    public List<Iniciativa> consultarIniciativas() throws BancoPropuestasException {
         try {
-            return iniciativaDAO.ConsularIniciativas();
+            return iniciativaDAO.consularIniciativas();
         } catch (Exception ex) {
             throw new BancoPropuestasException("Error al consultar las iniciativas ",ex);
         }
     }
 	@Override
-	public void registrarIniciativa(Iniciativa ini) throws BancoPropuestasException {
-		// TODO Auto-generated method stub
+	public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estadoPropuesta) throws BancoPropuestasException {
+		try {
+            iniciativaDAO.agregarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estadoPropuesta);
+        } catch (Exception ex) {
+            throw new BancoPropuestasException("Error al registrar la iniciativa ",ex);
+        }
 		
 	}
 

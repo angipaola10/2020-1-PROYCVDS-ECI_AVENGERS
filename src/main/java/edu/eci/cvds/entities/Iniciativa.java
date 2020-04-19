@@ -5,15 +5,14 @@ import java.util.*;
 
 public class Iniciativa{
 	private String nombre;
-	private int id;
 	private String descripcion;
 	private Date fechaInicio;
 	private List<PalabraClave> palabrasClaves;
 	private String area;
 	private Usuario usuario;
-	private String estado;
+	private Estado estado;
 	
-	public Iniciativa(String nombre, String descripcion, String area, Usuario usuario, String estado){
+	public Iniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estado){
 		this.nombre = nombre;
 		this.descripcion= descripcion;
 		this.fechaInicio = fechaInicio;
@@ -28,14 +27,6 @@ public class Iniciativa{
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getDescripcion() {
@@ -78,16 +69,16 @@ public class Iniciativa{
 		this.usuario = usuario;
 	}
 	
-	public String getEstado() {
+	public Estado getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
 	
 	public String toString() {
-		return "Iniciativa {nombre: " + nombre + ",id: " + id + ", descripcion: " + descripcion + ", fechaInicio: " + fechaInicio + ", palabrasClaves: " + palabrasClaves + ", area: " + area + ", usuario: " + usuario + "}";
+		return "Iniciativa {nombre: " + nombre + ", descripcion: " + descripcion + ", fechaInicio: " + fechaInicio + ", palabrasClaves: " + palabrasClaves + ", area: " + area + ", usuario: " + usuario + "}";
 	}
 	
 }

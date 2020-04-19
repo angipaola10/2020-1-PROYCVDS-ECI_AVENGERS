@@ -1,21 +1,10 @@
 package edu.eci.cvds.entities;
 
 public class Estado {
-
-	private int id;
 	private String estado;
 	
-	public Estado(int id, String estado) {
-		this.id= id;
+	public Estado(String estado) {
 		this.estado= estado;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getEstado() {

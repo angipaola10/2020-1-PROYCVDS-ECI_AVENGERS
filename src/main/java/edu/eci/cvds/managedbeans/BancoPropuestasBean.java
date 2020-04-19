@@ -1,23 +1,17 @@
 package edu.eci.cvds.managedbeans;
 
-
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.Usuario;
+import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException;
-
 import java.util.List;
-
 import java.sql.Date;
-
-
 
 @SuppressWarnings("serial")
 @ManagedBean(name="BancoPropuestasBean")
@@ -26,7 +20,9 @@ public class BancoPropuestasBean extends BasePageBean {
 
     @Inject
     private BancoPropuestas bancoPropuesta;
+	
     private Usuario usuario;
+	private Iniciativa iniciativa;
 
     public List<Usuario> consultarUsuarios(){
         List<Usuario> clientes = null;
@@ -50,9 +46,10 @@ public class BancoPropuestasBean extends BasePageBean {
         }
         return cliente;
     }
-    public void registrarIniciativa(String nombre, String descripcion, String area, Usuario usuario, String estado){
+	
+    public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estado){
         try{
-            bancoPropuesta.registrarIniciativa(new Iniciativa(nombre, descripcion, area, usuario, estado));
+            bancoPropuesta.registrarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estado);
         } catch (Exception e) {
             setErrorMessage(e);
         }
@@ -66,17 +63,17 @@ public class BancoPropuestasBean extends BasePageBean {
     public List<Iniciativa> consultarIniciativas(){
         List<Iniciativa> iniciativas = null;
         try{
-            iniciativas=bancoPropuesta.ConsultarIniciativas();
+            iniciativas=bancoPropuesta.consultarIniciativas();
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
         return iniciativas;
         }
     
-    public Iniciativa consultarIniciativa(int id){
+    public Iniciativa consultarIniciativa(String correo){
         Iniciativa ini=null;
         try {
-            ini=bancoPropuesta.consultarIniciativa(id);
+            ini=bancoPropuesta.consultarIniciativa(correo);
         } catch (Exception e) {
             setErrorMessage(e);
         }

@@ -29,7 +29,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
     }
 	
 	 @Override
-    public List<Usuario> ConsultarUsuarios() throws PersistenceException {
+    public List<Usuario> consultarUsuarios() throws PersistenceException {
         try{
             System.out.println("hola 111");
 

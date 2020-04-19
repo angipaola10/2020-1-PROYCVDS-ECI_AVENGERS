@@ -12,6 +12,10 @@ import edu.eci.cvds.entities.Estado;
 
 public interface IniciativaMapper {
 
-	public List<Iniciativa> loadAll();
+	public List<Iniciativa> consultarTodasLasPropuestas();
+	
+	public Iniciativa consultarPropuestaPorUsuario(String correo);
+	
+	public void insertarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estadoPropuesta);
 
 }
