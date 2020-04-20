@@ -33,35 +33,43 @@
 					</li>
 				</ul>
 			</div>
-			<p:dataTable var="car" value="#{BancoPropuestasBean.consultarIniciativas()}" rows="10" class="tabla"
-						paginator="true"
-						paginatorPosition = "bottom"
-						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-						currentPageReportTemplate="{startRecord} of {totalRecords} records"
-						rowsPerPageTemplate="5,10,15">
-				<p:column headerText="Iniciativa No." filterBy="#{Iniciativa.id}" sortBy="#{Iniciativa.id}">
-					<h:outputText value=""/>
-				</p:column>
-			
-				<p:column headerText="Nombre" filterBy="#{Iniciativa.nombre}" sortBy="#{Iniciativa.nombre}">
-					<h:outputText value="" />
-				</p:column>
-			 
-				<p:column headerText="Descripcion" filterBy="#{Iniciativa.descripcion}" sortBy="#{Iniciativa.descripcion}">
-					<h:outputText value="" />
-				</p:column>
-			 
-				<p:column headerText="Area" filterBy="#{Iniciativa.area}" sortBy="#{Iniciativa.area}">
-					<h:outputText value="" />
+			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativas()}" class="tabla"
+				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.GetIniciativa()}"
+				rowKey="#{iniciativa.nombre}">			
+				<p:column headerText="Nombre" filterBy="#{iniciativa.nombre}" sortBy="#{iniciativa.nombre}">
+					<h:outputText value="#{iniciativa.nombre}"  />
 				</p:column>
 				
-				<p:column headerText="Propuesta por" filterBy="#{Iniciativa.usuario}" sortBy="#{Iniciativa.usuario}">
-					<h:outputText value="" />
+				<p:column headerText="Nombre proponente" filterBy="#{null}" sortBy="#{null}">
+					<h:outputText value=""  />
 				</p:column>
 				
-				<p:column headerText="Estado" filterBy="#{Iniciativa.estado}" sortBy="#{Iniciativa.estado}">
-					<h:outputText value="" />
+				<p:column headerText="Usuario proponente" filterBy="#{iniciativa.usuario}" sortBy="#{iniciativa.usuario}">
+					<h:outputText value="#{iniciativa.usuario}" />
 				</p:column>
+			 
+				<p:column headerText="Descripcion" filterBy="#{iniciativa.descripcion}" sortBy="#{iniciativa.descripcion}">
+					<h:outputText value="#{iniciativa.descripcion}" />
+				</p:column>
+			 
+				<p:column headerText="Area" filterBy="#{iniciativa.area}" sortBy="#{iniciativa.area}">
+					<h:outputText value="#{iniciativa.area}" />
+				</p:column>
+				
+				<p:column headerText="Estado" filterBy="#{iniciativa.estado}" sortBy="#{iniciativa.estado}">
+					<h:outputText value="#{iniciativa.estado}" />
+				</p:column>
+				
+				<f:facet name="footer">
+					<p:selectOneMenu id="act-estado">
+						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
+					</p:selectOneMenu>
+					<p:commandButton value="Actualizar estado" 
+									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"/>
+				</f:facet>
+				
 			</p:dataTable>          
         </h:form>   
 	</body>
