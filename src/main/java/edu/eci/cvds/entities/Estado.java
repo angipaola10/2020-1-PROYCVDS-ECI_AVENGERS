@@ -11,7 +11,7 @@ public class Estado {
 		return estado;
 	}
 
-	public void setEstad(String estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 	

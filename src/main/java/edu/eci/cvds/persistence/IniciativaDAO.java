@@ -15,6 +15,6 @@ public interface IniciativaDAO {
 
 	public Iniciativa consultarIniciativa(String correo) throws BancoPropuestasException;
 	
-	public void agregarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estadoPropuesta) throws BancoPropuestasException;
+	public void agregarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estadoPropuesta) throws BancoPropuestasException;
 	
 }

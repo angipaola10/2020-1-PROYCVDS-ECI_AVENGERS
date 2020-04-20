@@ -83,7 +83,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     }
 	
 	@Override
-	public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estadoPropuesta) throws BancoPropuestasException {
+	public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estadoPropuesta) throws BancoPropuestasException {
 		try {
             iniciativaDAO.agregarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estadoPropuesta);
         } catch (Exception ex) {

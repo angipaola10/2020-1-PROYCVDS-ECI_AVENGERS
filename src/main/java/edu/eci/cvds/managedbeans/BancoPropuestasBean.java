@@ -67,7 +67,7 @@ public class BancoPropuestasBean extends BasePageBean {
         }
     }
 	
-    public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estado){
+    public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estado){
         try{
             bancoPropuesta.registrarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estado);
         } catch (Exception e) {
