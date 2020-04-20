@@ -26,7 +26,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	
 	@Override
 	public void agregarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estadoPropuesta) throws BancoPropuestasException {
-		iniciativaMapper.insertarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estadoPropuesta);
+		iniciativaMapper.insertarIniciativa(nombre, descripcion, fechaInicio, area, usuario, new Estado("En espera de revisión"));
 	} 
 	
 	@Override
@@ -38,4 +38,3 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 		
 }
 
-	

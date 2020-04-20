@@ -64,6 +64,10 @@
 	<update id='modificarUsuario'>
     	update Usuario set rol=#{rol} where correo=#{correoU};
     </update>
+    
+    <update id='modificarUsuarioEstado'>
+    	update Usuario set estado=#{estado} where correo=#{correoU};
+    </update>
 	
 </mapper>
 	

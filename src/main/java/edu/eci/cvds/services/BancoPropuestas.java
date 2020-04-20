@@ -21,7 +21,9 @@ public interface BancoPropuestas {
 
     public abstract Iniciativa consultarIniciativa(String correo) throws BancoPropuestasException;
 	
-	public abstract void  modificarUsuario(int rol, String correo) throws BancoPropuestasException;
+	public abstract void  modificarUsuario(String rol, String correo) throws BancoPropuestasException;
+	
+	public abstract void  modificarUsuarioEstado(Estado estado, String correo) throws BancoPropuestasException;
     
     public abstract void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estadoPropuesta) throws BancoPropuestasException; 
 

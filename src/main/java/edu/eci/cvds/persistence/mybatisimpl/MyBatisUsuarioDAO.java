@@ -2,6 +2,7 @@ package edu.eci.cvds.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
 
+import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
@@ -56,9 +57,21 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
     }
 	
 	@Override
-    public void actualizarUsuario(int rol, String correo)throws PersistenceException {
+    public void actualizarUsuario(String rol, String correo)throws PersistenceException {
         try{
              usuarioMapper.modificarUsuario(rol,correo);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             
+             throw new PersistenceException("Error al actualizar el rol del usuario:",e);
+             
+         }	
+    }
+	
+	@Override
+    public void actualizarUsuarioEstado(Estado estado, String correo)throws PersistenceException {
+        try{
+             usuarioMapper.modificarUsuarioEstado(estado,correo);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              
@@ -71,7 +84,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
 	@Override
     public void agregarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) throws PersistenceException {
         try{
-             usuarioMapper.insertarUsuario(id, tid, nombre, telefono, correo, clave, rol, estado);
+             usuarioMapper.insertarUsuario(id, tid, nombre, telefono, correo, clave, rol, "Inactivo");
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              

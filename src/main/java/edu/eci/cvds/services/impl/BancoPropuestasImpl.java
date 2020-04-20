@@ -102,13 +102,21 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	}
    
    @Override
-	public void modificarUsuario(int rol, String correo)  throws BancoPropuestasException {
+	public void modificarUsuario(String rol, String correo)  throws BancoPropuestasException {
 		try {
             usuarioDAO.actualizarUsuario(rol, correo);
         } catch (Exception ex) {
             throw new BancoPropuestasException("Error al actualizar el rol del usuario. ",ex);
         }
-		
+	}
+   
+   @Override
+	public void modificarUsuarioEstado(Estado estado, String correo)  throws BancoPropuestasException {
+		try {
+           usuarioDAO.actualizarUsuarioEstado(estado, correo);
+       } catch (Exception ex) {
+           throw new BancoPropuestasException("Error al actualizar el rol del usuario. ",ex);
+       }
 	}
   
    

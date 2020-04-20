@@ -63,9 +63,17 @@ public class BancoPropuestasBean extends BasePageBean {
         return cliente;
     }
 	
-	public void modificarUsuario(int rol, String correo, Date fechaInicio){
+	public void modificarUsuario(String rol, String correo, Date fechaInicio){
         try{
             bancoPropuesta.modificarUsuario(rol, correo);
+        } catch (Exception e) {
+            setErrorMessage(e);
+        }
+    }
+	
+	public void modificarUsuarioEstado(Estado estado, String correo, Date fechaInicio){
+        try{
+            bancoPropuesta.modificarUsuarioEstado(estado, correo);
         } catch (Exception e) {
             setErrorMessage(e);
         }
