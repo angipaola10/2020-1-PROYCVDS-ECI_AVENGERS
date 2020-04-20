@@ -26,8 +26,10 @@
 		i.fechaInicio,
 		i.area,
 		i.usuario,
-		i.estado
-		FROM iniciativa as i;
+		i.estado,
+		u.name
+		FROM iniciativa as i, estado as e, usuario as u
+		WHERE i.estado = e.estado and i.usuario = u.correo;
     </select>
 	
 	<insert id="insertarIniciativa" parameterType="Iniciativa">
