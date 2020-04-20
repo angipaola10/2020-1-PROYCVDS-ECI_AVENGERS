@@ -38,12 +38,32 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
     }
 	
 	@Override
+	public void agruparIniciativas() throws PersistenceException {
+		try{
+			iniciativaMapper.agruparPropuestaPorArea();
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al agrupar las propuestas:",e);   
+         }	
+    }
+	
+	@Override
 	public Iniciativa consultarIniciativa(String correo) throws PersistenceException {
         try{
         	return iniciativaMapper.consultarPropuestaPorUsuario(correo);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              throw new PersistenceException("Error al consultar esta iniciativa:",e);  
+         }	
+    }
+	
+	@Override
+	public Iniciativa consultarIniciativaArea(String area) throws PersistenceException {
+        try{
+        	return iniciativaMapper.consultarPropuestaPorArea(area);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar esta area:",e);  
          }	
     }
 	

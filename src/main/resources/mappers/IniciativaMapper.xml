@@ -42,7 +42,25 @@
 		i.usuario,
 		i.estado_Propuesta
 	    FROM iniciativa as i, usuario as u
-		WHERE i.usuario = #{correo};
+		WHERE i.usuario = u.correo and i.usuario = #{correo};
+    </select>
+  
+  
+  <select id="consultarPropuestaPorArea" resultMap="IniciativaResult" parameterType="map">
+		SELECT 
+	    i.nombrePropuesta,
+		i.descripcion,
+		i.fechaInicio,
+		i.area,
+		i.usuario,
+		i.estado_Propuesta
+	    FROM iniciativa as i, usuario as u
+		WHERE i.usuario = u.correo and i.area = #{area};
+    </select>
+    
+    <select id="agruparPropuestaPorArea" resultMap="IniciativaResult" parameterType="map">
+		SELECT area, count(nombrePropuesta) FROM iniciativa
+ 		GROUP BY area;
     </select>
   
 	

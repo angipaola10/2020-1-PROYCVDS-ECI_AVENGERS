@@ -19,12 +19,16 @@ public interface BancoPropuestas {
     public abstract List<Usuario> consultarUsuarios() throws BancoPropuestasException;
 
     public abstract Iniciativa consultarIniciativa(String correo) throws BancoPropuestasException;
+    
+    public abstract Iniciativa consultarIniciativaArea(String area) throws BancoPropuestasException;
 	
 	public abstract void  modificarUsuario(String rol, String correo) throws BancoPropuestasException;
 	
 	public abstract void  modificarUsuarioEstado(Estado estado, String correo) throws BancoPropuestasException;
     
     public abstract void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, String estadoPropuesta) throws BancoPropuestasException; 
+    
+    public abstract void agruparIniciativas() throws BancoPropuestasException; 
 
 	public abstract void registrarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) throws BancoPropuestasException; 
 

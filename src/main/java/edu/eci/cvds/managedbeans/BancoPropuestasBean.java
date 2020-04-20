@@ -48,7 +48,7 @@ public class BancoPropuestasBean extends BasePageBean {
         Usuario cliente=null;
         try {
             cliente=bancoPropuesta.consultarUsuario(correo);
-        } catch (Exception e) {
+        } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
         return cliente;
@@ -58,7 +58,7 @@ public class BancoPropuestasBean extends BasePageBean {
         Usuario cliente=null;
         try {
             cliente=bancoPropuesta.consultarUsuarioLog(correo, clave);
-        } catch (Exception e) {
+        } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
         return cliente;
@@ -67,7 +67,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	public void modificarUsuario(String rol, String correo, Date fechaInicio){
         try{
             bancoPropuesta.modificarUsuario(rol, correo);
-        } catch (Exception e) {
+        } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
     }
@@ -75,7 +75,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	public void modificarUsuarioEstado(Estado estado, String correo, Date fechaInicio){
         try{
             bancoPropuesta.modificarUsuarioEstado(estado, correo);
-        } catch (Exception e) {
+        } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
     }
@@ -83,7 +83,15 @@ public class BancoPropuestasBean extends BasePageBean {
     public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, String estado){
         try{
             bancoPropuesta.registrarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estado);
-        } catch (Exception e) {
+        } catch (BancoPropuestasException e) {
+            setErrorMessage(e);
+        }
+    }
+    
+    public void agruparIniciativas(){
+        try{
+            bancoPropuesta.agruparIniciativas();
+        } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
     }
@@ -91,7 +99,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	public void registrarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado){
         try{
             bancoPropuesta.registrarUsuario(id, tid, nombre, telefono, correo, clave, rol, estado);
-        } catch (Exception e) {
+        } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
     }
@@ -125,7 +133,17 @@ public class BancoPropuestasBean extends BasePageBean {
         Iniciativa ini=null;
         try {
             ini=bancoPropuesta.consultarIniciativa(correo);
-        } catch (Exception e) {
+        } catch (BancoPropuestasException e) {
+            setErrorMessage(e);
+        }
+        return ini;
+    }
+    
+    public Iniciativa consultarIniciativaArea(String area){
+        Iniciativa ini=null;
+        try {
+            ini=bancoPropuesta.consultarIniciativaArea(area);
+        } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
         return ini;

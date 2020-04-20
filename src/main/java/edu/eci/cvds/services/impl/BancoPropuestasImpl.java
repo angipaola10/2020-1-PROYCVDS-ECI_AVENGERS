@@ -66,6 +66,16 @@ public class BancoPropuestasImpl implements BancoPropuestas {
             throw new BancoPropuestasException("Error al consultar la iniciativa "+correo,e);
         }
     }
+    
+    @Override
+    public Iniciativa consultarIniciativaArea(String area) throws BancoPropuestasException {
+        try {
+            return iniciativaDAO.consultarIniciativa(area);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar el area "+area,e);
+        }
+    }
+
 
     @Override
     public List<Iniciativa> consultarIniciativas() throws BancoPropuestasException {
@@ -85,6 +95,16 @@ public class BancoPropuestasImpl implements BancoPropuestas {
             iniciativaDAO.agregarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estadoPropuesta);
         } catch (PersistenceException e) {
             throw new BancoPropuestasException("Error al registrar la iniciativa ",e);
+        }
+		
+	}
+	
+	@Override
+	public void agruparIniciativas() throws BancoPropuestasException {
+		try {
+            iniciativaDAO.agruparIniciativas();
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al agrupar las iniciativas ",e);
         }
 		
 	}
