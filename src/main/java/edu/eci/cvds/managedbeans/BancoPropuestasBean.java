@@ -12,6 +12,7 @@ import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException;
 import java.util.List;
+import java.math.BigInteger;
 import java.sql.Date;
 
 @SuppressWarnings("serial")
@@ -21,6 +22,7 @@ public class BancoPropuestasBean extends BasePageBean {
 
     private final String[] estadosIniciativas = {"En espera de revisión", "En revisión", "Proyecto", "Solucionado"};
     private Rol[] roles = Rol.values();
+    
     @Inject
     private BancoPropuestas bancoPropuesta;
 	
@@ -77,7 +79,7 @@ public class BancoPropuestasBean extends BasePageBean {
         }
     }
 	
-	public void registrarUsuario(int id, String tid, String nombre, int telefono, String correo, String clave, Rol rol, String estado){
+	public void registrarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado){
         try{
             bancoPropuesta.registrarUsuario(id, tid, nombre, telefono, correo, clave, rol, estado);
         } catch (Exception e) {
@@ -90,6 +92,13 @@ public class BancoPropuestasBean extends BasePageBean {
     public Usuario GetUsuario(){
         return usuario;
     }
+    
+    public void setSelectedIniciativa(Iniciativa iniciativa){this.iniciativa = iniciativa;}
+
+    public Iniciativa GetIniciativa(){
+        return iniciativa;
+    }
+    
     public List<Iniciativa> consultarIniciativas(){
         List<Iniciativa> iniciativas = null;
         try{

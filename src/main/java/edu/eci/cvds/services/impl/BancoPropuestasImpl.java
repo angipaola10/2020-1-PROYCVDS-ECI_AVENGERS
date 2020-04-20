@@ -12,6 +12,8 @@ import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.UsuarioDAO;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException;
+
+import java.math.BigInteger;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -26,8 +28,6 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     private IniciativaDAO iniciativaDAO;
     @Inject
     private  UsuarioDAO usuarioDAO;
-
-
 
     @Override
     public Usuario consultarUsuario(String correo) throws BancoPropuestasException {
@@ -93,7 +93,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	}
 	
 	@Override
-	public void registrarUsuario(int id, String tid, String nombre, int telefono, String correo, String clave, Rol rol, String estado) throws BancoPropuestasException {
+	public void registrarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) throws BancoPropuestasException {
 		try {
             usuarioDAO.agregarUsuario(id, tid, nombre, telefono, correo, clave, rol, estado);
         } catch (Exception ex) {

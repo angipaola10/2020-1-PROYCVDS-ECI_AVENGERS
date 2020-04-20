@@ -1,5 +1,6 @@
 package edu.eci.cvds.services;
 
+import java.math.BigInteger;
 import java.sql.Date;
 import java.util.List;
 
@@ -24,6 +25,6 @@ public interface BancoPropuestas {
     
     public abstract void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estadoPropuesta) throws BancoPropuestasException; 
 
-	public abstract void registrarUsuario(int id, String tid, String nombre, int telefono, String correo, String clave, Rol rol, String estado) throws BancoPropuestasException; 
+	public abstract void registrarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) throws BancoPropuestasException; 
 
 }

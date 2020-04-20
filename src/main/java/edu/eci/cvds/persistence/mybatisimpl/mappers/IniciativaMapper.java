@@ -16,6 +16,6 @@ public interface IniciativaMapper {
 	
 	public Iniciativa consultarPropuestaPorUsuario(@Param("correo") String correo);
 	
-	public void insertarIniciativa(@Param("nombrePropuesta") String nombre, @Param("descripcion") String descripcion, @Param("fechaInicio") Date fechaInicio, @Param("area") String area, @Param("usuario") String usuario, @Param("estado_Propuesta") Estado estadoPropuesta);
+	public void insertarIniciativa(@Param("nombrePropuesta") String nombre, @Param("descripcion") String descripcion, @Param("fechaInicio") Date fechaInicio, @Param("area") String area, @Param("usuario") String usuario, @Param("estadoPropuesta") Estado estadoPropuesta);
 
 }

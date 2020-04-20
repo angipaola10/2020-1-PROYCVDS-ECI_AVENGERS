@@ -7,6 +7,8 @@ import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.*;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.*;
+
+import java.math.BigInteger;
 import java.util.List;
 
 public class MyBatisUsuarioDAO implements UsuarioDAO {
@@ -67,7 +69,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
 
 
 	@Override
-    public void agregarUsuario(int id, String tid, String nombre, int telefono, String correo, String clave, Rol rol, String estado) throws PersistenceException {
+    public void agregarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) throws PersistenceException {
         try{
              usuarioMapper.insertarUsuario(id, tid, nombre, telefono, correo, clave, rol, estado);
          }

@@ -19,7 +19,6 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	@Inject
 	IniciativaMapper iniciativaMapper;
 
-
 	@Override
 	public List<Iniciativa> consularIniciativas() throws BancoPropuestasException {
 		return iniciativaMapper.consultarTodasLasPropuestas();
