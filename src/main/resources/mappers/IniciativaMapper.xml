@@ -26,13 +26,13 @@
 		i.fechaInicio,
 		i.area,
 		i.usuario,
-		i.estado,
+		i.estado
 		FROM iniciativa as i;
     </select>
 	
 	<insert id="insertarIniciativa" parameterType="Iniciativa">
 		INSERT INTO Iniciativa (nombrePropuesta, descripcion, fechaInicio, area, usuario, estado_Propuesta) 
-		VALUES((#{nombrePropuesta}, #{descripcion}, #{fechaInicio}, #{area}, #{usuario}, #{estado_Propuesta})
+		VALUES(#{nombrePropuesta}, #{descripcion}, #{fechaInicio}, #{area}, #{usuario}, #{estado_Propuesta});
 	</insert>
 	
 	<select id="consultarPropuestaPorUsuario" resultMap="IniciativaResult" parameterType="map">

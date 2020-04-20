@@ -33,7 +33,7 @@
 					</li>
 				</ul>
 			</div>
-			<p:dataTable var="car" value="" rows="10" class="tabla"
+			<p:dataTable var="car" value="#{BancoPropuestasBean.consultarIniciativas()}" rows="10" class="tabla"
 						paginator="true"
 						paginatorPosition = "bottom"
 						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"

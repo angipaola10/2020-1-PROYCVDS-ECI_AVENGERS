@@ -7,6 +7,7 @@
     <h:head>
         <title>Busqueda de usuarios</title>
 		<link rel="stylesheet" type="text/css" href="assets/css/consultaru.css"/>
+		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
     </h:head>
     <h:body >
 		<div class="cabecera">
@@ -26,20 +27,17 @@
 					</ul>
 				</li>
 				<li>
-					
-						<p:commandButton value="Cerrar sesión"
-									class="btn btn-rose btn-simple btn-wd btn-lg"
-									action="#{shiroBean.doLogOut()}"/>		
+					<p:commandButton value="Cerrar sesión"
+								class="btn btn-rose btn-simple btn-wd btn-lg"
+								action="#{shiroBean.doLogOut()}"/>	
 				</li>
 			</ul>
 		</div>
-		<br></br>
-		<br></br>
-		<br></br>
-		<br></br>
+		
+		
         <h:form id="busquedaUsuarioForm"> 
-				<p:dataTable var="usuario" value="#{BancoPropuestasBean.consultarUsuarios()}"
-				paginator="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+			<p:dataTable var="usuario" value="#{BancoPropuestasBean.consultarUsuarios()}" class="tabla"
+				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
 				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.GetUsuario()}"
 				rowKey="#{usuario.correo}">
 				<p:column headerText="No. Documento" filterBy="#{usuario.getId()}">
@@ -66,8 +64,19 @@
 					<h:outputText value="#{usuario.estado}" />
 				</p:column>
 				
-
-			</p:dataTable>          
+				<p:column headerText="Rol" filterBy="#{usuario.rol}">
+					<h:outputText value="#{usuario.rol}" />
+				</p:column>
+				
+				<f:facet name="footer">
+					<p:selectOneMenu id="act-rol">
+						<f:selectItem itemLabel="Seleccione un rol" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{BancoPropuestasBean.roles}" />
+					</p:selectOneMenu>
+					<p:commandButton value="Asignar perfil" 
+									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"/>
+				</f:facet>
+			</p:dataTable>  
         </h:form>   
     </h:body>
 </html>

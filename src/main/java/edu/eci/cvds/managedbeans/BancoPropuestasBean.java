@@ -19,6 +19,8 @@ import java.sql.Date;
 @ApplicationScoped
 public class BancoPropuestasBean extends BasePageBean {
 
+    private final String[] estadosIniciativas = {"En espera de revisión", "En revisión", "Proyecto", "Solucionado"};
+    private Rol[] roles = Rol.values();
     @Inject
     private BancoPropuestas bancoPropuesta;
 	
@@ -112,6 +114,22 @@ public class BancoPropuestasBean extends BasePageBean {
         String message = e.getMessage();
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
+    }
+
+    public Rol[] getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Rol[] roles1) {
+
+    }
+
+    public String[] getEstadosIniciativas() {
+        return estadosIniciativas;
+    }
+
+    public void setEstadosIniciativas (String[] estadosIni) {
+
     }
 
 }

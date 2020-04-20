@@ -19,14 +19,14 @@
 	
 	<select parameterType="map" id="consultarUsuarios" resultMap="UsuarioResult">
 		select 
-		nombre,
-		id,
-		tid,
-		correo,
-		estado,
-		telefono,
-		rol,
-		FROM usuario;
+		u.nombre,
+		u.id,
+		u.tid,
+		u.correo,
+		u.estado,
+		u.telefono,
+		u.rol
+		FROM usuario as u;
 	</select>
 	
 	<select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult">
@@ -37,10 +37,9 @@
 		u.correo,
 		u.telefono,
 		u.estado,
-		u.rol,
-		FROM 
-		usuario as u 
-		WHERE u.correo = #{correoU}
+		u.rol
+		FROM usuario as u 
+		WHERE u.correo = #{correoU};
 	</select>
 	
 	<select id="consultarUsuarioLog" resultMap="UsuarioResult">
@@ -52,10 +51,9 @@
 		u.telefono,
 		u.estado,
 		u.clave,
-		u.rol,
-		FROM 
-		usuario as u 
-		WHERE u.correo = #{correoU} and u.clave = #{claveU}
+		u.rol
+		FROM usuario as u 
+		WHERE u.correo = #{correoU} and u.clave = #{claveU};
 	</select>
 	
 	<insert id="insertarUsuario" parameterType="Usuario">

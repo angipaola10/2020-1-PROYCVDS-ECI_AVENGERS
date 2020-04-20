@@ -4,18 +4,18 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.lang.String;
-import org.apache.ibatis.annotations.Param;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Estado;
+import org.apache.ibatis.annotations.Param;
 
 public interface IniciativaMapper {
 
 	public List<Iniciativa> consultarTodasLasPropuestas();
 	
-	public Iniciativa consultarPropuestaPorUsuario(String correo);
+	public Iniciativa consultarPropuestaPorUsuario(@Param("correo") String correo);
 	
-	public void insertarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estadoPropuesta);
+	public void insertarIniciativa(@Param("nombrePropuesta") String nombre, @Param("descripcion") String descripcion, @Param("fechaInicio") Date fechaInicio, @Param("area") String area, @Param("usuario") String usuario, @Param("estado_Propuesta") Estado estadoPropuesta);
 
 }

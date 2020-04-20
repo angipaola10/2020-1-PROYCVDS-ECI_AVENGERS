@@ -1,6 +1,7 @@
 package edu.eci.cvds.entities;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.*;
 
 public class Usuario implements Serializable {
@@ -8,7 +9,7 @@ public class Usuario implements Serializable {
 	private int id;
 	private String tid;
     private String nombre;
-    private int  telefono;
+    private BigInteger  telefono;
     private String correo;
     private String estado;
     private String clave;
@@ -16,7 +17,7 @@ public class Usuario implements Serializable {
     
     public Usuario() {}
 
-    public Usuario(int id, String tid, String nombre, int telefono, String correo, String clave, Rol rol, String estado) {
+    public Usuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) {
     	this.id = id;
         this.tid = tid;
     	this.nombre = nombre;
@@ -51,11 +52,11 @@ public class Usuario implements Serializable {
         this.nombre = nombre;
     }
     
-    public int getTelefono() {
+    public BigInteger getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int tel) {
+    public void setTelefono(BigInteger tel) {
         this.telefono = tel;
     }
     
