@@ -9,10 +9,10 @@ public class Iniciativa{
 	private Date fechaInicio;
 	private List<PalabraClave> palabrasClaves;
 	private String area;
-	private Usuario usuario;
+	private String usuario;
 	private Estado estado;
 	
-	public Iniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estado){
+	public Iniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estado){
 		this.nombre = nombre;
 		this.descripcion= descripcion;
 		this.fechaInicio = fechaInicio;
@@ -61,11 +61,11 @@ public class Iniciativa{
 		this.area = area;
 	}
 
-	public Usuario getUsuario() {
+	public String getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 	
