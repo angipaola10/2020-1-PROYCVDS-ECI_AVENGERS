@@ -2,7 +2,6 @@ package edu.eci.cvds.persistence.mybatisimpl.mappers;
 
 import java.math.BigInteger;
 import java.util.List;
-
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;

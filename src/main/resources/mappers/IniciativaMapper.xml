@@ -11,12 +11,9 @@
 		<result property='fechaInicio' column='fechaInicio'/>
 		<result property='area' column='area'/>
 		<result property='usuario' column='usuario'/>
-		<association property='estado_Propuesta' javaType='Estado' resultMap='edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper.EstadoResult'></association> 
+		<result property='estado_Propuesta' column='estado_Propuesta'/>
     </resultMap>  
-    
-	<resultMap type='Estado' id='EstadoResult'>     
-        <result property='estado' column='estado'/>
-    </resultMap>
+ 
 	
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
@@ -26,10 +23,9 @@
 		i.fechaInicio,
 		i.area,
 		i.usuario,
-		i.estado,
-		u.name
-		FROM iniciativa as i, estado as e, usuario as u
-		WHERE i.estado = e.estado and i.usuario = u.correo;
+		i.estado_Propuesta
+		FROM iniciativa as i, usuario as u
+		WHERE i.usuario = u.correo;
     </select>
 	
 	<insert id="insertarIniciativa" parameterType="Iniciativa">
@@ -44,8 +40,8 @@
 		i.fechaInicio,
 		i.area,
 		i.usuario,
-		i.estado
-	    FROM iniciativa as i
+		i.estado_Propuesta
+	    FROM iniciativa as i, usuario as u
 		WHERE i.usuario = #{correo};
     </select>
   

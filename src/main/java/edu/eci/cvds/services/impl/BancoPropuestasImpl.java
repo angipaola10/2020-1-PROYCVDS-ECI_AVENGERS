@@ -1,6 +1,5 @@
 package edu.eci.cvds.services.impl;
 
-
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import edu.eci.cvds.entities.Iniciativa;
@@ -12,14 +11,9 @@ import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.UsuarioDAO;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException;
-
 import java.math.BigInteger;
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.List;
-import org.mybatis.guice.transactional.Transactional;
 
 @Singleton
 public class BancoPropuestasImpl implements BancoPropuestas {
@@ -68,26 +62,29 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     public Iniciativa consultarIniciativa(String correo) throws BancoPropuestasException {
         try {
             return iniciativaDAO.consultarIniciativa(correo);
-        } catch (Exception ex) {
-            throw new BancoPropuestasException("Error al consultar la iniciativa "+correo,ex);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar la iniciativa "+correo,e);
         }
     }
 
     @Override
     public List<Iniciativa> consultarIniciativas() throws BancoPropuestasException {
         try {
+        	System.out.println("entra al bancop");
             return iniciativaDAO.consularIniciativas();
-        } catch (Exception ex) {
-            throw new BancoPropuestasException("Error al consultar las iniciativas ",ex);
+        } catch (PersistenceException e) {
+        	System.out.println("hola 22");
+            throw new BancoPropuestasException("Error al consultar las iniciativas ",e);
         }
     }
-	
+   
+
 	@Override
-	public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estadoPropuesta) throws BancoPropuestasException {
+	public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, String estadoPropuesta) throws BancoPropuestasException {
 		try {
             iniciativaDAO.agregarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estadoPropuesta);
-        } catch (Exception ex) {
-            throw new BancoPropuestasException("Error al registrar la iniciativa ",ex);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al registrar la iniciativa ",e);
         }
 		
 	}
@@ -96,8 +93,8 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	public void registrarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) throws BancoPropuestasException {
 		try {
             usuarioDAO.agregarUsuario(id, tid, nombre, telefono, correo, clave, rol, estado);
-        } catch (Exception ex) {
-            throw new BancoPropuestasException("Error al registrar este usuario ",ex);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al registrar este usuario ",e);
         }
 	}
    
@@ -105,8 +102,8 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	public void modificarUsuario(String rol, String correo)  throws BancoPropuestasException {
 		try {
             usuarioDAO.actualizarUsuario(rol, correo);
-        } catch (Exception ex) {
-            throw new BancoPropuestasException("Error al actualizar el rol del usuario. ",ex);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al actualizar el rol del usuario. ",e);
         }
 	}
    
@@ -114,8 +111,8 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	public void modificarUsuarioEstado(Estado estado, String correo)  throws BancoPropuestasException {
 		try {
            usuarioDAO.actualizarUsuarioEstado(estado, correo);
-       } catch (Exception ex) {
-           throw new BancoPropuestasException("Error al actualizar el rol del usuario. ",ex);
+       } catch (PersistenceException e) {
+           throw new BancoPropuestasException("Error al actualizar el rol del usuario. ",e);
        }
 	}
   

@@ -27,6 +27,7 @@ public class BancoPropuestasBean extends BasePageBean {
     private BancoPropuestas bancoPropuesta;
 	
     private Usuario usuario;
+    
 	private Iniciativa iniciativa;
 
     public List<Usuario> consultarUsuarios(){
@@ -79,7 +80,7 @@ public class BancoPropuestasBean extends BasePageBean {
         }
     }
 	
-    public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estado){
+    public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, String estado){
         try{
             bancoPropuesta.registrarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estado);
         } catch (Exception e) {
@@ -111,9 +112,12 @@ public class BancoPropuestasBean extends BasePageBean {
         List<Iniciativa> iniciativas = null;
         try{
             iniciativas=bancoPropuesta.consultarIniciativas();
+            System.out.println("hola INI");
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
+            System.out.println("hola ini error");
         }
+        System.out.println(iniciativas);
         return iniciativas;
         }
     

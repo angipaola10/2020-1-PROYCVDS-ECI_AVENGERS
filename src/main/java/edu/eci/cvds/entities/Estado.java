@@ -1,6 +1,7 @@
 package edu.eci.cvds.entities;
 
 public class Estado {
+	
 	private String estado;
 	
 	public Estado(String estado) {

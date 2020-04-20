@@ -1,14 +1,12 @@
 package edu.eci.cvds.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
-
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.*;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.*;
-
 import java.math.BigInteger;
 import java.util.List;
 
@@ -22,25 +20,20 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
              return usuarioMapper.consultarUsuario(correo);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-             
              throw new PersistenceException("Error al consultar este usuario:",e);
-             
          }	
     }
 	
-	 @Override
+	@Override
     public List<Usuario> obtenerUsuarios() throws PersistenceException {
         try{
             System.out.println("hola 111");
-
              return usuarioMapper.consultarUsuarios();
          }
          catch(Exception e){
              System.out.println("hola 222");
-
              System.out.println(e);
              throw new PersistenceException("Error al consultar los usuarios:",e);
-             
          }	
     }
 	
@@ -50,9 +43,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
              return usuarioMapper.consultarUsuarioLog(correo,clave);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-             
              throw new PersistenceException("Error al consultar las credenciales del usuario:",e);
-             
          }	
     }
 	
@@ -62,9 +53,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
              usuarioMapper.modificarUsuario(rol,correo);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-             
              throw new PersistenceException("Error al actualizar el rol del usuario:",e);
-             
          }	
     }
 	
@@ -74,12 +63,9 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
              usuarioMapper.modificarUsuarioEstado(estado,correo);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-             
-             throw new PersistenceException("Error al actualizar el rol del usuario:",e);
-             
+             throw new PersistenceException("Error al actualizar el rol del usuario:",e); 
          }	
     }
-
 
 	@Override
     public void agregarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) throws PersistenceException {
@@ -87,11 +73,8 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
              usuarioMapper.insertarUsuario(id, tid, nombre, telefono, correo, clave, rol, "Inactivo");
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-             
              throw new PersistenceException("Error al actualizar el registrar este usuario:",e);
-             
          }	
     }
-	
-	
+		
 }

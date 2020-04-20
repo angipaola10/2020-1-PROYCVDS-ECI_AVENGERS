@@ -1,32 +1,34 @@
 package edu.eci.cvds.entities;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
+import java.lang.String;
 
 public class Iniciativa{
-	private String nombre;
+	private String nombrePropuesta;
 	private String descripcion;
 	private Date fechaInicio;
 	private List<PalabraClave> palabrasClaves;
 	private String area;
 	private String usuario;
-	private Estado estado;
+	private String estado_Propuesta;
 	
-	public Iniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, Estado estado){
-		this.nombre = nombre;
+	public Iniciativa() {}
+	
+	public Iniciativa(String nombrePropuesta, String descripcion, Date fechaInicio, String area, String usuario, String esestado_Propuestatado){
+		this.nombrePropuesta = nombrePropuesta;
 		this.descripcion= descripcion;
 		this.fechaInicio = fechaInicio;
 		this.area= area;
 		this.usuario = usuario;
-		this.estado = estado;
+		this.estado_Propuesta = estado_Propuesta;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return nombrePropuesta;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombre(String nombrePropuesta) {
+		this.nombrePropuesta = nombrePropuesta;
 	}
 
 	public String getDescripcion() {
@@ -69,16 +71,16 @@ public class Iniciativa{
 		this.usuario = usuario;
 	}
 	
-	public Estado getEstado() {
-		return estado;
+	public String getEstado() {
+		return estado_Propuesta;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setEstado(String estado_Propuesta) {
+		this.estado_Propuesta = estado_Propuesta;
 	}
 	
 	public String toString() {
-		return "Iniciativa {nombre: " + nombre + ", descripcion: " + descripcion + ", fechaInicio: " + fechaInicio + ", palabrasClaves: " + palabrasClaves + ", area: " + area + ", usuario: " + usuario + "}";
+		return "Iniciativa {nombre: " + nombrePropuesta + ", descripcion: " + descripcion + ", fechaInicio: " + fechaInicio + ", palabrasClaves: " + palabrasClaves + ", area: " + area + ", usuario: " + usuario + ", estado: " + estado_Propuesta + "}";
 	}
 	
 }

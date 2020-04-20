@@ -9,9 +9,6 @@ import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import java.util.*;
-
-import org.apache.ibatis.annotations.Param;
-
 import java.lang.String;
 import java.math.BigInteger;
 
