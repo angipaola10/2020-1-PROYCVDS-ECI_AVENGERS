@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.services.BancoPropuestas;
@@ -37,19 +38,46 @@ public class BancoPropuestasBean extends BasePageBean {
         System.out.println(clientes);
         return clientes;
     }
-    public Usuario consultarUsuario(long documento){
+	
+    public Usuario consultarUsuario(String correo){
         Usuario cliente=null;
         try {
-            cliente=bancoPropuesta.consultarUsuario(documento);
+            cliente=bancoPropuesta.consultarUsuario(correo);
         } catch (Exception e) {
             setErrorMessage(e);
         }
         return cliente;
     }
 	
+	public Usuario consultarUsuarioLog(String correo, String clave){
+        Usuario cliente=null;
+        try {
+            cliente=bancoPropuesta.consultarUsuarioLog(correo, clave);
+        } catch (Exception e) {
+            setErrorMessage(e);
+        }
+        return cliente;
+    }
+	
+	public void modificarUsuario(int rol, String correo, Date fechaInicio){
+        try{
+            bancoPropuesta.modificarUsuario(rol, correo);
+        } catch (Exception e) {
+            setErrorMessage(e);
+        }
+    }
+	
     public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, Usuario usuario, Estado estado){
         try{
             bancoPropuesta.registrarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estado);
+        } catch (Exception e) {
+            setErrorMessage(e);
+        }
+    }
+	
+	public void registrarUsuario(int id, String tid, String nombre, int telefono, String correo, String clave, Rol rol, String estado){
+        try{
+            bancoPropuesta.registrarUsuario(id, tid, nombre, telefono, correo, clave, rol, estado);
         } catch (Exception e) {
             setErrorMessage(e);
         }

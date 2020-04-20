@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.cvds.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
+
+import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.*;
@@ -17,9 +14,9 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
     private UsuarioMapper usuarioMapper;
 
     @Override
-    public Usuario consultarUsuario (long docu) throws PersistenceException {
+    public Usuario obtenerUsuario (String correo) throws PersistenceException {
         try{
-             return usuarioMapper.consultarUsuario(docu);
+             return usuarioMapper.consultarUsuario(correo);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              
@@ -29,7 +26,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
     }
 	
 	 @Override
-    public List<Usuario> consultarUsuarios() throws PersistenceException {
+    public List<Usuario> obtenerUsuarios() throws PersistenceException {
         try{
             System.out.println("hola 111");
 
@@ -45,9 +42,9 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
     }
 	
 	@Override
-    public Usuario obtenerUsuarioLog(long id, String clave) throws PersistenceException {
+    public Usuario obtenerUsuarioLog(String correo, String clave) throws PersistenceException {
         try{
-             return usuarioMapper.consultarUsuarioLog(id,clave);
+             return usuarioMapper.consultarUsuarioLog(correo,clave);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              
@@ -55,7 +52,31 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
              
          }	
     }
+	
+	@Override
+    public void actualizarUsuario(int rol, String correo)throws PersistenceException {
+        try{
+             usuarioMapper.modificarUsuario(rol,correo);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             
+             throw new PersistenceException("Error al actualizar el rol del usuario:",e);
+             
+         }	
+    }
 
+
+	@Override
+    public void agregarUsuario(int id, String tid, String nombre, int telefono, String correo, String clave, Rol rol, String estado) throws PersistenceException {
+        try{
+             usuarioMapper.insertarUsuario(id, tid, nombre, telefono, correo, clave, rol, estado);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             
+             throw new PersistenceException("Error al actualizar el registrar este usuario:",e);
+             
+         }	
+    }
 	
 	
 }

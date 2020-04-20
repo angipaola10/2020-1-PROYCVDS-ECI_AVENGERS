@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS Usuario(id BIGINT NOT NULL, tid VARCHAR(2) NOT NULL, 
 
 ALTER TABLE Usuario ADD CONSTRAINT id_unico UNIQUE(id);
 
-CREATE TABLE IF NOT EXISTS Iniciativa(nombrePropuesta VARCHAR(50) NOT NULL, id SERIAL PRIMARY KEY, descripcion varchar(150)  NOT NULL, fechaInicio date  NOT NULL, area varchar(50)  NOT NULL, usuario_correo VARCHAR(50) REFERENCES Usuario(correo), estado_Propuesta VARCHAR(30) REFERENCES Estado(estado));
+CREATE TABLE IF NOT EXISTS Iniciativa(nombrePropuesta VARCHAR(50) NOT NULL, id SERIAL PRIMARY KEY, descripcion varchar(150)  NOT NULL, fechaInicio date  NOT NULL, area varchar(50)  NOT NULL, usuario VARCHAR(50) REFERENCES Usuario(correo), estado_Propuesta VARCHAR(30) REFERENCES Estado(estado));
 
 ALTER TABLE Iniciativa ADD CONSTRAINT nombrePropuesta_unico UNIQUE(nombrePropuesta);
 
@@ -28,4 +28,4 @@ INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALU
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1019150998, 'CC', 'Daniela Ruiz', 3178484579, 'angied.ruiz', 'RuizAlf123', 'Activo', 'Proponente');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1003587553, 'CC', 'Edwin Yesid', 3008427536, 'edwin.rodriguez', '123456789', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1015442700, 'CC', 'Henry Sanchez', 3057786453, 'henry.sanchez', 'santafe1948', 'Activo', 'Proponente');
-INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usuario_correo, estado_Propuesta) VALUES ('HoloLens Aid', '1', 'El uso de las HoloLens de Microsoft en ayuda para la atención de desastres naturales.', '04/16/2020', 'Ingeniería', 'angied.ruiz', 'En espera de revisión');
+INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usuario, estado_Propuesta) VALUES ('HoloLens Aid', '1', 'El uso de las HoloLens de Microsoft en ayuda para la atención de desastres naturales.', '04/16/2020', 'Ingeniería', 'angied.ruiz', 'En espera de revisión');

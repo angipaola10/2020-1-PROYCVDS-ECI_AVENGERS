@@ -8,12 +8,10 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import edu.eci.cvds.persistence.IniciativaDAO;
-import edu.eci.cvds.persistence.UsuarioDAO;
-import edu.eci.cvds.persistence.mybatisimpl.MyBatisIniciativaDAO;
-import edu.eci.cvds.persistence.mybatisimpl.MyBatisUsuarioDAO;
-import edu.eci.cvds.services.BancoPropuestas;
-import edu.eci.cvds.services.impl.BancoPropuestasImpl;
+import edu.eci.cvds.persistence.*;
+import edu.eci.cvds.persistence.mybatisimpl.*;
+import edu.eci.cvds.services.*;
+import edu.eci.cvds.services.impl.*;
 
 public class GuiceContextListener implements ServletContextListener {
 
@@ -23,11 +21,13 @@ public class GuiceContextListener implements ServletContextListener {
     }
 
     public void contextInitialized(ServletContextEvent servletContextEvent) {
+		
         Injector injector = Guice.createInjector(new XMLMyBatisModule() {
+			
             @Override
             protected void initialize() {
 
-                install(JdbcHelper.MySQL);
+                install(JdbcHelper.PostgreSQL);
                 setEnvironmentId("development");
                 setClassPathResource("mybatis-config.xml");
 				
@@ -36,8 +36,7 @@ public class GuiceContextListener implements ServletContextListener {
 				bind(IniciativaDAO.class).to(MyBatisIniciativaDAO.class);
 				bind(BancoPropuestas.class).to(BancoPropuestasImpl.class);
             }
-        }
-        );
+        });
 
         ServletContext servletContext = servletContextEvent.getServletContext();
         servletContext.setAttribute(Injector.class.getName(), injector);

@@ -5,15 +5,21 @@
  */
 package edu.eci.cvds.persistence;
 
+import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
-import java.util.List;
+import java.util.*;
+import java.lang.String;
 
 public interface UsuarioDAO {
 	
-	public List<Usuario> consultarUsuarios() throws PersistenceException;
+	public List<Usuario> obtenerUsuarios() throws PersistenceException;
 
-    public Usuario consultarUsuario(long docu) throws PersistenceException;
+    public Usuario obtenerUsuario(String correo) throws PersistenceException;
 	
-	public Usuario obtenerUsuarioLog(long id, String clave) throws PersistenceException;
+	public Usuario obtenerUsuarioLog(String correo, String clave) throws PersistenceException;
+	
+	public void actualizarUsuario(int rol, String correo) throws PersistenceException;
+	
+	public void agregarUsuario(int id, String tid, String nombre, int telefono, String correo, String clave, Rol rol, String estado) throws PersistenceException;
 
 }

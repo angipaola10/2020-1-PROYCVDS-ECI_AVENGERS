@@ -21,18 +21,18 @@
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
-	    i.nombrePropuesta,
-		i.descripcion,
-		i.fechaInicio,
-		i.area,
-		i.usuario,
-		i.estado_Propuesta,
-		FROM iniciativa as i;
+	    nombrePropuesta,
+		descripcion,
+		fechaInicio,
+		area,
+		usuario,
+		estado,
+		FROM iniciativa;
     </select>
 	
 	<insert id="insertarIniciativa" parameterType="Iniciativa">
-		INSERT INTO Iniciativa(nombrePropuesta, descripcion, fechaInicio, area, usuario_correo, estado_Propuesta) 
-		VALUES((#{nombrePropuesta}, #{descripcion}, #{fechaInicio}, #{area}, #{usuario_correo}, #{estado_Propuesta})
+		INSERT INTO Iniciativa (nombrePropuesta, descripcion, fechaInicio, area, usuario, estado_Propuesta) 
+		VALUES((#{nombrePropuesta}, #{descripcion}, #{fechaInicio}, #{area}, #{usuario}, #{estado_Propuesta})
 	</insert>
 	
 	<select id="consultarPropuestaPorUsuario" resultMap="IniciativaResult" parameterType="map">
@@ -42,7 +42,7 @@
 		i.fechaInicio,
 		i.area,
 		i.usuario,
-		i.estado_Propuesta,
+		i.estado,
 	    FROM iniciativa as i
 		WHERE i.usuario_correo = #{correo};
     </select>
