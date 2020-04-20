@@ -11,10 +11,8 @@
 		<result property='fechaInicio' column='fechaInicio'/>
 		<result property='area' column='area'/>
 		<result property='usuario' column='usuario'/>
-		<result property='estado_Propuesta' column='estado_Propuesta'/>
+		<result property='estado_Propuesta' column='estado_Propuesta'/> 
     </resultMap>  
- 
-	
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
@@ -23,9 +21,11 @@
 		i.fechaInicio,
 		i.area,
 		i.usuario,
-		i.estado_Propuesta
-		FROM iniciativa as i, usuario as u
-		WHERE i.usuario = u.correo;
+		i.estado_Propuesta,
+		u.nombre
+		FROM iniciativa as i
+		JOIN usuario as u
+		ON i.usuario = u.correo;
     </select>
 	
 	<insert id="insertarIniciativa" parameterType="Iniciativa">

@@ -14,13 +14,14 @@ public class Iniciativa{
 	
 	public Iniciativa() {}
 	
-	public Iniciativa(String nombrePropuesta, String descripcion, Date fechaInicio, String area, String usuario, String esestado_Propuestatado){
+	public Iniciativa(String nombrePropuesta, String descripcion, Date fechaInicio, String area, String usuario, String estado_Propuesta){
 		this.nombrePropuesta = nombrePropuesta;
 		this.descripcion= descripcion;
 		this.fechaInicio = fechaInicio;
 		this.area= area;
 		this.usuario = usuario;
 		this.estado_Propuesta = estado_Propuesta;
+		
 	}
 
 	public String getNombre() {
