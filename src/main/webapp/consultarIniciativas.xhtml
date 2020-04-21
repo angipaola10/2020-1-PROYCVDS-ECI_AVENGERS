@@ -36,13 +36,13 @@
 			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativas()}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
 				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.GetIniciativa()}"
-				rowKey="#{iniciativa.nombre}">			
-				<p:column headerText="Nombre" filterBy="#{iniciativa.nombre}" sortBy="#{iniciativa.nombre}">
-					<h:outputText value="#{iniciativa.nombre}"  />
+				rowKey="#{iniciativa.nombrePropuesta}">			
+				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
+					<h:outputText value="#{iniciativa.nombrePropuesta}"  />
 				</p:column>
 				
-				<p:column headerText="Nombre proponente" filterBy="#{null}" sortBy="#{null}">
-					<h:outputText value=""  />
+				<p:column headerText="Nombre proponente" filterBy="#{iniciativa.nombreProponente}" sortBy="#{iniciativa.nombreProponente}">
+					<h:outputText value="#{iniciativa.nombreProponente}"  />
 				</p:column>
 				
 				<p:column headerText="Usuario proponente" filterBy="#{iniciativa.usuario}" sortBy="#{iniciativa.usuario}">
@@ -57,8 +57,12 @@
 					<h:outputText value="#{iniciativa.area}" />
 				</p:column>
 				
-				<p:column headerText="Estado" filterBy="#{iniciativa.estado}" sortBy="#{iniciativa.estado}">
-					<h:outputText value="#{iniciativa.estado}" />
+				<p:column headerText="Estado" filterBy="#{iniciativa.estado_Propuesta}" sortBy="#{iniciativa.estado_Propuesta}">
+					<h:outputText value="#{iniciativa.estado_Propuesta}" />
+				</p:column>
+
+				<p:column headerText="Palabra Clave" filterBy="#{null}" sortBy="#{null}">
+					<h:outputText value="#{null}" />
 				</p:column>
 				
 				<f:facet name="footer">
