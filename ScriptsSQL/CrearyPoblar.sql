@@ -14,17 +14,27 @@ ALTER TABLE Iniciativa ADD CONSTRAINT nombrePropuesta_unico UNIQUE(nombrePropues
 
 CREATE TABLE IF NOT EXISTS PalabraClave (id SERIAL PRIMARY KEY, palabraClave VARCHAR(20) NOT NULL);
 
-ALTER TABLE palabraclave ADD CONSTRAINT FK_palabraC_iniciativa FOREIGN KEY (id) REFERENCES iniciativa(id);
+CREATE TABLE IF NOT EXISTS PCIniciativa (ini_id INT NOT NULL, palabras_clave INT NOT NULL);
+
+ALTER TABLE PCIniciativa ADD CONSTRAINT PK_PCIniciativa_ids PRIMARY KEY(ini_id, palabras_clave);
+
+ALTER TABLE PCIniciativa ADD CONSTRAINT FK_PCIniciativa_iniciativa FOREIGN KEY (ini_id) REFERENCES Iniciativa(id);
+
+ALTER TABLE PCIniciativa ADD CONSTRAINT FK_PCIniciativa_palabraClave FOREIGN KEY (palabras_clave) REFERENCES PalabraClave(id);
+
+
 
 INSERT INTO Rol(tipo) VALUES ('Administrador');
 INSERT INTO Rol(tipo) VALUES ('Proponente');
 INSERT INTO Rol(tipo) VALUES ('PersonalPMO');
 INSERT INTO Rol(tipo) VALUES ('Publico');
 
+
 INSERT INTO Estado(estado) VALUES ('En espera de revisión');
 INSERT INTO Estado(estado) VALUES ('En revisión');
 INSERT INTO Estado(estado) VALUES ('Proyecto');
 INSERT INTO Estado(estado) VALUES ('Solucionado');
+
 
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (9303130, 'CC', 'Angi Jimenez', 3186759533, 'angi.jimenez', 'Angie2020', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1019150998, 'CC', 'Daniela Ruiz', 3178484579, 'angied.ruiz', 'RuizAlf123', 'Activo', 'Proponente');

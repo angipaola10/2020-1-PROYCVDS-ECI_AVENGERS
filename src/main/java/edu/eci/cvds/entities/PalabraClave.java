@@ -19,6 +19,6 @@ public class PalabraClave {
 	}
 	
 	public String toString() {
-		return palabraClave;
+		return "Palabra Clave: {palabra clave: " + palabraClave + "}";
 	}
 }

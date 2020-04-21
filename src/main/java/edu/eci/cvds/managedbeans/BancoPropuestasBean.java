@@ -6,9 +6,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
+import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.services.BancoPropuestas;
@@ -33,6 +35,8 @@ public class BancoPropuestasBean extends BasePageBean {
     private Reporte reporte;
     
 	private Iniciativa iniciativa;
+	
+	private PalabraClave palabraClave;
 
     public List<Usuario> consultarUsuarios(){
         List<Usuario> clientes = null;
@@ -117,6 +121,12 @@ public class BancoPropuestasBean extends BasePageBean {
         return usuario;
     }
     
+    public void setSelectedPalabraClave(PalabraClave palabraClave){this.palabraClave = palabraClave;}
+
+    public PalabraClave GetPalabraClave(){
+        return palabraClave;
+    }
+    
     public void setSelectedIniciativa(Iniciativa iniciativa){this.iniciativa = iniciativa;}
 
     public Iniciativa GetIniciativa(){
@@ -177,6 +187,44 @@ public class BancoPropuestasBean extends BasePageBean {
     public String[] getEstadosIniciativas() {
         return estadosIniciativas;
     }
+    
+    public void registrarPalabraClave(String palabraClave) throws BancoPropuestasException {
+	   try {
+		   bancoPropuesta.registrarPalabraClave(palabraClave);
+       } catch (BancoPropuestasException e) {
+    	   setErrorMessage(e);
+       }
+   }
+	
+	public void registrarPCIniciativa() throws BancoPropuestasException {
+		try {
+			 bancoPropuesta.registrarPCIniciativa();
+	       } catch (BancoPropuestasException e) {
+	    	   setErrorMessage(e);
+	       }
+   }
+	
+	public List<PalabraClave> consultarPalabraClave(String id_iniciativa) throws BancoPropuestasException {
+	   List<PalabraClave> palabrasClaves = null;
+       try{
+    	   palabrasClaves = bancoPropuesta.consultarPalabraClave(id_iniciativa);
+       } catch (BancoPropuestasException e) {
+       	setErrorMessage(e);
+       }
+       System.out.println(palabrasClaves);
+       return palabrasClaves;
+   }
+	
+	public List<PalabraClave> consultarPalabrasClaves() throws BancoPropuestasException {
+	   List<PalabraClave> palabrasClaves = null;
+       try{
+    	   palabrasClaves = bancoPropuesta.consultarPalabrasClaves();
+       } catch (BancoPropuestasException e) {
+       	setErrorMessage(e);
+       }
+       System.out.println(palabrasClaves);
+       return palabrasClaves;
+   }
 
     public void setEstadosIniciativas (String[] estadosIni) {}
 

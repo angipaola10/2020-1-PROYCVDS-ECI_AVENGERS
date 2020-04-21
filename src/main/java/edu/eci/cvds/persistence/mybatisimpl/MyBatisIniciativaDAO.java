@@ -5,6 +5,7 @@ import java.util.*;
 import java.lang.String;
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper;
 import edu.eci.cvds.persistence.IniciativaDAO;
@@ -67,6 +68,47 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
              throw new PersistenceException("Error al consultar esta area:",e);  
          }	
     }
+	
+	@Override
+	public void agregarPalabraClave(String palabraClave) throws PersistenceException {
+		try{
+			iniciativaMapper.insertarPalabraClave(palabraClave);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al agregar la palabra clave:",e);   
+         }
+	}
+	
+	@Override
+	public void agregarPCIniciativa() throws PersistenceException {
+		try{
+			iniciativaMapper.insertarPCIniciativa();
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al agregar el id de la palabra clave en la tabla intermedia:",e);   
+         }
+	}
+
+	@Override
+	public List<PalabraClave> consultarPalabrasClave(String id_iniciativa) throws PersistenceException {
+		try{
+			return iniciativaMapper.consultarPalabrasClaveInciativa(id_iniciativa);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar las plabaras clave de esta iniciativa:",e);   
+         }
+	}
+	
+	@Override
+	public List<PalabraClave> consultarPalabrasClaves() throws PersistenceException {
+		try{
+			return iniciativaMapper.consultarTodasLasPalabrasClaves();
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar todas las plabaras clave:",e);   
+         }
+	}
+	
 	
 }
 

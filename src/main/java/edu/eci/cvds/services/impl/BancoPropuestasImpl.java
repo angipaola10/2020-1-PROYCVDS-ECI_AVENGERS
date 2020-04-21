@@ -3,6 +3,7 @@ package edu.eci.cvds.services.impl;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
@@ -136,6 +137,42 @@ public class BancoPropuestasImpl implements BancoPropuestas {
            throw new BancoPropuestasException("Error al actualizar el rol del usuario. ",e);
        }
 	}
-  
+   
+   @Override
+    public void registrarPalabraClave(String palabraClave) throws BancoPropuestasException {
+	   try {
+		   iniciativaDAO.agregarPalabraClave(palabraClave);
+       } catch (PersistenceException e) {
+           throw new BancoPropuestasException("Error al registrar la palabra clave ",e);
+       }
+   }
+	
+   @Override
+	public void registrarPCIniciativa() throws BancoPropuestasException {
+	   try {
+           iniciativaDAO.agregarPCIniciativa();
+       } catch (PersistenceException e) {
+           throw new BancoPropuestasException("Error al registrar la tabla intermedia ",e);
+       }
+   }
+	
+   @Override
+	public List<PalabraClave> consultarPalabraClave(String id_iniciativa) throws BancoPropuestasException {
+	   try {
+           return iniciativaDAO.consultarPalabrasClave(id_iniciativa);
+       } catch (PersistenceException e) {
+           throw new BancoPropuestasException("Error al consultar las palabras clave de esta inciativa ",e);
+       }
+   }
+	
+   @Override
+	public List<PalabraClave> consultarPalabrasClaves() throws BancoPropuestasException {
+	   try {
+           return iniciativaDAO.consultarPalabrasClaves();
+       } catch (PersistenceException e) {
+           throw new BancoPropuestasException("Error al consultar todas las palabras clave ",e);
+       }
+   }
+	
    
 }
