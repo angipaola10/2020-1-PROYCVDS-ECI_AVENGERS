@@ -3,6 +3,7 @@ package edu.eci.cvds.services.impl;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.entities.Estado;
@@ -100,9 +101,9 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	}
 	
 	@Override
-	public void agruparIniciativas() throws BancoPropuestasException {
+	public List<Reporte> agruparIniciativas() throws BancoPropuestasException {
 		try {
-            iniciativaDAO.agruparIniciativas();
+            return iniciativaDAO.agruparIniciativas();
         } catch (PersistenceException e) {
             throw new BancoPropuestasException("Error al agrupar las iniciativas ",e);
         }

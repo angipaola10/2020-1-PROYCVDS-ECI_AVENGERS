@@ -6,9 +6,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.entities.Estado;
+import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException;
 import java.util.List;
@@ -27,6 +29,8 @@ public class BancoPropuestasBean extends BasePageBean {
     private BancoPropuestas bancoPropuesta;
 	
     private Usuario usuario;
+    
+    private Reporte reporte;
     
 	private Iniciativa iniciativa;
 
@@ -88,12 +92,15 @@ public class BancoPropuestasBean extends BasePageBean {
         }
     }
     
-    public void agruparIniciativas(){
+    public List<Reporte> agruparIniciativas(){
+    	List<Reporte> reportes = null;
         try{
-            bancoPropuesta.agruparIniciativas();
+            reportes = bancoPropuesta.agruparIniciativas();
         } catch (BancoPropuestasException e) {
-            setErrorMessage(e);
+        	setErrorMessage(e);
         }
+        System.out.println(reportes);
+        return reportes;
     }
 	
 	public void registrarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado){
@@ -114,6 +121,12 @@ public class BancoPropuestasBean extends BasePageBean {
 
     public Iniciativa GetIniciativa(){
         return iniciativa;
+    }
+    
+    public void setSelectedReporte(Reporte reporte){this.reporte = reporte;}
+
+    public Reporte GetReporte(){
+        return reporte;
     }
     
     public List<Iniciativa> consultarIniciativas(){
@@ -159,16 +172,12 @@ public class BancoPropuestasBean extends BasePageBean {
         return roles;
     }
 
-    public void setRoles(Rol[] roles1) {
-
-    }
+    public void setRoles(Rol[] roles1) {}
 
     public String[] getEstadosIniciativas() {
         return estadosIniciativas;
     }
 
-    public void setEstadosIniciativas (String[] estadosIni) {
-
-    }
+    public void setEstadosIniciativas (String[] estadosIni) {}
 
 }

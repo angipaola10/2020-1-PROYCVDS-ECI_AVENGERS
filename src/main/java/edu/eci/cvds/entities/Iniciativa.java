@@ -11,24 +11,25 @@ public class Iniciativa{
 	private String area;
 	private String usuario;
 	private String estado_Propuesta;
-	
+	private String nombreProponente;
+
 	public Iniciativa() {}
 	
-	public Iniciativa(String nombrePropuesta, String descripcion, Date fechaInicio, String area, String usuario, String estado_Propuesta){
+	public Iniciativa(String nombrePropuesta, String descripcion, Date fechaInicio, String area, String usuario, String estado_Propuesta, String nombreProponente){
 		this.nombrePropuesta = nombrePropuesta;
 		this.descripcion= descripcion;
 		this.fechaInicio = fechaInicio;
 		this.area= area;
 		this.usuario = usuario;
 		this.estado_Propuesta = estado_Propuesta;
-		
+		this.nombreProponente = nombreProponente;	
 	}
-
-	public String getNombre() {
+	
+	public String getNombrePropuesta() {
 		return nombrePropuesta;
 	}
 
-	public void setNombre(String nombrePropuesta) {
+	public void setNombrePropuesta(String nombrePropuesta) {
 		this.nombrePropuesta = nombrePropuesta;
 	}
 
@@ -39,7 +40,7 @@ public class Iniciativa{
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
+
 	public Date getFechaInicio() {
 		return fechaInicio;
 	}
@@ -47,7 +48,7 @@ public class Iniciativa{
 	public void setFechaInicio(Date fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
-	
+
 	public List<PalabraClave> getPalabrasClaves() {
 		return palabrasClaves;
 	}
@@ -71,15 +72,23 @@ public class Iniciativa{
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	
-	public String getEstado() {
+
+	public String getEstado_Propuesta() {
 		return estado_Propuesta;
 	}
 
-	public void setEstado(String estado_Propuesta) {
+	public void setEstado_Propuesta(String estado_Propuesta) {
 		this.estado_Propuesta = estado_Propuesta;
 	}
-	
+
+	public String getNombreProponente() {
+		return nombreProponente;
+	}
+
+	public void setNombreProponente(String nombreProponente) {
+		this.nombreProponente = nombreProponente;
+	}
+
 	public String toString() {
 		return "Iniciativa {nombre: " + nombrePropuesta + ", descripcion: " + descripcion + ", fechaInicio: " + fechaInicio + ", palabrasClaves: " + palabrasClaves + ", area: " + area + ", usuario: " + usuario + ", estado: " + estado_Propuesta + "}";
 	}

@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.sql.Date;
 import java.util.List;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.entities.Estado;
@@ -28,7 +29,7 @@ public interface BancoPropuestas {
     
     public abstract void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, String estadoPropuesta) throws BancoPropuestasException; 
     
-    public abstract void agruparIniciativas() throws BancoPropuestasException; 
+    public abstract List<Reporte> agruparIniciativas() throws BancoPropuestasException; 
 
 	public abstract void registrarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) throws BancoPropuestasException; 
 

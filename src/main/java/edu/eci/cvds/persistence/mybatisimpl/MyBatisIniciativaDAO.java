@@ -5,6 +5,7 @@ import java.util.*;
 import java.lang.String;
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper;
 import edu.eci.cvds.persistence.IniciativaDAO;
 import edu.eci.cvds.persistence.PersistenceException;
@@ -38,9 +39,9 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
     }
 	
 	@Override
-	public void agruparIniciativas() throws PersistenceException {
+	public List<Reporte> agruparIniciativas() throws PersistenceException {
 		try{
-			iniciativaMapper.agruparPropuestaPorArea();
+			return iniciativaMapper.agruparPropuestaPorArea();
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              throw new PersistenceException("Error al agrupar las propuestas:",e);   

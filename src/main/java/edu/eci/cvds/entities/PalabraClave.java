@@ -4,6 +4,8 @@ public class PalabraClave {
 
 	private String palabraClave;
 	
+	public PalabraClave() {}
+	
 	public PalabraClave(String palabraClave) {
 		this.palabraClave= palabraClave;
 	}

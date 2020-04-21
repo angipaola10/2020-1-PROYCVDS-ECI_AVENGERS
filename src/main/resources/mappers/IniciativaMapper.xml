@@ -12,7 +12,13 @@
 		<result property='area' column='area'/>
 		<result property='usuario' column='usuario'/>
 		<result property='estado_Propuesta' column='estado_Propuesta'/> 
+		<result property='nombreProponente' column='nombreProponente'/>
     </resultMap>  
+    
+    <resultMap type="Reporte" id="DTO">
+    	<result property='area' column='area'/>        
+        <result property='numIniciativas' column='numIniciativas'/>
+    </resultMap>
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
@@ -22,7 +28,7 @@
 		i.area,
 		i.usuario,
 		i.estado_Propuesta,
-		u.nombre
+		u.nombre as nombreProponente
 		FROM iniciativa as i
 		JOIN usuario as u
 		ON i.usuario = u.correo;
@@ -58,8 +64,8 @@
 		WHERE i.usuario = u.correo and i.area = #{area};
     </select>
     
-    <select id="agruparPropuestaPorArea" resultMap="IniciativaResult" parameterType="map">
-		SELECT area, count(nombrePropuesta) FROM iniciativa
+    <select id="agruparPropuestaPorArea" resultMap="DTO" parameterType="map">
+		SELECT area, count(1) as numIniciativas FROM iniciativa
  		GROUP BY area;
     </select>
   
