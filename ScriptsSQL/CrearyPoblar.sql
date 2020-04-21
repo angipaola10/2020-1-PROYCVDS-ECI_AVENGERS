@@ -30,5 +30,7 @@ INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALU
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1019150998, 'CC', 'Daniela Ruiz', 3178484579, 'angied.ruiz', 'RuizAlf123', 'Activo', 'Proponente');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1003587553, 'CC', 'Edwin Yesid', 3008427536, 'edwin.rodriguez', '123456789', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1015442700, 'CC', 'Henry Sanchez', 3057786453, 'henry.sanchez', 'santafe1948', 'Activo', 'Proponente');
+
+
 INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usuario, estado_Propuesta) VALUES ('HoloLens Aid', '1', 'El uso de las HoloLens de Microsoft en ayuda para la atención de desastres naturales.', '04/16/2020', 'Ingeniería', 'angied.ruiz', 'En espera de revisión');
 INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usuario, estado_Propuesta) VALUES ('El arte de ingeniar', '2', 'El uso del arte para el desarrollo de la ingenieria.', '02/23/2020', 'Artes', 'angied.ruiz', 'En espera de revisión');

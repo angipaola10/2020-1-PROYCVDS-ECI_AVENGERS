@@ -13,3 +13,5 @@ CREATE TABLE IF NOT EXISTS Iniciativa(nombrePropuesta VARCHAR(50) NOT NULL, id S
 ALTER TABLE Iniciativa ADD CONSTRAINT nombrePropuesta_unico UNIQUE(nombrePropuesta);
 
 CREATE TABLE IF NOT EXISTS PalabraClave (id SERIAL PRIMARY KEY, palabraClave VARCHAR(20) NOT NULL);
+
+ALTER TABLE palabraclave ADD CONSTRAINT FK_palabraC_iniciativa FOREIGN KEY (id) REFERENCES iniciativa(id);
