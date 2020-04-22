@@ -1,7 +1,10 @@
 package edu.eci.cvds.entities;
 
-public class PalabraClave {
+import org.primefaces.model.SelectableDataModel;
 
+public class PalabraClave implements SelectableDataModel{
+
+	private int id;
 	private String palabraClave;
 	
 	public PalabraClave() {}
@@ -20,5 +23,17 @@ public class PalabraClave {
 	
 	public String toString() {
 		return "Palabra Clave: {palabra clave: " + palabraClave + "}";
+	}
+	
+	@Override
+	public Object getRowKey(Object object) {
+		// TODO Auto-generated method stub
+		return palabraClave;
+	}
+
+	@Override
+	public Object getRowData(String rowKey) {
+		// TODO Auto-generated method stub
+		return this;
 	}
 }

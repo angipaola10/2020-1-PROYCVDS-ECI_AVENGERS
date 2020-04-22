@@ -34,13 +34,14 @@ public interface BancoPropuestas {
 
 	public abstract void registrarUsuario(int id, String tid, String nombre, BigInteger telefono, String correo, String clave, Rol rol, String estado) throws BancoPropuestasException; 
 
-	//public abstract void registrarPalabraClave(String palabraClave) throws BancoPropuestasException;
+	public abstract void registrarPalabraClave(String palabraClave) throws BancoPropuestasException;
 	
-	//public abstract void registrarPCIniciativa() throws BancoPropuestasException;
+	//public abstract void registrarPCIniciativa(int idIniciativa, int idPClave) throws BancoPropuestasException;
 	
 	//public abstract List<PalabraClave> consultarPalabraClave(String id_iniciativa) throws BancoPropuestasException;
 	
-	//public abstract List<PalabraClave> consultarPalabrasClaves() throws BancoPropuestasException;
+	public abstract List<PalabraClave> consultarPalabrasClaves() throws BancoPropuestasException;
 	
-	public abstract void modificarIniciativaEstado(String estado, String correo) throws BancoPropuestasException;
+	public abstract void modificarIniciativaEstado(String estado, String nombre) throws BancoPropuestasException;
+
 }

@@ -2,75 +2,31 @@ body{
 	
 }
 
-.header{
-	padding:0px;
-	width: 100%;
-	background-color: #b80f22;
-	height: 36px;
-}
-
-ul, ol{
-	list-style:none;
-}
-
-.nav li a{
-	text-align: center;
-	height:16px;
-	width: 140px;
-	padding:0px;
-	background-color: #b80f22;
-	color: #fff;
-	text-decoration:none;
-	padding:10px 15px;
-	display:block;
-	font-family: impact;
-}
-
-.nav > li{
-	float:left;
-}
-
-.nav li a:hover{
-	background-color: #DBDBDB;
-	color: #000;
-}
-
-.nav li ul{
-	padding:0px;
-	display:none;
-	position:absolute;
-	min-width:140px;
-}
-
-.nav li:hover > ul{
-	display: block;
-}
-
 .registrar-iniciativa{
 	width: 40%;
-	height: 82vh;
-	background-color: #fff;
+	height: 80vh;
+	background-color: transparent;
 	position:absolute;
 	left: 10%;
 	margin:10px;
 	border:none;
-	border-left: 1px solid #AAAAAA;
+	border-right: 1px solid #b80f22;
+	margin-top:10px;
 }
 
 .registrar-pclaves{
 	width: 40%;
-	height: 82vh;
-	background-color: #fff;
-	position:absolute;
+	height: 75vh;
+	background-color: transparent;
+	position:relative;
 	left: 50%;
 	margin:10px;
 	border:none;
-	border-right: 1px solid #AAAAAA;
 }
 
 .registrar-iniciativa p{
 	color: #727070;
-	padding-left: 10px;
+	padding-left: 184px;
 	font-family: Impact;
 }
 
@@ -202,5 +158,61 @@ ul, ol{
 	border:none;
 	font-size:14px;
 }
-	
+
+.registrar-iniciativa .areabox{
+	box-shadow:none;
+	border:none;
+	width:72%;
+	font-size:14px;
+	width: 350px;
+	height: 40px;
+	display: block;
+	margin-left: calc(50% - 175px);
+	border:none;
+	color:#000;
 }
+
+.header{
+	padding:0px;
+	width: 100%;
+	background-color: #b80f22;
+	height: 36px;
+}
+
+ul, ol{
+	list-style:none;
+}
+
+.nav li a{
+	text-align: center;
+	height:16px;
+	width: 140px;
+	padding:0px;
+	background-color: #b80f22;
+	color: #fff;
+	text-decoration:none;
+	padding:10px 15px;
+	display:block;
+	font-family: impact;
+}
+
+.nav > li{
+	float:left;
+}
+
+.nav li a:hover{
+	background-color: #DBDBDB;
+	color: #000;
+}
+
+.nav li ul{
+	padding:0px;
+	display:none;
+	position:absolute;
+	min-width:140px;
+}
+
+.nav li:hover > ul{
+	display: block;
+}
+

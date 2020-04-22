@@ -6,15 +6,19 @@
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper">
 
     <resultMap type='Iniciativa' id='IniciativaResult'>
-    	<id property='id' column='id'/>
         <result property='nombrePropuesta' column='nombrePropuesta'/>  
 		<result property='descripcion' column='descripcion'/>
 		<result property='fechaInicio' column='fechaInicio'/>
 		<result property='area' column='area'/>
 		<result property='usuario' column='usuario'/>
-		<result property='estado_Propuesta' column='estado_Propuesta'/>
+		<result property='estado_Propuesta' column='estado_Propuesta'/> 
 		<result property='nombreProponente' column='nombreProponente'/>
     </resultMap>  
+	
+	<resultMap type='PalabraClave' id='PalabraClaveResult'> 
+		<result property='id' column='id'/> 
+        <result property='palabraClave' column='palabraClave'/>  
+    </resultMap> 
     
     <resultMap type="Reporte" id="DTO">
     	<result property='area' column='area'/>        
@@ -23,7 +27,6 @@
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
-		i.id,
 	    i.nombrePropuesta,
 		i.descripcion,
 		i.fechaInicio,
@@ -43,7 +46,6 @@
 	
 	<select id="consultarPropuestaPorUsuario" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
-		i.id,
 	    i.nombrePropuesta,
 		i.descripcion,
 		i.fechaInicio,
@@ -54,9 +56,9 @@
 		WHERE i.usuario = u.correo and i.usuario = #{correo};
     </select>
   
-   <select id="consultarPropuestaPorArea" resultMap="IniciativaResult" parameterType="map">
+  
+  <select id="consultarPropuestaPorArea" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
-		i.id,
 	    i.nombrePropuesta,
 		i.descripcion,
 		i.fechaInicio,
@@ -70,10 +72,22 @@
     <select id="agruparPropuestaPorArea" resultMap="DTO" parameterType="map">
 		SELECT area, count(1) as numIniciativas FROM iniciativa
  		GROUP BY area;
-    </select>
+    </select>  
 	
-	<update id='modificarIniciativaEstado'>
-		update Iniciativa set estado_Propuesta =#{estado_Propuesta} where usuario=#{correo};
-	</update>
-  
+	<select id="modificarIniciativaEstado">
+		update Iniciativa set estado_Propuesta=#{estado_Propuesta} where nombrePropuesta=#{nombrePropuesta};
+	</select>
+	
+	<insert id="insertarPalabraClave">
+		INSERT INTO PalabraClave (palabraClave)
+		VALUES (#{palabraClave});
+	</insert>
+	 
+	<select id="consultarTodasLasPalabrasClaves" resultMap="PalabraClaveResult" parameterType="map">
+		SELECT
+		pc.id,
+		pc.palabraClave
+		FROM PalabraClave as pc;
+	</select>
+	
 </mapper>

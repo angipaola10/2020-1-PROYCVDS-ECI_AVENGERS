@@ -38,7 +38,7 @@
 				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
-					<h:outputText value="#{iniciativa.nombrePropuesta}"  />
+					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
 				</p:column>
 				
 				<p:column headerText="Nombre proponente" filterBy="#{iniciativa.nombreProponente}" sortBy="#{iniciativa.nombreProponente}">
@@ -68,10 +68,10 @@
 					</p:selectOneMenu>
 					<p:commandButton value="Actualizar estado" 
 									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									action="#{BancoPropuestasBean.actualizarEstadoIniciativa(estadoi.value)}"/>
+									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}"/>
 				</f:facet>
 				
-			</p:dataTable>          
+			</p:dataTable>     
         </h:form>   
 	</body>
 </html>

@@ -21,15 +21,13 @@ public interface IniciativaMapper {
 	
 	public void insertarIniciativa(@Param("nombrePropuesta") String nombre, @Param("descripcion") String descripcion, @Param("fechaInicio") Date fechaInicio, @Param("area") String area, @Param("usuario") String usuario, @Param("estadoPropuesta") String estadoPropuesta);
 
-	//public void insertarPalabraClave(@Param("palabraClave") String palabraClave);
+	public void insertarPalabraClave(@Param("palabraClave") String palabraClave);
 	
-	//public void insertarPCIniciativa();
+	//public void insertarPCIniciativa(@Param("ini_id") int idIniciativa, @Param("palabras_clave") int idPClave);
 	
 	//public List<PalabraClave> consultarPalabrasClaveInciativa(@Param("id") String id_iniciativa);
 	
-	//public List<PalabraClave> consultarTodasLasPalabrasClaves();
+	public List<PalabraClave> consultarTodasLasPalabrasClaves();
 	
-	public void modificarIniciativaEstado(@Param("estado") String estado, @Param("correo") String correo);
-
-
+	public void modificarIniciativaEstado(@Param("estado_Propuesta") String estado, @Param("nombrePropuesta") String nombre);
 }

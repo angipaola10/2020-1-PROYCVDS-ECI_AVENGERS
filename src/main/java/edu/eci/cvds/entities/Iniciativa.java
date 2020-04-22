@@ -113,7 +113,7 @@ public class Iniciativa implements SelectableDataModel{
 	@Override
 	public Object getRowData(String rowKey) {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 	
 }
