@@ -30,11 +30,13 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
     }
 	
 	@Override
-	public void agregarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, String estadoPropuesta) throws PersistenceException {
+	public void agregarIniciativa(String nombre, String descripcion, String area, String usuario) throws PersistenceException {
 		try{
-			iniciativaMapper.insertarIniciativa(nombre, descripcion, fechaInicio, area, usuario, "En espera de revisión");
+			System.out.println("registrando iniciativa DAO");
+			iniciativaMapper.insertarIniciativa(nombre, descripcion,(Date) null, area, usuario, "En espera de revisión");
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
+        		System.out.println(e.getMessage());
              throw new PersistenceException("Error al actualizar el registrar esta iniciativa:",e);   
          }	
     }

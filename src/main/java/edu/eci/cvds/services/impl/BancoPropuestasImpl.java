@@ -92,9 +92,9 @@ public class BancoPropuestasImpl implements BancoPropuestas {
    
 
 	@Override
-	public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, String estadoPropuesta) throws BancoPropuestasException {
+	public void registrarIniciativa(String nombre, String descripcion, String area, String usuario) throws BancoPropuestasException {
 		try {
-            iniciativaDAO.agregarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estadoPropuesta);
+            iniciativaDAO.agregarIniciativa(nombre, descripcion, area, usuario);
         } catch (PersistenceException e) {
             throw new BancoPropuestasException("Error al registrar la iniciativa ",e);
         }

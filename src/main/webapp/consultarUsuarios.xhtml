@@ -16,14 +16,14 @@
         <div class = "header">
 			<b>Consultar usuarios</b>
 			<ul class="nav">
-				<li><a href="">Usuarios</a>
-					<ul>
-						<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
-					</ul>
-				</li>
 				<li><a href="">Iniciativas</a>
 					<ul>
 						<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
+					</ul>
+				</li>
+				<li><a href="">Usuarios</a>
+					<ul>
+						<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
 					</ul>
 				</li>
 				<li>
@@ -38,8 +38,8 @@
         <h:form id="busquedaUsuarioForm"> 
 			<p:dataTable var="usuario" value="#{BancoPropuestasBean.consultarUsuarios()}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.GetUsuario()}"
-				rowKey="#{usuario.correo}">
+				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.selectedUsuario}" rowKey="#{usuario.correo}">
+				
 				<p:column headerText="No. Documento" filterBy="#{usuario.getId()}">
 				<h:outputText value="#{usuario.getId()}"/>
 				</p:column>
@@ -49,11 +49,11 @@
 				</p:column>
 			 
 				<p:column headerText="Nombre" filterBy="#{usuario.nombre}" sortBy="#{usuario.nombre}">
-					<h:outputText value="#{usuario.nombre}" />
+					<h:outputText value="#{usuario.nombre}"/>
 				</p:column>
 			 
 				<p:column headerText="Correo" filterBy="#{usuario.correo}" >
-					<h:outputText value="#{usuario.correo}" />
+					<h:outputText value="#{usuario.correo}" binding="#{selectedUsuario}" />
 				</p:column>
 				
 				<p:column headerText="Telefono" filterBy="#{usuario.telefono}" >
@@ -69,12 +69,13 @@
 				</p:column>
 				
 				<f:facet name="footer">
-					<p:selectOneMenu id="act-rol">
+					<p:selectOneMenu id="act-rol" binding="#{perfil}">
 						<f:selectItem itemLabel="Seleccione un rol" itemValue="" noSelectionOption="true" />
 						<f:selectItems value="#{BancoPropuestasBean.roles}" />
 					</p:selectOneMenu>
 					<p:commandButton value="Asignar perfil" 
-									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"/>
+									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
+									action="#{BancoPropuestasBean.modificarUsuario(perfil.value)}"/>
 				</f:facet>
 			</p:dataTable>  
         </h:form>   

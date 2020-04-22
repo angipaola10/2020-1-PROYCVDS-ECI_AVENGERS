@@ -50,6 +50,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
 	@Override
     public void actualizarUsuario(String rol, String correo)throws PersistenceException {
         try{
+        	System.out.println("Modificando usuario DAO");
              usuarioMapper.modificarUsuario(rol,correo);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){

@@ -28,7 +28,7 @@
 					<li>
 						<p:commandButton value="Cerrar sesión"
 									class="btn btn-rose btn-simple btn-wd btn-lg"
-									action="#{shiroBean.doLogOut()}"/>
+									action="#{ShiroBean.doLogOut()}"/>
 					</li>
 				</ul>
 			</div>
@@ -36,6 +36,7 @@
 				<b>Mi cuenta</b>
 				<img src= "assets/img/admi-ico.jpg"/>
 				<label>Administrador</label>
+				<h:outputText value="Bienvenid@ #{ShiroBean.getUsername()}" />
 			</div>
 		</h:form>
 	</body>

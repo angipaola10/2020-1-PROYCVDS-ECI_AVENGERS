@@ -1,9 +1,10 @@
 package edu.eci.cvds.entities;
 
-import java.util.*;
-import java.lang.String;
+import java.util.Date;
+import java.util.List;
+import org.primefaces.model.SelectableDataModel;
 
-public class Iniciativa{
+public class Iniciativa implements SelectableDataModel{
 	private String nombrePropuesta;
 	private String descripcion;
 	private Date fechaInicio;
@@ -91,6 +92,18 @@ public class Iniciativa{
 
 	public String toString() {
 		return "Iniciativa {nombre: " + nombrePropuesta + ", descripcion: " + descripcion + ", fechaInicio: " + fechaInicio + ", palabrasClaves: " + palabrasClaves + ", area: " + area + ", usuario: " + usuario + ", estado: " + estado_Propuesta + "}";
+	}
+	
+	@Override
+	public Object getRowKey(Object object) {
+		// TODO Auto-generated method stub
+		return nombrePropuesta;
+	}
+
+	@Override
+	public Object getRowData(String rowKey) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

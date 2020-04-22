@@ -12,7 +12,6 @@ import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.entities.Estado;
-import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException;
 import java.util.List;
@@ -30,10 +29,10 @@ public class BancoPropuestasBean extends BasePageBean {
     @Inject
     private BancoPropuestas bancoPropuesta;
 	
-    private Usuario usuario;
+    private Usuario selectedUsuario;
     
     private Reporte reporte;
-    
+	private Iniciativa selectedIniciativa;
 	private Iniciativa iniciativa;
 	
 	private PalabraClave palabraClave;
@@ -72,15 +71,16 @@ public class BancoPropuestasBean extends BasePageBean {
         return cliente;
     }
 	
-	public void modificarUsuario(String rol, String correo, Date fechaInicio){
-        try{
-            bancoPropuesta.modificarUsuario(rol, correo);
+	public void modificarUsuario(String rol){
+        try {
+        	System.out.println("modificando perfil usuario "+selectedUsuario.getCorreo()+" "+rol);
+            bancoPropuesta.modificarUsuario(rol, selectedUsuario.getCorreo());
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
     }
 	
-	public void modificarUsuarioEstado(Estado estado, String correo, Date fechaInicio){
+	public void modificarUsuarioEstado(Estado estado, String correo){
         try{
             bancoPropuesta.modificarUsuarioEstado(estado, correo);
         } catch (BancoPropuestasException e) {
@@ -88,11 +88,12 @@ public class BancoPropuestasBean extends BasePageBean {
         }
     }
 	
-    public void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, String estado){
+    public void registrarIniciativa(String nombre, String descripcion, String area){
         try{
-            bancoPropuesta.registrarIniciativa(nombre, descripcion, fechaInicio, area, usuario, estado);
+        	System.out.println("registrando iniciativa bean");
+            bancoPropuesta.registrarIniciativa(nombre, descripcion, area,"angied.ruiz");
         } catch (BancoPropuestasException e) {
-            setErrorMessage(e);
+        	setErrorMessage(e);
         }
     }
     
@@ -115,22 +116,26 @@ public class BancoPropuestasBean extends BasePageBean {
         }
     }
 
-    public void setSelectedUsuario(Usuario usuario){this.usuario = usuario;}
-
-    public Usuario GetUsuario(){
-        return usuario;
+    public void setSelectedUsuario(Usuario usuario){
+    	this.selectedUsuario = usuario;
     }
-    
+
+    public Usuario getSelectedUsuario(){
+        return selectedUsuario;
+    }
+
     public void setSelectedPalabraClave(PalabraClave palabraClave){this.palabraClave = palabraClave;}
 
     public PalabraClave GetPalabraClave(){
         return palabraClave;
     }
     
-    public void setSelectedIniciativa(Iniciativa iniciativa){this.iniciativa = iniciativa;}
-
-    public Iniciativa GetIniciativa(){
-        return iniciativa;
+    public void setSelectedIniciativa(Iniciativa iniciativa){
+    	this.iniciativa = iniciativa;
+    }
+    
+    public Iniciativa getSelectedIniciativa(){
+        return selectedIniciativa;
     }
     
     public void setSelectedReporte(Reporte reporte){this.reporte = reporte;}
@@ -227,5 +232,9 @@ public class BancoPropuestasBean extends BasePageBean {
    }
 
     public void setEstadosIniciativas (String[] estadosIni) {}
+    
+    public void actualizarEstadoIniciativa(String estado) {
+    	System.out.println("Actualizando iniciativa "+selectedIniciativa.getNombrePropuesta()+" "+estado);
+    }
 
 }

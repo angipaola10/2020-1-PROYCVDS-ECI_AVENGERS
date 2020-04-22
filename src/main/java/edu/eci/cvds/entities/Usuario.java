@@ -3,8 +3,10 @@ package edu.eci.cvds.entities;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.*;
+import org.primefaces.model.SelectableDataModel;
 
-public class Usuario implements Serializable {
+
+public class Usuario implements Serializable, SelectableDataModel {
 
 	private int id;
 	private String tid;
@@ -96,5 +98,17 @@ public class Usuario implements Serializable {
     public String toString() {
         return "Usuario {id: " + id + ", tid: " + tid + " ,nombre: " + nombre + ", telefono: " + telefono + ", correo : " + correo + ", clave: " + clave + ",estado: " + estado + ",rol: " + rol + "}";
     }
+
+	@Override
+	public Object getRowKey(Object object) {
+		// TODO Auto-generated method stub
+		return correo;
+	}
+
+	@Override
+	public Object getRowData(String rowKey) {
+		// TODO Auto-generated method stub
+		return this;
+	}
 
 }

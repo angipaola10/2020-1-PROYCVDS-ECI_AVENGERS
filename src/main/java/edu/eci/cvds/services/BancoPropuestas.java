@@ -29,7 +29,7 @@ public interface BancoPropuestas {
 	
 	public abstract void  modificarUsuarioEstado(Estado estado, String correo) throws BancoPropuestasException;
     
-    public abstract void registrarIniciativa(String nombre, String descripcion, Date fechaInicio, String area, String usuario, String estadoPropuesta) throws BancoPropuestasException; 
+    public abstract void registrarIniciativa(String nombre, String descripcion, String area, String usuario) throws BancoPropuestasException; 
     
     public abstract List<Reporte> agruparIniciativas() throws BancoPropuestasException; 
 

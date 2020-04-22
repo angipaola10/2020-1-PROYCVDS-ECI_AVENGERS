@@ -48,13 +48,23 @@ ul, ol{
 
 .registrar-iniciativa{
 	width: 40%;
-	height: 108vh;
+	height: 82vh;
 	background-color: #fff;
 	position:absolute;
-	left: calc(30%);
+	left: 10%;
 	margin:10px;
 	border:none;
 	border-left: 1px solid #AAAAAA;
+}
+
+.registrar-pclaves{
+	width: 40%;
+	height: 82vh;
+	background-color: #fff;
+	position:absolute;
+	left: 50%;
+	margin:10px;
+	border:none;
 	border-right: 1px solid #AAAAAA;
 }
 
@@ -63,7 +73,16 @@ ul, ol{
 	padding-left: 10px;
 	font-family: Impact;
 }
+
 .registrar-iniciativa label{
+	padding-top:15px;
+	display: block;
+	margin-left: calc(50% - 175px);
+	font-family: Impact;
+	color: #b80f22;
+}
+
+.registrar-pclaves label{
 	padding-top:15px;
 	display: block;
 	margin-left: calc(50% - 175px);
@@ -80,30 +99,13 @@ ul, ol{
 	border-bottom: 2px solid #727070;
 }
 
-.registrar-iniciativa input[id="descripcion"]{
-	height: 100px;
-}
-
-.registrar-iniciativa input[value="Agregar"]{
-	font-family: Impact;
-	background-color: #b80f22;
-	color: #fff;
-	border:none;
-	width:100px;
-	height:25px;
-	margin-top: 5px;
-	margin-left: calc(50% + 75px);
-}
-
-.registrar-iniciativa input[value="Registrar iniciativa"]{
-	font-family: Impact;
-	background-color: #b80f22;
-	color: #fff;
-	border:none;
-	width:350px;
-	height:25px;
-	margin-top: 35px;
+.registrar-pclaves input[type="text"]{
+	width: 350px;
+	height: 40px;
+	display: block;
 	margin-left: calc(50% - 175px);
+	border:none;
+	border-bottom: 2px solid #727070;
 }
 
 .registrar-iniciativa .avatar{
@@ -132,4 +134,73 @@ ul, ol{
 
 .cabecera img{
 	margin-left:20px;
+}
+
+.registrar-iniciativa .form-control {
+	box-shadow:none;
+	border:none;
+	width:72%;
+	font-size:14px;
+}		
+
+.registrar-pclaves .form-control {
+	box-shadow:none;
+	border:none;
+	width:72%;
+	font-size:14px;
+}		
+
+.registrar-pclaves .btn{
+	box-shadow:none;
+	margin-top:40px;
+	background: #b80f22;
+	text-shadow: none;
+	color: #fff;
+	font-family: impact;
+	width:72%;
+	margin-left: 15%;
+	border:none;
+}
+
+.registrar-iniciativa .btn:hover{
+	border: 1px solid #b80f22;
+	color: #b80f22;
+	background-color: #fff;
+}
+
+.registrar-iniciativa .form-control:focus {
+	border-bottom: 2px solid #b80f22;
+}		
+
+.registrar-pclaves .tabla {
+	margin-left: 27%;
+	margin-top: 50px;
+	font-size:12px;
+    width:44%;
+	height:200px;
+}
+
+.registrar-pclaves .tabla th{
+	background: #b80f22;
+	box-shadow:none;
+	border:none;
+	color: #fff;
+	text-shadow:none;
+	font-size:14px;
+	font-family:impact;
+}
+
+.registrar-pclaves .btn-agregar{
+	box-shadow:none;
+	margin-top:5px;
+	background: #b80f22;
+	text-shadow: none;
+	color: #fff;
+	font-family: impact;
+	width:20%;
+	margin-left: 67%;
+	border:none;
+	font-size:14px;
+}
+	
 }
