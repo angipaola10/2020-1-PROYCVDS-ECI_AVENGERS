@@ -7,7 +7,6 @@ import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
-import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.persistence.IniciativaDAO;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.UsuarioDAO;
@@ -147,6 +146,8 @@ public class BancoPropuestasImpl implements BancoPropuestas {
         }
 	}
    
+   /*
+   
    @Override
     public void registrarPalabraClave(String palabraClave) throws BancoPropuestasException {
 	   try {
@@ -181,7 +182,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
        } catch (PersistenceException e) {
            throw new BancoPropuestasException("Error al consultar todas las palabras clave ",e);
        }
-   }
+   }*/
 	
    
 }

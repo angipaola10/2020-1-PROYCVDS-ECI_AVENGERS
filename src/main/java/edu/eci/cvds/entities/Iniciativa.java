@@ -5,6 +5,7 @@ import java.util.List;
 import org.primefaces.model.SelectableDataModel;
 
 public class Iniciativa implements SelectableDataModel{
+	private int id;
 	private String nombrePropuesta;
 	private String descripcion;
 	private Date fechaInicio;
@@ -16,7 +17,8 @@ public class Iniciativa implements SelectableDataModel{
 
 	public Iniciativa() {}
 	
-	public Iniciativa(String nombrePropuesta, String descripcion, Date fechaInicio, String area, String usuario, String estado_Propuesta, String nombreProponente){
+	public Iniciativa(int id, String nombrePropuesta, String descripcion, Date fechaInicio, String area, String usuario, String estado_Propuesta, String nombreProponente){
+		this.id= id;
 		this.nombrePropuesta = nombrePropuesta;
 		this.descripcion= descripcion;
 		this.fechaInicio = fechaInicio;
@@ -24,6 +26,14 @@ public class Iniciativa implements SelectableDataModel{
 		this.usuario = usuario;
 		this.estado_Propuesta = estado_Propuesta;
 		this.nombreProponente = nombreProponente;	
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public String getNombrePropuesta() {

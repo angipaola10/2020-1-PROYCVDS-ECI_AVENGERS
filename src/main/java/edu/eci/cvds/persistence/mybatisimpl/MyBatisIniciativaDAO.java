@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.util.*;
 import java.lang.String;
 import com.google.inject.Inject;
-import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
@@ -34,8 +33,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	public void agregarIniciativa(String nombre, String descripcion, String area, String usuario) throws PersistenceException {
 		try{
 			System.out.println("registrando iniciativa DAO");
-			Estado estado = new Estado("En espera de revisión");
-			iniciativaMapper.insertarIniciativa(nombre, descripcion,(Date) null, area, usuario, estado);
+			iniciativaMapper.insertarIniciativa(nombre, descripcion,(Date) null, area, usuario, "En espera de revisión");
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
         		System.out.println(e.getMessage());
@@ -73,6 +71,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
          }	
     }
 	
+	/*
 	@Override
 	public void agregarPalabraClave(String palabraClave) throws PersistenceException {
 		try{
@@ -111,7 +110,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              throw new PersistenceException("Error al consultar todas las plabaras clave:",e);   
          }
-	}
+	}*/
 	
 	@Override
     public void actualizarIniciativaEstado(String estado, String correo) throws PersistenceException {

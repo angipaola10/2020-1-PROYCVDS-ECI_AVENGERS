@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.util.List;
 import java.lang.String;
 import edu.eci.cvds.entities.Iniciativa;
-import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 
@@ -20,15 +19,15 @@ public interface IniciativaMapper {
 	
 	public List<Reporte> agruparPropuestaPorArea();
 	
-	public void insertarIniciativa(@Param("nombrePropuesta") String nombre, @Param("descripcion") String descripcion, @Param("fechaInicio") Date fechaInicio, @Param("area") String area, @Param("usuario") String usuario, @Param("estadoPropuesta") Estado estadoPropuesta);
+	public void insertarIniciativa(@Param("nombrePropuesta") String nombre, @Param("descripcion") String descripcion, @Param("fechaInicio") Date fechaInicio, @Param("area") String area, @Param("usuario") String usuario, @Param("estadoPropuesta") String estadoPropuesta);
 
-	public void insertarPalabraClave(@Param("palabraClave") String palabraClave);
+	//public void insertarPalabraClave(@Param("palabraClave") String palabraClave);
 	
-	public void insertarPCIniciativa();
+	//public void insertarPCIniciativa();
 	
-	public List<PalabraClave> consultarPalabrasClaveInciativa(@Param("id") String id_iniciativa);
+	//public List<PalabraClave> consultarPalabrasClaveInciativa(@Param("id") String id_iniciativa);
 	
-	public List<PalabraClave> consultarTodasLasPalabrasClaves();
+	//public List<PalabraClave> consultarTodasLasPalabrasClaves();
 	
 	public void modificarIniciativaEstado(@Param("estado") String estado, @Param("correo") String correo);
 

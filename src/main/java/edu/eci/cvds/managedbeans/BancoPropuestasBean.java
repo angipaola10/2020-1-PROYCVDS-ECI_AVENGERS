@@ -11,7 +11,6 @@ import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
-import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException;
 import java.util.List;
@@ -200,6 +199,7 @@ public class BancoPropuestasBean extends BasePageBean {
         return estadosIniciativas;
     }
     
+    /*
     public void registrarPalabraClave(String palabraClave) throws BancoPropuestasException {
 	   try {
 		   bancoPropuesta.registrarPalabraClave(palabraClave);
@@ -236,7 +236,7 @@ public class BancoPropuestasBean extends BasePageBean {
        }
        System.out.println(palabrasClaves);
        return palabrasClaves;
-   }
+   }*/
 
     public void setEstadosIniciativas (String[] estadosIni) {}
     

@@ -6,7 +6,6 @@ import java.lang.String;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte; 
-import edu.eci.cvds.entities.Estado;
 
 public interface IniciativaDAO {
 
@@ -20,13 +19,13 @@ public interface IniciativaDAO {
 	
 	public List<Reporte>  agruparIniciativas() throws PersistenceException;
 	
-	public void agregarPalabraClave(String palabraClave) throws PersistenceException;
+	//public void agregarPalabraClave(String palabraClave) throws PersistenceException;
 	
-	public void agregarPCIniciativa() throws PersistenceException;
+	//public void agregarPCIniciativa() throws PersistenceException;
 	
-	public List<PalabraClave> consultarPalabrasClave(String id_iniciativa) throws PersistenceException;
+	//public List<PalabraClave> consultarPalabrasClave(String id_iniciativa) throws PersistenceException;
 	
-	public List<PalabraClave> consultarPalabrasClaves() throws PersistenceException;
+	//public List<PalabraClave> consultarPalabrasClaves() throws PersistenceException;
 	
 	public void actualizarIniciativaEstado(String estado, String correo) throws PersistenceException;
 
