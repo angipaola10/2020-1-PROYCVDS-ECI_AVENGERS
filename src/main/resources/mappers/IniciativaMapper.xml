@@ -66,7 +66,7 @@
     </insert>
     
     <select id="consultarPalabrasClaveInciativa" resultMap="PalabraClaveResult" parameterType="map">
-        SELECT pl.id,pl.palabra
+        SELECT pl.id,pl.palabraClave
 		from initiative as i, pciniciativa as pc, palabraclave as pl
 		where i.id=#{id} and pc.ini_id=i.id and pl.id=pc.palabras_clave
     </select>
