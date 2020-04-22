@@ -2,7 +2,6 @@ package edu.eci.cvds.persistence.mybatisimpl.mappers;
 
 import java.math.BigInteger;
 import java.util.List;
-import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import org.apache.ibatis.annotations.Param;
@@ -14,6 +13,6 @@ public interface UsuarioMapper {
 	public Usuario consultarUsuarioLog(@Param("correoU") String correo,  @Param("claveU") String clave);
 	public void modificarUsuario(@Param("rol")String rol, @Param("correoU") String correo);
 	public void insertarUsuario(@Param("id")int id, @Param("tid") String tid, @Param("nombre") String nombre, @Param("telefono") BigInteger telefono, @Param("correo") String correo, @Param("clave") String clave, @Param("rol") Rol rol, @Param("estado") String estado);
-	public void modificarUsuarioEstado(@Param("estado") Estado estado, @Param("correoU") String correo);
+	public void modificarUsuarioEstado(@Param("estado") String estado, @Param("correoU") String correo);
 }
 

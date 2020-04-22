@@ -27,7 +27,7 @@ public interface BancoPropuestas {
 	
 	public abstract void  modificarUsuario(String rol, String correo) throws BancoPropuestasException;
 	
-	public abstract void  modificarUsuarioEstado(Estado estado, String correo) throws BancoPropuestasException;
+	public abstract void  modificarUsuarioEstado(String estado, String correo) throws BancoPropuestasException;
     
     public abstract void registrarIniciativa(String nombre, String descripcion, String area, String usuario) throws BancoPropuestasException; 
     
@@ -43,4 +43,5 @@ public interface BancoPropuestas {
 	
 	public abstract List<PalabraClave> consultarPalabrasClaves() throws BancoPropuestasException;
 	
+	public abstract void modificarIniciativaEstado(String estado, String correo) throws BancoPropuestasException;
 }

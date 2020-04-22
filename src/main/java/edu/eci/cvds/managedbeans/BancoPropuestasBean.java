@@ -32,7 +32,6 @@ public class BancoPropuestasBean extends BasePageBean {
     private Usuario selectedUsuario;
     
     private Reporte reporte;
-	private Iniciativa selectedIniciativa;
 	private Iniciativa iniciativa;
 	
 	private PalabraClave palabraClave;
@@ -80,9 +79,17 @@ public class BancoPropuestasBean extends BasePageBean {
         }
     }
 	
-	public void modificarUsuarioEstado(Estado estado, String correo){
+	public void modificarUsuarioEstado(String estado){
         try{
-            bancoPropuesta.modificarUsuarioEstado(estado, correo);
+            bancoPropuesta.modificarUsuarioEstado(estado, selectedUsuario.getCorreo());
+        } catch (BancoPropuestasException e) {
+            setErrorMessage(e);
+        }
+    }
+		
+	public void modificarIniciativaEstado(String estado){
+        try{
+            bancoPropuesta.modificarIniciativaEstado(estado, iniciativa.getUsuario());
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
@@ -135,7 +142,7 @@ public class BancoPropuestasBean extends BasePageBean {
     }
     
     public Iniciativa getSelectedIniciativa(){
-        return selectedIniciativa;
+        return iniciativa;
     }
     
     public void setSelectedReporte(Reporte reporte){this.reporte = reporte;}
@@ -234,7 +241,7 @@ public class BancoPropuestasBean extends BasePageBean {
     public void setEstadosIniciativas (String[] estadosIni) {}
     
     public void actualizarEstadoIniciativa(String estado) {
-    	System.out.println("Actualizando iniciativa "+selectedIniciativa.getNombrePropuesta()+" "+estado);
+    	System.out.println("Actualizando iniciativa "+iniciativa.getNombrePropuesta()+" "+estado);
     }
 
 }

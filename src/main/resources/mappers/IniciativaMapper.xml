@@ -11,14 +11,14 @@
 		<result property='fechaInicio' column='fechaInicio'/>
 		<result property='area' column='area'/>
 		<result property='usuario' column='usuario'/>
-		<result property='estado_Propuesta' column='estado_Propuesta'/> 
+		<result property='estado_Propuesta' column='estado_Propuesta'/>
 		<result property='nombreProponente' column='nombreProponente'/>
 		<collection property='palabrasClaves' ofType='java.lang.String' javaType="list"> 
-		<result column='palabraClave' /> </collection>
+		<result column='palabra' /> </collection>
     </resultMap>  
     
     <resultMap type="PalabraClave" id="PalabraClaveResult">       
-        <result property='palabraClave' column='palabraClave'/>
+        <result property='palabraClave' column='palabra'/>
     </resultMap>
     
     <resultMap type="Reporte" id="DTO">
@@ -66,7 +66,7 @@
     </insert>
     
     <select id="consultarPalabrasClaveInciativa" resultMap="PalabraClaveResult" parameterType="map">
-        SELECT pl.id,pl.palabraClave
+        SELECT pl.id,pl.palabra
 		from initiative as i, pciniciativa as pc, palabraclave as pl
 		where i.id=#{id} and pc.ini_id=i.id and pl.id=pc.palabras_clave
     </select>
@@ -91,6 +91,9 @@
 		SELECT area, count(1) as numIniciativas FROM iniciativa
  		GROUP BY area;
     </select>
-  
 	
+	<update id='modificarIniciativaEstado'>
+		update Iniciativa set estado_Propuesta =#{estado_Propuesta} where usuario=#{correo};
+	</update>
+  
 </mapper>

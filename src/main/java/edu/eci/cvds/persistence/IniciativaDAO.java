@@ -6,6 +6,7 @@ import java.lang.String;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte; 
+import edu.eci.cvds.entities.Estado;
 
 public interface IniciativaDAO {
 
@@ -27,4 +28,6 @@ public interface IniciativaDAO {
 	
 	public List<PalabraClave> consultarPalabrasClaves() throws PersistenceException;
 	
+	public void actualizarIniciativaEstado(String estado, String correo) throws PersistenceException;
+
 }

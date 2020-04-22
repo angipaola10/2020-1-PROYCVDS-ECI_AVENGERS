@@ -24,6 +24,6 @@ public interface UsuarioDAO {
 	
 	public void agregarUsuario(int id, String tid, String nombre, BigInteger  telefono, String correo, String clave, Rol rol, String estado) throws PersistenceException;
 
-	public void actualizarUsuarioEstado( Estado estado, String correo) throws PersistenceException;
+	public void actualizarUsuarioEstado(String estado, String correo) throws PersistenceException;
 
 }
