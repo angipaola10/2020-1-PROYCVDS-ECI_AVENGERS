@@ -72,7 +72,7 @@
     </select>
     
     <select id="consultarTodasLasPalabrasClaves" resultMap= "PalabraClaveResult" parameterType="map">
-    	select id, palabra from palabraclave;
+    	select id, palabraClave from palabraclave;
     </select>
   
    <select id="consultarPropuestaPorArea" resultMap="IniciativaResult" parameterType="map">
