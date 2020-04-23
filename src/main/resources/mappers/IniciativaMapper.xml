@@ -6,6 +6,7 @@
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper">
 
     <resultMap type='Iniciativa' id='IniciativaResult'>
+		<result property='id' column='id'/>  
         <result property='nombrePropuesta' column='nombrePropuesta'/>  
 		<result property='descripcion' column='descripcion'/>
 		<result property='fechaInicio' column='fechaInicio'/>
@@ -19,6 +20,11 @@
 		<result property='id' column='id'/> 
         <result property='palabraClave' column='palabraClave'/>  
     </resultMap> 
+	
+	<resultMap type='PCIniciativa' id='PCIniciativaResult'> 
+		<result property='ini_id' column='ini_id'/> 
+        <result property='palabras_clave' column='palabras_clave'/>  
+    </resultMap> 
     
     <resultMap type="Reporte" id="DTO">
     	<result property='area' column='area'/>        
@@ -27,6 +33,7 @@
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
+		i.id,
 	    i.nombrePropuesta,
 		i.descripcion,
 		i.fechaInicio,
@@ -68,6 +75,39 @@
 	    FROM iniciativa as i, usuario as u
 		WHERE i.usuario = u.correo and i.area = #{area};
     </select>
+	
+	<select id="consultarIdIniciativa" resultMap="IniciativaResult" parameterType="map">
+		SELECT 
+		i.id,
+	    i.nombrePropuesta,
+		i.descripcion,
+		i.fechaInicio,
+		i.area,
+		i.usuario,
+		i.estado_Propuesta
+	    FROM iniciativa as i
+		WHERE i.nombrePropuesta = #{nombrePropuesta};
+    </select>
+	
+	<select id="consultarPalabrasClaveInciativa" resultMap="PalabraClaveResult" parameterType="map">
+		SELECT 
+		pc.id,
+		pc.palabraClave
+	    FROM PalabraClave as pc, PCIniciativa as pi
+		WHERE pi.ini_id = #{ini_id} AND pi.palabras_clave = pc.id;
+    </select>
+	
+	<select id="consultarIniciativaPalabraClave" resultMap="IniciativaResult" parameterType="map">
+		SELECT 
+	    i.nombrePropuesta,
+		i.descripcion,
+		i.fechaInicio,
+		i.area,
+		i.usuario,
+		i.estado_Propuesta
+	    FROM iniciativa as i, PalabraClave as pc, PCIniciativa as pi;
+		WHERE pc.palabraClave = #{palabra} AND pc.id = pc.palabras_clave AND i.id = pi.ini_id;
+    </select>
     
     <select id="agruparPropuestaPorArea" resultMap="DTO" parameterType="map">
 		SELECT area, count(1) as numIniciativas FROM iniciativa
@@ -89,5 +129,10 @@
 		pc.palabraClave
 		FROM PalabraClave as pc;
 	</select>
+	
+	<insert id="insertarPCIniciativa">
+		INSERT INTO PCIniciativa (ini_id, palabras_clave)
+		VALUES (#{ini_id}, #{palabras_clave});
+	</insert>
 	
 </mapper>

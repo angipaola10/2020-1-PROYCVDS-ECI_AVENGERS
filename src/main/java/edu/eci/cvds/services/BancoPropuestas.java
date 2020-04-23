@@ -36,12 +36,16 @@ public interface BancoPropuestas {
 
 	public abstract void registrarPalabraClave(String palabraClave) throws BancoPropuestasException;
 	
-	//public abstract void registrarPCIniciativa(int idIniciativa, int idPClave) throws BancoPropuestasException;
+	public abstract void registrarPCIniciativa(int idIniciativa, int idPClave) throws BancoPropuestasException;
 	
-	//public abstract List<PalabraClave> consultarPalabraClave(String id_iniciativa) throws BancoPropuestasException;
+	public abstract Iniciativa consultarIdIniciativa(String nombrePropuesta)throws BancoPropuestasException;
 	
 	public abstract List<PalabraClave> consultarPalabrasClaves() throws BancoPropuestasException;
 	
 	public abstract void modificarIniciativaEstado(String estado, String nombre) throws BancoPropuestasException;
+
+	public abstract List<PalabraClave> consultarPalabraClave(int id_iniciativa) throws BancoPropuestasException;
+
+	public abstract List<Iniciativa> consultarIniciativaPalabraClave(String palabra)throws BancoPropuestasException;
 
 }

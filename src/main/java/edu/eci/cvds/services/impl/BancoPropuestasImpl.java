@@ -145,9 +145,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
             throw new BancoPropuestasException("Error al actualizar el estado de la iniciativa ",e);
         }
 	}
-   
-   
-   
+
    @Override
     public void registrarPalabraClave(String palabraClave) throws BancoPropuestasException {
 	   try {
@@ -156,7 +154,6 @@ public class BancoPropuestasImpl implements BancoPropuestas {
            throw new BancoPropuestasException("Error al registrar la palabra clave ",e);
        }
    }
-   /*
    @Override
 	public void registrarPCIniciativa(int idIniciativa, int idPClave) throws BancoPropuestasException {
 	   try {
@@ -165,15 +162,25 @@ public class BancoPropuestasImpl implements BancoPropuestas {
            throw new BancoPropuestasException("Error al registrar la tabla intermedia ",e);
        }
    }
+   
    @Override
-	public List<PalabraClave> consultarPalabraClave(String id_iniciativa) throws BancoPropuestasException {
+   public Iniciativa consultarIdIniciativa(String nombrePropuesta) throws BancoPropuestasException {
+	   try {
+		   return iniciativaDAO.consultarIdIniciativa(nombrePropuesta);
+	   }catch (PersistenceException e) {
+           throw new BancoPropuestasException("Error al consultar id iniciativa ",e);
+       }  
+   }
+   
+   @Override
+	public List<PalabraClave> consultarPalabraClave(int id_iniciativa) throws BancoPropuestasException {
 	   try {
            return iniciativaDAO.consultarPalabrasClave(id_iniciativa);
        } catch (PersistenceException e) {
            throw new BancoPropuestasException("Error al consultar las palabras clave de esta inciativa ",e);
        }
    }
-*/
+
    @Override
 	public List<PalabraClave> consultarPalabrasClaves() throws BancoPropuestasException {
 	   try {
@@ -182,6 +189,15 @@ public class BancoPropuestasImpl implements BancoPropuestas {
            throw new BancoPropuestasException("Error al consultar todas las palabras clave ",e);
        }
    }
+
+@Override
+public List<Iniciativa> consultarIniciativaPalabraClave(String palabra) throws BancoPropuestasException {
+	 try {
+         return iniciativaDAO.consultarIniciativaPalabraClave(palabra);
+     } catch (PersistenceException e) {
+         throw new BancoPropuestasException("Error al consultar iniciativa por palabra ",e);
+     }
+}
 	
    
 }

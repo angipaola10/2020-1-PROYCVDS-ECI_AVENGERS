@@ -9,7 +9,7 @@
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
 	</h:head>
 	<body>
-		<h:form id="busquedaUsuarioForm"> 
+		<h:form id="form"> 
 			<div class="cabecera">
 				<img src= "assets/img/cabecera.jpg"/>
 			</div>
@@ -35,7 +35,15 @@
 			</div>
 			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativas()}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
+				rows="5" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
+				
+				<f:facet name="header" >
+					<p:selectOneMenu id="cons-ini" binding="#{pclaveini}">
+						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
+					</p:selectOneMenu>
+					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"/>
+				</f:facet>
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
 					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
@@ -61,6 +69,13 @@
 					<h:outputText value="#{iniciativa.estado_Propuesta}" />
 				</p:column>
 				
+				<p:column style="width:30px;text-align: center">
+					 <p:commandButton  update=":form:iniDetail" oncomplete="PF('iniDialog').show()" title="Ver" 
+						style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;;border:none;">
+						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
+					</p:commandButton>
+				</p:column>
+						
 				<f:facet name="footer">
 					<p:selectOneMenu id="act-estado" binding="#{estadoi}">
 						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
@@ -71,7 +86,42 @@
 									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}"/>
 				</f:facet>
 				
-			</p:dataTable>     
+			</p:dataTable>   
+			
+			<p:dialog header="Iniciativa Info" widgetVar="iniDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="iniDetail" style="text-align:center;">
+					<p:panelGrid  columns="2" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="label,value">
+						
+						<h:outputText value="Iniciativa No."/>
+						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.id}"/>
+					
+						<h:outputText value="Nombre iniciativa" />
+						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.nombrePropuesta}"/>
+						
+						<h:outputText value="Descripcion" />
+						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.descripcion}" />
+						
+						<h:outputText value="Area" />
+						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.area}" />
+						
+						<h:outputText value="Nombre proponente" />
+						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.nombreProponente}" />
+						
+						<h:outputText value="Usuario proponente" />
+						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.usuario}" />
+						
+						<h:outputText value="Estado" />
+						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.estado_Propuesta}" />
+						
+					</p:panelGrid>
+					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" class="tabla" style="width:300px">
+						<p:column headerText="Palabras clave">
+							<h:outputText value="#{pclaveinic.palabraClave}" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:dialog>
+
         </h:form>   
 	</body>
 </html>

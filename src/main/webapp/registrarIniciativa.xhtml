@@ -50,7 +50,7 @@
 			<div class = "registrar-pclaves" id="registrarpclaves">
 				<p:dataTable var="pclaves" value="#{BancoPropuestasBean.consultarPalabrasClaves()}" class="tabla" id="checkboxDT"
 					paginator="true" paginatorPosition = "bottom" paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
-					rows="5" selection="#{BancoPropuestasBean.selectedPalabras}" rowKey="{pclaves.palabraClave}">	
+					rows="5" selection="#{BancoPropuestasBean.selectedPalabras}" rowKey="#{pclaves.palabraClave}">	
 					
 					<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
 					
