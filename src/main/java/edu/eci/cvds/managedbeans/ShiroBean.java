@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class ShiroBean implements Serializable {
     public void doLogin() {
         subject = SecurityUtils.getSubject();
         System.err.println("entro");
-        UsernamePasswordToken token = new UsernamePasswordToken(getUsername(), getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(getUsername(), new Sha256Hash(getPassword()).toHex());
         try {
             subject.login(token);
             if (subject.hasRole("Administrador")) {
@@ -61,6 +62,7 @@ public class ShiroBean implements Serializable {
             log.error(ex.getMessage(), ex);
         } 
 		catch (IncorrectCredentialsException ex) {
+
 			System.err.println("pasword");
             System.err.println("wrong password");
             facesError("Wrong password");
