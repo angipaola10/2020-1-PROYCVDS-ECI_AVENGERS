@@ -60,7 +60,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     }
 
     @Override
-    public Iniciativa consultarIniciativa(String correo) throws BancoPropuestasException {
+    public List<Iniciativa> consultarIniciativa(String correo) throws BancoPropuestasException {
         try {
             return iniciativaDAO.consultarIniciativa(correo);
         } catch (PersistenceException e) {
@@ -71,7 +71,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     @Override
     public Iniciativa consultarIniciativaArea(String area) throws BancoPropuestasException {
         try {
-            return iniciativaDAO.consultarIniciativa(area);
+            return iniciativaDAO.consultarIniciativaArea(area);
         } catch (PersistenceException e) {
             throw new BancoPropuestasException("Error al consultar el area "+area,e);
         }

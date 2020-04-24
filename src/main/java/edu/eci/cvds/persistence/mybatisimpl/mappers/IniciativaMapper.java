@@ -13,7 +13,7 @@ public interface IniciativaMapper {
 
 	public List<Iniciativa> consultarTodasLasPropuestas();
 	
-	public Iniciativa consultarPropuestaPorUsuario(@Param("correo") String correo);
+	public List<Iniciativa> consultarPropuestaPorUsuario(@Param("correo") String correo);
 	
 	public Iniciativa consultarPropuestaPorArea(@Param("area") String area);
 	

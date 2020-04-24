@@ -136,8 +136,8 @@ public class BancoPropuestasBean extends BasePageBean {
         return iniciativas;
    }
     
-    public Iniciativa consultarIniciativa(String correo){
-        Iniciativa ini=null;
+    public List<Iniciativa> consultarIniciativa(String correo){
+        List<Iniciativa> ini=null;
         try {
             ini=bancoPropuesta.consultarIniciativa(correo);
         } catch (BancoPropuestasException e) {

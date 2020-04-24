@@ -11,7 +11,7 @@ public interface IniciativaDAO {
 
 	public List<Iniciativa> consularIniciativas()  throws PersistenceException;
 
-	public Iniciativa consultarIniciativa(String correo) throws PersistenceException;
+	public List<Iniciativa> consultarIniciativa(String correo) throws PersistenceException;
 	
 	public Iniciativa consultarIniciativaArea(String area) throws PersistenceException;
 	

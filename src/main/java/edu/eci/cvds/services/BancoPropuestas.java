@@ -20,7 +20,7 @@ public interface BancoPropuestas {
 
     public abstract List<Usuario> consultarUsuarios() throws BancoPropuestasException;
 
-    public abstract Iniciativa consultarIniciativa(String correo) throws BancoPropuestasException;
+    public abstract List<Iniciativa> consultarIniciativa(String correo) throws BancoPropuestasException;
     
     public abstract Iniciativa consultarIniciativaArea(String area) throws BancoPropuestasException;
 	

@@ -43,8 +43,9 @@ public class ShiroBean implements Serializable {
      * Try and authenticate the user
      */
     public void doLogin() {
-        subject = SecurityUtils.getSubject();
-        System.err.println("entro");
+    	subject = SecurityUtils.getSubject();
+    	if (getUsername()=="") {
+    		setUsername(null);}
         UsernamePasswordToken token = new UsernamePasswordToken(getUsername(), new Sha256Hash(getPassword()).toHex());
         try {
             subject.login(token);
@@ -55,17 +56,16 @@ public class ShiroBean implements Serializable {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/inicioUsuarioProponente.xhtml");
 			}	
 			
-        } 
+        }
+        catch (NullPointerException e) {
+            System.err.println("Null Pointer");
+        }
 		catch (UnknownAccountException ex) {
-			System.err.println("uknowacount");
-            facesError("Unknown account");
+            facesError("El usuario no se encuentra");
             log.error(ex.getMessage(), ex);
         } 
 		catch (IncorrectCredentialsException ex) {
-
-			System.err.println("pasword");
-            System.err.println("wrong password");
-            facesError("Wrong password");
+            facesError("Contraseña incorrecta ");
             log.error(ex.getMessage(), ex);
         } 
 		catch (LockedAccountException ex) {
@@ -74,13 +74,10 @@ public class ShiroBean implements Serializable {
             log.error(ex.getMessage(), ex);
         } 
 		catch (AuthenticationException | IOException ex) {
-			System.err.println("uknow");
-            facesError("Unknown error: " + ex.getMessage());
+            facesError("Los campos son obligatorios.." );
             log.error(ex.getMessage(), ex);
         } 
-		catch (NullPointerException e) {
-            System.err.println("PUNTERO NULOOOOOOOOOOOOOOO");
-        } finally {
+		 finally {
             token.clear();
         }
     }

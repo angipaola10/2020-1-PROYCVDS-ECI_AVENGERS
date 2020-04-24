@@ -52,7 +52,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
     }
 	
 	@Override
-	public Iniciativa consultarIniciativa(String correo) throws PersistenceException {
+	public List<Iniciativa> consultarIniciativa(String correo) throws PersistenceException {
         try{
         	return iniciativaMapper.consultarPropuestaPorUsuario(correo);
          }
