@@ -108,11 +108,11 @@ public class BancoPropuestasBean extends BasePageBean {
 	
     public void registrarIniciativa(String nombre, String descripcion, String area, String usuario){
         try{
-        	System.out.println("registrando iniciativa bean");
+        	
             bancoPropuesta.registrarIniciativa(nombre, descripcion, area,usuario);
             Iniciativa ini = this.consultarIdIniciativa(nombre);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Iniciativa Registrada " + ini.getNombrePropuesta() , ini.getNombrePropuesta()));
-            //System.out.println("Id iniciativa registrada: "+ini.getId());
+   
             for (PalabraClave p: selectedPalabras) {
             	registrarPCIniciativa(ini.getId(), p.getId());
             	System.out.println("registro "+p.getPalabraClave());
