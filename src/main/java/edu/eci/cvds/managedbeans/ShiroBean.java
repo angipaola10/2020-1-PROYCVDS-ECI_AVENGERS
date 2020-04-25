@@ -62,7 +62,7 @@ public class ShiroBean implements Serializable {
         }
 		catch (UnknownAccountException ex) {
             facesError("El usuario no se encuentra");
-            log.error(ex.getMessage(), ex);
+           
         } 
 		catch (IncorrectCredentialsException ex) {
             facesError("Contraseña incorrecta ");

@@ -111,15 +111,17 @@ public class BancoPropuestasBean extends BasePageBean {
         	System.out.println("registrando iniciativa bean");
             bancoPropuesta.registrarIniciativa(nombre, descripcion, area,usuario);
             Iniciativa ini = this.consultarIdIniciativa(nombre);
-            System.out.println("Id iniciativa registrada: "+ini.getId());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Iniciativa Registrada " + ini.getNombrePropuesta() , ini.getNombrePropuesta()));
+            //System.out.println("Id iniciativa registrada: "+ini.getId());
             for (PalabraClave p: selectedPalabras) {
             	registrarPCIniciativa(ini.getId(), p.getId());
             	System.out.println("registro "+p.getPalabraClave());
+            	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Palabra clave: " + p.getPalabraClave(), p.getPalabraClave()));
             }
             
-        } catch (BancoPropuestasException e) {
-        	System.out.println("registrando iniciativa bean");
-        	System.out.println(e.getMessage());
+        } catch (Exception e) {
+        	
+        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), "Error"));
         	setErrorMessage(e);
         }
     }
@@ -135,6 +137,10 @@ public class BancoPropuestasBean extends BasePageBean {
         }
         return iniciativas;
    }
+    
+    private void facesError(String message) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
+    }
     
     public List<Iniciativa> consultarIniciativa(String correo){
         List<Iniciativa> ini=null;
