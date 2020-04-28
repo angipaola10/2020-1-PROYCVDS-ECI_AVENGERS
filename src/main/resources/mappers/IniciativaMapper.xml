@@ -111,7 +111,7 @@
     
     <select id="agruparPropuestaPorArea" resultMap="DTO" parameterType="map">
 		SELECT area, count(1) as numIniciativas FROM iniciativa
- 		GROUP BY area;
+		GROUP BY area;
     </select>  
 	
 	<select id="modificarIniciativaEstado">

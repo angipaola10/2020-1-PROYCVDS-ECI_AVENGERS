@@ -12,6 +12,22 @@
 		<link href="assets/css/log in.css" rel="stylesheet"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        
+        <script type="text/javascript">
+			window.onload = function() {
+			  var myInput = document.getElementById('bloquear');
+			  myInput.onpaste = function(e) {
+			    e.preventDefault();
+			    alert("esta acción está prohibida");
+			  }
+			  
+			  myInput.oncopy = function(e) {
+			    e.preventDefault();
+			    alert("esta acción está prohibida");
+			  }
+			}
+		</script>
+        
     </h:head>
 
     <body>
@@ -26,11 +42,11 @@
 				<p:inputText id="correo" value="#{shiroBean.username}" type="text"
 							class="form-control"/>
 				<label class="control-label">Contraseña</label>
-				<p:inputText type="password" class="form-control"
+				<p:inputText id="bloquear" type="password" class="form-control"
 							value="#{shiroBean.password}"/>		
 				<p:commandButton value="Iniciar sesión"
                                 class="btn btn-rose btn-simple btn-wd btn-lg"
-                                action="#{shiroBean.doLogin()}"/>	
+                                action="#{shiroBean.doLogin()}"/>
 			</h:form>
 		</div>
     </body>

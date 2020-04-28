@@ -7,6 +7,43 @@
 		<title>Banco de iniciativas ECI</title>
 		<link href="assets/css/consultari.css" rel="stylesheet"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
+		<!--<script type="text/javascript">
+		  function actualizar(){location.reload(true);}
+		//Función para actualizar cada 4 segundos(4000 milisegundos)
+		  setInterval("actualizar()",4000);
+		</script>-->
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript">
+	      google.charts.load('current', {'packages':['corechart']});
+	      google.charts.setOnLoadCallback(drawChart);
+	      function drawChart() {
+
+	    	var tabla = "#{BancoPropuestasBean.agruparIniciativas()}";
+			
+	    	
+	    	console.log(tabla);
+	    	
+	        var data = google.visualization.arrayToDataTable([["hola","lol"],["hola",2],["hola2",5]]);
+	
+	        var options = {
+	          title: 'Areas de iniciativas'
+	        };
+	
+	        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+	
+	        chart.draw(data, options);
+	      }
+	    </script>
+		
+		<script type="text/javascript">
+			function alerta() {
+				alert("Estado actualizado");
+				location.reload()
+			}
+			
+			
+		</script>
+		
 	</h:head>
 	<body>
 		<h:form id="form"> 
@@ -35,7 +72,7 @@
 			</div>
 			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativas()}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-				rows="5" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
+				rows="15" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
 				
 				<f:facet name="header" >
 					<p:selectOneMenu id="cons-ini" binding="#{pclaveini}">
@@ -81,9 +118,9 @@
 						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
 						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
 					</p:selectOneMenu>
-					<p:commandButton value="Actualizar estado" 
+					<p:commandButton id="mensaje" value="Actualizar estado"
 									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}"/>
+									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}" onclick="alerta()"/>
 				</f:facet>
 				
 			</p:dataTable>   
@@ -122,6 +159,9 @@
 				</p:outputPanel>
 			</p:dialog>
 
-        </h:form>   
+        </h:form>  
+        
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
+        <p class="copyright text-muted">Daniela Ruiz - Angie Jimenez  - Henry Sanchez - Edwin Rodriguez</p> 
 	</body>
 </html>

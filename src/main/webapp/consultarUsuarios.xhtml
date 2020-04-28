@@ -4,7 +4,23 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+
+	
     <h:head>
+    	<!--<script type="text/javascript">
+		  function actualizar(){location.reload(true);}
+		  setInterval("actualizar()",4000);
+		</script>-->
+		
+		<script type="text/javascript">
+			function reinicio() {
+				alert("Perfil modificado");
+				location.reload()
+			}
+			
+			
+		</script>
+		
         <title>Busqueda de usuarios</title>
 		<link rel="stylesheet" type="text/css" href="assets/css/consultaru.css"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
@@ -73,7 +89,7 @@
 						<f:selectItem itemLabel="Seleccione un rol" itemValue="" noSelectionOption="true" />
 						<f:selectItems value="#{BancoPropuestasBean.roles}" />
 					</p:selectOneMenu>
-					<p:commandButton value="Asignar perfil" 
+					<p:commandButton value="Asignar perfil" onclick="reinicio()"
 									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
 									action="#{BancoPropuestasBean.modificarUsuario(perfil.value)}"/>
 				</f:facet>

@@ -83,6 +83,7 @@ public class BancoPropuestasBean extends BasePageBean {
             bancoPropuesta.modificarUsuario(rol, selectedUsuario.getCorreo());
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
+
         }
     }
 	
