@@ -14,7 +14,7 @@
 		<result property='usuario' column='usuario'/>
 		<result property='estado_Propuesta' column='estado_Propuesta'/> 
 		<result property='nombreProponente' column='nombreProponente'/>
-    </resultMap>  
+    </resultMap> 
 	
 	<resultMap type='PalabraClave' id='PalabraClaveResult'> 
 		<result property='id' column='id'/> 
@@ -29,6 +29,11 @@
     <resultMap type="Reporte" id="DTO">
     	<result property='area' column='area'/>        
         <result property='numIniciativas' column='numIniciativas'/>
+    </resultMap>
+    
+    <resultMap type='Estado' id='DTO'>
+		<result property='estado_propuesta' column='estado_propuesta'/>
+        <result property='numero' column='numero'/>
     </resultMap>
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
@@ -113,6 +118,11 @@
 		SELECT area, count(1) as numIniciativas FROM iniciativa
 		GROUP BY area;
     </select>  
+    
+    <select id="consultarEstados" resultMap="DTO" parameterType="map">
+		SELECT estado_propuesta, count(1) as numero FROM iniciativa
+		GROUP BY estado_propuesta;
+    </select> 
 	
 	<select id="modificarIniciativaEstado">
 		update Iniciativa set estado_Propuesta=#{estado_Propuesta} where nombrePropuesta=#{nombrePropuesta};

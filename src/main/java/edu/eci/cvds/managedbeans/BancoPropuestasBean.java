@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
@@ -34,6 +35,7 @@ public class BancoPropuestasBean extends BasePageBean {
     private Reporte reporte;
 	private Iniciativa selectedIniciativa;
 	private PalabraClave palabraClave;
+	private Estado estado;
 
     public List<Usuario> consultarUsuarios(){
         List<Usuario> clientes = null;
@@ -192,6 +194,17 @@ public class BancoPropuestasBean extends BasePageBean {
         System.out.println(reportes);
         return reportes;
     }
+    
+    public List<Estado> consultarEstados(){
+    	List<Estado> estados = null;
+        try{
+            estados = bancoPropuesta.consultarEstados();
+        } catch (BancoPropuestasException e) {
+        	setErrorMessage(e);
+        }
+        System.out.println(estados);
+        return estados;
+    }
 
     public void setSelectedPalabraClave(PalabraClave palabraClave){this.palabraClave = palabraClave;}
 
@@ -213,6 +226,14 @@ public class BancoPropuestasBean extends BasePageBean {
 
     public Reporte GetReporte(){
         return reporte;
+    }
+    
+    public void setSelectedEstado(Estado estado){
+    	this.estado = estado;
+    }
+
+    public Estado GetEstado(){
+        return estado;
     }
    
     

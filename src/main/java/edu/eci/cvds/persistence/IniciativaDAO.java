@@ -3,6 +3,8 @@ package edu.eci.cvds.persistence;
 import java.util.List;
 import java.sql.Date;
 import java.lang.String;
+
+import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte; 
@@ -32,5 +34,7 @@ public interface IniciativaDAO {
 	public List<PalabraClave> consultarPalabrasClave(int id_iniciativa) throws PersistenceException;
 
 	public List<Iniciativa> consultarIniciativaPalabraClave(String palabra) throws PersistenceException;
+	
+	public List<Estado> consultarEstados() throws PersistenceException;
 
 }

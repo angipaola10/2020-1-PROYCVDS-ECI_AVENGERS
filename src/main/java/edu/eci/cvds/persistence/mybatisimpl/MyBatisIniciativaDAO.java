@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.*;
 import java.lang.String;
 import com.google.inject.Inject;
+
+import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
@@ -155,7 +157,16 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
         }	
 			
 	}
-		
+
+	@Override
+	public List<Estado> consultarEstados() throws PersistenceException {
+		try{
+			return iniciativaMapper.consultarEstados();
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al agrupar las propuestas:",e);   
+         }	
+	}	
 }
 	
 	

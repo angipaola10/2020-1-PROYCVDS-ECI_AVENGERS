@@ -2,6 +2,8 @@ package edu.eci.cvds.services.impl;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+
+import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
@@ -190,14 +192,23 @@ public class BancoPropuestasImpl implements BancoPropuestas {
        }
    }
 
-@Override
-public List<Iniciativa> consultarIniciativaPalabraClave(String palabra) throws BancoPropuestasException {
-	 try {
-         return iniciativaDAO.consultarIniciativaPalabraClave(palabra);
-     } catch (PersistenceException e) {
-         throw new BancoPropuestasException("Error al consultar iniciativa por palabra ",e);
-     }
-}
+	@Override
+	public List<Iniciativa> consultarIniciativaPalabraClave(String palabra) throws BancoPropuestasException {
+		 try {
+	         return iniciativaDAO.consultarIniciativaPalabraClave(palabra);
+	     } catch (PersistenceException e) {
+	         throw new BancoPropuestasException("Error al consultar iniciativa por palabra ",e);
+	     }
+	}
+
+	@Override
+	public List<Estado> consultarEstados() throws BancoPropuestasException {
+		try {
+            return iniciativaDAO.consultarEstados();
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar estados ",e);
+        }
+	}
 	
    
 }

@@ -3,6 +3,8 @@ package edu.eci.cvds.persistence.mybatisimpl.mappers;
 import java.sql.Date;
 import java.util.List;
 import java.lang.String;
+
+import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
@@ -34,4 +36,6 @@ public interface IniciativaMapper {
 	public void modificarIniciativaEstado(@Param("estado_Propuesta") String estado, @Param("nombrePropuesta") String nombre);
 
 	public List<Iniciativa> consultarIniciativaPalabraClave(@Param("palabra")String palabra);
+
+	public List<Estado> consultarEstados();
 }
