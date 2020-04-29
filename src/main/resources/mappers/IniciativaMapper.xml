@@ -31,7 +31,7 @@
         <result property='numIniciativas' column='numIniciativas'/>
     </resultMap>
     
-    <resultMap type='Estado' id='DTO'>
+    <resultMap type='Estado' id='DTOestado'>
 		<result property='estado_propuesta' column='estado_propuesta'/>
         <result property='numero' column='numero'/>
     </resultMap>
@@ -119,7 +119,7 @@
 		GROUP BY area;
     </select>  
     
-    <select id="consultarEstados" resultMap="DTO" parameterType="map">
+    <select id="consultarEstados" resultMap="DTOestado" parameterType="map">
 		SELECT estado_propuesta, count(1) as numero FROM iniciativa
 		GROUP BY estado_propuesta;
     </select> 

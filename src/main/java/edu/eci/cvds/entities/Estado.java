@@ -29,7 +29,8 @@ public class Estado {
 	}
 	
 	public String toString() {
-		return "Estado{" + "estado=" + estado_propuesta + ", numero=" + numero + '}';
+		
+		return  estado_propuesta + "," + numero ;
 	}	
 	
 }

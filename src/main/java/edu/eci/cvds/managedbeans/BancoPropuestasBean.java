@@ -202,6 +202,7 @@ public class BancoPropuestasBean extends BasePageBean {
         } catch (BancoPropuestasException e) {
         	setErrorMessage(e);
         }
+        System.out.println("ESTADOS");
         System.out.println(estados);
         return estados;
     }

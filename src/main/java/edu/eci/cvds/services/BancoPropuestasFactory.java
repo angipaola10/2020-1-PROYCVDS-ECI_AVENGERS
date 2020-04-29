@@ -7,6 +7,7 @@ import edu.eci.cvds.persistence.IniciativaDAO;
 import edu.eci.cvds.persistence.UsuarioDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisIniciativaDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisUsuarioDAO;
+import edu.eci.cvds.services.impl.BancoPropuestasImpl;
 
 import org.mybatis.guice.XMLMyBatisModule;
 
@@ -28,6 +29,8 @@ public class BancoPropuestasFactory {
                 setClassPathResource(pathResource);
                 bind(IniciativaDAO.class).to(MyBatisIniciativaDAO.class);
                 bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
+                bind(BancoPropuestas.class).to(BancoPropuestasImpl.class);
+                
 
             }
         });
@@ -46,12 +49,20 @@ public class BancoPropuestasFactory {
     }
 
 
-    public ShiroBean getBancoPropuestasTest(){
+    public BancoPropuestas getBancoPropuestasTest(){
         if (!optInjector.isPresent()) {
-            optInjector = Optional.of(myBatisInjector("test","mybatis-config-h2.xml"));
+            optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
         }
 
-        return optInjector.get().getInstance(ShiroBean.class);
+        return optInjector.get().getInstance(BancoPropuestas.class);
+    }
+    
+    public BancoPropuestas getBancoPropuestas(){
+        if (!optInjector.isPresent()) {
+            optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+        }
+
+        return optInjector.get().getInstance(BancoPropuestas.class);
     }
 
 

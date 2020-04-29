@@ -19,11 +19,21 @@
 	      function drawChart() {
 
 	    	var tabla = "#{BancoPropuestasBean.agruparIniciativas()}";
-			
-	    	
-	    	console.log(tabla);
-	    	
-	        var data = google.visualization.arrayToDataTable([["hola","lol"],["hola",2],["hola2",5]]);
+			console.log(tabla);
+	    	var cadena = tabla.slice(1,-1);
+	     	var tabla1 = cadena.split(",")
+	    	var tabla2 = []
+	    	tabla2.push(["Estado","Numero"]);
+	    	var lon=tabla1.length
+	    	var cont=0;
+	    	for ( i in tabla1){
+	    		
+	    		console.log(tabla1[cont] + "vvvv "+ tabla1[cont+1]+"mod:"+ i%2 + " vvvv "+ cont +" otro"+ cont+2);
+	    		tabla2.push([tabla1[cont],parseInt(tabla1[cont+1])])
+	    		cont+=2;
+	    		if (cont == lon){ break}
+	   	    	}
+	        var data = google.visualization.arrayToDataTable(tabla2);
 	
 	        var options = {
 	          title: 'Areas de iniciativas'
@@ -40,12 +50,19 @@
 	      google.charts.load('current', {'packages':['corechart']});
 	      google.charts.setOnLoadCallback(drawChart);
 	      function drawChart() {
-
-	    	var tabla = "#{BancoPropuestasBean.consultarEstados()}";
-			
-	    	console.log(tabla);
-	    	
-	        var data = google.visualization.arrayToDataTable([["hola","lol"],["hola",2],["hola2",5]]);
+			var tabla = "#{BancoPropuestasBean.consultarEstados()}";
+			var cadena = tabla.slice(1,-1);
+	     	var tabla1 = cadena.split(",")
+	    	var tabla2 = []
+	    	tabla2.push(["Estado","Numero"]);
+	    	var lon=tabla1.length
+	    	var cont=0;
+	    	for ( i in tabla1){
+	    		tabla2.push([tabla1[cont],parseInt(tabla1[cont+1])])
+	    		cont+=2;
+	    		if (cont == lon){ break}
+	   	    	}
+	        var data = google.visualization.arrayToDataTable(tabla2);
 	
 	        var options = {
 	          title: 'Estado de iniciativas'
@@ -61,7 +78,8 @@
 		<script type="text/javascript">
 			function alerta() {
 				alert("Estado actualizado");
-				location.reload()
+				location.reload(true)
+				
 			}
 			
 		</script>
@@ -98,7 +116,7 @@
 				
 				<f:facet name="header" >
 					<p:selectOneMenu id="cons-ini" binding="#{pclaveini}">
-						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="" noSelectionOption="true" />
+						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="Palabra" noSelectionOption="true" />
 						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
 					</p:selectOneMenu>
 					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"/>

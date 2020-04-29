@@ -29,7 +29,7 @@ public class Reporte {
 	}
 	
 	public String toString() {
-		return "Reporte{area: " + area + ", numero de iniciativas: " + numIniciativas + "}";
+		return area + "," + numIniciativas;
 	}
 	
 }

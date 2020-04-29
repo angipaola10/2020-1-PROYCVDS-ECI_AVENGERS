@@ -18,6 +18,8 @@ import java.math.BigInteger;
 import java.sql.Date;
 import java.util.List;
 
+import org.apache.shiro.crypto.hash.Sha256Hash;
+
 @Singleton
 public class BancoPropuestasImpl implements BancoPropuestas {
 
@@ -52,7 +54,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	@Override
     public Usuario consultarUsuarioLog(String correo, String clave) throws BancoPropuestasException {
         try {
-            Usuario usu =usuarioDAO.obtenerUsuarioLog(correo, clave);
+            Usuario usu =usuarioDAO.obtenerUsuarioLog(correo, new Sha256Hash(clave).toHex());
             if (usu==null) throw new BancoPropuestasException("El cliente no esta registrado");
             else return usu;
 
