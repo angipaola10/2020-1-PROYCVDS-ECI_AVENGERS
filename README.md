@@ -88,7 +88,7 @@ aca va la descripcion de la metodologia usada. --> al final del proyecto
 
 
 ### Enlace a Taiga:
-aca va el taiga ---> (hacer público el Backlog).
+https://tree.taiga.io/project/angiedanielar-plataforma-banco-de-iniciativas-de-proyectos/backlog
 
 
 ### Release-burndown chart:
