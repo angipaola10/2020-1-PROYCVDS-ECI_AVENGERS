@@ -54,7 +54,10 @@ public class ShiroBean implements Serializable {
 			} 
 			else if (subject.hasRole("Proponente")) {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/inicioUsuarioProponente.xhtml");
-			}	
+			}
+			else if (subject.hasRole("Publico")) {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/InicioUsuarioPublico.xhtml");
+			}
 			
         }
         catch (NullPointerException e) {

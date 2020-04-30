@@ -9,7 +9,7 @@
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
 		<!--<script type="text/javascript">
 		  function actualizar(){location.reload(true);}
-		//Función para actualizar cada 4 segundos(4000 milisegundos)
+		//Funci�n para actualizar cada 4 segundos(4000 milisegundos)
 		  setInterval("actualizar()",4000);
 		</script>-->
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -74,10 +74,8 @@
 	      }
 	    </script>
 	    
-		
-		<script type="text/javascript">
+	    <script type="text/javascript">
 			function alerta() {
-				alert("Estado actualizado");
 				location.reload(true)
 				
 			}
@@ -91,20 +89,10 @@
 				<img src= "assets/img/cabecera.jpg"/>
 			</div>
 			<div class = "header">
-				<b>Consultar iniciativas</b>
+				<b>Iniciativas</b>
 					<ul class="nav">
-						<li><a href="">Iniciativas</a>
-							<ul>
-								<li><a href="">Consultar iniciativas</a></li>
-							</ul>
-						</li>
-						<li><a>Usuarios</a>
-							<ul>
-								<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
-							</ul>
-						</li>
 						<li>
-							<p:commandButton value="Cerrar sesión"
+							<p:commandButton value="Cerrar sesion"
 										class="btn btn-rose btn-simple btn-wd btn-lg"
 										action="#{shiroBean.doLogOut()}"/>					
 						</li>
@@ -119,9 +107,8 @@
 						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="Palabra" noSelectionOption="true" />
 						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
 					</p:selectOneMenu>
-					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"  actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(Palabra)}" >
-					</p:commandButton>
-					</f:facet>
+					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"/>
+				</f:facet>
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
 					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
@@ -159,13 +146,10 @@
 				</p:column>
 						
 				<f:facet name="footer">
-					<p:selectOneMenu id="act-estado" binding="#{estadoi}">
-						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
-					</p:selectOneMenu>
-					<p:commandButton id="mensaje" value="Actualizar estado"
+	
+					<p:commandButton id="mensaje" value="Dar like"
 									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}" onclick="alerta()"/>
+									actionListener="#{BancoPropuestasBean.darLike(BancoPropuestasBean.selectedIniciativa,shiroBean.getUsername())}" onclick="alerta()"/>
 				</f:facet>
 				
 			</p:dataTable>   
@@ -196,7 +180,7 @@
 						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.estado_Propuesta}" />
 						
 						<h:outputText value="Likes" />
-						<h:outputText value="#{BancoPropuestasBean.consultarLikes(selectedIniciativa.id)}" />
+						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.likes}" />
 						
 					</p:panelGrid>
 					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" class="tabla" style="width:300px">

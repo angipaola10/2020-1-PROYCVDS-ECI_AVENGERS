@@ -6,6 +6,7 @@ import java.lang.String;
 
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Likes;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte; 
 
@@ -36,5 +37,9 @@ public interface IniciativaDAO {
 	public List<Iniciativa> consultarIniciativaPalabraClave(String palabra) throws PersistenceException;
 	
 	public List<Estado> consultarEstados() throws PersistenceException;
+
+	public void darLike(int id, String user) throws PersistenceException ;
+
+	public Likes consultarLikes(int id)  throws PersistenceException;
 
 }

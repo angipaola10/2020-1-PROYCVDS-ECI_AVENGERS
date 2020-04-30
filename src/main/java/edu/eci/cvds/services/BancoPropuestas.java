@@ -7,6 +7,7 @@ import java.util.List;
 
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Likes;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
@@ -52,5 +53,9 @@ public interface BancoPropuestas {
 	public abstract List<Iniciativa> consultarIniciativaPalabraClave(String palabra)throws BancoPropuestasException;
 
 	public abstract List<Estado> consultarEstados() throws BancoPropuestasException;
+
+	public abstract void darLike(int id , String user) throws BancoPropuestasException ;
+
+	public abstract Likes consultarLikes(int id) throws BancoPropuestasException;
 
 }

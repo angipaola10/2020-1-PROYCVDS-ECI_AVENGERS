@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Likes;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper;
@@ -166,6 +167,31 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              throw new PersistenceException("Error al agrupar las propuestas:",e);   
          }	
+	}
+
+	@Override
+	public void darLike(int id,String user) throws PersistenceException {
+		try{
+			iniciativaMapper.darLike(id,user);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al agrupar las propuestas:",e);   
+         }
+		
+	}
+
+	@Override
+	public Likes consultarLikes(int id) throws PersistenceException {
+		Likes likes;
+		try{
+			 
+			likes = iniciativaMapper.consultarLikes(id);
+			System.out.println(likes);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al agrupar las propuestas:",e);   
+         }
+		return likes;
 	}	
 }
 	

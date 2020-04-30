@@ -35,6 +35,10 @@
 		<result property='estado_propuesta' column='estado_propuesta'/>
         <result property='numero' column='numero'/>
     </resultMap>
+    
+    <resultMap type='Likes' id='DTOLikes'>
+		<result property='megusta' column='megusta'/>
+    </resultMap>
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
@@ -122,6 +126,15 @@
     <select id="consultarEstados" resultMap="DTOestado" parameterType="map">
 		SELECT estado_propuesta, count(1) as numero FROM iniciativa
 		GROUP BY estado_propuesta;
+    </select> 
+    
+    <insert id="darLike">
+		INSERT INTO Comentarios (idiniciativa,idusuario,megusta)
+		VALUES (#{id_ini},#{id_usu},true);
+	</insert>
+	
+	<select id="consultarLikes" resultMap="DTOLikes" parameterType="map">
+		SELECT count(megusta) as megusta from comentarios where megusta = true and idiniciativa = #{id_inic};
     </select> 
 	
 	<select id="modificarIniciativaEstado">

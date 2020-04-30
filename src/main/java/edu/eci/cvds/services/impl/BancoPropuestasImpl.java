@@ -5,6 +5,7 @@ import com.google.inject.Singleton;
 
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Likes;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
@@ -210,6 +211,27 @@ public class BancoPropuestasImpl implements BancoPropuestas {
         } catch (PersistenceException e) {
             throw new BancoPropuestasException("Error al consultar estados ",e);
         }
+	}
+
+	@Override
+	public void darLike(int id, String user) throws BancoPropuestasException {
+		try {
+			iniciativaDAO.darLike(id,user);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar estados ",e);
+        }
+		
+	}
+
+	@Override
+	public Likes consultarLikes(int id) throws BancoPropuestasException {
+		Likes likes;
+		try {
+			likes = iniciativaDAO.consultarLikes(id);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar estados ",e);
+        }
+		return likes;
 	}
 	
    

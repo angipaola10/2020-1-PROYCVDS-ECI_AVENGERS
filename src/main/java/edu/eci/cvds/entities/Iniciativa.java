@@ -14,6 +14,7 @@ public class Iniciativa implements SelectableDataModel{
 	private String usuario;
 	private String estado_Propuesta;
 	private String nombreProponente;
+	private int likes;
 
 	public Iniciativa() {}
 	
@@ -25,7 +26,8 @@ public class Iniciativa implements SelectableDataModel{
 		this.area= area;
 		this.usuario = usuario;
 		this.estado_Propuesta = estado_Propuesta;
-		this.nombreProponente = nombreProponente;	
+		this.nombreProponente = nombreProponente;
+		this.likes=0;
 	}
 	
 	public int getId() {
@@ -114,6 +116,14 @@ public class Iniciativa implements SelectableDataModel{
 	public Object getRowData(String rowKey) {
 		// TODO Auto-generated method stub
 		return this;
+	}
+
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
 	}
 	
 }

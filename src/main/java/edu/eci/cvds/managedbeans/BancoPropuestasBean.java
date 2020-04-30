@@ -1,5 +1,6 @@
 package edu.eci.cvds.managedbeans;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import javax.inject.Inject;
 
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Likes;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
@@ -36,6 +38,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	private Iniciativa selectedIniciativa;
 	private PalabraClave palabraClave;
 	private Estado estado;
+	private List <Likes> likes;
 
     public List<Usuario> consultarUsuarios(){
         List<Usuario> clientes = null;
@@ -303,6 +306,27 @@ public class BancoPropuestasBean extends BasePageBean {
 	    	   setErrorMessage(e);
 	       }
 	}
+	
+	public void darLike( Iniciativa f, String user) throws BancoPropuestasException {
+		try {
+			 bancoPropuesta.darLike(f.getId(),user);
+	       } catch (BancoPropuestasException e) {
+	    	   setErrorMessage(e);
+	       }
+	}
+	
+	public int consultarLikes( int id) throws BancoPropuestasException {
+		 int likes = 0;
+		try {
+			System.out.println("Likes" + id);
+			 likes = bancoPropuesta.consultarLikes(id).getMeGusta();
+			 System.out.println(likes);
+	       } catch (BancoPropuestasException e) {
+	    	   setErrorMessage(e);
+	       }
+		 
+		return likes;
+	}
  
 	public List<PalabraClave> consultarPalabrasClaveIniciativa() throws BancoPropuestasException {
 	   List<PalabraClave> palabrasClaves = new ArrayList<PalabraClave>();
@@ -319,7 +343,8 @@ public class BancoPropuestasBean extends BasePageBean {
        return palabrasClaves;
 	}
 	
-	public List<Iniciativa> consultarIniciativaPalabraClave (String palabra){
+	public List<Iniciativa> consultarIniciativaPalabraClave (String palabra) throws IOException{
+		FacesContext.getCurrentInstance().getExternalContext().redirect("../faces/ConsultaClave.xhtml");
 		List<Iniciativa> iniciativas = null;
 		try {
 			System.out.println("Consultando iniciativas por palabra clave bean");
@@ -330,6 +355,14 @@ public class BancoPropuestasBean extends BasePageBean {
 		}
 		System.out.println("!!iniciativas con pclave "+palabra+": "+iniciativas);
 		return iniciativas;
+	}
+
+	public List<Likes> getLikes() {
+		return likes;
+	}
+
+	public void setLikes(List<Likes> likes) {
+		this.likes = likes;
 	}
 
 }

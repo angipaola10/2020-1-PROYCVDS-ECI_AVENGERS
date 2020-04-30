@@ -6,6 +6,7 @@ import java.lang.String;
 
 import edu.eci.cvds.entities.Estado;
 import edu.eci.cvds.entities.Iniciativa;
+import edu.eci.cvds.entities.Likes;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 
@@ -38,4 +39,8 @@ public interface IniciativaMapper {
 	public List<Iniciativa> consultarIniciativaPalabraClave(@Param("palabra")String palabra);
 
 	public List<Estado> consultarEstados();
+
+	public void darLike(@Param("id_ini") int id, @Param("id_usu") String user);
+
+	public Likes consultarLikes(@Param("id_inic")int id);
 }
