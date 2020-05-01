@@ -113,9 +113,10 @@
 		i.fechaInicio,
 		i.area,
 		i.usuario,
-		i.estado_Propuesta
-	    FROM iniciativa as i, PalabraClave as pc, PCIniciativa as pi;
-		WHERE pc.palabraClave = #{palabra} AND pc.id = pc.palabras_clave AND i.id = pi.ini_id;
+		i.estado_Propuesta,
+		u.nombre as nombreProponente
+	    FROM iniciativa as i, PalabraClave as pc, PCIniciativa as pi, usuario as u
+		WHERE pc.palabraClave = #{palabra} AND pc.id = pi.palabras_clave AND i.id = pi.ini_id AND i.usuario=u.correo;
     </select>
     
     <select id="agruparPropuestaPorArea" resultMap="DTO" parameterType="map">

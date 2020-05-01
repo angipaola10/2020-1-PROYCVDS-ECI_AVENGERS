@@ -39,6 +39,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	private PalabraClave palabraClave;
 	private Estado estado;
 	private List <Likes> likes;
+	private List <Iniciativa> pcclaveini;
 
     public List<Usuario> consultarUsuarios(){
         List<Usuario> clientes = null;
@@ -343,19 +344,21 @@ public class BancoPropuestasBean extends BasePageBean {
        return palabrasClaves;
 	}
 	
-	public List<Iniciativa> consultarIniciativaPalabraClave (String palabra) throws IOException{
-		FacesContext.getCurrentInstance().getExternalContext().redirect("../faces/ConsultaClave.xhtml");
+	public void consultarIniciativaPalabraClave (String palabra) throws IOException{
 		List<Iniciativa> iniciativas = null;
 		try {
-			System.out.println("Consultando iniciativas por palabra clave bean");
+			System.out.println("Consultando iniciativas por palabra clave bean  12 "+ palabra );
 			iniciativas = bancoPropuesta.consultarIniciativaPalabraClave(palabra);
 		} catch(BancoPropuestasException e) {
 			System.out.println("Consultando iniciativas por palabra clave bean excepcion");
 			setErrorMessage(e);
 		}
-		System.out.println("!!iniciativas con pclave "+palabra+": "+iniciativas);
-		return iniciativas;
+		System.out.println("!!iniciativas con pclave "+ palabra +": "+iniciativas);
+		setPcclaveini(iniciativas);
+		 if (ShiroBean.subject.hasRole("Administrador")) {FacesContext.getCurrentInstance().getExternalContext().redirect("../faces/palabraClave.xhtml");}
+		 if (ShiroBean.subject.hasRole("Publico")) {FacesContext.getCurrentInstance().getExternalContext().redirect("../faces/palabraClaveUP.xhtml");}
 	}
+	
 
 	public List<Likes> getLikes() {
 		return likes;
@@ -363,6 +366,14 @@ public class BancoPropuestasBean extends BasePageBean {
 
 	public void setLikes(List<Likes> likes) {
 		this.likes = likes;
+	}
+
+	public List <Iniciativa> getPcclaveini() {
+		return pcclaveini;
+	}
+
+	public void setPcclaveini(List <Iniciativa> pcclaveini) {
+		this.pcclaveini = pcclaveini;
 	}
 
 }

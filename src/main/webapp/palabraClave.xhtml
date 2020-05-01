@@ -6,76 +6,11 @@
 	<h:head>
 		<title>Banco de iniciativas ECI</title>
 		<link href="assets/css/consultari.css" rel="stylesheet"/>
-		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
-		<!--<script type="text/javascript">
-		  function actualizar(){location.reload(true);}
-		//Funci�n para actualizar cada 4 segundos(4000 milisegundos)
-		  setInterval("actualizar()",4000);
-		</script>-->
-		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	    <script type="text/javascript">
-	      google.charts.load('current', {'packages':['corechart']});
-	      google.charts.setOnLoadCallback(drawChart);
-	      function drawChart() {
-
-	    	var tabla = "#{BancoPropuestasBean.agruparIniciativas()}";
-			console.log(tabla);
-	    	var cadena = tabla.slice(1,-1);
-	     	var tabla1 = cadena.split(",")
-	    	var tabla2 = []
-	    	tabla2.push(["Estado","Numero"]);
-	    	var lon=tabla1.length
-	    	var cont=0;
-	    	for ( i in tabla1){
-	    		
-	    		console.log(tabla1[cont] + "vvvv "+ tabla1[cont+1]+"mod:"+ i%2 + " vvvv "+ cont +" otro"+ cont+2);
-	    		tabla2.push([tabla1[cont],parseInt(tabla1[cont+1])])
-	    		cont+=2;
-	    		if (cont == lon){ break}
-	   	    	}
-	        var data = google.visualization.arrayToDataTable(tabla2);
-	
-	        var options = {
-	          title: 'Areas de iniciativas'
-	        };
-	
-	        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-	
-	        chart.draw(data, options);
-	      }
-	    </script>
-	    
-	    		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	    <script type="text/javascript">
-	      google.charts.load('current', {'packages':['corechart']});
-	      google.charts.setOnLoadCallback(drawChart);
-	      function drawChart() {
-			var tabla = "#{BancoPropuestasBean.consultarEstados()}";
-			var cadena = tabla.slice(1,-1);
-	     	var tabla1 = cadena.split(",")
-	    	var tabla2 = []
-	    	tabla2.push(["Estado","Numero"]);
-	    	var lon=tabla1.length
-	    	var cont=0;
-	    	for ( i in tabla1){
-	    		tabla2.push([tabla1[cont],parseInt(tabla1[cont+1])])
-	    		cont+=2;
-	    		if (cont == lon){ break}
-	   	    	}
-	        var data = google.visualization.arrayToDataTable(tabla2);
-	
-	        var options = {
-	          title: 'Estado de iniciativas'
-	        };
-			
-	        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
-			
-	        chart.draw(data, options);
-	      }
-	    </script>
-	    
-	    <script type="text/javascript">
+		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />  
+		
+		<script type="text/javascript">
 			function alerta() {
+				alert("Estado actualizado");
 				location.reload(true)
 				
 			}
@@ -89,8 +24,18 @@
 				<img src= "assets/img/cabecera.jpg"/>
 			</div>
 			<div class = "header">
-				<b>Iniciativas</b>
+				<b>Consultar iniciativas por palabra clave </b>
 					<ul class="nav">
+						<li><a href="">Iniciativas</a>
+							<ul>
+								<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
+							</ul>
+						</li>
+						<li><a>Usuarios</a>
+							<ul>
+								<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
+							</ul>
+						</li>
 						<li>
 							<p:commandButton value="Cerrar sesion"
 										class="btn btn-rose btn-simple btn-wd btn-lg"
@@ -98,7 +43,7 @@
 						</li>
 					</ul>
 			</div>
-			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativas()}" class="tabla"
+			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.getPcclaveini()}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
 				rows="15" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
 				
@@ -107,8 +52,9 @@
 						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="Palabra" noSelectionOption="true" />
 						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
 					</p:selectOneMenu>
-					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;" actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}"/>
-				</f:facet>
+					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"  actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}" >
+					</p:commandButton>
+					</f:facet>
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
 					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
@@ -146,10 +92,13 @@
 				</p:column>
 						
 				<f:facet name="footer">
-	
-					<p:commandButton id="mensaje" value="Dar like"
+					<p:selectOneMenu id="act-estado" binding="#{estadoi}">
+						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
+					</p:selectOneMenu>
+					<p:commandButton id="mensaje" value="Actualizar estado"
 									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.darLike(BancoPropuestasBean.selectedIniciativa,shiroBean.getUsername())}" onclick="alerta()"/>
+									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}" onclick="alerta()"/>
 				</f:facet>
 				
 			</p:dataTable>   
@@ -180,7 +129,7 @@
 						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.estado_Propuesta}" />
 						
 						<h:outputText value="Likes" />
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.likes}" />
+						<h:outputText value="#{BancoPropuestasBean.consultarLikes(selectedIniciativa.id)}" />
 						
 					</p:panelGrid>
 					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" class="tabla" style="width:300px">
@@ -192,9 +141,6 @@
 			</p:dialog>
 
         </h:form>  
-        
-        <div id="piechart" style="width: 900px; height: 500px;"></div>
-        <div id="piechart2" style="width: 900px; height: 500px;"></div>
         <p class="copyright text-muted">Daniela Ruiz - Angie Jimenez  - Henry Sanchez - Edwin Rodriguez</p>
 	</body>
 </html>
