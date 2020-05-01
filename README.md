@@ -32,8 +32,6 @@ proyectos para ser desarrollados o gestionados por la PMO de la Escuela._
 
 ### Manual de usuario: 
 acá va el manual, equis de.
-
-
 en el manual van --> Imágenes y descripción de las funcionalidades más importantes.
 
 
@@ -41,7 +39,7 @@ en el manual van --> Imágenes y descripción de las funcionalidades más import
 
 
 ### Modelo E-R:
-acá va el modelo de clases :3
+acá va el modelo de clases :3 y el de base de datos. ---> los ponemos al final
 
 
 ## Descripción de la arquitectura y tecnologías utilizadas. 🛠️
@@ -84,7 +82,7 @@ _**Responsabilidades de los integrantes:**_
 
 
 ### Descripción de la Metodología:
-aca va la descripcion de la metodologia usada. --> al final del proyecto
+_Durante la realización del proyecto se trabajó mediante la metodología ágil de: **Scrum**. Se hicieron 3 sprints, de los cuales cada uno tuvo una duración de 2 semanas._
 
 
 ### Enlace a Taiga:
@@ -116,8 +114,18 @@ Y por problemas con el tiempo y el trabajo en equipo nos quedaron flatando las s
 
 ## Segundo Sprint:
 ### Sprint-backlog:
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/2doSprint.jpeg) 
+
+
 ### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
+_Nos quedó faltando._
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/faltando2sprint.jpeg)
+
+
 ### Sprint-burndown chart:
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog2.jpeg) 
 
 
 ## Tercer Sprint:
@@ -127,7 +135,7 @@ Y por problemas con el tiempo y el trabajo en equipo nos quedaron flatando las s
 
 
 ## Reporte de pruebas y de cubrimiento. 📖
-aca va el reporte ---> (sólo la foto del reporte principal). 
+aca va el reporte (sólo la foto del reporte principal). ---> ponerlo al final 
 Para la cobertura, pueden usar los plugins disponibles (EclEmma, Jacoco, etc.)
 
 
