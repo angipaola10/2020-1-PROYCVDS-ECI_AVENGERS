@@ -38,7 +38,7 @@ public class BancoPropuestasTest {
     @Test
     public void DeberiaConsultariniciativas() throws BancoPropuestasException {
     	List<Iniciativa> prueba = banco.consultarIniciativas();
-    	assertEquals(prueba.size(),12);
+    	assertEquals(prueba.size(),13);
    	
     }
     

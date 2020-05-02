@@ -95,10 +95,8 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     @Override
     public List<Iniciativa> consultarIniciativas() throws BancoPropuestasException {
         try {
-        	System.out.println("entra al bancop");
             return iniciativaDAO.consularIniciativas();
         } catch (PersistenceException e) {
-        	System.out.println("hola 22");
             throw new BancoPropuestasException("Error al consultar las iniciativas ",e);
         }
     }
