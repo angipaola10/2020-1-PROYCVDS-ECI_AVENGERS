@@ -102,10 +102,13 @@ al final del proyecto se hace estop
 
 ### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
 _Nos quedó faltando asociar las palabras claves a la iniciativa porque aún no entendemos bien como realizarlo.
-Y por problemas con el tiempo y el trabajo en equipo nos quedaron flatando las siguientes cosas de la historia de usuario número 5._
+Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar las siguientes cosas de la historia de usuario número 5:_
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/faltando1sprint.jpeg)
+
+
+_Por esta razón se movió esta historia de usuario al segundo sprint y se creo aparte en el segundo sprint una historia de usuario nueva para el trabajo de las correcciones del primer sprint que nos indicó nuestro profesor._
 
 
 ### Sprint-burndown chart:
@@ -114,18 +117,21 @@ Y por problemas con el tiempo y el trabajo en equipo nos quedaron flatando las s
 
 ## Segundo Sprint:
 ### Sprint-backlog:
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/2doSprint.jpeg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/2doSprint.jpg) 
 
 
 ### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
-_Nos quedó faltando._
+_Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente:_
 
 
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/faltando2sprint.jpeg)
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/faltando2sprint.jpg)
+
+
+_Por esta razón se movió esta historia de usuario al tercer sprint y se creo aparte en el tercer sprint una historia de usuario nueva para el trabajo de las correcciones del segundo sprint que nos indicó nuestro profesor._
 
 
 ### Sprint-burndown chart:
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog2.jpeg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog2.jpg) 
 
 
 ## Tercer Sprint:
