@@ -134,6 +134,11 @@
 		VALUES (#{id_ini},#{id_usu},true);
 	</insert>
 	
+	<insert id="comentar">
+		INSERT INTO Comentarios (idiniciativa,idusuario,comentario)
+		VALUES (#{id_ini},#{id_usu},#{coment});
+	</insert>
+	
 	<select id="consultarLikes" resultMap="DTOLikes" parameterType="map">
 		SELECT count(megusta) as megusta from comentarios where megusta = true and idiniciativa = #{id_inic};
     </select> 

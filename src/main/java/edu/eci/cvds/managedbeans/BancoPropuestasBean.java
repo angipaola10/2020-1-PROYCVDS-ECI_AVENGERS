@@ -316,6 +316,16 @@ public class BancoPropuestasBean extends BasePageBean {
 	       }
 	}
 	
+	public void comentar(Iniciativa f, String user, String comentario) throws BancoPropuestasException {
+		try {
+			System.out.println("---------------------------------------------");
+			System.out.println(comentario);
+			 bancoPropuesta.comentar(f.getId(),user,comentario);
+	       } catch (BancoPropuestasException e) {
+	    	   setErrorMessage(e);
+	       }
+	}
+	
 	public int consultarLikes( int id) throws BancoPropuestasException {
 		 int likes = 0;
 		try {

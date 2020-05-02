@@ -43,4 +43,6 @@ public interface IniciativaMapper {
 	public void darLike(@Param("id_ini") int id, @Param("id_usu") String user);
 
 	public Likes consultarLikes(@Param("id_inic")int id);
+
+	public void comentar(@Param("id_ini") int id,@Param("id_usu") String user, @Param("coment") String comentario);
 }

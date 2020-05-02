@@ -218,7 +218,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 		try {
 			iniciativaDAO.darLike(id,user);
         } catch (PersistenceException e) {
-            throw new BancoPropuestasException("Error al consultar estados ",e);
+            throw new BancoPropuestasException("Error al dar like ",e);
         }
 		
 	}
@@ -233,6 +233,13 @@ public class BancoPropuestasImpl implements BancoPropuestas {
         }
 		return likes;
 	}
-	
-   
+
+	@Override
+	public void comentar(int id, String user, String comentario) throws BancoPropuestasException {
+		try {
+			iniciativaDAO.comentar(id,user,comentario);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al comentar",e);
+        }
+	}
 }

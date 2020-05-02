@@ -58,4 +58,6 @@ public interface BancoPropuestas {
 
 	public abstract Likes consultarLikes(int id) throws BancoPropuestasException;
 
+	public abstract void comentar(int id, String user, String comentario) throws BancoPropuestasException;
+
 }

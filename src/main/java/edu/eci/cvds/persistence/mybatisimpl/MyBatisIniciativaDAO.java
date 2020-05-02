@@ -192,6 +192,16 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
              throw new PersistenceException("Error al agrupar las propuestas:",e);   
          }
 		return likes;
+	}
+
+	@Override
+	public void comentar(int id, String user, String comentario) throws PersistenceException {
+		try{
+			iniciativaMapper.comentar(id,user,comentario);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al insrterar el comentario:",e);   
+         }
 	}	
 }
 	

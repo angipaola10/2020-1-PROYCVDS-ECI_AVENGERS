@@ -84,15 +84,6 @@
 					</p:commandButton>
 				</p:column>
 						
-				<f:facet name="footer">
-					<p:selectOneMenu id="act-estado" binding="#{estadoi}">
-						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
-					</p:selectOneMenu>
-					<p:commandButton id="mensaje" value="Actualizar estado"
-									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}" onclick="alerta()"/>
-				</f:facet>
 				
 			</p:dataTable>   
 			

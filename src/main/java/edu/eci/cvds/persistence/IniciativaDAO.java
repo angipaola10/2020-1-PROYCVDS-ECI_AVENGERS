@@ -42,4 +42,6 @@ public interface IniciativaDAO {
 
 	public Likes consultarLikes(int id)  throws PersistenceException;
 
+	public void comentar(int id, String user, String comentario)  throws PersistenceException;
+
 }
