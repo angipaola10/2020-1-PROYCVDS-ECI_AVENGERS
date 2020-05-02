@@ -124,7 +124,7 @@ _Por esta razón se movió esta historia de usuario al segundo sprint y se creo 
 _Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente:_
 
 
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/faltando2sprint.jpg)
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/falta2sprint.jpg)
 
 
 _Por esta razón se movió esta historia de usuario al tercer sprint y se creo aparte en el tercer sprint una historia de usuario nueva para el trabajo de las correcciones del segundo sprint que nos indicó nuestro profesor._
