@@ -74,6 +74,15 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     }
     
     @Override
+    public List<Iniciativa> consultarIniciativasPorEstado(String estado_Propuesta) throws BancoPropuestasException {
+        try {
+            return iniciativaDAO.consultarEstadoIniciativas(estado_Propuesta);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar los estados de las iniciativas "+estado_Propuesta,e);
+        }
+    }
+    
+    @Override
     public Iniciativa consultarIniciativaArea(String area) throws BancoPropuestasException {
         try {
             return iniciativaDAO.consultarIniciativaArea(area);
@@ -125,13 +134,23 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	}
    
    @Override
-	public void modificarUsuario(String rol, String correo)  throws BancoPropuestasException {
+	public void modificarUsuario(String rol, String correo) throws BancoPropuestasException {
 		try {
             usuarioDAO.actualizarUsuario(rol, correo);
         } catch (PersistenceException e) {
             throw new BancoPropuestasException("Error al actualizar el rol del usuario. ",e);
         }
 	}
+   
+   @Override
+	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area, String usuario) throws BancoPropuestasException {
+		try {
+           iniciativaDAO.modificarPropuesta(nombrePropuesta, descripcion, area, usuario);
+       } catch (PersistenceException e) {
+           throw new BancoPropuestasException("Error al actualizar la propuesta. ",e);
+       }
+	}
+  
    
    @Override
 	public void modificarUsuarioEstado(String estado, String correo)  throws BancoPropuestasException {

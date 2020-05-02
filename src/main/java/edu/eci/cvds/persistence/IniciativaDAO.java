@@ -1,6 +1,9 @@
 package edu.eci.cvds.persistence;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import java.sql.Date;
 import java.lang.String;
 
@@ -11,12 +14,16 @@ import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte; 
 
 public interface IniciativaDAO {
+	
+	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area, String usuario) throws PersistenceException;
 
-	public List<Iniciativa> consularIniciativas()  throws PersistenceException;
+	public List<Iniciativa> consularIniciativas() throws PersistenceException;
 
 	public List<Iniciativa> consultarIniciativa(String correo) throws PersistenceException;
 	
 	public Iniciativa consultarIniciativaArea(String area) throws PersistenceException;
+	
+	public List<Iniciativa> consultarEstadoIniciativas(String estado_Propuesta) throws PersistenceException;
 	
 	public void agregarIniciativa(String nombre, String descripcion, String area, String usuario) throws PersistenceException;
 	

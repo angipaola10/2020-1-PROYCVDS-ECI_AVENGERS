@@ -18,6 +18,7 @@ import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Reporte;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
+import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException;
 
@@ -45,13 +46,10 @@ public class BancoPropuestasBean extends BasePageBean {
         List<Usuario> clientes = null;
         try{
             clientes=bancoPropuesta.consultarUsuarios();
-            System.out.println("hola");
             
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
-            System.out.println("hola2");
         }
-        System.out.println(clientes);
         return clientes;
     }
 	
@@ -85,8 +83,16 @@ public class BancoPropuestasBean extends BasePageBean {
 	
 	public void modificarUsuario(String rol){
         try {
-        	System.out.println("modificando perfil usuario "+selectedUsuario.getCorreo()+" "+rol);
             bancoPropuesta.modificarUsuario(rol, selectedUsuario.getCorreo());
+        } catch (BancoPropuestasException e) {
+            setErrorMessage(e);
+
+        }
+    }
+	
+	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area){
+        try {
+            bancoPropuesta.modificarPropuesta(nombrePropuesta, descripcion, area, selectedIniciativa.getUsuario());
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
 
@@ -136,14 +142,22 @@ public class BancoPropuestasBean extends BasePageBean {
     public List<Iniciativa> consultarIniciativas(){
         List<Iniciativa> iniciativas = null;
         try{
-        	System.out.println("Consultando todas las iniciativas");
             iniciativas=bancoPropuesta.consultarIniciativas();
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
-            System.out.println("hola ini error");
         }
         return iniciativas;
    }
+    
+    public List<Iniciativa> consultarIniciativasPorEstado(String estado_Propuesta){
+            List<Iniciativa> iniciativas = null;
+            try{
+                iniciativas=bancoPropuesta.consultarIniciativasPorEstado(estado_Propuesta);
+            } catch (BancoPropuestasException e) {
+                setErrorMessage(e);
+            }
+            return iniciativas;
+       }    
     
     private void facesError(String message) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
@@ -180,10 +194,8 @@ public class BancoPropuestasBean extends BasePageBean {
     }
 	public void modificarIniciativaEstado(String estado){
         try{
-        	System.out.println("Modificando estado iniciativa "+selectedIniciativa.getNombrePropuesta()+" "+estado+" bean");
             bancoPropuesta.modificarIniciativaEstado(estado, selectedIniciativa.getNombrePropuesta());
         } catch (BancoPropuestasException e) {
-        	System.out.println("Modificando estado iniciativa "+selectedIniciativa.getNombrePropuesta()+" "+estado+" bean excepcion");
         	setErrorMessage(e);
         }
     }
@@ -195,7 +207,6 @@ public class BancoPropuestasBean extends BasePageBean {
         } catch (BancoPropuestasException e) {
         	setErrorMessage(e);
         }
-        System.out.println(reportes);
         return reportes;
     }
     
@@ -206,8 +217,6 @@ public class BancoPropuestasBean extends BasePageBean {
         } catch (BancoPropuestasException e) {
         	setErrorMessage(e);
         }
-        System.out.println("ESTADOS");
-        System.out.println(estados);
         return estados;
     }
 
@@ -258,7 +267,6 @@ public class BancoPropuestasBean extends BasePageBean {
 
     public void registrarPalabraClave(String palabraClave) throws BancoPropuestasException {
 	   try {
-		   System.out.println("Registrando palabra clave: "+palabraClave);
 		   bancoPropuesta.registrarPalabraClave(palabraClave);
        } catch (BancoPropuestasException e) {
     	   setErrorMessage(e);
@@ -268,12 +276,10 @@ public class BancoPropuestasBean extends BasePageBean {
 	public List<PalabraClave> consultarPalabrasClaves() throws BancoPropuestasException {
 		   List<PalabraClave> palabrasClaves = null;
 	       try{
-	    	   System.out.println("consultando palabras clave bean");
 	    	   palabrasClaves = bancoPropuesta.consultarPalabrasClaves();
 	       } catch (BancoPropuestasException e) {
 	    	   setErrorMessage(e);
 	       }
-	       System.out.println(palabrasClaves);
 	       return palabrasClaves;
 	}
 	
@@ -343,27 +349,21 @@ public class BancoPropuestasBean extends BasePageBean {
 	   List<PalabraClave> palabrasClaves = new ArrayList<PalabraClave>();
        try{
     	   if(selectedIniciativa != null) {
-    		   System.out.println("Consultar palabras clave initicativa No "+selectedIniciativa.getId()+" bean");
     		   palabrasClaves = bancoPropuesta.consultarPalabraClave(selectedIniciativa.getId());
     	   }
        } catch (BancoPropuestasException e) {
-    	   System.out.println("Consultar palabras clave initicativa No "+selectedIniciativa.getId()+" exepcion bean");
        	   setErrorMessage(e);
        }
-       System.out.println("---palabras c: "+palabrasClaves);
        return palabrasClaves;
 	}
 	
 	public void consultarIniciativaPalabraClave (String palabra) throws IOException{
 		List<Iniciativa> iniciativas = null;
 		try {
-			System.out.println("Consultando iniciativas por palabra clave bean  12 "+ palabra );
 			iniciativas = bancoPropuesta.consultarIniciativaPalabraClave(palabra);
 		} catch(BancoPropuestasException e) {
-			System.out.println("Consultando iniciativas por palabra clave bean excepcion");
 			setErrorMessage(e);
 		}
-		System.out.println("!!iniciativas con pclave "+ palabra +": "+iniciativas);
 		setPcclaveini(iniciativas);
 		 if (ShiroBean.subject.hasRole("Administrador")) {FacesContext.getCurrentInstance().getExternalContext().redirect("../faces/palabraClave.xhtml");}
 		 if (ShiroBean.subject.hasRole("Publico")) {FacesContext.getCurrentInstance().getExternalContext().redirect("../faces/palabraClaveUP.xhtml");}

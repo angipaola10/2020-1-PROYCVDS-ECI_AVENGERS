@@ -13,10 +13,14 @@ import edu.eci.cvds.entities.Reporte;
 import org.apache.ibatis.annotations.Param;
 
 public interface IniciativaMapper {
+	
+	public void modificarPropuesta(@Param("nombrePropuesta") String nombrePropuesta, @Param("descripcion") String descripcion, @Param("area") String area, @Param("usuario") String usuario);
 
 	public List<Iniciativa> consultarTodasLasPropuestas();
 	
 	public List<Iniciativa> consultarPropuestaPorUsuario(@Param("correo") String correo);
+	
+	public List<Iniciativa> consultarPropuestaPorEstado(@Param("estado_Propuesta") String estado_Propuesta);
 	
 	public Iniciativa consultarPropuestaPorArea(@Param("area") String area);
 	

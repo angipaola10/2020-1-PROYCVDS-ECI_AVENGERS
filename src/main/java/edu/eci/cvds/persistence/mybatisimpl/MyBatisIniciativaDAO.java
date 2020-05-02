@@ -18,17 +18,37 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	
 	@Inject
 	IniciativaMapper iniciativaMapper;
+	
+	@Override
+	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area, String usuario)throws PersistenceException {
+        try{
+            iniciativaMapper.modificarPropuesta(nombrePropuesta, descripcion, area, usuario);
+         }
+         catch(Exception e){
+             System.out.println(e);
+             throw new PersistenceException("Error al modificar la iniciativa:",e);     
+         }	
+    }
 
 	@Override
 	public List<Iniciativa> consularIniciativas() throws PersistenceException {
         try{
-            System.out.println("hola DAO  ini");
             return iniciativaMapper.consultarTodasLasPropuestas();
          }
          catch(Exception e){
-             System.out.println("hola Dao ini");
              System.out.println(e);
              throw new PersistenceException("Error al consultar las iniciativas:",e);     
+         }	
+    }
+	
+	@Override
+	public List<Iniciativa> consultarEstadoIniciativas(String estado_Propuesta) throws PersistenceException {
+        try{
+            return iniciativaMapper.consultarPropuestaPorEstado(estado_Propuesta);
+         }
+         catch(Exception e){
+             System.out.println(e);
+             throw new PersistenceException("Error al consultar los estados de las iniciativas:",e);     
          }	
     }
 	
@@ -77,8 +97,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	
 	@Override
 	public void agregarPalabraClave(String palabraClave) throws PersistenceException {
-		try{
-			System.out.println("Registrando p clave "+palabraClave+" DAO");
+		try{;
 			iniciativaMapper.insertarPalabraClave(palabraClave);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
@@ -102,7 +121,6 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 			return iniciativaMapper.consultarPalabrasClaveInciativa(id_iniciativa);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-        	 System.out.println("Consultar palabras clave initicativa No "+id_iniciativa+" exepcion DAO");
              throw new PersistenceException("Error al consultar las plabaras clave de esta iniciativa:",e);   
          }
 	}
@@ -110,12 +128,9 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	@Override
 	public List<PalabraClave> consultarPalabrasClaves() throws PersistenceException {
 		try{
-			System.out.println("consultando palabras clave DAO");
 			return iniciativaMapper.consultarTodasLasPalabrasClaves();
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-        	 System.out.println("consultando palabras clave DAO excepcion");
-        	 System.out.println(e.getMessage());
              throw new PersistenceException("Error al consultar todas las plabaras clave:",e);   
          }
 	}
@@ -123,12 +138,9 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	@Override
     public void actualizarIniciativaEstado(String estado, String nombre) throws PersistenceException {
         try{
-        	System.out.println("Modificando estado iniciativa "+nombre+" "+estado+" DAO");
              iniciativaMapper.modificarIniciativaEstado(estado, nombre);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-        	 System.out.println("Modificando estado iniciativa "+nombre+" "+estado+" DAO excepcion");
-        	 System.out.println(e.getMessage());
              throw new PersistenceException("Error al actualizar el estado de la iniciativa:",e); 
          }	
     }
@@ -136,11 +148,8 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	@Override
 	public Iniciativa consultarIdIniciativa(String nombrePropuesta) throws PersistenceException {
 		try {
-			System.out.println("Consultando ID iniciativa DAO");
 			return iniciativaMapper.consultarIdIniciativa(nombrePropuesta);
 		}catch(org.apache.ibatis.exceptions.PersistenceException e){
-			System.out.println("Consultando ID iniciativa DAO excepcion");
-			System.out.println(e.getMessage());
             throw new PersistenceException("Error al actualizar el estado de la iniciativa:",e); 
         }	
 			
@@ -149,11 +158,8 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	@Override
 	public List<Iniciativa> consultarIniciativaPalabraClave(String palabra) throws PersistenceException {
 		try {
-			System.out.println("Consultando iniciativas por palabra clave DAO");
 			return iniciativaMapper.consultarIniciativaPalabraClave(palabra);
 		}catch(org.apache.ibatis.exceptions.PersistenceException e){
-			System.out.println("Consultando iniciativas por palabra clave DAO excepcion");
-			System.out.println(e.getMessage());
             throw new PersistenceException("Error al actualizar el estado de la iniciativa:",e); 
         }	
 			
@@ -183,10 +189,8 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	@Override
 	public Likes consultarLikes(int id) throws PersistenceException {
 		Likes likes;
-		try{
-			 
+		try{	 
 			likes = iniciativaMapper.consultarLikes(id);
-			System.out.println(likes);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              throw new PersistenceException("Error al agrupar las propuestas:",e);   
@@ -204,7 +208,3 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
          }
 	}	
 }
-	
-	
-
-

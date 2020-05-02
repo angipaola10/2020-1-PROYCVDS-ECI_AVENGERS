@@ -71,6 +71,18 @@
 	    FROM iniciativa as i, usuario as u
 		WHERE i.usuario = u.correo and i.usuario = #{correo};
     </select>
+    
+    <select id="consultarPropuestaPorEstado" resultMap="IniciativaResult" parameterType="map">
+		SELECT 
+	    i.nombrePropuesta,
+		i.descripcion,
+		i.fechaInicio,
+		i.area,
+		i.usuario,
+		i.estado_Propuesta
+	    FROM iniciativa as i, usuario as u
+		WHERE i.usuario = u.correo and i.estado_Propuesta = #{estado_Propuesta};
+    </select>
   
   
   <select id="consultarPropuestaPorArea" resultMap="IniciativaResult" parameterType="map">
@@ -163,5 +175,13 @@
 		INSERT INTO PCIniciativa (ini_id, palabras_clave)
 		VALUES (#{ini_id}, #{palabras_clave});
 	</insert>
+	
+	<update id='modificarPropuesta'>
+    	update Iniciativa set 
+    	nombrePropuesta=#{nombrePropuesta}, 
+    	descripcion=#{descripcion}, 
+    	area=#{area} 
+    	where  i.usuario = u.correo and i.usuario=#{usuario} ;
+    </update>
 	
 </mapper>
