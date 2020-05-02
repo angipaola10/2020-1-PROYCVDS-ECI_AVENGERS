@@ -101,7 +101,7 @@ al final del proyecto se hace estop
 
 
 ### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
-_Nos quedó faltando asociar las palabras claves a la iniciativa porque aún no entendemos bien como realizarlo.
+_Nos quedó pendiente por realizar la asociación las palabras claves a la iniciativa porque aún no entendemos bien como realizarlo.
 Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar las siguientes cosas de la historia de usuario número 5:_
 
 
@@ -121,7 +121,8 @@ _Por esta razón se movió esta historia de usuario al segundo sprint y se creo 
 
 
 ### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
-_Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente:_
+_Nos quedó pendiente generar el reporte de las estadísticas en excel porque aún no entendemos bien como realizarlo.
+Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente:_
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/falta2sprint.jpg)
