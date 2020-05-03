@@ -26,6 +26,7 @@
 				<b>Iniciativas</b>
 					<ul class="nav">
 						<li>
+							<h:outputText value="#{shiroBean.username}" style="color:#fff;font-family:impact;" binding="#{usuariosesion}"/>
 							<p:commandButton value="Cerrar sesion"
 										class="btn btn-rose btn-simple btn-wd btn-lg"
 										action="#{shiroBean.doLogOut()}"/>					
@@ -68,76 +69,108 @@
 					<h:outputText value="#{iniciativa.estado_Propuesta}" />
 				</p:column>
 				
-				<p:column headerText="Likes" filterBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}" sortBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}">
-					<h:outputText value="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}" />
+				<p:column headerText="Likes" sortBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}"
+							style="width:40px;text-align: center">
+					<p:commandButton id="like" value="" class="like" style="background:transparent;text-shadow:none;box-shadow:none;border:none;" update=":form" action="#{BancoPropuestasBean.darLike(usuariosesion.value)}">
+						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
+					</p:commandButton>
+					<style type="text/css">
+						.like {
+							width:25px;
+							height:25px;
+							background-image: url("assets/img/liken.png") !important;
+						}
+						.like:hover{
+							background-image: url("assets/img/likeh.png") !important;
+						}
+					</style>
+					<p:commandButton value="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
+				</p:column>
+				
+				<p:column headerText="Comentarios" sortBy=""
+							style="width:80px;text-align: center">
+					<p:commandButton  value = "" update=":form:iniComentDetail" oncomplete="PF('iniComentDialog').show()" class="comentario" 
+										style="background:transparent;text-shadow:none;box-shadow:none;border:none;">
+						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
+					</p:commandButton>
+					<style type="text/css">
+						.comentario {
+							width:25px;
+							height:25px;
+							background-image: url("assets/img/comentarion.png") !important;
+							margin-right:15px;
+							margin-left:15px
+						}
+						.comentario:hover{
+							background-image: url("assets/img/comentarioh.png") !important;
+						}
+					</style>
+					<p:commandButton value="#" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
 				</p:column>
 				
 				<p:column style="width:30px;text-align: center">
-					 <p:commandButton  update=":form:iniDetail" oncomplete="PF('iniDialog').show()" title="Ver" 
+					 <p:commandButton  update=":form:iniDetail" oncomplete="PF('iniDialog').show()" title="Ver"
 						style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;;border:none;">
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 				</p:column>
-						
-				<f:facet name="footer">
-	
-					<p:commandButton id="mensaje" value="Dar like"
-									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.darLike(BancoPropuestasBean.selectedIniciativa,shiroBean.getUsername())}" onclick="alerta()"/>
-									
-
-				</f:facet>
 				
 			</p:dataTable>   
 			
+			<p:dialog widgetVar="iniComentDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="iniComentDetail" style="text-align:center;">
+					<p:panelGrid  columns="1" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" layout="grid" styleClass="showcase-text-align-center">
+						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.id}" style="color:#000;font-family:impact;" binding="#{id}"/>
+						<p:inputTextarea rows="1" cols="33" sytle="border_none" binding="#{comentario}"/>
+						<p:commandButton value="Comentar" actionListener="#{BancoPropuestasBean.pruebacomentar(id.value, usuariosesion.value, comentario.value)}" update=":form"
+										style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;border:none;font-family:impact;font-size:15px;">
+						</p:commandButton>
+					</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+			
 			<p:dialog header="Iniciativa Info" widgetVar="iniDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-				<p:outputPanel id="iniDetail" style="text-align:center;">
-					<p:panelGrid  columns="2" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="label,value">
+				<p:outputPanel id="iniDetail" style="width:430px;">
+					<p:panelGrid  columns="2" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="label,value"
+								layout="grid" >
 						
 						<h:outputText value="Iniciativa No."/>
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.id}"/>
+						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.id}" readonly="true"
+											style="box-shadow:none;background:#E5E5E5;border:none;"/>
 					
 						<h:outputText value="Nombre iniciativa" />
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.nombrePropuesta}"/>
+						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.nombrePropuesta}" readonly="false"
+											style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						
 						<h:outputText value="Descripcion" />
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.descripcion}" />
+						<p:inputTextarea cols="20" value="#{BancoPropuestasBean.selectedIniciativa.descripcion}" readonly="true"
+										style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						
 						<h:outputText value="Area" />
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.area}" />
+						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.area}" readonly="false"
+											style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						
 						<h:outputText value="Nombre proponente" />
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.nombreProponente}" />
+						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.nombreProponente}" readonly="true"
+										style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						
 						<h:outputText value="Usuario proponente" />
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.usuario}" />
+						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.usuario}" readonly="true"
+										style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						
 						<h:outputText value="Estado" />
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.estado_Propuesta}" />
-						
-						<h:outputText value="Likes" />
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.likes}" />
+						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.estado_Propuesta}" readonly="true"
+										style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						
 					</p:panelGrid>
-					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" class="tabla" style="width:300px">
+					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" class="tabla" style="width:300px;">
 						<p:column headerText="Palabras clave">
 							<h:outputText value="#{pclaveinic.palabraClave}" />
 						</p:column>
 					</p:dataTable>
 				</p:outputPanel>
+				
 			</p:dialog>
-             
-       
-	        <div>	        	
-	        	<input type="text" size="300" maxlength="3000" value="Inserte su comentario" name="Nombre"></input>
-	        </div>
-	        
-	        <div>
-	        	<p:commandButton id="mensaje2" value="Comentar"
-						style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-						actionListener="#{BancoPropuestasBean.comentar(BancoPropuestasBean.selectedIniciativa,shiroBean.getUsername(),'comentario prueba')}"/>
-						
-	        </div>
 	        
          </h:form>
         

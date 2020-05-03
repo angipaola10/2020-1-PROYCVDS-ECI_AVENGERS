@@ -10,6 +10,7 @@ public class Iniciativa implements SelectableDataModel{
 	private String descripcion;
 	private Date fechaInicio;
 	private List<PalabraClave> palabrasClaves;
+	private List<Comentario> comentarios;
 	private String area;
 	private String usuario;
 	private String estado_Propuesta;

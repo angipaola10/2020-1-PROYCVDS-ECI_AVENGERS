@@ -1,13 +1,13 @@
 package edu.eci.cvds.entities;
 
-public class Estado {
+public class ReporteEstado {
 	
 	private String estado_propuesta;
 	private int numero;
 	
-	public Estado() {}
+	public ReporteEstado() {}
 	
-	public Estado(String estado_propuesta, int numero) {
+	public ReporteEstado(String estado_propuesta, int numero) {
 		this.estado_propuesta = estado_propuesta;
 		this.numero = numero;
 	}

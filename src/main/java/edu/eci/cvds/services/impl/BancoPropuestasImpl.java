@@ -3,11 +3,12 @@ package edu.eci.cvds.services.impl;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import edu.eci.cvds.entities.Estado;
+import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
-import edu.eci.cvds.entities.Likes;
+import edu.eci.cvds.entities.MeGusta;
 import edu.eci.cvds.entities.PalabraClave;
-import edu.eci.cvds.entities.Reporte;
+import edu.eci.cvds.entities.ReporteArea;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.IniciativaDAO;
@@ -74,15 +75,6 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     }
     
     @Override
-    public List<Iniciativa> consultarIniciativasPorEstado(String estado_Propuesta) throws BancoPropuestasException {
-        try {
-            return iniciativaDAO.consultarEstadoIniciativas(estado_Propuesta);
-        } catch (PersistenceException e) {
-            throw new BancoPropuestasException("Error al consultar los estados de las iniciativas "+estado_Propuesta,e);
-        }
-    }
-    
-    @Override
     public Iniciativa consultarIniciativaArea(String area) throws BancoPropuestasException {
         try {
             return iniciativaDAO.consultarIniciativaArea(area);
@@ -113,7 +105,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	}
 	
 	@Override
-	public List<Reporte> agruparIniciativas() throws BancoPropuestasException {
+	public List<ReporteArea> agruparIniciativas() throws BancoPropuestasException {
 		try {
             return iniciativaDAO.agruparIniciativas();
         } catch (PersistenceException e) {
@@ -222,7 +214,7 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	}
 
 	@Override
-	public List<Estado> consultarEstados() throws BancoPropuestasException {
+	public List<ReporteEstado> consultarEstados() throws BancoPropuestasException {
 		try {
             return iniciativaDAO.consultarEstados();
         } catch (PersistenceException e) {
@@ -241,12 +233,12 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	}
 
 	@Override
-	public Likes consultarLikes(int id) throws BancoPropuestasException {
-		Likes likes;
+	public List<MeGusta> consultarLikes(int id) throws BancoPropuestasException {
+		List<MeGusta> likes = null;
 		try {
 			likes = iniciativaDAO.consultarLikes(id);
         } catch (PersistenceException e) {
-            throw new BancoPropuestasException("Error al consultar estados ",e);
+            throw new BancoPropuestasException("Error al consultar likes ",e);
         }
 		return likes;
 	}
@@ -258,5 +250,16 @@ public class BancoPropuestasImpl implements BancoPropuestas {
         } catch (PersistenceException e) {
             throw new BancoPropuestasException("Error al comentar",e);
         }
+	}
+
+	@Override
+	public List<Comentario> consultarComentarios(int id) throws BancoPropuestasException {
+		List<Comentario> likes = null;
+		try {
+			likes = iniciativaDAO.consultarComentarios(id);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar comentarios ",e);
+        }
+		return likes;
 	}
 }

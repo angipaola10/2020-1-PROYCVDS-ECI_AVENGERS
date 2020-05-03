@@ -11,11 +11,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import edu.eci.cvds.entities.Estado;
+import org.apache.ibatis.annotations.Param;
+
+import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
-import edu.eci.cvds.entities.Likes;
+import edu.eci.cvds.entities.MeGusta;
 import edu.eci.cvds.entities.PalabraClave;
-import edu.eci.cvds.entities.Reporte;
+import edu.eci.cvds.entities.ReporteArea;
 import edu.eci.cvds.entities.Rol;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
@@ -35,11 +38,10 @@ public class BancoPropuestasBean extends BasePageBean {
     private BancoPropuestas bancoPropuesta;
     private List<PalabraClave> selectedPalabras;
     private Usuario selectedUsuario;
-    private Reporte reporte;
+    private ReporteArea reporte;
 	private Iniciativa selectedIniciativa;
 	private PalabraClave palabraClave;
-	private Estado estado;
-	private List <Likes> likes;
+	private ReporteEstado estado;
 	private List <Iniciativa> pcclaveini;
 
     public List<Usuario> consultarUsuarios(){
@@ -147,17 +149,7 @@ public class BancoPropuestasBean extends BasePageBean {
             setErrorMessage(e);
         }
         return iniciativas;
-   }
-    
-    public List<Iniciativa> consultarIniciativasPorEstado(String estado_Propuesta){
-            List<Iniciativa> iniciativas = null;
-            try{
-                iniciativas=bancoPropuesta.consultarIniciativasPorEstado(estado_Propuesta);
-            } catch (BancoPropuestasException e) {
-                setErrorMessage(e);
-            }
-            return iniciativas;
-       }    
+   }   
     
     private void facesError(String message) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
@@ -194,14 +186,15 @@ public class BancoPropuestasBean extends BasePageBean {
     }
 	public void modificarIniciativaEstado(String estado){
         try{
+        	System.out.println("modificando estado ini "+selectedIniciativa.getNombrePropuesta()+" "+estado);
             bancoPropuesta.modificarIniciativaEstado(estado, selectedIniciativa.getNombrePropuesta());
         } catch (BancoPropuestasException e) {
         	setErrorMessage(e);
         }
     }
     
-    public List<Reporte> agruparIniciativas(){
-    	List<Reporte> reportes = null;
+    public List<ReporteArea> agruparIniciativas(){
+    	List<ReporteArea> reportes = null;
         try{
             reportes = bancoPropuesta.agruparIniciativas();
         } catch (BancoPropuestasException e) {
@@ -210,8 +203,8 @@ public class BancoPropuestasBean extends BasePageBean {
         return reportes;
     }
     
-    public List<Estado> consultarEstados(){
-    	List<Estado> estados = null;
+    public List<ReporteEstado> consultarEstados(){
+    	List<ReporteEstado> estados = null;
         try{
             estados = bancoPropuesta.consultarEstados();
         } catch (BancoPropuestasException e) {
@@ -234,19 +227,19 @@ public class BancoPropuestasBean extends BasePageBean {
         return selectedIniciativa;
     }
     
-    public void setSelectedReporte(Reporte reporte){
+    public void setSelectedReporte(ReporteArea reporte){
     	this.reporte = reporte;
     }
 
-    public Reporte GetReporte(){
+    public ReporteArea GetReporte(){
         return reporte;
     }
     
-    public void setSelectedEstado(Estado estado){
+    public void setSelectedEstado(ReporteEstado estado){
     	this.estado = estado;
     }
 
-    public Estado GetEstado(){
+    public ReporteEstado GetEstado(){
         return estado;
     }
    
@@ -314,35 +307,54 @@ public class BancoPropuestasBean extends BasePageBean {
 	       }
 	}
 	
-	public void darLike( Iniciativa f, String user) throws BancoPropuestasException {
+	public void darLike(String user) throws BancoPropuestasException {
 		try {
-			 bancoPropuesta.darLike(f.getId(),user);
+			System.out.println("Darlike user "+ user);
+			System.out.println("Darlike "+ selectedIniciativa.getId());
+			 bancoPropuesta.darLike(selectedIniciativa.getId(),user);
 	       } catch (BancoPropuestasException e) {
 	    	   setErrorMessage(e);
 	       }
 	}
 	
-	public void comentar(Iniciativa f, String user, String comentario) throws BancoPropuestasException {
+	public void pruebacomentar(int id, String user, String comentario) {
+			System.out.println("---------------------------------------------");
+			System.out.println(comentario);
+			System.out.println(user);
+			System.out.println(id);
+	}
+	
+	public void comentar(String ini, String user, String comentario) throws BancoPropuestasException {
 		try {
 			System.out.println("---------------------------------------------");
 			System.out.println(comentario);
-			 bancoPropuesta.comentar(f.getId(),user,comentario);
+			System.out.println(user);
+			System.out.println(ini);
+			int iniId = Integer.parseInt(ini);
+			bancoPropuesta.comentar(iniId,user,comentario);
 	       } catch (BancoPropuestasException e) {
 	    	   setErrorMessage(e);
 	       }
 	}
 	
 	public int consultarLikes( int id) throws BancoPropuestasException {
-		 int likes = 0;
+		List<MeGusta> likes = null;
 		try {
-			System.out.println("Likes" + id);
-			 likes = bancoPropuesta.consultarLikes(id).getMeGusta();
-			 System.out.println(likes);
+			 likes = bancoPropuesta.consultarLikes(id);
 	       } catch (BancoPropuestasException e) {
 	    	   setErrorMessage(e);
 	       }
-		 
-		return likes;
+		return likes.size();
+	}
+	
+	public int consultarNumLikes( int id) throws BancoPropuestasException {
+		List<Comentario> likes = null;
+		try {
+			 likes = bancoPropuesta.consultarComentarios(id);
+	       } catch (BancoPropuestasException e) {
+	    	   setErrorMessage(e);
+	       }
+		return likes.size();
 	}
  
 	public List<PalabraClave> consultarPalabrasClaveIniciativa() throws BancoPropuestasException {
@@ -369,15 +381,6 @@ public class BancoPropuestasBean extends BasePageBean {
 		 if (ShiroBean.subject.hasRole("Publico")) {FacesContext.getCurrentInstance().getExternalContext().redirect("../faces/palabraClaveUP.xhtml");}
 	}
 	
-
-	public List<Likes> getLikes() {
-		return likes;
-	}
-
-	public void setLikes(List<Likes> likes) {
-		this.likes = likes;
-	}
-
 	public List <Iniciativa> getPcclaveini() {
 		return pcclaveini;
 	}

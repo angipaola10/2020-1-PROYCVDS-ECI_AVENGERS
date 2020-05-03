@@ -4,11 +4,12 @@ import java.sql.Date;
 import java.util.List;
 import java.lang.String;
 
-import edu.eci.cvds.entities.Estado;
+import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
-import edu.eci.cvds.entities.Likes;
+import edu.eci.cvds.entities.MeGusta;
 import edu.eci.cvds.entities.PalabraClave;
-import edu.eci.cvds.entities.Reporte;
+import edu.eci.cvds.entities.ReporteArea;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -20,11 +21,9 @@ public interface IniciativaMapper {
 	
 	public List<Iniciativa> consultarPropuestaPorUsuario(@Param("correo") String correo);
 	
-	public List<Iniciativa> consultarPropuestaPorEstado(@Param("estado_Propuesta") String estado_Propuesta);
-	
 	public Iniciativa consultarPropuestaPorArea(@Param("area") String area);
 	
-	public List<Reporte> agruparPropuestaPorArea();
+	public List<ReporteArea> agruparPropuestaPorArea();
 	
 	public void insertarIniciativa(@Param("nombrePropuesta") String nombre, @Param("descripcion") String descripcion, @Param("fechaInicio") Date fechaInicio, @Param("area") String area, @Param("usuario") String usuario, @Param("estadoPropuesta") String estadoPropuesta);
 
@@ -42,11 +41,13 @@ public interface IniciativaMapper {
 
 	public List<Iniciativa> consultarIniciativaPalabraClave(@Param("palabra")String palabra);
 
-	public List<Estado> consultarEstados();
+	public List<ReporteEstado> consultarEstados();
 
 	public void darLike(@Param("id_ini") int id, @Param("id_usu") String user);
 
-	public Likes consultarLikes(@Param("id_inic")int id);
+	public List<MeGusta> consultarLikes(@Param("id_inic")int id);
+	
+	public List<Comentario> consultarComentarios(@Param("id_inic")int id);
 
 	public void comentar(@Param("id_ini") int id,@Param("id_usu") String user, @Param("coment") String comentario);
 }

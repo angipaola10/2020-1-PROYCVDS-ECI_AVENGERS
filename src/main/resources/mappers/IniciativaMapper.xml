@@ -26,18 +26,24 @@
         <result property='palabras_clave' column='palabras_clave'/>  
     </resultMap> 
     
-    <resultMap type="Reporte" id="DTO">
+    <resultMap type="ReporteArea" id="DTO">
     	<result property='area' column='area'/>        
         <result property='numIniciativas' column='numIniciativas'/>
     </resultMap>
     
-    <resultMap type='Estado' id='DTOestado'>
+    <resultMap type='ReporteEstado' id='DTOestado'>
 		<result property='estado_propuesta' column='estado_propuesta'/>
         <result property='numero' column='numero'/>
     </resultMap>
     
-    <resultMap type='Likes' id='DTOLikes'>
-		<result property='megusta' column='megusta'/>
+    <resultMap type='MeGusta' id='DTOLikes'>
+		<result property='id' column='id'/>
+    </resultMap>
+	
+	<resultMap type='Comentario' id='DTOComentarios'>
+		<result property='idiniciativa' column='idiniciativa'/>
+		<result property='idusuario' column='idusuario'/>
+		<result property='comentario' column='comentario'/>
     </resultMap>
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
@@ -62,30 +68,19 @@
 	
 	<select id="consultarPropuestaPorUsuario" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
+		i.id,
 	    i.nombrePropuesta,
 		i.descripcion,
 		i.fechaInicio,
 		i.area,
 		i.usuario,
-		i.estado_Propuesta
+		i.estado_Propuesta,
+		u.nombre as nombreProponente
 	    FROM iniciativa as i, usuario as u
 		WHERE i.usuario = u.correo and i.usuario = #{correo};
     </select>
-    
-    <select id="consultarPropuestaPorEstado" resultMap="IniciativaResult" parameterType="map">
-		SELECT 
-	    i.nombrePropuesta,
-		i.descripcion,
-		i.fechaInicio,
-		i.area,
-		i.usuario,
-		i.estado_Propuesta
-	    FROM iniciativa as i, usuario as u
-		WHERE i.usuario = u.correo and i.estado_Propuesta = #{estado_Propuesta};
-    </select>
   
-  
-  <select id="consultarPropuestaPorArea" resultMap="IniciativaResult" parameterType="map">
+	<select id="consultarPropuestaPorArea" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
 	    i.nombrePropuesta,
 		i.descripcion,
@@ -120,6 +115,7 @@
 	
 	<select id="consultarIniciativaPalabraClave" resultMap="IniciativaResult" parameterType="map">
 		SELECT 
+		i.id,
 	    i.nombrePropuesta,
 		i.descripcion,
 		i.fechaInicio,
@@ -142,17 +138,21 @@
     </select> 
     
     <insert id="darLike">
-		INSERT INTO Comentarios (idiniciativa,idusuario,megusta)
-		VALUES (#{id_ini},#{id_usu},true);
+		INSERT INTO MeGusta(idiniciativa,idusuario)
+		VALUES (#{id_ini},#{id_usu});
 	</insert>
 	
 	<insert id="comentar">
-		INSERT INTO Comentarios (idiniciativa,idusuario,comentario)
+		INSERT INTO Comentario (idiniciativa,idusuario,comentario)
 		VALUES (#{id_ini},#{id_usu},#{coment});
 	</insert>
 	
 	<select id="consultarLikes" resultMap="DTOLikes" parameterType="map">
-		SELECT count(megusta) as megusta from comentarios where megusta = true and idiniciativa = #{id_inic};
+		SELECT id as megusta from MeGusta where idiniciativa = #{id_inic};
+    </select> 
+	
+	<select id="consultarComentarios" resultMap="DTOComentarios" parameterType="map">
+		SELECT c.idiniciativa, c.idusuario, c.comentario from Comentario as c where idiniciativa = #{id_inic};
     </select> 
 	
 	<select id="modificarIniciativaEstado">

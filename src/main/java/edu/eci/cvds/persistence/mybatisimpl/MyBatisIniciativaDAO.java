@@ -5,11 +5,12 @@ import java.util.*;
 import java.lang.String;
 import com.google.inject.Inject;
 
-import edu.eci.cvds.entities.Estado;
+import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
-import edu.eci.cvds.entities.Likes;
+import edu.eci.cvds.entities.MeGusta;
 import edu.eci.cvds.entities.PalabraClave;
-import edu.eci.cvds.entities.Reporte;
+import edu.eci.cvds.entities.ReporteArea;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper;
 import edu.eci.cvds.persistence.IniciativaDAO;
 import edu.eci.cvds.persistence.PersistenceException;
@@ -42,17 +43,6 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
     }
 	
 	@Override
-	public List<Iniciativa> consultarEstadoIniciativas(String estado_Propuesta) throws PersistenceException {
-        try{
-            return iniciativaMapper.consultarPropuestaPorEstado(estado_Propuesta);
-         }
-         catch(Exception e){
-             System.out.println(e);
-             throw new PersistenceException("Error al consultar los estados de las iniciativas:",e);     
-         }	
-    }
-	
-	@Override
 	public void agregarIniciativa(String nombre, String descripcion, String area, String usuario) throws PersistenceException {
 		try{
 			System.out.println("registrando iniciativa DAO");
@@ -65,7 +55,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
     }
 	
 	@Override
-	public List<Reporte> agruparIniciativas() throws PersistenceException {
+	public List<ReporteArea> agruparIniciativas() throws PersistenceException {
 		try{
 			return iniciativaMapper.agruparPropuestaPorArea();
          }
@@ -166,7 +156,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	}
 
 	@Override
-	public List<Estado> consultarEstados() throws PersistenceException {
+	public List<ReporteEstado> consultarEstados() throws PersistenceException {
 		try{
 			return iniciativaMapper.consultarEstados();
          }
@@ -187,13 +177,13 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	}
 
 	@Override
-	public Likes consultarLikes(int id) throws PersistenceException {
-		Likes likes;
+	public List<MeGusta> consultarLikes(int id) throws PersistenceException {
+		List<MeGusta> likes;
 		try{	 
 			likes = iniciativaMapper.consultarLikes(id);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-             throw new PersistenceException("Error al agrupar las propuestas:",e);   
+             throw new PersistenceException("Error al agrupar consultar likes:",e);   
          }
 		return likes;
 	}
@@ -204,7 +194,19 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 			iniciativaMapper.comentar(id,user,comentario);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-             throw new PersistenceException("Error al insrterar el comentario:",e);   
+             throw new PersistenceException("Error al insertar el comentario:",e);   
          }
+	}
+
+	@Override
+	public List<Comentario> consultarComentarios(int id) throws PersistenceException {
+		List<Comentario> likes;
+		try{	 
+			likes = iniciativaMapper.consultarComentarios(id);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar comentarios:",e);   
+         }
+		return likes;
 	}	
 }

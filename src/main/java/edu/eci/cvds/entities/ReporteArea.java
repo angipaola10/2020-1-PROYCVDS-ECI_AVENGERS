@@ -1,13 +1,13 @@
 package edu.eci.cvds.entities;
 
-public class Reporte {
+public class ReporteArea {
 	
 	private String area;
 	private int numIniciativas;
 	
-	public Reporte() {}
+	public ReporteArea() {}
 	
-	public Reporte(String area, int numIniciativas) {
+	public ReporteArea(String area, int numIniciativas) {
 		this.area = area;
 		this.numIniciativas = numIniciativas;
 	}
