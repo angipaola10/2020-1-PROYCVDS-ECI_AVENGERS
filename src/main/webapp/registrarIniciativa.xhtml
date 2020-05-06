@@ -9,7 +9,7 @@
 	
 	<h:head>
 		<title>Banco de iniciativas ECI</title>
-		<link href="assets/css/registrarrI.css" rel="stylesheet"/>
+		<link href="assets/css/registrarinicc.css" rel="stylesheet"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
 	</h:head>
 	<body>
@@ -39,14 +39,15 @@
 				<p>REGISTRAR INICIATIVA</p>
 				<img class="avatar" src= "assets/img/ideaico.png"/>
 				<label>Nombre</label>
-				<p:inputText id="nombrei" binding="#{nombrei}" class = "form-control" placeholder="Ingrese el nombre de la iniciativa"/>
+				<p:inputText id="nombrei" binding="#{nombrei}" class = "form-control" placeholder="Ingrese el nombre de la iniciativa" required="true" />
 				<label>Area o dependencia</label>		
-				<p:selectOneMenu id="areabox" binding="#{areai}" class="areabox">
+				<p:selectOneMenu id="areabox" binding="#{areai}" class="areabox" required="true">
 					<f:selectItem itemValue="" noSelectionOption="true" class="lblarea"/>
 					<f:selectItems value="#{BancoPropuestasBean.areasIniciativas}" />
 				</p:selectOneMenu>
 				<label>Descripcion</label>
-				<p:inputText id="descripcioni" binding="#{descripcioni}" class = "form-control" placeholder="Ingrese una descripción de la iniciativa"/>
+				<p:inputTextarea rows="2" cols="30" id="descripcioni" binding="#{descripcioni}" class="form-control" placeholder="Ingrese una descripción de la iniciativa"
+								style="border-bottom:2px solid #727070;margin-left:calc(50% - 175px);" required="true" />
 			</div>
 			<div class = "registrar-pclaves" id="registrarpclaves">
 				<p:dataTable var="pclaves" value="#{BancoPropuestasBean.consultarPalabrasClaves()}" class="tabla" id="checkboxDT"

@@ -26,11 +26,9 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
 	@Override
     public List<Usuario> obtenerUsuarios() throws PersistenceException {
         try{
-            System.out.println("hola 111");
              return usuarioMapper.consultarUsuarios();
          }
          catch(Exception e){
-             System.out.println("hola 222");
              System.out.println(e);
              throw new PersistenceException("Error al consultar los usuarios:",e);
          }	
@@ -49,7 +47,6 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
 	@Override
     public void actualizarUsuario(String rol, String correo)throws PersistenceException {
         try{
-        	System.out.println("Modificando usuario DAO");
              usuarioMapper.modificarUsuario(rol,correo);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){

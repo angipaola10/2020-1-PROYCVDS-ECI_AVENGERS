@@ -38,7 +38,7 @@ ul, ol{
 .nav li ul{
 	padding:0px;
 	display:none;
-	position:absolute;
+
 	min-width:140px;
 }
 
@@ -53,9 +53,10 @@ ul, ol{
 }
 .tabla{
 	width:100%;
-	margin-top:70px;
+	margin-top:80px;
 	font-size:14px;
 }
+
 .tabla th{
 	background: #b80f22;
 	box-shadow:none;

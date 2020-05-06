@@ -9,6 +9,7 @@ import edu.eci.cvds.entities.Comentario;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
+import edu.eci.cvds.entities.MeInteresa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.ReporteArea;
 import edu.eci.cvds.entities.Rol;
@@ -31,7 +32,7 @@ public interface BancoPropuestas {
 	
 	public abstract void  modificarUsuario(String rol, String correo) throws BancoPropuestasException;
 	
-	public abstract void  modificarPropuesta(String nombrePropuesta, String descripcion, String area, String usuario) throws BancoPropuestasException;
+	public abstract void  modificarPropuesta(String nombrePropuesta, String descripcion, String area, int id) throws BancoPropuestasException;
 	
 	public abstract void  modificarUsuarioEstado(String estado, String correo) throws BancoPropuestasException;
     
@@ -64,5 +65,17 @@ public interface BancoPropuestas {
 	public abstract void comentar(int id, String user, String comentario) throws BancoPropuestasException;
 
 	public abstract List<Comentario> consultarComentarios(int id) throws BancoPropuestasException;
+
+	public abstract List<MeGusta> consultarLikePorIds(int idiniciativa, String idusuario)  throws BancoPropuestasException;
+
+	public abstract void quitarLike(int id, String user) throws BancoPropuestasException;
+
+	public abstract void darInteres(int idiniciativa, String user) throws BancoPropuestasException;
+
+	public abstract void quitarInteres(int idiniciativa, String user) throws BancoPropuestasException;
+
+	public abstract List<MeInteresa> consultarInteresPorIds(int idiniciativa, String idusuario) throws BancoPropuestasException;
+
+	public abstract List<MeInteresa> consultarInteres(int id)  throws BancoPropuestasException;
 
 }

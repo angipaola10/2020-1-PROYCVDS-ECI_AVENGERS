@@ -30,13 +30,17 @@
     	<result property='area' column='area'/>        
         <result property='numIniciativas' column='numIniciativas'/>
     </resultMap>
-    
+	
     <resultMap type='ReporteEstado' id='DTOestado'>
 		<result property='estado_propuesta' column='estado_propuesta'/>
         <result property='numero' column='numero'/>
     </resultMap>
     
     <resultMap type='MeGusta' id='DTOLikes'>
+		<result property='id' column='id'/>
+    </resultMap>
+	
+	<resultMap type='MeInteresa' id='DTOInteres'>
 		<result property='id' column='id'/>
     </resultMap>
 	
@@ -142,6 +146,11 @@
 		VALUES (#{id_ini},#{id_usu});
 	</insert>
 	
+	<insert id="darInteres">
+		INSERT INTO MeInteresa(idiniciativa,idusuario)
+		VALUES (#{id_ini},#{id_usu});
+	</insert>
+	
 	<insert id="comentar">
 		INSERT INTO Comentario (idiniciativa,idusuario,comentario)
 		VALUES (#{id_ini},#{id_usu},#{coment});
@@ -150,6 +159,26 @@
 	<select id="consultarLikes" resultMap="DTOLikes" parameterType="map">
 		SELECT id as megusta from MeGusta where idiniciativa = #{id_inic};
     </select> 
+	
+	<select id="consultarInteres" resultMap="DTOInteres" parameterType="map">
+		SELECT id as meinteresa from MeInteresa where idiniciativa = #{id_inic};
+    </select> 
+	
+	<select id="consultarLikePorIds" resultMap="DTOLikes" parameterType="map">
+		SELECT id as megusta from MeGusta where idiniciativa=#{idiniciativa} and idusuario=#{idusuario};
+	</select>
+	
+	<select id="consultarInteresPorIds" resultMap="DTOInteres" parameterType="map">
+		SELECT id as meinteresa from MeInteresa where idiniciativa=#{idiniciativa} and idusuario=#{idusuario};
+	</select>
+	
+	<delete id="quitarLike" >
+		DELETE FROM MeGusta WHERE idiniciativa=#{idiniciativa} and idusuario=#{idusuario};
+	</delete>
+	
+	<delete id="quitarInteres" >
+		DELETE FROM MeInteresa WHERE idiniciativa=#{idiniciativa} and idusuario=#{idusuario};
+	</delete>
 	
 	<select id="consultarComentarios" resultMap="DTOComentarios" parameterType="map">
 		SELECT c.idiniciativa, c.idusuario, c.comentario from Comentario as c where idiniciativa = #{id_inic};
@@ -181,7 +210,8 @@
     	nombrePropuesta=#{nombrePropuesta}, 
     	descripcion=#{descripcion}, 
     	area=#{area} 
-    	where  i.usuario = u.correo and i.usuario=#{usuario} ;
+		estadoPropuesta=#{estadoPropuesta}
+    	where id = #{id} ;
     </update>
 	
 </mapper>

@@ -8,7 +8,9 @@ CREATE TABLE IF NOT EXISTS Usuario(id BIGINT NOT NULL, tid VARCHAR(2) NOT NULL, 
 ALTER TABLE Usuario ADD CONSTRAINT telefono_unico UNIQUE(telefono);
 ALTER TABLE Usuario ADD CONSTRAINT id_unico UNIQUE(id);
 
-CREATE TABLE IF NOT EXISTS Iniciativa(nombrePropuesta VARCHAR(50) NOT NULL, id SERIAL PRIMARY KEY, descripcion varchar(150)  NOT NULL, fechaInicio date, area varchar(50)  NOT NULL, usuario VARCHAR(50) REFERENCES Usuario(correo), estado_Propuesta VARCHAR(30) NOT NULL);
+CREATE TABLE IF NOT EXISTS Iniciativa(nombrePropuesta VARCHAR(50) NOT NULL, id SERIAL PRIMARY KEY, descripcion varchar(150)  NOT NULL, fechaInicio date, area varchar(50)  NOT NULL, usuario VARCHAR(50) REFERENCES Usuario(correo) NOT NULL, estado_Propuesta VARCHAR(30) NOT NULL);
+
+ALTER TABLE Iniciativa ADD CONSTRAINT FK_Iniciativa_Usuario FOREIGN KEY (usuario) REFERENCES Usuario(correo);
 
 ALTER TABLE Iniciativa ADD CONSTRAINT nombrePropuesta_unico UNIQUE(nombrePropuesta);
 
@@ -26,6 +28,7 @@ CREATE TABLE IF NOT EXISTS MeGusta (id SERIAL PRIMARY KEY, idIniciativa INT NOT 
 
 CREATE TABLE IF NOT EXISTS Comentario (id SERIAL PRIMARY KEY, idIniciativa INT NOT NULL REFERENCES Iniciativa(id), idUsuario VARCHAR(50) NOT NULL REFERENCES Usuario(correo), comentario VARCHAR(600) NOT NULL);
 
+CREATE TABLE IF NOT EXISTS MeInteresa (id SERIAl PRIMARY KEY, idIniciativa INT NOT NULL REFERENCES Iniciativa(id), idUsuario VARCHAR(50) NOT NULL REFERENCES Usuario(correo));
 
 INSERT INTO Rol(tipo) VALUES ('Administrador');
 INSERT INTO Rol(tipo) VALUES ('Proponente');
@@ -54,3 +57,9 @@ INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usu
 INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usuario, estado_Propuesta) VALUES ('Fundamentacion matemática para todos', '5', 'Brindar fundamentacion matematica a todo estudiante de la ECI que así lo desee.', 2019-12-09, 'Matemáticas', 'angied.ruiz', 'Solucionado');
 INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usuario, estado_Propuesta) VALUES ('La ingenieria detrás del cuerpo humano', '6', 'Brindar una aproximación a la maravilla del cuerpo humano en su interior.', 2020-02-02, 'Ciencias Naturales', 'henry.sanchez', 'En espera de revisión');
 INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usuario, estado_Propuesta) VALUES ('Política para ingenieros', '7', 'Dar un espacio a un semillero para los estudiantes de la ECI intersados en la política.', 2020-02-02, 'Ciencias Sociales', 'angied.ruiz', 'Proyecto');
+
+INSERT INTO PalabraClave (id, palabraClave) VALUES (1, 'Equipo');
+INSERT INTO PalabraClave (id, palabraClave) VALUES (2, 'Tecnología');
+INSERT INTO PalabraClave (id, palabraClave) VALUES (3, 'Ingeniería');
+INSERT INTO PalabraClave (id, palabraClave) VALUES (4, 'Salud');
+INSERT INTO PalabraClave (id, palabraClave) VALUES (5, 'Estudiantes');

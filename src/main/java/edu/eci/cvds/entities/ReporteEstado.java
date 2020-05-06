@@ -12,11 +12,11 @@ public class ReporteEstado {
 		this.numero = numero;
 	}
 	
-	public String getEstado() {
+	public String getEstado_propuesta() {
 		return estado_propuesta;
 	}
 	
-	public void setEstado(String estado) {
+	public void setEstado_propuesta(String estado) {
 		this.estado_propuesta = estado;
 	}
 	

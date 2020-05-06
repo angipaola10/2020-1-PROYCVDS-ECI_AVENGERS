@@ -22,7 +22,7 @@
 		</script>
 		
         <title>Busqueda de usuarios</title>
-		<link rel="stylesheet" type="text/css" href="assets/css/consultaru.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/consultarus.css"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
     </h:head>
     <h:body >
@@ -30,26 +30,28 @@
 			<img src= "assets/img/cabecera.jpg"/>
 		</div>
         <div class = "header">
-			<b>Consultar usuarios</b>
-			<ul class="nav">
-				<li><a href="">Iniciativas</a>
-					<ul>
-						<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
+				<b>Consultar usuarios</b>
+					<ul class="nav">
+						<li><a>Usuarios</a>
+							<ul>
+								<li><a href="">Consultar usuarios</a></li>
+							</ul>
+						</li>
+						<li><a href="">Iniciativas</a>
+							<ul>
+								<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
+							</ul>
+							<ul>
+								<li><a href="../faces/graficasyreportes.xhtml">Graficas y reportes</a></li>
+							</ul>
+						</li>
+						<li>
+							<p:commandButton value="Cerrar sesión"
+										class="btn btn-rose btn-simple btn-wd btn-lg"
+										action="#{shiroBean.doLogOut()}"/>					
+						</li>
 					</ul>
-				</li>
-				<li><a href="">Usuarios</a>
-					<ul>
-						<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
-					</ul>
-				</li>
-				<li>
-					<p:commandButton value="Cerrar sesión"
-								class="btn btn-rose btn-simple btn-wd btn-lg"
-								action="#{shiroBean.doLogOut()}"/>	
-				</li>
-			</ul>
-		</div>
-		
+			</div>
 		
         <h:form id="busquedaUsuarioForm"> 
 			<p:dataTable var="usuario" value="#{BancoPropuestasBean.consultarUsuarios()}" class="tabla"
@@ -89,7 +91,7 @@
 						<f:selectItem itemLabel="Seleccione un rol" itemValue="" noSelectionOption="true" />
 						<f:selectItems value="#{BancoPropuestasBean.roles}" />
 					</p:selectOneMenu>
-					<p:commandButton value="Asignar perfil" onclick="reinicio()"
+					<p:commandButton value="Asignar perfil" onclick="reinicio()" 
 									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
 									action="#{BancoPropuestasBean.modificarUsuario(perfil.value)}"/>
 				</f:facet>

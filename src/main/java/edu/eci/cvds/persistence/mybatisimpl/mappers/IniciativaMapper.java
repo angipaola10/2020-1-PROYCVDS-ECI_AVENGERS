@@ -8,6 +8,7 @@ import edu.eci.cvds.entities.Comentario;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
+import edu.eci.cvds.entities.MeInteresa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.ReporteArea;
 
@@ -15,7 +16,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface IniciativaMapper {
 	
-	public void modificarPropuesta(@Param("nombrePropuesta") String nombrePropuesta, @Param("descripcion") String descripcion, @Param("area") String area, @Param("usuario") String usuario);
+	public void modificarPropuesta(@Param("nombrePropuesta") String nombrePropuesta, @Param("descripcion") String descripcion, @Param("area") String area, @Param("id") int id);
 
 	public List<Iniciativa> consultarTodasLasPropuestas();
 	
@@ -50,4 +51,16 @@ public interface IniciativaMapper {
 	public List<Comentario> consultarComentarios(@Param("id_inic")int id);
 
 	public void comentar(@Param("id_ini") int id,@Param("id_usu") String user, @Param("coment") String comentario);
+
+	public List<MeGusta> consultarLikePorIds(@Param("idiniciativa") int idiniciativa, @Param("idusuario") String idusuario);
+
+	public void quitarLike(@Param("idiniciativa") int idiniciativa,@Param("idusuario") String idusuario);
+
+	public void quitarInteres(@Param("idiniciativa") int idiniciativa,@Param("idusuario") String idusuario);
+
+	public List<MeInteresa> consultarInteres(@Param("id_inic")int id);
+
+	public List<MeInteresa> consultarInteresPorIds(@Param("idiniciativa") int idiniciativa, @Param("idusuario") String idusuario);
+
+	public void darInteres(@Param("id_ini") int id, @Param("id_usu") String user);
 }

@@ -7,6 +7,7 @@ import edu.eci.cvds.entities.Comentario;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
+import edu.eci.cvds.entities.MeInteresa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.ReporteArea;
 import edu.eci.cvds.entities.Rol;
@@ -45,10 +46,8 @@ public class BancoPropuestasImpl implements BancoPropuestas {
     @Override
     public List<Usuario> consultarUsuarios() throws BancoPropuestasException {
         try {
-            System.out.println("hola 11");
             return usuarioDAO.obtenerUsuarios();
         } catch (PersistenceException e) {
-        	System.out.println("hola 22");
             throw new BancoPropuestasException("Error al consultar Usuarios",e);
         }
     }
@@ -133,9 +132,9 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	}
    
    @Override
-	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area, String usuario) throws BancoPropuestasException {
+	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area, int id) throws BancoPropuestasException {
 		try {
-           iniciativaDAO.modificarPropuesta(nombrePropuesta, descripcion, area, usuario);
+           iniciativaDAO.modificarPropuesta(nombrePropuesta, descripcion, area, id);
        } catch (PersistenceException e) {
            throw new BancoPropuestasException("Error al actualizar la propuesta. ",e);
        }
@@ -229,7 +228,6 @@ public class BancoPropuestasImpl implements BancoPropuestas {
         } catch (PersistenceException e) {
             throw new BancoPropuestasException("Error al dar like ",e);
         }
-		
 	}
 
 	@Override
@@ -261,5 +259,67 @@ public class BancoPropuestasImpl implements BancoPropuestas {
             throw new BancoPropuestasException("Error al consultar comentarios ",e);
         }
 		return likes;
+	}
+
+	@Override
+	public List<MeGusta> consultarLikePorIds(int idiniciativa, String idusuario) throws BancoPropuestasException {
+		List<MeGusta> likes = null;
+		try {
+			likes = iniciativaDAO.consultarLikePorIds(idiniciativa, idusuario);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar likes por ids ",e);
+        }
+		return likes;
+	}
+
+	@Override
+	public void quitarLike(int idiniciativa, String idusuario) throws BancoPropuestasException {
+		try {
+			iniciativaDAO.quitarLike(idiniciativa, idusuario);
+        } catch (PersistenceException e) {
+        	System.out.println("Muere en bancoPropuestasImpl quitarlike  "+ e.getMessage());
+            throw new BancoPropuestasException("Error al quitar like",e);
+        }
+	}
+
+	@Override
+	public void darInteres(int idiniciativa, String user) throws BancoPropuestasException {
+		try {
+			iniciativaDAO.darInteres(idiniciativa,user);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al dar interes ",e);
+        }
+	}
+
+	@Override
+	public void quitarInteres(int idiniciativa, String user) throws BancoPropuestasException {
+		try {
+			iniciativaDAO.quitarInteres(idiniciativa, user);
+        } catch (PersistenceException e) {
+        	System.out.println("Muere en bancoPropuestasImpl quitarInteres  "+ e.getMessage());
+            throw new BancoPropuestasException("Error al quitar interes",e);
+        }	
+	}
+
+	@Override
+	public List<MeInteresa> consultarInteresPorIds(int idiniciativa, String idusuario)  throws BancoPropuestasException {
+		List<MeInteresa> interes = null;
+		try {
+			interes = iniciativaDAO.consultarInteresPorIds(idiniciativa, idusuario);
+	    } catch (PersistenceException e) {
+	        throw new BancoPropuestasException("Error al consultar likes por ids ",e);
+	    }
+		return interes;
+	}
+
+	@Override
+	public List<MeInteresa> consultarInteres(int id) throws BancoPropuestasException {
+		List<MeInteresa> interes = null;
+		try {
+			interes = iniciativaDAO.consultarInteres(id);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar interes ",e);
+        }
+		return interes;
 	}
 }

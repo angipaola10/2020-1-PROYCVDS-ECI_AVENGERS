@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Banco de iniciativas ECI</title>
+		<link href="assets/css/consultarinicadmin.css" rel="stylesheet"/>
+		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
+		<!--<script type="text/javascript">
+		  function actualizar(){location.reload(true);}
+		//Función para actualizar cada 4 segundos(4000 milisegundos)
+		  setInterval("actualizar()",4000);
+		</script>-->
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript">
+	      google.charts.load('current', {'packages':['corechart']});
+	      google.charts.setOnLoadCallback(drawChart);
+	      function drawChart() {
+
+	    	var tabla = "#{BancoPropuestasBean.agruparIniciativas()}";
+			console.log(tabla);
+	    	var cadena = tabla.slice(1,-1);
+	     	var tabla1 = cadena.split(",")
+	    	var tabla2 = []
+	    	tabla2.push(["Estado","Numero"]);
+	    	var lon=tabla1.length
+	    	var cont=0;
+	    	for ( i in tabla1){
+	    		
+	    		console.log(tabla1[cont] + "vvvv "+ tabla1[cont+1]+"mod:"+ i%2 + " vvvv "+ cont +" otro"+ cont+2);
+	    		tabla2.push([tabla1[cont],parseInt(tabla1[cont+1])])
+	    		cont+=2;
+	    		if (cont == lon){ break}
+	   	    	}
+	        var data = google.visualization.arrayToDataTable(tabla2);
+	
+	        var options = {
+	          title: 'Areas de iniciativas'
+	        };
+	
+	        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+	
+	        chart.draw(data, options);
+	      }
+	    </script>
+	    
+	    		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript">
+	      google.charts.load('current', {'packages':['corechart']});
+	      google.charts.setOnLoadCallback(drawChart);
+	      function drawChart() {
+			var tabla = "#{BancoPropuestasBean.consultarEstados()}";
+			var cadena = tabla.slice(1,-1);
+	     	var tabla1 = cadena.split(",")
+	    	var tabla2 = []
+	    	tabla2.push(["Estado","Numero"]);
+	    	var lon=tabla1.length
+	    	var cont=0;
+	    	for ( i in tabla1){
+	    		tabla2.push([tabla1[cont],parseInt(tabla1[cont+1])])
+	    		cont+=2;
+	    		if (cont == lon){ break}
+	   	    	}
+	        var data = google.visualization.arrayToDataTable(tabla2);
+	
+	        var options = {
+	          title: 'Estado de iniciativas'
+	        };
+			
+	        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+			
+	        chart.draw(data, options);
+	      }
+	    </script>
+	    
+		
+		<script type="text/javascript">
+			function alerta() {
+				alert("Estado actualizado");
+				location.reload(true)
+				
+			}
+			
+		</script>
+		
+	</h:head>
+	<body>
+		<h:form id="form"> 
+			<div class="cabecera">
+				<img src= "assets/img/cabecera.jpg"/>
+			</div>
+			<div class = "header">
+					<ul class="nav">
+						<li><a>Usuarios</a>
+							<ul>
+								<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
+							</ul>
+						</li>
+						<li><a href="">Iniciativas</a>
+							<ul>
+								<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
+							</ul>
+							<ul>
+								<li><a href="">Graficas y reportes</a></li>
+							</ul>
+						</li>
+						<li>
+							<p:commandButton value="Cerrar sesión"
+										class="btn btn-rose btn-simple btn-wd btn-lg"
+										action="#{shiroBean.doLogOut()}"/>					
+						</li>
+					</ul>
+			</div>
+			<p:panelGrid columns="2" layout="grid" styleClass="showcase-text-align-center">
+				<p:outputPanel>
+					<div id="piechart" style="width: 900px; height: 500px;"></div>
+				</p:outputPanel>
+				<p:outputPanel style="width:23%;height:500px;background:#fff;position:absolute;left:68%;">
+					<p:dataTable class="tabla" id="tbl1" var="dto" value="#{BancoPropuestasBean.agruparIniciativas()}" rows="10" style="font-size:16px" paginatorPosition="bottom">
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Area" />
+							</f:facet>
+							<h:outputText value="#{dto.area}" />
+						</p:column>
+				 
+						<p:column style="text-align:center;width:60px">
+							<f:facet name="header">
+								<h:outputText value="Numero de inciativas"/>
+							</f:facet>
+							<h:outputText value="#{dto.numIniciativas}" />
+						</p:column>
+					</p:dataTable>
+					<h3 style="font-family:Impact;font-size:17px;color:#b80f22">Exportar</h3>
+					<h:commandLink>
+						<h:graphicImage url="assets/img/pdfexport.png"/>
+						<p:dataExporter type="pdf" target="tbl1" fileName="Areas"/>
+					</h:commandLink>
+					<h:commandLink>
+						<h:graphicImage url="assets/img/exportexcel.png"/>
+						<p:dataExporter type="xls" target="tbl1" fileName="Areas"/>
+					</h:commandLink>
+				</p:outputPanel>
+				<p:outputPanel>
+					<div id="piechart2" style="width: 900px; height: 500px;"></div>
+				</p:outputPanel>
+				<p:outputPanel  style="width:23%;height:500px;background:#fff;position:absolute;left:68%;">
+					<p:dataTable class="tabla" id="tbl2" var="dto2" value="#{BancoPropuestasBean.consultarEstados()}" rows="10" style="font-size:16px" paginatorPosition="bottom">
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Estado" />
+							</f:facet>
+							<h:outputText value="#{dto2.estado_propuesta}" />
+						</p:column>
+				 
+						<p:column style="text-align:center;width:60px">
+							<f:facet name="header">
+								<h:outputText value="Numero de inciativas"/>
+							</f:facet>
+							<h:outputText value="#{dto2.numero}" />
+						</p:column>
+					</p:dataTable>
+					<h3 style="font-family:Impact;font-size:17px;color:#b80f22">Exportar</h3>
+					<h:commandLink>
+						<h:graphicImage url="assets/img/pdfexport.png"/>
+						<p:dataExporter type="pdf" target="tbl2" fileName="Estados"/>
+					</h:commandLink>
+					<h:commandLink>
+						<h:graphicImage url="assets/img/exportexcel.png" />
+						<p:dataExporter type="xls" target="tbl2" fileName="Estados"/>
+					</h:commandLink>
+				</p:outputPanel>
+			</p:panelGrid>
+			<p class="copyright text-muted">Daniela Ruiz - Angie Jimenez  - Henry Sanchez - Edwin Rodriguez</p>
+		</h:form>  
+	</body>
+</html>

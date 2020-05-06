@@ -9,6 +9,7 @@ import edu.eci.cvds.entities.Comentario;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
+import edu.eci.cvds.entities.MeInteresa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.ReporteArea;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.IniciativaMapper;
@@ -21,9 +22,9 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	IniciativaMapper iniciativaMapper;
 	
 	@Override
-	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area, String usuario)throws PersistenceException {
+	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area, int id)throws PersistenceException {
         try{
-            iniciativaMapper.modificarPropuesta(nombrePropuesta, descripcion, area, usuario);
+            iniciativaMapper.modificarPropuesta(nombrePropuesta, descripcion, area, id);
          }
          catch(Exception e){
              System.out.println(e);
@@ -45,7 +46,6 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	@Override
 	public void agregarIniciativa(String nombre, String descripcion, String area, String usuario) throws PersistenceException {
 		try{
-			System.out.println("registrando iniciativa DAO");
 			iniciativaMapper.insertarIniciativa(nombre, descripcion,(Date) null, area, usuario, "En espera de revisión");
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
@@ -131,6 +131,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
              iniciativaMapper.modificarIniciativaEstado(estado, nombre);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
+        	 System.out.println(e.getMessage());
              throw new PersistenceException("Error al actualizar el estado de la iniciativa:",e); 
          }	
     }
@@ -183,7 +184,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 			likes = iniciativaMapper.consultarLikes(id);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
-             throw new PersistenceException("Error al agrupar consultar likes:",e);   
+             throw new PersistenceException("Error al consultar likes:",e);   
          }
 		return likes;
 	}
@@ -208,5 +209,76 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
              throw new PersistenceException("Error al consultar comentarios:",e);   
          }
 		return likes;
+	}
+
+	@Override
+	public List<MeGusta> consultarLikePorIds(int idiniciativa, String idusuario) throws PersistenceException {
+		List<MeGusta> likes;
+		try{	 
+			likes = iniciativaMapper.consultarLikePorIds(idiniciativa, idusuario);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+        	 System.out.println("muere en myBatisIniciativaDAO");
+             throw new PersistenceException("Error al consultar likes: ",e);   
+         }
+		return likes;
+	}
+
+	@Override
+	public void quitarLike(int idiniciativa, String idusuario) throws PersistenceException {
+		try{	 
+			iniciativaMapper.quitarLike(idiniciativa, idusuario);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+        	 System.out.println(e.getMessage());
+             throw new PersistenceException("Error al quitar like: ",e);   
+         }
+	}
+
+	@Override
+	public List<MeInteresa> consultarInteresPorIds(int idiniciativa, String idusuario) throws PersistenceException {
+		List<MeInteresa> interes;
+		try{	 
+			interes = iniciativaMapper.consultarInteresPorIds(idiniciativa, idusuario);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+        	 System.out.println("muere en myBatisIniciativaDAO");
+             throw new PersistenceException("Error al consultar interes: ",e);   
+         }
+		return interes;
+	}
+
+	@Override
+	public List<MeInteresa> consultarInteres(int id) throws PersistenceException {
+		List<MeInteresa> interes;
+		try{	 
+			interes = iniciativaMapper.consultarInteres(id);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar interes:",e);   
+         }
+		return interes;
+	}
+
+	@Override
+	public void quitarInteres(int idiniciativa, String user) throws PersistenceException {
+		try{	 
+			iniciativaMapper.quitarInteres(idiniciativa, user);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+        	 System.out.println(e.getMessage());
+             throw new PersistenceException("Error al quitar interes: ",e);   
+         }
+		
+	}
+
+	@Override
+	public void darInteres(int idiniciativa, String user) throws PersistenceException {
+		try{
+			iniciativaMapper.darInteres(idiniciativa,user);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al dar interes:",e);   
+         }
 	}	
 }

@@ -17,6 +17,7 @@ import edu.eci.cvds.entities.Comentario;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
+import edu.eci.cvds.entities.MeInteresa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.ReporteArea;
 import edu.eci.cvds.entities.Rol;
@@ -92,9 +93,10 @@ public class BancoPropuestasBean extends BasePageBean {
         }
     }
 	
-	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area){
+	public void modificarPropuesta(int id, String nombrePropuesta, String descripcion, String area){
         try {
-            bancoPropuesta.modificarPropuesta(nombrePropuesta, descripcion, area, selectedIniciativa.getUsuario());
+        	System.out.println(nombrePropuesta+" "+descripcion+" "+area+" "+id);
+            bancoPropuesta.modificarPropuesta(nombrePropuesta, descripcion, area, id);
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
 
@@ -309,35 +311,69 @@ public class BancoPropuestasBean extends BasePageBean {
 	
 	public void darLike(String user) throws BancoPropuestasException {
 		try {
-			System.out.println("Darlike user "+ user);
-			System.out.println("Darlike "+ selectedIniciativa.getId());
-			 bancoPropuesta.darLike(selectedIniciativa.getId(),user);
+			int idiniciativa= selectedIniciativa.getId();
+			if (consultarLikePorIds(idiniciativa, user) == 0) {
+				System.out.println("Darlike iniciativa "+idiniciativa);
+				bancoPropuesta.darLike(idiniciativa, user);
+			}else {
+				System.out.println("QuitarLike iniciativa "+idiniciativa);
+				bancoPropuesta.quitarLike(idiniciativa, user);
+			}
 	       } catch (BancoPropuestasException e) {
+	    	   System.out.println("Darlike ERROR BEAN");
 	    	   setErrorMessage(e);
 	       }
 	}
 	
-	public void pruebacomentar(int id, String user, String comentario) {
-			System.out.println("---------------------------------------------");
-			System.out.println(comentario);
-			System.out.println(user);
-			System.out.println(id);
+	public void darInteres(String user) throws BancoPropuestasException {
+		try {
+			int idiniciativa= selectedIniciativa.getId();
+			if (consultarInteresPorIds(idiniciativa, user) == 0) {
+				System.out.println("DarInteres iniciativa "+idiniciativa);
+				bancoPropuesta.darInteres(idiniciativa, user);
+			}else {
+				System.out.println("QuitarInteres iniciativa "+idiniciativa);
+				bancoPropuesta.quitarInteres(idiniciativa, user);
+			}
+	       } catch (BancoPropuestasException e) {
+	    	   System.out.println("DarInteres ERROR BEAN");
+	    	   setErrorMessage(e);
+	       }
 	}
 	
-	public void comentar(String ini, String user, String comentario) throws BancoPropuestasException {
+	public int consultarLikePorIds (int idiniciativa, String idusuario) throws BancoPropuestasException{
+		try {
+			return bancoPropuesta.consultarLikePorIds(idiniciativa, idusuario).size();
+		}catch(BancoPropuestasException e) {
+			System.out.println("errorrrrrrrrrr "+e.getMessage());
+			setErrorMessage(e);
+			return 0;
+		}
+	}
+	
+	public int consultarInteresPorIds (int idiniciativa, String idusuario) throws BancoPropuestasException{
+		try {
+			return bancoPropuesta.consultarInteresPorIds(idiniciativa, idusuario).size();
+		}catch(BancoPropuestasException e) {
+			System.out.println("errorrrrrrrrrr "+e.getMessage());
+			setErrorMessage(e);
+			return 0;
+		}
+	}
+	
+	public void comentar(int ini, String user, String comentario) throws BancoPropuestasException {
 		try {
 			System.out.println("---------------------------------------------");
 			System.out.println(comentario);
 			System.out.println(user);
 			System.out.println(ini);
-			int iniId = Integer.parseInt(ini);
-			bancoPropuesta.comentar(iniId,user,comentario);
+			bancoPropuesta.comentar(ini,user,comentario);
 	       } catch (BancoPropuestasException e) {
 	    	   setErrorMessage(e);
 	       }
 	}
 	
-	public int consultarLikes( int id) throws BancoPropuestasException {
+	public int consultarNumLikes(int id) throws BancoPropuestasException {
 		List<MeGusta> likes = null;
 		try {
 			 likes = bancoPropuesta.consultarLikes(id);
@@ -347,14 +383,36 @@ public class BancoPropuestasBean extends BasePageBean {
 		return likes.size();
 	}
 	
-	public int consultarNumLikes( int id) throws BancoPropuestasException {
-		List<Comentario> likes = null;
+	public int consultarNumInteres(int id) throws BancoPropuestasException {
+		List<MeInteresa> interes = null;
 		try {
-			 likes = bancoPropuesta.consultarComentarios(id);
+			 interes = bancoPropuesta.consultarInteres(id);
 	       } catch (BancoPropuestasException e) {
 	    	   setErrorMessage(e);
 	       }
-		return likes.size();
+		return interes.size();
+	}
+	
+	public int consultarNumComentarios(int id) throws BancoPropuestasException {
+		List<Comentario> comentarios = null;
+		try {
+			 comentarios = bancoPropuesta.consultarComentarios(id);
+	       } catch (BancoPropuestasException e) {
+	    	   setErrorMessage(e);
+	       }
+		return comentarios.size();
+	}
+	
+	public List<Comentario> consultarComentarios() throws BancoPropuestasException {
+		List<Comentario> comentarios = new ArrayList<Comentario>();
+		try {
+			if(selectedIniciativa!=null) {
+				comentarios = bancoPropuesta.consultarComentarios(selectedIniciativa.getId());
+			}
+	       } catch (BancoPropuestasException e) {
+	    	   setErrorMessage(e);
+	       }
+		return comentarios;
 	}
  
 	public List<PalabraClave> consultarPalabrasClaveIniciativa() throws BancoPropuestasException {

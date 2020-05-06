@@ -11,12 +11,13 @@ import edu.eci.cvds.entities.Comentario;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
+import edu.eci.cvds.entities.MeInteresa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.ReporteArea; 
 
 public interface IniciativaDAO {
 	
-	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area, String usuario) throws PersistenceException;
+	public void modificarPropuesta(String nombrePropuesta, String descripcion, String area, int id) throws PersistenceException;
 
 	public List<Iniciativa> consularIniciativas() throws PersistenceException;
 
@@ -51,5 +52,17 @@ public interface IniciativaDAO {
 	public void comentar(int id, String user, String comentario)  throws PersistenceException;
 
 	public List<Comentario> consultarComentarios(int id) throws PersistenceException;
+
+	public List<MeGusta> consultarLikePorIds(int idiniciativa, String idusuario) throws PersistenceException;
+
+	public void quitarLike(int idiniciativa, String idusuario) throws PersistenceException;
+
+	public List<MeInteresa> consultarInteresPorIds(int idiniciativa, String idusuario) throws PersistenceException;
+
+	public List<MeInteresa> consultarInteres(int id) throws PersistenceException;
+
+	public void quitarInteres(int idiniciativa, String user)throws PersistenceException;
+
+	public void darInteres(int idiniciativa, String user)throws PersistenceException;
 
 }
