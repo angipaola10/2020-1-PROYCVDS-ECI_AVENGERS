@@ -322,4 +322,27 @@ public class BancoPropuestasImpl implements BancoPropuestas {
         }
 		return interes;
 	}
+
+	@Override
+	public void agruparIniciativas(String grupo, int inisagrupar) throws BancoPropuestasException {
+		try { 
+			 iniciativaDAO.agruparIniciativa(grupo, inisagrupar);
+        } catch (PersistenceException e) {
+        	System.out.println("Muere en bancoPropuestasImpl"+ e.getMessage());
+            throw new BancoPropuestasException("Error al Agrupars",e);
+        }	
+	}
+
+	@Override
+	public String consultarGrupo(int id) throws BancoPropuestasException {
+		String res = null;
+		try {
+			res = iniciativaDAO.consultarGrupo(id);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar interes ",e);
+        }
+		return res;
+	}
+	
+	
 }

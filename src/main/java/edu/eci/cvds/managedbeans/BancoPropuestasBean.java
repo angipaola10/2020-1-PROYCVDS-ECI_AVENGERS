@@ -44,6 +44,8 @@ public class BancoPropuestasBean extends BasePageBean {
 	private PalabraClave palabraClave;
 	private ReporteEstado estado;
 	private List <Iniciativa> pcclaveini;
+	private List <Iniciativa> inisagrupar;
+	private String res;
 
     public List<Usuario> consultarUsuarios(){
         List<Usuario> clientes = null;
@@ -60,6 +62,16 @@ public class BancoPropuestasBean extends BasePageBean {
         try{
             bancoPropuesta.registrarUsuario(id, tid, nombre, telefono, correo, clave, rol, estado);
         } catch (BancoPropuestasException e) {
+            setErrorMessage(e);
+        }
+    }
+	
+	public void consulinis(String grupo){
+		
+        try{
+        	for (int i=0;i<inisagrupar.size();i++) {
+        	bancoPropuesta.agruparIniciativas(grupo,inisagrupar.get(i).getId());}
+        } catch (Exception e) {
             setErrorMessage(e);
         }
     }
@@ -110,6 +122,21 @@ public class BancoPropuestasBean extends BasePageBean {
             setErrorMessage(e);
         }
     }
+	
+	public String consultarGrupo (int id){
+		System.out.println("------------------------- ID");
+		System.out.println(id);
+		String res = null;
+        try{
+            res = bancoPropuesta.consultarGrupo(id);
+            System.out.println("RES__________");
+            System.out.println(res);
+        } catch (BancoPropuestasException e) {
+            setErrorMessage(e);
+        }
+        return res;
+    }
+
 
 	public void setSelectedUsuario(Usuario usuario){
 		this.selectedUsuario = usuario;
@@ -445,6 +472,22 @@ public class BancoPropuestasBean extends BasePageBean {
 
 	public void setPcclaveini(List <Iniciativa> pcclaveini) {
 		this.pcclaveini = pcclaveini;
+	}
+
+	public List <Iniciativa> getInisagrupar() {
+		return inisagrupar;
+	}
+
+	public void setInisagrupar(List <Iniciativa> inisagrupar) {
+		this.inisagrupar = inisagrupar;
+	}
+
+	public String getRes() {
+		return res;
+	}
+
+	public void setRes(String res) {
+		this.res = res;
 	}
 
 }

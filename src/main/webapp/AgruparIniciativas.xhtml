@@ -23,10 +23,7 @@
 						</li>
 						<li><a href="">Iniciativas</a>
 							<ul>
-								<li><a href="">Consultar iniciativas</a></li>
-							</ul>
-							<ul>
-								<li><a href="../faces/AgruparIniciativas.xhtml">Agrupar iniciativas</a></li>
+								<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
 							</ul>
 							<ul>
 								<li><a href="../faces/graficasyreportes.xhtml">Graficas y reportes</a></li>
@@ -34,7 +31,7 @@
 						</li>
 						<li>
 							<h:outputText value="#{shiroBean.username}" style="color:#fff;font-family:impact;" binding="#{usuariosesion}"/>
-							<p:commandButton value="Cerrar sesión"
+							<p:commandButton value="Cerrar sesi�n"
 										class="btn btn-rose btn-simple btn-wd btn-lg"
 										action="#{shiroBean.doLogOut()}"/>					
 						</li>
@@ -42,19 +39,12 @@
 			</div>
 			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativas()}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-				rows="15" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
-				
-				<f:facet name="header" >
-					<p:selectOneMenu id="cons-ini" binding="#{pclaveini}">
-						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="Palabra" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
-					</p:selectOneMenu>
-					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"  actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}" >
-					</p:commandButton>
-					</f:facet>
+				rows="15" id="tablaConsulta" selection="#{BancoPropuestasBean.inisagrupar}" rowKey="#{iniciativa.nombrePropuesta}">
+					
+				<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
-					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
+					<h:outputText value="#{iniciativa.nombrePropuesta}"/>   
 				</p:column>
 				
 				<p:column headerText="Nombre proponente" filterBy="#{iniciativa.nombreProponente}" sortBy="#{iniciativa.nombreProponente}">
@@ -77,77 +67,18 @@
 					<h:outputText value="#{iniciativa.estado_Propuesta}" />
 				</p:column>
 				
-				<p:column headerText="Me gusta" sortBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}"
-							style="width:40px;text-align: center">
-					<p:commandButton id="like" value="" class="like" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
-								action="#{BancoPropuestasBean.darLike(usuariosesion.value)}" update=":form">
-								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
-					</p:commandButton>
-					<style type="text/css">
-						.like {
-							width:30px;
-							height:30px;
-							background-image: url("assets/img/meGustaN.png") !important;
-						}
-						.like:hover {
-							width:35px;
-							height:35px;
-							background-image: url("assets/img/meGustaH.png") !important;
-						}
-					</style>
-					<p:commandButton value="#{BancoPropuestasBean.consultarNumLikes(iniciativa.id)}" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
-				</p:column>
-				
-				<p:column headerText="Me importa" sortBy=""
-							style="width:45px;text-align: center">
-					<p:commandButton id="meImporta" value="" class="meImporta" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
-					<style type="text/css">
-						.meImporta {
-							width:30px;
-							height:30px;
-							background-image: url("assets/img/meImportaN.png") !important;
-						}
-					</style>
-					<p:commandButton value="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}"  style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
-				</p:column>
-				
-				<p:column headerText="Comentarios" style="width:80px;text-align: center">
-					<p:commandButton  update=":form:iniComentDetail" oncomplete="PF('iniComentDialog').show()" title="" class="comentario"
-						style="background:transparent;text-shadow:none;box-shadow:none;border:none;">
-						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
-					</p:commandButton>
-					<style type="text/css">
-						.comentario {
-							width:30px;
-							height:30px;
-							background-image: url("assets/img/comentaN.png") !important;
-							margin-right:15px;
-							margin-left:15px
-						}
-						.comentario:hover{
-							width:35px;
-							height:35px;
-							background-image: url("assets/img/comentaH.png") !important;
-						}
-					</style>
-					<p:commandButton value="#{BancoPropuestasBean.consultarNumComentarios(iniciativa.id)}" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
-				</p:column>
-				
 				<p:column style="width:30px;text-align: center">
 					 <p:commandButton  update=":form:iniDetail" oncomplete="PF('iniDialog').show()" title="Ver" 
 						style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;;border:none;">
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 				</p:column>
-						
+				
 				<f:facet name="footer">
-					<p:selectOneMenu id="act-estado" binding="#{estadoi}">
-						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
-					</p:selectOneMenu>
-					<p:commandButton id="mensaje" value="Actualizar estado"
+					<p:inputText id="pclave" class = "form-control" placeholder="Ingrese el nombre de la agrupación" binding="#{grupo}" />
+					<p:commandButton id="mensaje" value="Agrupar"
 									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}" onclick="alerta()"/>
+									actionListener="#{BancoPropuestasBean.consulinis(grupo.value)}"/> 
 				</f:facet>
 				
 			</p:dataTable>   
@@ -206,6 +137,9 @@
 						
 						<h:outputText value="Estado" />
 						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.estado_Propuesta}" readonly="true"
+										style="box-shadow:none;background:#E5E5E5;border:none;"/>
+						<h:outputText value="Grupo" />
+						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.consultarGrupo(BancoPropuestasBean.selectedIniciativa.id)}" readonly="true"
 										style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						
 					</p:panelGrid>

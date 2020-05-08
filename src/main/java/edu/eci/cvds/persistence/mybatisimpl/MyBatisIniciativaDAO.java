@@ -280,5 +280,31 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              throw new PersistenceException("Error al dar interes:",e);   
          }
-	}	
+	}
+
+	@Override
+	public void agruparIniciativa(String grupo, int inisagrupar) throws PersistenceException {
+		try{
+			
+				System.out.println(inisagrupar);
+			iniciativaMapper.agruparIniciativa(grupo,inisagrupar);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException(e);   
+         }
+		
+	}
+
+	@Override
+	public String consultarGrupo(int id) throws PersistenceException {
+		String res;
+		try{	 
+			res = iniciativaMapper.consultarGrupo(id);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar grupo:",e);   
+         }
+		return res;
+	}
+	
 }

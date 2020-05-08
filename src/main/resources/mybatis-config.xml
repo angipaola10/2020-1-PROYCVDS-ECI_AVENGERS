@@ -18,6 +18,7 @@
 		<typeAlias alias="MeGusta" type="edu.eci.cvds.entities.MeGusta"/>
 		<typeAlias alias="Comentario" type="edu.eci.cvds.entities.Comentario"/>
 		<typeAlias alias="MeInteresa" type="edu.eci.cvds.entities.MeInteresa"/>
+		<typeAlias alias="Grupo" type="edu.eci.cvds.entities.Grupo"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

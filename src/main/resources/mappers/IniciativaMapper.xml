@@ -39,11 +39,16 @@
     <resultMap type='MeGusta' id='DTOLikes'>
 		<result property='id' column='id'/>
     </resultMap>
+ 
 	
 	<resultMap type='MeInteresa' id='DTOInteres'>
 		<result property='id' column='id'/>
     </resultMap>
 	
+	<resultMap type='Grupo' id='DTOGrupo'>
+		<result property='nombre' column='nombre'/>
+    </resultMap>
+    
 	<resultMap type='Comentario' id='DTOComentarios'>
 		<result property='idiniciativa' column='idiniciativa'/>
 		<result property='idusuario' column='idusuario'/>
@@ -146,6 +151,11 @@
 		VALUES (#{id_ini},#{id_usu});
 	</insert>
 	
+	<insert id="agruparIniciativa">
+		INSERT INTO grupo (idiniciativa,nombre)
+		VALUES (#{ini_id},#{grup_nombre});
+	</insert>
+	
 	<insert id="darInteres">
 		INSERT INTO MeInteresa(idiniciativa,idusuario)
 		VALUES (#{id_ini},#{id_usu});
@@ -182,6 +192,10 @@
 	
 	<select id="consultarComentarios" resultMap="DTOComentarios" parameterType="map">
 		SELECT c.idiniciativa, c.idusuario, c.comentario from Comentario as c where idiniciativa = #{id_inic};
+    </select> 
+    
+    <select id="consultarGrupo" resultMap="DTOGrupo" parameterType="map">
+		SELECT nombre from grupo where idiniciativa = #{ini_id};
     </select> 
 	
 	<select id="modificarIniciativaEstado">

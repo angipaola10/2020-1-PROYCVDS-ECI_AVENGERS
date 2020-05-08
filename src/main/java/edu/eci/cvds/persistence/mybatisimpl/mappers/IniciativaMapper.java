@@ -63,4 +63,8 @@ public interface IniciativaMapper {
 	public List<MeInteresa> consultarInteresPorIds(@Param("idiniciativa") int idiniciativa, @Param("idusuario") String idusuario);
 
 	public void darInteres(@Param("id_ini") int id, @Param("id_usu") String user);
+
+	public void agruparIniciativa(@Param("grup_nombre")String grupo, @Param("ini_id")int id);
+
+	public String consultarGrupo(@Param("ini_id")int id);
 }
