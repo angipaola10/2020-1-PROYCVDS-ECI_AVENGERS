@@ -2,10 +2,10 @@ create extension pgcrypto;
 
 CREATE TABLE IF NOT EXISTS Rol(tipo VARCHAR(14) PRIMARY KEY);
 
-CREATE TABLE IF NOT EXISTS Estado(id SERIAL PRIMARY KEY, estado VARCHAR(30));
-
 CREATE TABLE IF NOT EXISTS Usuario(id BIGINT NOT NULL, tid VARCHAR(2) NOT NULL, nombre VARCHAR(50) NOT NULL, telefono BIGINT NOT NULL, correo VARCHAR(50) PRIMARY KEY, clave VARCHAR(20) NOT NULL, estado VARCHAR(15) NOT NULL, rol VARCHAR(14) REFERENCES Rol(tipo));
+
 ALTER TABLE Usuario ADD CONSTRAINT telefono_unico UNIQUE(telefono);
+
 ALTER TABLE Usuario ADD CONSTRAINT id_unico UNIQUE(id);
 
 CREATE TABLE IF NOT EXISTS Iniciativa(nombrePropuesta VARCHAR(50) NOT NULL, id SERIAL PRIMARY KEY, descripcion varchar(150)  NOT NULL, fechaInicio date, area varchar(50)  NOT NULL, usuario VARCHAR(50) REFERENCES Usuario(correo) NOT NULL, estado_Propuesta VARCHAR(30) NOT NULL);
@@ -34,13 +34,6 @@ INSERT INTO Rol(tipo) VALUES ('Administrador');
 INSERT INTO Rol(tipo) VALUES ('Proponente');
 INSERT INTO Rol(tipo) VALUES ('PersonalPMO');
 INSERT INTO Rol(tipo) VALUES ('Publico');
-
-
-INSERT INTO Estado(estado) VALUES ('En espera de revisión');
-INSERT INTO Estado(estado) VALUES ('En revisión');
-INSERT INTO Estado(estado) VALUES ('Proyecto');
-INSERT INTO Estado(estado) VALUES ('Solucionado');
-
 
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (9303130, 'CC', 'Angi Jimenez', 3186759533, 'angi.jimenez', '51588ae1ff9e45374efe138a856eec0479efc67a22de0f251e0021a9a2396dc2', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1019150998, 'CC', 'Daniela Ruiz', 3178484579, 'angied.ruiz', 'ceb55d033d440973d9c051a93c4300c977403b0681815564680b02056c01a29a', 'Activo', 'Proponente');
