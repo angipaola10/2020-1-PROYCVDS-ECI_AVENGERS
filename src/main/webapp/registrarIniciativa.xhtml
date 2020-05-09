@@ -25,7 +25,7 @@
 						<ul>
 							<li><a href="../faces/registrarIniciativa.xhtml">Registrar iniciativa</a></li>
 							<li><a href="../faces/MisIniciativas.xhtml">Mis Iniciativas </a></li>
-	
+							<li><a href="../faces/consultarProponente.xhtml">Consultar Iniciativas </a></li>
 						</ul>
 					</li>
 					<li>
@@ -64,7 +64,10 @@
 				<label>Otra palabra clave</label>
 				<p:inputText id="pclave" class = "form-control" placeholder="Ingrese una nueva palabra clave" binding="#{nuevapclave}"/>
 				<p:commandButton value = "Agregar"  styleClass="btn btn-success" class="btn-agregar" 
-					actionListener="#{BancoPropuestasBean.registrarPalabraClave(nuevapclave.value)}"/>			
+					actionListener="#{BancoPropuestasBean.registrarPalabraClave(nuevapclave.value)}"/>	
+					
+					
+							
 				<p:commandButton value = "Registrar iniciativa"  styleClass="btn btn-success" class="btn"
 					actionListener="#{BancoPropuestasBean.registrarIniciativa(nombrei.value, descripcioni.value, areai.value, usuarioi.value)}"/>
 					<p:messages id="messages" closable="true">

@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.util.List;
 
 import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.Grupo;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
@@ -80,6 +81,8 @@ public interface BancoPropuestas {
 
 	public abstract void agruparIniciativas(String grupo, int i) throws BancoPropuestasException;
 
-	public abstract String consultarGrupo(int id) throws BancoPropuestasException ;
+	public abstract Grupo consultarGrupo(int id) throws BancoPropuestasException ;
+
+	public abstract List<Iniciativa> consultarInisAgru(int id, String grupo) throws BancoPropuestasException;
 
 }

@@ -14,6 +14,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.annotations.Param;
 
 import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.Grupo;
+import edu.eci.cvds.managedbeans.ShiroBean;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
@@ -45,7 +47,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	private ReporteEstado estado;
 	private List <Iniciativa> pcclaveini;
 	private List <Iniciativa> inisagrupar;
-	private String res;
+
 
     public List<Usuario> consultarUsuarios(){
         List<Usuario> clientes = null;
@@ -67,10 +69,15 @@ public class BancoPropuestasBean extends BasePageBean {
     }
 	
 	public void consulinis(String grupo){
+		if (grupo=="") {
+			grupo=null;
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Debe ingresar nombre del grupo" , null));
+		}
 		
         try{
         	for (int i=0;i<inisagrupar.size();i++) {
         	bancoPropuesta.agruparIniciativas(grupo,inisagrupar.get(i).getId());}
+        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Iniciativas Agrupadas con exito" , null));
         } catch (Exception e) {
             setErrorMessage(e);
         }
@@ -105,14 +112,17 @@ public class BancoPropuestasBean extends BasePageBean {
         }
     }
 	
-	public void modificarPropuesta(int id, String nombrePropuesta, String descripcion, String area){
+	public void modificarPropuesta(Iniciativa ini, String nombrePropuesta, String descripcion, String area){
+		
+		if(ini.getEstado_Propuesta().equals("En revisión")) {
         try {
-        	System.out.println(nombrePropuesta+" "+descripcion+" "+area+" "+id);
-            bancoPropuesta.modificarPropuesta(nombrePropuesta, descripcion, area, id);
+        	System.out.println(nombrePropuesta+" "+descripcion+" "+area+" ");
+            bancoPropuesta.modificarPropuesta(nombrePropuesta, descripcion, area, ini.getId());
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
 
-        }
+        }}
+		else { FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "El estado debe estar En revisión" , null));}
     }
 	
 	public void modificarUsuarioEstado(String estado){
@@ -124,13 +134,39 @@ public class BancoPropuestasBean extends BasePageBean {
     }
 	
 	public String consultarGrupo (int id){
-		System.out.println("------------------------- ID");
-		System.out.println(id);
-		String res = null;
+		String res = "";
+		Grupo aux;
         try{
-            res = bancoPropuesta.consultarGrupo(id);
-            System.out.println("RES__________");
-            System.out.println(res);
+        	
+        	aux=bancoPropuesta.consultarGrupo(id);
+        	if (aux==null) {res = "Sin agrupar";}
+        	else {
+            res = bancoPropuesta.consultarGrupo(id).toString();}
+        
+        } catch (BancoPropuestasException e) {
+        	facesError("No se pudo agrupar iniciativa ");
+            setErrorMessage(e);
+        }
+        return res;
+    }
+	
+	public String consultarInisAgru(int id , String grupo){
+		List <Iniciativa> aux;
+		String res = "";
+		System.out.println(id);
+		System.out.println(grupo);
+        try{
+        	
+            aux = bancoPropuesta.consultarInisAgru(id, grupo);
+      
+            for (int i=0;i<aux.size();i++) {
+            	System.out.println("_________________________");
+            	System.out.println(aux.get(i).getNombrePropuesta());
+            	res= res + " " + (aux.get(i).getNombrePropuesta());
+            	System.out.println("RESSSSSSSSSSSSSSSSSSSS");
+            	System.out.println(res);
+            	
+            }
         } catch (BancoPropuestasException e) {
             setErrorMessage(e);
         }
@@ -291,6 +327,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	   try {
 		   bancoPropuesta.registrarPalabraClave(palabraClave);
        } catch (BancoPropuestasException e) {
+    	   FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "La palabra ya se encuentra registrada", null));
     	   setErrorMessage(e);
        }
     }
@@ -454,6 +491,18 @@ public class BancoPropuestasBean extends BasePageBean {
        return palabrasClaves;
 	}
 	
+	public List<PalabraClave> consultarPalabrasClaveIniciativa(int id) throws BancoPropuestasException {
+			System.out.println(id);
+		   List<PalabraClave> palabrasClaves = new ArrayList<PalabraClave>();
+	       try{
+	    		   palabrasClaves = bancoPropuesta.consultarPalabraClave(id);
+	    		   System.out.println(palabrasClaves.get(0).toString());
+	       } catch (BancoPropuestasException e) {
+	       	   setErrorMessage(e);
+	       }
+	       return palabrasClaves;
+		}
+	
 	public void consultarIniciativaPalabraClave (String palabra) throws IOException{
 		List<Iniciativa> iniciativas = null;
 		try {
@@ -482,12 +531,6 @@ public class BancoPropuestasBean extends BasePageBean {
 		this.inisagrupar = inisagrupar;
 	}
 
-	public String getRes() {
-		return res;
-	}
-
-	public void setRes(String res) {
-		this.res = res;
-	}
+	
 
 }

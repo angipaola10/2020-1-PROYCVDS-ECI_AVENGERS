@@ -6,6 +6,7 @@ import java.lang.String;
 import com.google.inject.Inject;
 
 import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.Grupo;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
@@ -296,10 +297,22 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	}
 
 	@Override
-	public String consultarGrupo(int id) throws PersistenceException {
-		String res;
+	public Grupo consultarGrupo(int id) throws PersistenceException {
+		Grupo res;
 		try{	 
 			res = iniciativaMapper.consultarGrupo(id);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar grupo:",e);   
+         }
+		return res;
+	}
+
+	@Override
+	public List<Iniciativa> consultarInisAgru(int id , String grupo) throws PersistenceException {
+		List<Iniciativa> res;
+		try{	 
+			res = iniciativaMapper.consultarInisAgru(id,grupo);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
              throw new PersistenceException("Error al consultar grupo:",e);   

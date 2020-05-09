@@ -141,6 +141,10 @@
 		GROUP BY area;
     </select>  
     
+     <select id="consultarInisAgru" resultMap="IniciativaResult" parameterType="map">
+		select nombrepropuesta from iniciativa i join grupo g  on (i.id = g.idiniciativa) where g.nombre =#{grupo} and #{ini_id} != i.id;
+    </select>  
+    
     <select id="consultarEstados" resultMap="DTOestado" parameterType="map">
 		SELECT estado_propuesta, count(1) as numero FROM iniciativa
 		GROUP BY estado_propuesta;
@@ -220,12 +224,11 @@
 	</insert>
 	
 	<update id='modificarPropuesta'>
-    	update Iniciativa set 
+    	update iniciativa set 
     	nombrePropuesta=#{nombrePropuesta}, 
     	descripcion=#{descripcion}, 
-    	area=#{area} 
-		estadoPropuesta=#{estadoPropuesta}
-    	where id = #{id} ;
+    	area=#{area}
+    	where id = #{id} and estado_propuesta='En revisión' ;
     </update>
 	
 </mapper>

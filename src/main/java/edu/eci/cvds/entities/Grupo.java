@@ -10,7 +10,6 @@ public class Grupo {
 		this.nombre = nombre;
 	}
 	
-	@Override
 	public String toString() {
 		return nombre;
 	}

@@ -6,7 +6,7 @@
 	<h:head>
 		<title>Banco de iniciativas ECI</title>
 		<link href="assets/css/consultarinicadmin.css" rel="stylesheet"/>
-		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
+		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />		
 	</h:head>
 	<body>
 		<h:form id="form"> 
@@ -14,16 +14,14 @@
 				<img src= "assets/img/cabecera.jpg"/>
 			</div>
 			<div class = "header">
+				<b>Consultar iniciativas</b>
 					<ul class="nav">
 						<li><a href="">Iniciativas</a>
 							<ul>
 								<li><a href="../faces/registrarIniciativa.xhtml">Registrar iniciativa</a></li>
 							</ul>
 							<ul>
-								<li><a href="../faces/consultarProponente.xhtml">Consultar iniciativas</a></li>
-							</ul>
-							<ul>
-								<li><a href="">Mis iniciativas</a></li>
+								<li><a href="../faces/MisIniciativas.xhtml">Mis iniciativas</a></li>
 							</ul>
 						</li>
 						<li>
@@ -34,18 +32,10 @@
 						</li>
 					</ul>
 			</div>
-			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativa(usuariosesion.value)}" class="tabla"
+			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativas()}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
 				rows="15" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
 				
-				<f:facet name="header" >
-					<p:selectOneMenu id="cons-ini" binding="#{pclaveini}">
-						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="Palabra" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
-					</p:selectOneMenu>
-					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"  actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}" >
-					</p:commandButton>
-					</f:facet>
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
 					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
@@ -92,17 +82,17 @@
 					<p:commandButton value="#{BancoPropuestasBean.consultarNumLikes(iniciativa.id)}" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
 				</p:column>
 				
-				<p:column headerText="Me interesa" sortBy=""
+				<p:column headerText="Me importa" sortBy=""
 							style="width:45px;text-align: center">
-					<p:commandButton id="meInteresa" value="" class="meInteresa" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
+					<p:commandButton id="meImporta" value="" class="meImporta" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
 					<style type="text/css">
-						.meInteresa {
+						.meImporta {
 							width:30px;
 							height:30px;
 							background-image: url("assets/img/meImportaN.png") !important;
 						}
 					</style>
-					<p:commandButton value="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
+					<p:commandButton value="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}"  style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
 				</p:column>
 				
 				<p:column headerText="Comentarios" style="width:80px;text-align: center">
@@ -133,23 +123,8 @@
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 				</p:column>
-				
-					<f:facet name="footer">
-					<p:selectOneMenu id="act-estado" binding="#{area}">
-						<f:selectItem itemLabel="Seleccione un area" itemValue="" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.areasIniciativas}" />
-					</p:selectOneMenu>
-					<p:inputText id="nombre" class = "form-control" placeholder="Ingrese una nuevo nombre" binding="#{nuevonombre}"/>
-					<p:inputText id="descrip" class = "form-control" placeholder="Ingrese una nueva descripcion" binding="#{nuevadescripcion}"/>
-					<p:commandButton id="mensaje" value="modificar iniciativa"
-									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.modificarPropuesta(BancoPropuestasBean.selectedIniciativa,nuevonombre.value,nuevadescripcion.value,area.value)}" onclick="alerta()"/>
-					<p:messages id="messages" closable="true">
-        			<p:autoUpdate />
-   					 </p:messages>
-				</f:facet>
-				
-				
+						
+			
 				
 			</p:dataTable>   
 			
@@ -210,7 +185,7 @@
 										style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						
 					</p:panelGrid>
-					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" class="tabla" style="width:300px;font-size:14px; margin-left:calc(50% - 150px);margin-top:20px;">
+					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" style="width:300px;font-size:14px; margin-left:calc(50% - 150px);margin-top:20px;">
 						<p:column headerText="Palabras clave">
 							<h:outputText value="#{pclaveinic.palabraClave}" />
 						</p:column>
@@ -218,9 +193,8 @@
 				</p:outputPanel>
 				
 			</p:dialog>
-		</h:form>
-			<div id="piechart" style="width: 900px; height: 500px;"></div>
-			<div id="piechart2" style="width: 900px; height: 500px;"></div>
-			<p class="copyright text-muted">Daniela Ruiz - Angie Jimenez  - Henry Sanchez - Edwin Rodriguez</p>	
+
+        </h:form>  
+        <p class="copyright text-muted">Daniela Ruiz - Angie Jimenez  - Henry Sanchez - Edwin Rodriguez</p>
 	</body>
 </html>

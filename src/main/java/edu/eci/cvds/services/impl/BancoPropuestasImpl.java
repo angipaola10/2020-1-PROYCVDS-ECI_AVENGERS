@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.Grupo;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
@@ -328,16 +329,26 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 		try { 
 			 iniciativaDAO.agruparIniciativa(grupo, inisagrupar);
         } catch (PersistenceException e) {
-        	System.out.println("Muere en bancoPropuestasImpl"+ e.getMessage());
-            throw new BancoPropuestasException("Error al Agrupars",e);
+            throw new BancoPropuestasException("Una o mas iniciativas ya estan agrupadas",e);
         }	
 	}
 
 	@Override
-	public String consultarGrupo(int id) throws BancoPropuestasException {
-		String res = null;
+	public Grupo consultarGrupo(int id) throws BancoPropuestasException {
+		Grupo res = null;
 		try {
 			res = iniciativaDAO.consultarGrupo(id);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar interes ",e);
+        }
+		return res;
+	}
+
+	@Override
+	public List<Iniciativa> consultarInisAgru(int id, String grupo) throws BancoPropuestasException {
+		List <Iniciativa> res = null;
+		try {
+			res = iniciativaDAO.consultarInisAgru(id,grupo);
         } catch (PersistenceException e) {
             throw new BancoPropuestasException("Error al consultar interes ",e);
         }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.lang.String;
 
 import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.Grupo;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
@@ -66,5 +67,7 @@ public interface IniciativaMapper {
 
 	public void agruparIniciativa(@Param("grup_nombre")String grupo, @Param("ini_id")int id);
 
-	public String consultarGrupo(@Param("ini_id")int id);
+	public Grupo consultarGrupo(@Param("ini_id")int id);
+
+	public List<Iniciativa> consultarInisAgru(@Param("ini_id")int id, @Param("grupo")String grupo);
 }

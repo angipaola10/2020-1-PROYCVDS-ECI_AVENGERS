@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<title>Banco de iniciativas ECI</title>
-		<link href="assets/css/consultari.css" rel="stylesheet"/>
+		<link href="assets/css/consultarinicadmin.css" rel="stylesheet"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />  
 		
 		<script type="text/javascript">
@@ -54,15 +54,9 @@
 					</p:selectOneMenu>
 					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"  actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}" >
 					</p:commandButton>
-					<p:selectOneMenu id="act-estado" binding="#{estadoi}" style="margin-left:50px;">
-						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
-					</p:selectOneMenu>
-					<p:commandButton id="mensaje" value="Actualizar estado"
-									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}" onclick="alerta()"/>
-					<a href="../faces/consultarIniciativas.xhtml" style="color:#b80f22;margin-left:50px;">Ver todas</a>
 				</f:facet>
+					
+					
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
 					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
@@ -88,8 +82,8 @@
 					<h:outputText value="#{iniciativa.estado_Propuesta}" />
 				</p:column>
 				
-				<p:column headerText="Likes" filterBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}" sortBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}">
-					<h:outputText value="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}" />
+				<p:column headerText="Palabras Clave" >
+					<h:outputText value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa(iniciativa.id)}" />
 				</p:column>
 				
 				<p:column style="width:30px;text-align: center">
@@ -98,6 +92,16 @@
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 				</p:column>
+				
+				<f:facet name="footer">
+					<p:selectOneMenu id="act-estado" binding="#{estadoi}">
+						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
+					</p:selectOneMenu>
+					<p:commandButton id="mensaje" value="Actualizar estado"
+									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
+									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}" onclick="alerta()"/>
+				</f:facet>
 				
 			</p:dataTable>   
 			
@@ -125,9 +129,6 @@
 						
 						<h:outputText value="Estado" />
 						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.estado_Propuesta}" />
-						
-						<h:outputText value="Likes" />
-						<h:outputText value="#{BancoPropuestasBean.consultarLikes(selectedIniciativa.id)}" />
 						
 					</p:panelGrid>
 					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" class="tabla" style="width:300px">

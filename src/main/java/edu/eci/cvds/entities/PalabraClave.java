@@ -22,7 +22,7 @@ public class PalabraClave implements SelectableDataModel{
 	}
 	
 	public String toString() {
-		return "Palabra Clave: {palabra clave: " + palabraClave + "}";
+		return  palabraClave;
 	}
 	
 	@Override

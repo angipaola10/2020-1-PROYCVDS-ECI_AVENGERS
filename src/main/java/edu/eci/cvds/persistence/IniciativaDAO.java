@@ -8,6 +8,7 @@ import java.sql.Date;
 import java.lang.String;
 
 import edu.eci.cvds.entities.Comentario;
+import edu.eci.cvds.entities.Grupo;
 import edu.eci.cvds.entities.ReporteEstado;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.MeGusta;
@@ -67,6 +68,8 @@ public interface IniciativaDAO {
 
 	public void agruparIniciativa(String grupo, int inisagrupar) throws PersistenceException;
 
-	public String consultarGrupo(int id) throws PersistenceException ;
+	public Grupo consultarGrupo(int id) throws PersistenceException ;
+
+	public List<Iniciativa> consultarInisAgru(int id, String grupo) throws PersistenceException;
 
 }

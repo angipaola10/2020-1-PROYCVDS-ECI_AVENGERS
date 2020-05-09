@@ -31,7 +31,7 @@
 						</li>
 						<li>
 							<h:outputText value="#{shiroBean.username}" style="color:#fff;font-family:impact;" binding="#{usuariosesion}"/>
-							<p:commandButton value="Cerrar sesi�n"
+							<p:commandButton value="Cerrar sesión"
 										class="btn btn-rose btn-simple btn-wd btn-lg"
 										action="#{shiroBean.doLogOut()}"/>					
 						</li>
@@ -79,7 +79,12 @@
 					<p:commandButton id="mensaje" value="Agrupar"
 									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
 									actionListener="#{BancoPropuestasBean.consulinis(grupo.value)}"/> 
+					<p:messages id="messages" closable="true">
+        			<p:autoUpdate />
+   					 </p:messages>
 				</f:facet>
+				
+				
 				
 			</p:dataTable>   
 			
@@ -140,6 +145,9 @@
 										style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						<h:outputText value="Grupo" />
 						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.consultarGrupo(BancoPropuestasBean.selectedIniciativa.id)}" readonly="true"
+										style="box-shadow:none;background:#E5E5E5;border:none;"/>
+						<h:outputText value="Iniciativas Relacionadas:" />
+						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.consultarInisAgru(BancoPropuestasBean.selectedIniciativa.id, BancoPropuestasBean.consultarGrupo(BancoPropuestasBean.selectedIniciativa.id))}" readonly="true"
 										style="box-shadow:none;background:#E5E5E5;border:none;"/>
 						
 					</p:panelGrid>

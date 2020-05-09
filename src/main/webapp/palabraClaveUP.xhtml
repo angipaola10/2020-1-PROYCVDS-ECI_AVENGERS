@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<title>Banco de iniciativas ECI</title>
-		<link href="assets/css/consultari.css" rel="stylesheet"/>
+		<link href="assets/css/consultarinicadmin.css" rel="stylesheet"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />  
 		
 		<script type="text/javascript">
@@ -47,7 +47,9 @@
 					</p:selectOneMenu>
 					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"  actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}" >
 					</p:commandButton>
-					</f:facet>
+				</f:facet>
+					
+					
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
 					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
@@ -73,8 +75,8 @@
 					<h:outputText value="#{iniciativa.estado_Propuesta}" />
 				</p:column>
 				
-				<p:column headerText="Likes" filterBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}" sortBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}">
-					<h:outputText value="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}" />
+				<p:column headerText="Palabras Clave" >
+					<h:outputText value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa(iniciativa.id)}" />
 				</p:column>
 				
 				<p:column style="width:30px;text-align: center">
@@ -83,7 +85,6 @@
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 				</p:column>
-						
 				
 			</p:dataTable>   
 			
@@ -112,8 +113,6 @@
 						<h:outputText value="Estado" />
 						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.estado_Propuesta}" />
 						
-						<h:outputText value="Likes" />
-						<h:outputText value="#{BancoPropuestasBean.consultarLikes(selectedIniciativa.id)}" />
 						
 					</p:panelGrid>
 					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" class="tabla" style="width:300px">
