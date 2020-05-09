@@ -38,15 +38,6 @@
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
 				rows="15" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
 				
-				<f:facet name="header" >
-					<p:selectOneMenu id="cons-ini" binding="#{pclaveini}">
-						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="Palabra" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
-					</p:selectOneMenu>
-					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"  actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}" >
-					</p:commandButton>
-					</f:facet>
-				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
 					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
 				</p:column>
