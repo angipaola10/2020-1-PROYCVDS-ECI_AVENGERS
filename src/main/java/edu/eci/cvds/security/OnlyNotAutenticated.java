@@ -32,6 +32,9 @@ public class OnlyNotAutenticated extends AccessControlFilter {
         }else if(SecurityUtils.getSubject().hasRole("Publico")){
             welcomeurl="/faces/login.xhtml";
         }
+        else if(SecurityUtils.getSubject().hasRole("PersonalPMO")){
+            welcomeurl="/faces/login.xhtml";
+        }
         WebUtils.issueRedirect(request, response, welcomeurl);
         return false;//What to do if try to go to login -> go welcome page of auth ursers
     }

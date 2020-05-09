@@ -16,17 +16,9 @@
 			<div class = "header">
 				<b>Consultar iniciativas</b>
 					<ul class="nav">
-						<li><a>Usuarios</a>
-							<ul>
-								<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
-							</ul>
-						</li>
 						<li><a href="">Iniciativas</a>
 							<ul>
-								<li><a href="">Consultar iniciativas</a></li>
-							</ul>
-							<ul>
-								<li><a href="../faces/AgruparIniciativas.xhtml">Agrupar iniciativas</a></li>
+								<li><a href="../faces/graficasyreportes.xhtml">Graficas y reportes</a></li>
 							</ul>
 						</li>
 						<li>
@@ -40,15 +32,6 @@
 			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativas()}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
 				rows="15" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
-				
-				<f:facet name="header" >
-					<p:selectOneMenu id="cons-ini" binding="#{pclaveini}">
-						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="Palabra" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
-					</p:selectOneMenu>
-					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"  actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}" >
-					</p:commandButton>
-					</f:facet>
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
 					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
@@ -136,16 +119,6 @@
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 				</p:column>
-						
-				<f:facet name="footer">
-					<p:selectOneMenu id="act-estado" binding="#{estadoi}">
-						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
-					</p:selectOneMenu>
-					<p:commandButton id="mensaje" value="Actualizar estado"
-									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}" onclick="alerta()"/>
-				</f:facet>
 				
 			</p:dataTable>   
 			

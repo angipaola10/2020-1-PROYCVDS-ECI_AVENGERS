@@ -1,4 +1,4 @@
-create extension pgcrypto;
+﻿create extension pgcrypto;
 
 CREATE TABLE IF NOT EXISTS Rol(tipo VARCHAR(14) PRIMARY KEY);
 
@@ -64,6 +64,7 @@ INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALU
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1110000000, 'CC', 'Pilar Trujillo', 3103399334, 'pilar.trujillo', '3D277280559D1C8F286F7C608A6148AA0FEE3CCA7291D5CE70D3D7729BB6BA58', 'Activo', 'Proponente');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1111000000, 'CC', 'Ricardo Arjona', 3183399334, 'ricardo.arjona', 'DA9A9965788AAA0EC9E07BF65EE3AE94D7BECCF99B0A3E41209551E5A54FB4D0', 'Activo', 'Proponente');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1111100000, 'CC', 'Steve Jobs', 3183301334, 'steve.jobs', '9F5F911DD8D4D232C990DA679F5EE29DFB4AF41F722A2739833408ECE62D72C1', 'Activo', 'Proponente');
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1111110000, 'CC', 'German Garmendia', 3183753334, 'german.garmendia', '791F65752840C6D4CEB629D3FE64F0986F4FDA8ECC807A797C33D6B0671A13C4', 'Activo', 'PersonalPMO');
 
 INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usuario, estado_Propuesta) VALUES ('HoloLens Aid', '1', 'El uso de las HoloLens de Microsoft en ayuda para la atención de desastres naturales.', 2019-12-23, 'Ingeniería', 'angied.ruiz', 'En espera de revisión');
 INSERT INTO Iniciativa (nombrePropuesta, id, descripcion, fechaInicio, area, usuario, estado_Propuesta) VALUES ('El arte de ingeniar', '2', 'El uso del arte para el desarrollo de la ingenieria.', 2020-01-09, 'Artes', 'angied.ruiz', 'En espera de revisión');
