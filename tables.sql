@@ -25,3 +25,7 @@ CREATE TABLE IF NOT EXISTS MeGusta (id SERIAL PRIMARY KEY, idIniciativa INT NOT 
 CREATE TABLE IF NOT EXISTS Comentario (id SERIAL PRIMARY KEY, idIniciativa INT NOT NULL REFERENCES Iniciativa(id), idUsuario VARCHAR(50) NOT NULL REFERENCES Usuario(correo), comentario VARCHAR(600) NOT NULL);
 
 CREATE TABLE IF NOT EXISTS MeInteresa (id SERIAl PRIMARY KEY, idIniciativa INT NOT NULL REFERENCES Iniciativa(id), idUsuario VARCHAR(50) NOT NULL REFERENCES Usuario(correo));
+
+CREATE TABLE IF NOT EXISTS Grupo (idiniciativa int PRIMARY KEY, nombre varchar(30) NOT NULL);
+
+ALTER TABLE Grupo ADD CONSTRAINT fk_grupo_iniciativa FOREIGN KEY (idiniciativa) REFERENCES iniciativa(id);
