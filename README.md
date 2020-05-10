@@ -30,13 +30,13 @@ proyectos para ser desarrollados o gestionados por la PMO de la Escuela._
 _Al ingresar al link de la aplicación veremos la página inicial del Banco Iniciativas ECI. Al presionar el botón que indica la flecha nos llevará a la página de autenticación:_
 
 
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicial.jpg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/iniciall.jpg) 
 
 
 _Digitaremos nuestras credenciales y luego presionaremos el botón que indica la flecha para ingresar a nuestra cuenta:_
 
 
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicial.jpg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicial2.jpg) 
 
 
 _Dependiendo de nuestro tipo de cuenta, iremos a las especificaciones del usuario correspondiente._
