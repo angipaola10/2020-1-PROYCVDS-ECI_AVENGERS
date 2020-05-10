@@ -95,8 +95,7 @@ https://tree.taiga.io/project/angiedanielar-plataforma-banco-de-iniciativas-de-p
 
 
 ### Release-burndown chart:
-Generar el 'release-burndown chart' del proyecto, e indicar los puntos de historia realizados y los faltantes.
-al final del proyecto se hace estop
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlogTotal.jpg) 
 
 
 # SPRINTS. ⚙️
