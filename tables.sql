@@ -28,4 +28,4 @@ CREATE TABLE IF NOT EXISTS MeInteresa (id SERIAl PRIMARY KEY, idIniciativa INT N
 
 CREATE TABLE IF NOT EXISTS Grupo (idiniciativa int PRIMARY KEY, nombre varchar(30) NOT NULL);
 
-ALTER TABLE Grupo ADD CONSTRAINT fk_grupo_iniciativa FOREIGN KEY (idiniciativa) REFERENCES iniciativa(id);
+ALTER TABLE Grupo ADD CONSTRAINT fk_grupo_iniciativa FOREIGN KEY (idiniciativa) REFERENCES Iniciativa(id);
