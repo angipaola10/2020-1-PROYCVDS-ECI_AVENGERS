@@ -40,11 +40,11 @@ en el manual van --> Imágenes y descripción de las funcionalidades más import
 
 ### Modelos Entidad - Relación:
 _MD:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/md.jpeg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/md.jpg) 
 
 
 _BD:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/bd.jpeg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/bd.jpg) 
 
 
 ## Descripción de la arquitectura y tecnologías utilizadas. 🛠️
