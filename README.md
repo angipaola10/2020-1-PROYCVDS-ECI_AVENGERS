@@ -97,6 +97,18 @@ _Si queremos consultar las iniciativas dada una palabra clave presionaremos dond
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiPC.jpg) 
 
 
+_Si queremos dar Me Gusta a una iniciativa presionaremos donde indica la flecha:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiMG.jpg) 
+
+
+_Si queremos retirar nuestro Me Gusta de una iniciativa presionaremos nuevamente donde indica la flecha:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiNMG.jpg) 
+
+
 _Si queremos agrupar las iniciativas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
 
 
@@ -150,6 +162,18 @@ _Si queremos consultar las iniciativas dada una palabra clave presionaremos dond
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoPC.jpg) 
+
+
+_Si queremos dar Me Gusta a una iniciativa presionaremos donde indica la flecha:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoMG.jpg) 
+
+
+_Si queremos retirar nuestro Me Gusta de una iniciativa presionaremos nuevamente donde indica la flecha:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoNMG.jpg) 
 
 
 _Si queremos mirar las gráficas de las estadísticas y los reportes presionaremos donde indica la flecha y seleccionaremos donde nos indica el circulo:_
