@@ -32,9 +32,7 @@ CREATE TABLE IF NOT EXISTS Comentario (id SERIAL PRIMARY KEY, idIniciativa INT N
 
 CREATE TABLE IF NOT EXISTS MeInteresa (id SERIAl PRIMARY KEY, idIniciativa INT NOT NULL REFERENCES Iniciativa(id), idUsuario VARCHAR(50) NOT NULL REFERENCES Usuario(correo));
 
-CREATE TABLE public.grupo (idiniciativa int4 NOT NULL,nombre varchar(30) NOT NULL);
-
-ALTER TABLE grupo ADD CONSTRAINT pk_grupo PRIMARY KEY (idiniciativa);
+CREATE TABLE IF NOT EXISTS Grupo (idiniciativa int PRIMARY KEY, nombre varchar(30) NOT NULL);
 
 ALTER TABLE grupo ADD CONSTRAINT fk_grupo_iniciativa FOREIGN KEY (idiniciativa) REFERENCES iniciativa(id);
 
