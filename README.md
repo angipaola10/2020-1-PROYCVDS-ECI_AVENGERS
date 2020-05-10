@@ -38,8 +38,13 @@ en el manual van --> Imágenes y descripción de las funcionalidades más import
 ## Arquitectura y Diseño detallado. 🔧
 
 
-### Modelo E-R:
-acá va el modelo de clases :3 y el de base de datos. ---> los ponemos al final
+### Modelos Entidad - Relación:
+_MD:_
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/md.jpeg) 
+
+
+_BD:_
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/bd.jpeg) 
 
 
 ## Descripción de la arquitectura y tecnologías utilizadas. 🛠️
@@ -137,8 +142,15 @@ _Por esta razón se movió esta historia de usuario al tercer sprint y se creo a
 
 ## Tercer Sprint:
 ### Sprint-backlog:
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/3Sprint.jpg) 
+
+
 ### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
+_Se cumplió con la totalidad de las historias de usuario y tareas asginadas._
+
+
 ### Sprint-burndown chart:
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog3.jpg) 
 
 
 ## Reporte de pruebas y de cubrimiento. 📖
