@@ -245,7 +245,7 @@ _Veremos:_
 _También veremos:_
 
 
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoestados.jpg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoEstados.jpg) 
 
 
 _Si queremos exportar el pdf de alguna de las tablas presionaremos donde indican las flechas dependiendo del reporte que deseemos:_
