@@ -1,10 +1,6 @@
 # Banco de Iniciativas ECI. 🚀
 _Proyecto Final: Ciclos de Vida de Desarrollo de Software._
-
-
 _Banco de Iniciativas Escuela Colombiana de Ingeniería Julio Garavito._
-
-
 _ECI_AVENGERS: 2020-1._
 
 
@@ -503,7 +499,7 @@ https://cvds-proyecto-eci.herokuapp.com
 ## Descripción del proceso. 📋
 _**Responsabilidades de los integrantes:**_
 + _Angi Jiménez. (Views)_
-+ _Daniela Ruiz. (BD)_
++ _Daniela Ruiz. (Back y BD)_
 + _Edwin Rodríguez. (Back)_
 + _Henry Sánchez. (Back)_
 
@@ -526,15 +522,8 @@ https://tree.taiga.io/project/angiedanielar-plataforma-banco-de-iniciativas-de-p
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/1erSprint.jpeg) 
 
 
-### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
 _Nos quedó pendiente por realizar la asociación las palabras claves a la iniciativa porque aún no entendemos bien como realizarlo.
-Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar las siguientes cosas de la historia de usuario número 5:_
-
-
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/faltando1sprint.jpeg)
-
-
-_Por esta razón se movió esta historia de usuario al segundo sprint y se creo aparte en el segundo sprint una historia de usuario nueva para el trabajo de las correcciones del primer sprint que nos indicó nuestro profesor._
+Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar la historia de usuario número 5. Por esta razón se movió esta historia de usuario al segundo sprint y se creo aparte en el segundo sprint una historia de usuario nueva para el trabajo de las correcciones del primer sprint que nos indicó nuestro profesor._
 
 
 ### Sprint-burndown chart:
@@ -546,15 +535,8 @@ _Por esta razón se movió esta historia de usuario al segundo sprint y se creo 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/2doSprint.jpg) 
 
 
-### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
 _Nos quedó pendiente generar el reporte de las estadísticas en excel porque aún no entendemos bien como realizarlo.
-Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente:_
-
-
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/falta2sprint.jpg)
-
-
-_Por esta razón se movió esta historia de usuario al tercer sprint y se creo aparte en el tercer sprint una historia de usuario nueva para el trabajo de las correcciones del segundo sprint que nos indicó nuestro profesor._
+Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente, por esta razón se movió esta historia de usuario al tercer sprint y se creo aparte en el tercer sprint una historia de usuario nueva para el trabajo de las correcciones del segundo sprint que nos indicó nuestro profesor._
 
 
 ### Sprint-burndown chart:
@@ -566,7 +548,6 @@ _Por esta razón se movió esta historia de usuario al tercer sprint y se creo a
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/3Sprint.jpg) 
 
 
-### Descripción breve de los problemas encontrados y  mejoras realizadas al proceso:
 _Se cumplió con la totalidad de las historias de usuario y tareas asginadas._
 
 
