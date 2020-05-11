@@ -5,16 +5,19 @@
       xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<title>Banco de iniciativas ECI</title>
-		<link href="assets/css/iniadmin.css" rel="stylesheet"/>
+		<link href="assets/css/inicio.css" rel="stylesheet"/>
+		<link href="assets/css/general.css" rel="stylesheet"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
 	</h:head>
 	<body>
 		<h:form>
-			<div class="cabecera">
-				<img src= "assets/img/cabecera.jpg"/>
+			<div class="banner">
+				<div class="banner-content"/>
 			</div>
+			
 			<div class = "header">
 					<ul class="nav">
+						<li><a href="inicioAdministrador.xhtml">Inicio</a></li>
 						<li><a>Usuarios</a>
 							<ul>
 								<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
@@ -25,23 +28,40 @@
 								<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
 							</ul>
 							<ul>
-								<li><a href="../faces/graficasyreportes.xhtml">Graficas y reportes</a></li>
-							</ul>
-							<ul>
 								<li><a href="../faces/AgruparIniciativas.xhtml">Agrupar iniciativas</a></li>
 							</ul>
 						</li>
 						<li>
-							<p:commandButton value="Cerrar sesión"
+							<p:commandButton value="Cerrar sesión" style="top:330px;"
 										class="btn btn-rose btn-simple btn-wd btn-lg"
 										action="#{shiroBean.doLogOut()}"/>					
 						</li>
 					</ul>
 			</div>
-			<div class="cuenta">
-				<b>Mi cuenta</b>
-				<img src= "assets/img/admi-ico.jpg"/>
-				<label>Administrador</label>
+				<div class="info" >
+				<img class="infoico" src= "assets/img/infoico.jpg"/>
+				<div class="parrafo">
+					<label>BANCO DE INICIATIVAS ECI</label>
+					<p ALIGN="justify">La Plataforma banco de iniciativas de proyectos, es una herramienta donde la comunidad 
+									   universitaria de la Escuela Colombiana de Ingenieria Julio Garavito pueden registrar sus iniciativas 
+									   e ideas de proyectos para ser desarrollados o gestionados por la PMO de la Escuela.</p>
+				</div>
+			</div>
+			<div class="bancoiniciativas" >
+				<div class= "imagenes">
+					<img class="idea" src= "assets/img/idea.png"/>
+				</div>
+			</div>
+			<img class="avatar" src= "assets/img/Logo_b.jpg"/>
+			<div style="border:1px solid  #b80f22;border-radius: 7px;position:absolute;top:calc(50% + 250px);left: calc(50% - 80px);">
+				<p:outputPanel>
+					<h:panelGrid columns="2" cellpadding="5" style="font-size:14px;">
+						<h:outputText value="Usuario" style="color:#b80f22;font-family:impact;"/>
+						<h:outputText value="#{shiroBean.username}" style="color:#727070"/>
+						<h:outputText value="Perfil" style="color:#b80f22;font-family:impact;"/>
+						<h:outputText value="Administrador" style="color:#727070;"/>
+					</h:panelGrid>
+				</p:outputPanel>
 			</div>
 		</h:form>
 	</body>

@@ -1,4 +1,4 @@
-﻿create extension pgcrypto;
+create extension pgcrypto;
 
 CREATE TABLE IF NOT EXISTS Rol(tipo VARCHAR(14) PRIMARY KEY);
 
@@ -28,13 +28,11 @@ ALTER TABLE PCIniciativa ADD CONSTRAINT FK_PCIniciativa_palabraClave FOREIGN KEY
 
 CREATE TABLE IF NOT EXISTS MeGusta (id SERIAL PRIMARY KEY, idIniciativa INT NOT NULL REFERENCES Iniciativa(id), idUsuario VARCHAR(50) NOT NULL REFERENCES Usuario(correo));
 
-CREATE TABLE IF NOT EXISTS Comentario (id SERIAL PRIMARY KEY, idIniciativa INT NOT NULL REFERENCES Iniciativa(id), idUsuario VARCHAR(50) NOT NULL REFERENCES Usuario(correo), comentario VARCHAR(600) NOT NULL);
+CREATE TABLE IF NOT EXISTS Comentario (id SERIAL PRIMARY KEY, idIniciativa INT NOT NULL REFERENCES Iniciativa(id), idUsuario VARCHAR(50) NOT NULL REFERENCES Usuario(correo), comentario VARCHAR(600) NOT NULL, fecha date);
 
 CREATE TABLE IF NOT EXISTS MeInteresa (id SERIAl PRIMARY KEY, idIniciativa INT NOT NULL REFERENCES Iniciativa(id), idUsuario VARCHAR(50) NOT NULL REFERENCES Usuario(correo));
 
-CREATE TABLE IF NOT EXISTS Grupo (idiniciativa int PRIMARY KEY, nombre varchar(30) NOT NULL);
-
-ALTER TABLE Grupo ADD CONSTRAINT fk_grupo_iniciativa FOREIGN KEY (idiniciativa) REFERENCES Iniciativa(id);
+CREATE TABLE IF NOT EXISTS Grupo (id SERIAL PRIMARY KEY, idiniciativa INT NOT NULL REFERENCES Iniciativa(id),nombre varchar(30) NOT NULL);
 
 INSERT INTO Rol(tipo) VALUES ('Administrador');
 INSERT INTO Rol(tipo) VALUES ('Proponente');
@@ -82,3 +80,9 @@ INSERT INTO PalabraClave (id, palabraClave) VALUES (2, 'Tecnología');
 INSERT INTO PalabraClave (id, palabraClave) VALUES (3, 'Ingeniería');
 INSERT INTO PalabraClave (id, palabraClave) VALUES (4, 'Salud');
 INSERT INTO PalabraClave (id, palabraClave) VALUES (5, 'Estudiantes');
+
+INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (1, 'tony.stark', 'Primer comentario iniciativa 1', null);
+INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (1, 'tony.stark', 'segundo comentario iniciativa 1', null);
+INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (1, 'tony.stark', 'Tercer comentario iniciativa 1', null);
+INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (2, 'tony.stark', 'Primer comentario iniciativa 2', null);
+INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (2, 'tony.stark', 'Segundo comentario iniciativa 2', null);

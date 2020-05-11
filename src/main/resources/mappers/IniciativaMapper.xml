@@ -53,6 +53,7 @@
 		<result property='idiniciativa' column='idiniciativa'/>
 		<result property='idusuario' column='idusuario'/>
 		<result property='comentario' column='comentario'/>
+		<result property='fecha' column='fecha'/>
     </resultMap>
 
 	<select id="consultarTodasLasPropuestas" resultMap="IniciativaResult" parameterType="map">
@@ -195,7 +196,7 @@
 	</delete>
 	
 	<select id="consultarComentarios" resultMap="DTOComentarios" parameterType="map">
-		SELECT c.idiniciativa, c.idusuario, c.comentario from Comentario as c where idiniciativa = #{id_inic};
+		SELECT c.idiniciativa, c.idusuario, c.comentario, c.fecha from Comentario as c where idiniciativa = #{id_inic};
     </select> 
     
     <select id="consultarGrupo" resultMap="DTOGrupo" parameterType="map">

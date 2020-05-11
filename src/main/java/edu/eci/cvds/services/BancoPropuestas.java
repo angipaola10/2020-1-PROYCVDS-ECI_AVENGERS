@@ -81,7 +81,7 @@ public interface BancoPropuestas {
 
 	public abstract void agruparIniciativas(String grupo, int i) throws BancoPropuestasException;
 
-	public abstract Grupo consultarGrupo(int id) throws BancoPropuestasException ;
+	public abstract List<Grupo> consultarGrupo(int id) throws BancoPropuestasException ;
 
 	public abstract List<Iniciativa> consultarInisAgru(int id, String grupo) throws BancoPropuestasException;
 

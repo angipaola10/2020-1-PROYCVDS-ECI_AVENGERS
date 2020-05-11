@@ -67,25 +67,22 @@ public class ShiroBean implements Serializable {
             System.err.println("Null Pointer");
         }
 		catch (UnknownAccountException ex) {
-            facesError("El usuario no se encuentra");
+			FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Usuario desconocido."));
            
         } 
 		catch (IncorrectCredentialsException ex) {
-            facesError("Contraseña incorrecta ");
-            log.error(ex.getMessage(), ex);
+			FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Contraseña incorrecta."));
         } 
 		catch (LockedAccountException ex) {
-			System.err.println("loked");
-            facesError("Locked account");
-            log.error(ex.getMessage(), ex);
+			FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Cuenta bloqueada."));
         } 
 		catch (AuthenticationException | IOException ex) {
-            facesError("Los campos son obligatorios.." );
-            log.error(ex.getMessage(), ex);
+			FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Todos los campos son obligatorios."));
         } 
-		 finally {
-            token.clear();
-        }
     }
 
     public void doLogOut() {

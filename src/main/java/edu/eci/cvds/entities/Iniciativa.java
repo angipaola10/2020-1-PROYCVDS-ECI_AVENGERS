@@ -1,5 +1,6 @@
 package edu.eci.cvds.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import org.primefaces.model.SelectableDataModel;
@@ -125,6 +126,11 @@ public class Iniciativa implements SelectableDataModel{
 
 	public void setLikes(int likes) {
 		this.likes = likes;
+	}
+	
+	public String getFechaInicioString() {
+		SimpleDateFormat dt1 = new SimpleDateFormat("dd-MM-yyyy");
+        return dt1.format(this.fechaInicio);
 	}
 	
 }

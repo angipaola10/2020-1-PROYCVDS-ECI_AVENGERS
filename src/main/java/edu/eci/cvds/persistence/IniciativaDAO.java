@@ -68,7 +68,7 @@ public interface IniciativaDAO {
 
 	public void agruparIniciativa(String grupo, int inisagrupar) throws PersistenceException;
 
-	public Grupo consultarGrupo(int id) throws PersistenceException ;
+	public List<Grupo> consultarGrupo(int id) throws PersistenceException ;
 
 	public List<Iniciativa> consultarInisAgru(int id, String grupo) throws PersistenceException;
 

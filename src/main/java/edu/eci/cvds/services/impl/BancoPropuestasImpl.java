@@ -334,8 +334,8 @@ public class BancoPropuestasImpl implements BancoPropuestas {
 	}
 
 	@Override
-	public Grupo consultarGrupo(int id) throws BancoPropuestasException {
-		Grupo res = null;
+	public List<Grupo> consultarGrupo(int id) throws BancoPropuestasException {
+		List<Grupo> res = null;
 		try {
 			res = iniciativaDAO.consultarGrupo(id);
         } catch (PersistenceException e) {
@@ -354,6 +354,5 @@ public class BancoPropuestasImpl implements BancoPropuestas {
         }
 		return res;
 	}
-	
 	
 }

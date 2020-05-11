@@ -22,19 +22,21 @@
 		</script>
 		
         <title>Busqueda de usuarios</title>
-		<link rel="stylesheet" type="text/css" href="assets/css/consultarus.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/general.css"/>
 		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
     </h:head>
-    <h:body >
-		<div class="cabecera">
-			<img src= "assets/img/cabecera.jpg"/>
-		</div>
-        <div class = "header">
+    <body>		
+        <h:form id="busquedaUsuarioForm"> 
+			<div class="cabecera">
+				<img src= "assets/img/cabecera.jpg"/>
+			</div>
+			<div class = "header">
 				<b>Consultar usuarios</b>
 					<ul class="nav">
+						<li><a href="inicioAdministrador.xhtml">Inicio</a></li>
 						<li><a>Usuarios</a>
 							<ul>
-								<li><a href="">Consultar usuarios</a></li>
+								<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
 							</ul>
 						</li>
 						<li><a href="">Iniciativas</a>
@@ -42,21 +44,30 @@
 								<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
 							</ul>
 							<ul>
-								<li><a href="../faces/graficasyreportes.xhtml">Graficas y reportes</a></li>
+								<li><a href="../faces/AgruparIniciativas.xhtml">Agrupar iniciativas</a></li>
 							</ul>
 						</li>
 						<li>
+							<h:outputText value="#{shiroBean.username}" style="color:transparent" binding="#{usuariosesion}"/>
 							<p:commandButton value="Cerrar sesión"
 										class="btn btn-rose btn-simple btn-wd btn-lg"
 										action="#{shiroBean.doLogOut()}"/>					
 						</li>
 					</ul>
 			</div>
-		
-        <h:form id="busquedaUsuarioForm"> 
 			<p:dataTable var="usuario" value="#{BancoPropuestasBean.consultarUsuarios()}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
 				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.selectedUsuario}" rowKey="#{usuario.correo}">
+				
+				<f:facet name="header">
+					<p:selectOneMenu id="act-rol" binding="#{perfil}">
+						<f:selectItem itemLabel="Seleccione un rol" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{BancoPropuestasBean.roles}" />
+					</p:selectOneMenu>
+					<p:commandButton value="Asignar perfil" update=":busquedaUsuarioForm"
+									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
+									action="#{BancoPropuestasBean.modificarUsuario(perfil.value)}"/>
+				</f:facet>
 				
 				<p:column headerText="No. Documento" filterBy="#{usuario.getId()}">
 				<h:outputText value="#{usuario.getId()}"/>
@@ -74,7 +85,7 @@
 					<h:outputText value="#{usuario.correo}" binding="#{selectedUsuario}" />
 				</p:column>
 				
-				<p:column headerText="Telefono" filterBy="#{usuario.telefono}" >
+				<p:column headerText="Teléfono" filterBy="#{usuario.telefono}" >
 					<h:outputText value="#{usuario.telefono}" />
 				</p:column>
 				
@@ -85,17 +96,20 @@
 				<p:column headerText="Rol" filterBy="#{usuario.rol}">
 					<h:outputText value="#{usuario.rol}" />
 				</p:column>
-				
-				<f:facet name="footer">
-					<p:selectOneMenu id="act-rol" binding="#{perfil}">
-						<f:selectItem itemLabel="Seleccione un rol" itemValue="" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.roles}" />
-					</p:selectOneMenu>
-					<p:commandButton value="Asignar perfil" onclick="reinicio()" 
-									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									action="#{BancoPropuestasBean.modificarUsuario(perfil.value)}"/>
-				</f:facet>
 			</p:dataTable>  
+			<p:growl id="growl" showDetail="true" sticky="true" life="4000"/>  
+			<style type="text/css">
+				.ui-datatable-header{
+					box-shadow:none; text-shadow:none; background:#fff;border:none;
+				}
+				
+				div[id="busquedaUsuarioForm:growl_container"] > div {
+					background: #ABCADB !important;
+					color: #000;
+					text-shadow:none;
+					opacity:0.9;
+				}
+			</style>
         </h:form>   
-    </h:body>
+    </body>
 </html>

@@ -33,9 +33,17 @@
     <body>
         <div class="login-box">
 			<h:form id="frm">
-				  <p:messages id="messages" closable="true">
+				<p:growl id="growl" showDetail="true" sticky="true" life="4000"> 
         			<p:autoUpdate />
-   					 </p:messages>
+   				</p:growl>
+				<style>
+					div[id="frm:growl_container"] > div {
+						background: #ABCADB !important;
+						color: #000;
+						text-shadow:none;
+						opacity:0.9;
+					}
+				</style>
 				<img class="avatar" src= "assets/img/Logo_b.jpg" alt="Logo de login"/>
 				
 				<label class="control-label">Nombre de usuario</label>

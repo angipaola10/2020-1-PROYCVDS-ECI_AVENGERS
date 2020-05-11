@@ -61,6 +61,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 			return iniciativaMapper.agruparPropuestaPorArea();
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
+        	 System.out.println(e.getMessage());
              throw new PersistenceException("Error al agrupar las propuestas:",e);   
          }	
     }
@@ -129,6 +130,7 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	@Override
     public void actualizarIniciativaEstado(String estado, String nombre) throws PersistenceException {
         try{
+        	System.out.println("mod iniciativa DAOOO "+nombre+" "+estado);
              iniciativaMapper.modificarIniciativaEstado(estado, nombre);
          }
          catch(org.apache.ibatis.exceptions.PersistenceException e){
@@ -297,8 +299,8 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
 	}
 
 	@Override
-	public Grupo consultarGrupo(int id) throws PersistenceException {
-		Grupo res;
+	public List<Grupo> consultarGrupo(int id) throws PersistenceException {
+		List<Grupo> res;
 		try{	 
 			res = iniciativaMapper.consultarGrupo(id);
          }

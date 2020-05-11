@@ -1,11 +1,14 @@
 package edu.eci.cvds.entities;
 
 import java.awt.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Comentario {
 	private String idusuario;
 	private String comentario;
 	private int idiniciativa;
+	private Date fecha;
 	
 	public Comentario() {}
 
@@ -33,7 +36,16 @@ public class Comentario {
 		this.idiniciativa = idiniciativa;
 	}
 
+	public Date getFecha() {
+		return fecha;
+	}
 
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 
-
+	public String getFechaString() {
+		SimpleDateFormat dt1 = new SimpleDateFormat("dd-MM-yyyy");
+        return dt1.format(this.fecha);
+	}
 }
