@@ -456,20 +456,16 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 
 
 ## Arquitectura y Diseño detallado. 🔧
-### Modelos Entidad - Relación:
-_MD:_
+### MD:
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/md.jpg) 
 
 
-_BD:_
+### BD: 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/bd.jpg) 
 
 
 ## Descripción de la arquitectura y tecnologías utilizadas. 🛠️
-_La aplicación está construida en 3 capas: Aplicación, Presentación y Persistencia sobre los Datos._
-
-
-_A continuación explicaremos las tecnologias usadas en cada una de ellas._
+_La aplicación está construida en 3 capas: Aplicación, Presentación y Persistencia sobre los Datos. A continuación explicaremos las tecnologias usadas en cada una de ellas._
 
 ### Capa de aplicación:
 + _Java._
