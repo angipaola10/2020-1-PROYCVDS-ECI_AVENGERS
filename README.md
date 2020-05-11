@@ -115,12 +115,6 @@ _Si queremos consultar las iniciativas dada una palabra clave presionaremos dond
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiPC.jpg) 
 
 
-_Al consultar por Salud, solo veremos las que tengan esa palabra clave asociada, entonces si queremos volver a ver todas las iniciativas presionaremos donde indica la flecha:_
-
-
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiVolT.jpg) 
-
-
 _Si queremos ver los comentarios de una iniciativa presionaremos donde indica la flecha:_
 
 
@@ -176,6 +170,12 @@ _Si queremos interactuar con las iniciativas nos pararemos donde indica la flech
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoSel.jpg) 
 
 
+_Si queremos ver las iniciativas registradas presionaremos donde indica la flecha:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoVerTodo.jpg) 
+
+
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
 
 
@@ -188,7 +188,13 @@ _Si queremos ver más información relacionada a una iniciativa presionaremos do
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoMasInfo.jpg)
 
 
-_Si queremos cambiar el estado de una iniciativa presionaremos donde indica la flecha, seleccionaremos un estado y presionaremos actualoizar donde indica el círculo:_
+_Si queremos cambiar el estado de la iniciativa que deseemos presionaremos donde indica la flecha:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoSeli.jpg)
+
+
+_Luego presioanmos donde indica la flecha, seleccionaremos un estado de la lista que se despliega automáticamente y presionaremos actualoizar donde indica el círculo:_
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoCE.jpg) 
@@ -200,22 +206,46 @@ _Si queremos consultar las iniciativas dada una palabra clave presionaremos dond
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoPC.jpg) 
 
 
-_Si queremos dar Me Gusta a una iniciativa presionaremos donde indica la flecha:_
+_Si queremos dar Me Gusta a una iniciativa presionaremos donde indica la flecha y se pondrá la imagen con color para que sepas que ya reaccionaste a la iniciativa:_
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoMG.jpg) 
 
 
-_Si queremos retirar nuestro Me Gusta de una iniciativa presionaremos nuevamente donde indica la flecha:_
+_Si queremos retirar nuestro Me Gusta de una iniciativa presionaremos nuevamente donde indica la flecha y la imagen se volverá a poner gris que sepas que no has reaccionado a esa iniciativa:_
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoNMG.jpg) 
+
+
+_Si queremos ver los comentarios de una iniciativa en especifico presionaremos donde indica la flecha:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoVerC.jpg) 
+
+
+_Si queremos volver al inicio presionaremos donde indica la flecha:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoVolver.jpg) 
 
 
 _Si queremos mirar las gráficas de las estadísticas y los reportes presionaremos donde indica la flecha y seleccionaremos donde nos indica el circulo:_
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoGR.jpg) 
+
+
+_Veremos:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoAreas.jpg) 
+
+
+_También veremos:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoestados.jpg) 
 
 
 _Si queremos exportar el pdf de alguna de las tablas presionaremos donde indican las flechas dependiendo del reporte que deseemos:_
