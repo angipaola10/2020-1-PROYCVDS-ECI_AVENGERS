@@ -59,16 +59,15 @@ ul, ol{
 }
 
 .header button{
+	position:absolute;
 	width: 140px;
 	background: #b80f22;
-	top: 140px;
-	left: calc(100% - 150px);
 	box-shadow: none;
 	text-shadow:none;
 	color: #C0C0C0;
 	border:none;
 	font-family: impact;
-	position:absolute;
+	left: calc(100% - 150px);
 }
 
 .header button:hover{
