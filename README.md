@@ -73,10 +73,16 @@ _Si queremos buscar un usuario dado alguno de los campos que indican las flechas
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiUsFil.jpg) 
 
 
-_Si queremos ver las iniciativas registradas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
+_Si queremos interactuar con las iniciativas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiSel.jpg)
+
+
+_Si queremos ver todas las iniciativas registradas, presionaremos donde indica la flecha:_
+
+
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiVerTodo.jpg) 
 
 
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
@@ -164,7 +170,7 @@ _Al ingresar con tu cuenta de PMO verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPMO.jpg) 
 
 
-_Si queremos ver las iniciativas registradas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
+_Si queremos interactuar con las iniciativas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoSel.jpg) 
