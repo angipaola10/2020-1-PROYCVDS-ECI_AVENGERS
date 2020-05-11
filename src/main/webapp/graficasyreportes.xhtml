@@ -92,15 +92,19 @@
 			</div>
 			<div class = "header">
 					<ul class="nav">
+						<li><a href="InicioPMO.xhtml">Inicio</a></li>
 						<li><a href="">Iniciativas</a>
 							<ul>
-								<li><a href="../faces/InicioPMO.xhtml">Consultar iniciativas</a></li>
+								<li><a href="../faces/iniciativasPMO.xhtml">Consultar iniciativas</a></li>
+							</ul>
+							<ul>
+								<li><a href="../faces/graficasyreportes.xhtml">Gráficas y reportes</a></li>
 							</ul>
 						</li>
 						<li>
-							<p:commandButton value="Cerrar sesión"
-										class="btn btn-rose btn-simple btn-wd btn-lg"
-										action="#{shiroBean.doLogOut()}"/>					
+								<p:commandButton value="Cerrar sesión"
+											class="btn btn-rose btn-simple btn-wd btn-lg"
+											action="#{shiroBean.doLogOut()}"/>			
 						</li>
 					</ul>
 			</div>
@@ -164,6 +168,11 @@
 					</h:commandLink>
 				</p:outputPanel>
 			</p:panelGrid>
+			<style type="text/css">
+				.ui-panelgrid-content{
+					border: none;
+				}
+			</style>
 			<p class="copyright text-muted">Daniela Ruiz - Angie Jimenez  - Henry Sanchez - Edwin Rodriguez</p>
 		</h:form>  
 	</body>

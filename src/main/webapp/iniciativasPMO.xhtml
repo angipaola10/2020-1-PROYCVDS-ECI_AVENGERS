@@ -14,72 +14,56 @@
 				<img src= "assets/img/cabecera.jpg"/>
 			</div>
 			<div class = "header">
-				<b>Consultar iniciativas</b>
 					<ul class="nav">
-						<li><a href="inicioAdministrador.xhtml">Inicio</a></li>
-						<li><a>Usuarios</a>
-							<ul>
-								<li><a href="../faces/consultarUsuarios.xhtml">Consultar usuarios</a></li>
-							</ul>
-						</li>
+						<li><a href="InicioPMO.xhtml">Inicio</a></li>
 						<li><a href="">Iniciativas</a>
 							<ul>
-								<li><a href="../faces/consultarIniciativas.xhtml">Consultar iniciativas</a></li>
+								<li><a href="../faces/iniciativasPMO.xhtml">Consultar iniciativas</a></li>
 							</ul>
 							<ul>
-								<li><a href="../faces/AgruparIniciativas.xhtml">Agrupar iniciativas</a></li>
+								<li><a href="../faces/graficasyreportes.xhtml">Gráficas y reportes</a></li>
 							</ul>
 						</li>
 						<li>
-							<h:outputText value="#{shiroBean.username}" style="color:transparent" binding="#{usuariosesion}"/>
+							<h:outputText value="#{shiroBean.username}" style="color:transparent;" binding="#{usuariosesion}"/>
 							<p:commandButton value="Cerrar sesión"
 										class="btn btn-rose btn-simple btn-wd btn-lg"
-										action="#{shiroBean.doLogOut()}"/>					
+										action="#{shiroBean.doLogOut()}"/>			
 						</li>
 					</ul>
 			</div>
 			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.iniciativasConsultadas}" class="tabla"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-				rows="15" id="tablaConsulta" selection="#{BancoPropuestasBean.inisagrupar}" rowKey="#{iniciativa.nombrePropuesta}">
+				rows="15" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
 				
-				<f:facet name="header">
+				<f:facet name="header" >
 					<p:selectOneMenu id="cons-ini" binding="#{pclaveini}">
 						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="Palabra" noSelectionOption="true" />
 						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
 					</p:selectOneMenu>
 					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none; margin-right:60px;" 
-									actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}"  update=":form"/>
-					<p:inputText id="pclave" class = "form-control" placeholder="Ingrese el nombre de la agrupación" binding="#{grupo}" style="width:230px;" />
-					<p:commandButton id="mensaje" value="Agrupar"
+									actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}"  update=":form">
+					</p:commandButton>
+					<p:selectOneMenu id="act-estado" binding="#{estadoi}">
+						<f:selectItem itemLabel="Seleccione un estado" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{BancoPropuestasBean.estadosIniciativas}" />
+					</p:selectOneMenu>
+					<p:commandButton id="mensaje" value="Actualizar estado"
 									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									actionListener="#{BancoPropuestasBean.consulinis(grupo.value)}"/> 
-					
-					<p:growl id="growl" showDetail="true" sticky="true" life="4000">
-						<p:autoUpdate />
-   					 </p:growl>
-					 <style>
-						div[id="form:tablaConsulta:growl_container"] > div {
-							background: #ABCADB !important;
-							color: #000;
-							text-shadow:none;
-							opacity:0.9;
-						}
-					</style>
+									actionListener="#{BancoPropuestasBean.modificarIniciativaEstado(estadoi.value)}" update=":form"/>
 					<h:commandLink value="Ver todas" style="color:#b80f22; margin-left:60px;"
 									actionListener="#{BancoPropuestasBean.consultarIniciativas()}" update=":form"/>
 				</f:facet>
 				
-				<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
-				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
-					<h:outputText value="#{iniciativa.nombrePropuesta}"/>   
+					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
 				</p:column>
 				
 				<p:column headerText="Proponente" filterBy="#{iniciativa.usuario}" sortBy="#{iniciativa.usuario}">
-					<h:outputText value="#{iniciativa.usuario} "/>
+					<h:outputText value="#{iniciativa.usuario}" />
 				</p:column>
 				
-				<p:column headerText="Fecha inicio" filterBy="#{iniciativa.getFechaInicioString()}" sortBy="#{iniciativa.fechaInicio}"> 
+				<p:column headerText="Fecha inicio" filterBy="#{iniciativa.getFechaInicioString()}" sortBy="#{iniciativa.fechaInicio}">
 					<h:outputText value="#{iniciativa.getFechaInicioString()}" />
 				</p:column>
 			 
@@ -88,7 +72,7 @@
 				</p:column>
 			 
 				<p:column headerText="Área" filterBy="#{iniciativa.area}" sortBy="#{iniciativa.area}">
-					<h:outputText value="#{iniciativa.area}" />
+					<h:outputText value="#{iniciativa.area}"/>
 				</p:column>
 
 				<p:column headerText="Estado" filterBy="#{iniciativa.estado_Propuesta}" sortBy="#{iniciativa.estado_Propuesta}">
@@ -173,16 +157,25 @@
 					box-shadow:none; text-shadow:none; background:#fff;border:none;
 				}
 			</style>
+			<p:growl id="growl" showDetail="true" sticky="true" life="4000"/>  
+			<style>
+				div[id="form:growl_container"] > div {
+					background: #ABCADB !important;
+					color: #000;
+					text-shadow:none;
+					opacity:0.9;
+				}
+			</style>
 			<p:dialog header="Comentarios" widgetVar="iniComentDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 				<p:scrollPanel id="iniComentDetail" style="width:550px;height:50vh;">
-					<div style="position:absolute;left:5px;top:2px;width:480px">
-						<h:outputText value="Iniciativa No. " style="color:#b80f22;font-family:impact;margin-right:10px;"/>
+					<div style="position:absolute;left:5px;top:2px;width:530px">
+						<h:outputText value="Iniciativa No. " style="color:#b80f22;font-family:impact;margin-left:10px;"/>
 						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.id}" binding="#{iniID}" style="color:#b80f22;font-family:impact;margin-right:10px;"/>
 						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.nombrePropuesta}" style="color:#b80f22;font-family:impact;"/>
 					</div>
 					<p:dataView var="comenIni" value="#{BancoPropuestasBean.consultarComentarios()}" style="width:530px;margin-left:10px;">						
 						<p:dataViewListItem>
-							<h:panelGrid columns="2" style="width:100%" columnClasses="detail" >
+							<h:panelGrid columns="2" style="width:100%;" columnClasses="detail">
 								<p:outputPanel style ="margin-bottom:2px;">
 									<h:panelGrid columns="2" cellpadding="5">
 										<p:outputPanel>
@@ -195,7 +188,7 @@
 										<p:inputTextarea rows="1" cols="42" value="#{comenIni.comentario}" readonly="true" 
 												style="box-shadow:none;background:#E5E5E5;border:none;font-family:calibri;font-size:16px;"/>	
 									</h:panelGrid>
-								</p:outputPanel>
+								</p:outputPanel>	
 							</h:panelGrid>
 						</p:dataViewListItem>
 					</p:dataView>
@@ -210,14 +203,12 @@
 					</style>
 				</p:scrollPanel>
 			</p:dialog>
-			
 			<style type="text/css">
 				.ui-dataview{ border:none; }
 				.ui-dialog-titlebar{
 					box-shadow:none; background:#b80f22; font-family:impact; text-shadow:none;color:#fff;
 				}
 			</style>
-			
 			<p:dialog header="Iniciativa info" widgetVar="iniDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 				<p:scrollPanel id="iniDetail" style="width:430px;height:80vh;">
 					<p:panelGrid  columns="2" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="label,value"
@@ -274,7 +265,7 @@
 					</p:dataTable>
 				</p:scrollPanel>		
 			</p:dialog>
-
+			
         </h:form>  
         <p class="copyright text-muted">Daniela Ruiz - Angie Jimenez  - Henry Sanchez - Edwin Rodriguez</p>
 	</body>

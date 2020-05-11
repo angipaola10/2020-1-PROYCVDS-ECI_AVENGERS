@@ -5,190 +5,61 @@
       xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<title>Banco de iniciativas ECI</title>
-		<link href="assets/css/consultarinicadmin.css" rel="stylesheet"/>
-		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />		
+		<link href="assets/css/inicio.css" rel="stylesheet"/>
+		<link href="assets/css/general.css" rel="stylesheet"/>
+		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
 	</h:head>
 	<body>
-		<h:form id="form"> 
-			<div class="cabecera">
-				<img src= "assets/img/cabecera.jpg"/>
+		<h:form>
+			<div class="banner">
+				<div class="banner-content"/>
 			</div>
+			
 			<div class = "header">
-				<b>Consultar iniciativas</b>
 					<ul class="nav">
+						<li><a href="InicioPMO.xhtml">Inicio</a></li>
 						<li><a href="">Iniciativas</a>
 							<ul>
-								<li><a href="../faces/graficasyreportes.xhtml">Graficas y reportes</a></li>
+								<li><a href="../faces/iniciativasPMO.xhtml">Consultar iniciativas</a></li>
+							</ul>
+							<ul>
+								<li><a href="../faces/graficasyreportes.xhtml">Gráficas y reportes</a></li>
 							</ul>
 						</li>
 						<li>
-							<h:outputText value="#{shiroBean.username}" style="color:#fff;font-family:impact;" binding="#{usuariosesion}"/>
-							<p:commandButton value="Cerrar sesión"
-										class="btn btn-rose btn-simple btn-wd btn-lg"
-										action="#{shiroBean.doLogOut()}"/>					
+								<p:commandButton value="Cerrar sesión"
+											class="btn btn-rose btn-simple btn-wd btn-lg"
+											action="#{shiroBean.doLogOut()}"/>			
 						</li>
 					</ul>
 			</div>
-			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.consultarIniciativas()}" class="tabla"
-				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-				rows="15" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
-				
-				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
-					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
-				</p:column>
-				
-				<p:column headerText="Nombre proponente" filterBy="#{iniciativa.nombreProponente}" sortBy="#{iniciativa.nombreProponente}">
-					<h:outputText value="#{iniciativa.nombreProponente}"  />
-				</p:column>
-				
-				<p:column headerText="Usuario proponente" filterBy="#{iniciativa.usuario}" sortBy="#{iniciativa.usuario}">
-					<h:outputText value="#{iniciativa.usuario}" />
-				</p:column>
-			 
-				<p:column headerText="Descripcion" filterBy="#{iniciativa.descripcion}" sortBy="#{iniciativa.descripcion}">
-					<h:outputText value="#{iniciativa.descripcion}" />
-				</p:column>
-			 
-				<p:column headerText="Area" filterBy="#{iniciativa.area}" sortBy="#{iniciativa.area}">
-					<h:outputText value="#{iniciativa.area}" />
-				</p:column>
-
-				<p:column headerText="Estado" filterBy="#{iniciativa.estado_Propuesta}" sortBy="#{iniciativa.estado_Propuesta}">
-					<h:outputText value="#{iniciativa.estado_Propuesta}" />
-				</p:column>
-				
-				<p:column headerText="Me gusta" sortBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}"
-							style="width:40px;text-align: center">
-					<p:commandButton id="like" value="" class="like" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
-								action="#{BancoPropuestasBean.darLike(usuariosesion.value)}" update=":form">
-								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
-					</p:commandButton>
-					<style type="text/css">
-						.like {
-							width:30px;
-							height:30px;
-							background-image: url("assets/img/meGustaN.png") !important;
-						}
-						.like:hover {
-							width:35px;
-							height:35px;
-							background-image: url("assets/img/meGustaH.png") !important;
-						}
-					</style>
-					<p:commandButton value="#{BancoPropuestasBean.consultarNumLikes(iniciativa.id)}" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
-				</p:column>
-				
-				<p:column headerText="Me importa" sortBy=""
-							style="width:45px;text-align: center">
-					<p:commandButton id="meImporta" value="" class="meImporta" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
-					<style type="text/css">
-						.meImporta {
-							width:30px;
-							height:30px;
-							background-image: url("assets/img/meImportaN.png") !important;
-						}
-					</style>
-					<p:commandButton value="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}"  style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
-				</p:column>
-				
-				<p:column headerText="Comentarios" style="width:80px;text-align: center">
-					<p:commandButton  update=":form:iniComentDetail" oncomplete="PF('iniComentDialog').show()" title="" class="comentario"
-						style="background:transparent;text-shadow:none;box-shadow:none;border:none;">
-						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
-					</p:commandButton>
-					<style type="text/css">
-						.comentario {
-							width:30px;
-							height:30px;
-							background-image: url("assets/img/comentaN.png") !important;
-							margin-right:15px;
-							margin-left:15px
-						}
-						.comentario:hover{
-							width:35px;
-							height:35px;
-							background-image: url("assets/img/comentaH.png") !important;
-						}
-					</style>
-					<p:commandButton value="#{BancoPropuestasBean.consultarNumComentarios(iniciativa.id)}" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
-				</p:column>
-				
-				<p:column style="width:30px;text-align: center">
-					 <p:commandButton  update=":form:iniDetail" oncomplete="PF('iniDialog').show()" title="Ver" 
-						style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;;border:none;">
-						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
-					</p:commandButton>
-				</p:column>
-				
-			</p:dataTable>   
-			
-			<p:dialog header="Comentarios" widgetVar="iniComentDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-				<p:scrollPanel id="iniComentDetail" style="width:550px;">
-					<div style="position:absolute;left:5px;top:2px;width:480px">
-						<h:outputText value="Iniciativa No. " style="color:#b80f22;font-family:impact;margin-right:10px;"/>
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.id}" binding="#{iniID}" style="color:#b80f22;font-family:impact;margin-right:10px;"/>
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.nombrePropuesta}" style="color:#b80f22;font-family:impact;"/>
-					</div>
-					<p:dataView var="comenIni" value="#{BancoPropuestasBean.consultarComentarios()}">						
-						<p:dataViewListItem>
-							<h:panelGrid columns="2" style="width:100%" columnClasses="detail" >
-								<p:outputPanel>
-									<h:panelGrid columns="2" cellpadding="5">
-										<h:outputText value="#{comenIni.idusuario}" style="color:#b80f22;font-family:impact;font-size:12px;margin-left:60px" />
-										<p:inputTextarea rows="1" cols="42" value="#{comenIni.comentario}" readonly="true" 
-											style="box-shadow:none;background:#E5E5E5;border:none;font-family:calibri;font-size:16px;"/>
-									</h:panelGrid>
-								</p:outputPanel>
-							</h:panelGrid>
-						</p:dataViewListItem>
-					</p:dataView>
-				</p:scrollPanel>
-			</p:dialog>
-			
-			<p:dialog header="Iniciativa info" widgetVar="iniDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-				<p:outputPanel id="iniDetail" style="width:430px;">
-					<p:panelGrid  columns="2" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="label,value"
-								layout="grid" >
-						
-						<h:outputText value="Iniciativa No."/>
-						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.id}" readonly="true"
-											style="box-shadow:none;background:#E5E5E5;border:none;"/>
-					
-						<h:outputText value="Nombre iniciativa" />
-						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.nombrePropuesta}" readonly="true"
-											style="box-shadow:none;background:#E5E5E5;border:none;"/>
-						
-						<h:outputText value="Descripcion" />
-						<p:inputTextarea cols="20" value="#{BancoPropuestasBean.selectedIniciativa.descripcion}" readonly="true"
-										style="box-shadow:none;background:#E5E5E5;border:none;"/>
-						
-						<h:outputText value="Area" />
-						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.area}" readonly="true"
-											style="box-shadow:none;background:#E5E5E5;border:none;"/>
-						
-						<h:outputText value="Nombre proponente" />
-						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.nombreProponente}" readonly="true"
-										style="box-shadow:none;background:#E5E5E5;border:none;"/>
-						
-						<h:outputText value="Usuario proponente" />
-						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.usuario}" readonly="true"
-										style="box-shadow:none;background:#E5E5E5;border:none;"/>
-						
-						<h:outputText value="Estado" />
-						<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.estado_Propuesta}" readonly="true"
-										style="box-shadow:none;background:#E5E5E5;border:none;"/>
-						
-					</p:panelGrid>
-					<p:dataTable var="pclaveinic" value="#{BancoPropuestasBean.consultarPalabrasClaveIniciativa()}" style="width:300px;font-size:14px; margin-left:calc(50% - 150px);margin-top:20px;">
-						<p:column headerText="Palabras clave">
-							<h:outputText value="#{pclaveinic.palabraClave}" />
-						</p:column>
-					</p:dataTable>
+				<div class="info" >
+				<img class="infoico" src= "assets/img/infoico.jpg"/>
+				<div class="parrafo">
+					<label>BANCO DE INICIATIVAS ECI</label>
+					<p ALIGN="justify">La Plataforma banco de iniciativas de proyectos, es una herramienta donde la comunidad 
+									   universitaria de la Escuela Colombiana de Ingenieria Julio Garavito pueden registrar sus iniciativas 
+									   e ideas de proyectos para ser desarrollados o gestionados por la PMO de la Escuela.</p>
+				</div>
+			</div>
+			<div class="bancoiniciativas" >
+				<div class= "imagenes">
+					<img class="idea" src= "assets/img/idea.png"/>
+				</div>
+			</div>
+			<img class="avatar" src= "assets/img/Logo_b.jpg"/>
+			<div style="border:1px solid  #b80f22;border-radius: 7px;position:absolute;top:calc(50% + 250px);left: calc(50% - 80px);">
+				<p:outputPanel>
+					<h:panelGrid columns="2" cellpadding="5" style="font-size:14px;">
+						<h:outputText value="Usuario" style="color:#b80f22;font-family:impact;"/>
+						<h:outputText value="#{shiroBean.username}" style="color:#727070"/>
+						<h:outputText value="Perfil" style="color:#b80f22;font-family:impact;"/>
+						<h:outputText value="Personal PMO" style="color:#727070;"/>
+					</h:panelGrid>
 				</p:outputPanel>
-				
-			</p:dialog>
-
-        </h:form>  
-        <p class="copyright text-muted">Daniela Ruiz - Angie Jimenez  - Henry Sanchez - Edwin Rodriguez</p>
+			</div>
+		</h:form>
 	</body>
+	
+	<script type="text/javascript" src="assets/js/proponente.js"/>
 </html>

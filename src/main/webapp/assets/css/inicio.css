@@ -93,12 +93,12 @@
 
 .info .parrafo label{
 	color: #b80f22;
-	position:absolute;
 	top:calc(50vh + 45px);
 	left:135px;
 	font-family: calibri;
 	font-size:16x;
 	margin-top:50px;
+	position:absolute;
 }
 
 .info p{

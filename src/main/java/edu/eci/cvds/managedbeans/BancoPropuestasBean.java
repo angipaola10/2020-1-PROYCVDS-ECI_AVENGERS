@@ -416,6 +416,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	public void darLike(String user) throws BancoPropuestasException {
 		try {
 			int idiniciativa= selectedIniciativa.getId();
+			System.out.println("USU "+ user);
 			if (consultarLikePorIds(idiniciativa, user) == 0) {
 				bancoPropuesta.darLike(idiniciativa, user);
 			}else {
