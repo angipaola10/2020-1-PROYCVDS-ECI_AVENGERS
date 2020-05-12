@@ -5,11 +5,11 @@ _ECI_AVENGERS: 2020-1._
 
 
 **Integrantes:** ✒️
-_Angi Jiménez. (Team developer) Daniela Ruiz. (Team developer) Edwin Rodríguez. (Team developer) Henry Sánchez. (Team developer)_
+_Angi Jiménez (Team developer), Daniela Ruiz (Team developer), Edwin Rodríguez (Team developer), Henry Sánchez (Team developer)._
 
 
 **Profesor:** 📌
-_Julián Mauricio Velazco Briceño. (Product Owner)_
+_Julián Mauricio Velazco Briceño (Product Owner)._
 
 
 ## Descripción del producto. 📄
