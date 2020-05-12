@@ -1,4 +1,4 @@
-# Banco de Iniciativas ECI. 🚀
+## Banco de Iniciativas ECI. 🚀
 _Proyecto Final: Ciclos de Vida de Desarrollo de Software._
 _Banco de Iniciativas Escuela Colombiana de Ingeniería Julio Garavito._
 _ECI_AVENGERS: 2020-1._
