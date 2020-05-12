@@ -237,14 +237,14 @@ Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por real
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/2doSprint.jpg) 
 
 
-**Sprint-burndown chart:** _Se cumplió con la totalidad de las historias de usuario y tareas asginadas._
+**Sprint-burndown chart:** 
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog2.jpg) 
 
 
 #### Tercer Sprint:
-**Sprint-backlog:**
+**Sprint-backlog:** _Se cumplió con la totalidad de las historias de usuario y tareas asginadas._
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/3Sprint.jpg) 
