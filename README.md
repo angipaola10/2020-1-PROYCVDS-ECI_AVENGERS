@@ -282,11 +282,11 @@ _Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**,
 (mappea sentencias SQL y procedimientos almacenados con objetos a partir de ficheros XML o anotaciones)._
 
 
-## Enlace a la aplicación en Heroku. 📢
+**Enlace a la aplicación en Heroku:** 📢
 https://cvds-proyecto-eci.herokuapp.com
 
 
-## Enlace al sistema de integración continua. 😊
+**Enlace al sistema de integración continua:** 😊
 [![CircleCI](https://circleci.com/gh/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS.svg?style=svg)](https://circleci.com/gh/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS)
 
 
@@ -340,10 +340,10 @@ _Se cumplió con la totalidad de las historias de usuario y tareas asginadas._
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog3.jpg) 
 
 
-### Reporte de pruebas y de cubrimiento. 📖
+**Reporte de pruebas y de cubrimiento:** 📖
 aca va el reporte (sólo la foto del reporte principal). ---> ponerlo al final 
 Para la cobertura, pueden usar los plugins disponibles (EclEmma, Jacoco, etc.)
 
 
-### Reporte de análisis estático de código. 🎁
+**Reporte de análisis estático de código:** 🎁
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a70a519783d4905a1dc5140955316dd)](https://app.codacy.com/manual/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS?utm_source=github.com&utm_medium=referral&utm_content=Edyesid/2020-1-PROYCVDS-ECI_AVENGERS&utm_campaign=Badge_Grade_Dashboard)
