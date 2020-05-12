@@ -70,110 +70,40 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha, no 
 
 ### Usuario PMO:
 _Al ingresar con tu cuenta de PMO verás inicialmente:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPMO.jpg) 
-
-
 _Si queremos interactuar con las iniciativas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoSel.jpg) 
-
-
 _Si queremos ver las iniciativas registradas presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoVerTodo.jpg) 
-
-
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoFil.jpg) 
-
-
 _Si queremos ver más información relacionada a una iniciativa presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoMasInfo.jpg)
-
-
 _Si queremos cambiar el estado de la iniciativa que deseemos presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoSeli.jpg)
-
-
 _Luego presioanmos donde indica la flecha, seleccionaremos un estado de la lista que se despliega automáticamente y presionaremos actualoizar donde indica el círculo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoCE.jpg) 
-
-
 _Si queremos consultar las iniciativas dada una palabra clave presionaremos donde indica la flecha, seleccionaremos la palabra deseada y presionaremos consultar donde indica el círculo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoPC.jpg) 
-
-
 _Si queremos dar Me Gusta a una iniciativa presionaremos donde indica la flecha y se pondrá la imagen con color para que sepas que ya reaccionaste a la iniciativa:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoMG.jpg) 
-
-
 _Si queremos retirar nuestro Me Gusta de una iniciativa presionaremos nuevamente donde indica la flecha y la imagen se volverá a poner gris que sepas que no has reaccionado a esa iniciativa:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoNMG.jpg) 
-
-
 _Si queremos ver los comentarios de una iniciativa en especifico presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoVerC.jpg) 
-
-
 _Si queremos volver al inicio presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoVolver.jpg) 
-
-
 _Si queremos mirar las gráficas de las estadísticas y los reportes presionaremos donde indica la flecha y seleccionaremos donde nos indica el circulo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoGR.jpg) 
-
-
 _Veremos:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoAreas.jpg) 
-
-
 _También veremos:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoEstados.jpg) 
-
-
 _Si queremos exportar el pdf de alguna de las tablas presionaremos donde indican las flechas dependiendo del reporte que deseemos:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoPDF.jpg) 
-
-
 _Si queremos exportar el excel de alguna de las tablas presionaremos donde indican las flechas dependiendo del reporte que deseemos:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoEXCEL.jpg) 
-
-
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoCS.jpg)
 
 
@@ -305,68 +235,26 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 
 ### Usuario Publico:
 _Al ingresar con tu cuenta de Publico verás inicialmente las iniciativas registradas:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPub.jpg) 
-
-
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubFil.jpg) 
-
-
 _Si queremos ver más información relacionada a una iniciativa presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubMasInfo.jpg)
-
-
 _Si queremos dar Me Gusta a una iniciativa presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubMG.jpg) 
-
-
 _Si queremos retirar nuestro Me Gusta de una iniciativa presionaremos nuevamente donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubNMG.jpg) 
-
-
 _Si queremos dar Me Importa a una iniciativa, para indicar nuestro interés en participar en ella presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubMI.jpg) 
-
-
 _Si queremos retirar nuestro Me Importa de una iniciativa presionaremos nuevamente donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubNMI.jpg) 
-
-
 _Si queremos dejar un comentario en una iniciativa presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubCom.jpg) 
-
-
 _Si queremos ver los comentarios de una iniciativa presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubVerCom.jpg) 
-
-
 _Si queremos consultar las iniciativas dada una palabra clave presionaremos donde indica la flecha, seleccionaremos la palabra deseada y presionaremos consultar donde indica el círculo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubPC.jpg) 
-
-
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubCS.jpg)
 
 
@@ -424,8 +312,6 @@ https://tree.taiga.io/project/angiedanielar-plataforma-banco-de-iniciativas-de-p
 ## Primer Sprint:
 ### Sprint-backlog:
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/1erSprint.jpeg) 
-
-
 _Nos quedó pendiente por realizar la asociación las palabras claves a la iniciativa porque aún no entendemos bien como realizarlo.
 Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar la historia de usuario número 5. Por esta razón se movió esta historia de usuario al segundo sprint y se creo aparte en el segundo sprint una historia de usuario nueva para el trabajo de las correcciones del primer sprint que nos indicó nuestro profesor._
 
@@ -437,8 +323,6 @@ Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por re
 ## Segundo Sprint:
 ### Sprint-backlog:
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/2doSprint.jpg) 
-
-
 _Nos quedó pendiente generar el reporte de las estadísticas en excel porque aún no entendemos bien como realizarlo.
 Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente, por esta razón se movió esta historia de usuario al tercer sprint y se creo aparte en el tercer sprint una historia de usuario nueva para el trabajo de las correcciones del segundo sprint que nos indicó nuestro profesor._
 
@@ -450,8 +334,6 @@ Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por real
 ## Tercer Sprint:
 ### Sprint-backlog:
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/3Sprint.jpg) 
-
-
 _Se cumplió con la totalidad de las historias de usuario y tareas asginadas._
 
 
