@@ -468,15 +468,11 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 _La aplicación está construida en 3 capas: Aplicación, Presentación y Persistencia sobre los Datos. A continuación explicaremos las tecnologias usadas en cada una de ellas._
 
 ### Capa de aplicación:
-+ _Java._
-+ _Google Guice (Un framework para la inyección de dependencias)._
-+ _Maven (Herramienta para la gestión de dependencias)._
-+ _Apache Shiro (Framework para la autentiticación)._
++ _Java. Google Guice (Un framework para la inyección de dependencias). Maven (Herramienta para la gestión de dependencias). Apache Shiro (Framework para la autentiticación)._
 
 
 ### Capa de presentación:
-+ _JSF (Java Server Faces)._
-+ _Primefaces._
++ _JSF (Java Server Faces) y Primefaces._
 
 
 ### Capa de persistencia sobre los datos:
@@ -494,10 +490,7 @@ https://cvds-proyecto-eci.herokuapp.com
 
 ## Descripción del proceso. 📋
 _**Responsabilidades de los integrantes:**_
-+ _Angi Jiménez. (Views)_
-+ _Daniela Ruiz. (Back y BD)_
-+ _Edwin Rodríguez. (Back)_
-+ _Henry Sánchez. (Back)_
++ _Angi Jiménez (Views). Daniela Ruiz (Back y BD). Edwin Rodríguez (Back). Henry Sánchez (Back).
 
 
 ### Descripción de la Metodología:
@@ -558,7 +551,3 @@ Para la cobertura, pueden usar los plugins disponibles (EclEmma, Jacoco, etc.)
 
 ## Reporte de análisis estático de código. 🎁
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a70a519783d4905a1dc5140955316dd)](https://app.codacy.com/manual/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS?utm_source=github.com&utm_medium=referral&utm_content=Edyesid/2020-1-PROYCVDS-ECI_AVENGERS&utm_campaign=Badge_Grade_Dashboard)
-
-
-
-
