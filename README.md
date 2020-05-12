@@ -170,6 +170,8 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 
 
 **BD:**
+
+
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/bd.jpg) 
 
 
