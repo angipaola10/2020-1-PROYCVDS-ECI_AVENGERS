@@ -300,6 +300,8 @@ https://tree.taiga.io/project/angiedanielar-plataforma-banco-de-iniciativas-de-p
 ## SPRINTS. ⚙️
 ### Primer Sprint:
 **Sprint-backlog:**
+
+
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/1erSprint.jpeg) 
 
 
@@ -313,6 +315,8 @@ Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por re
 
 ### Segundo Sprint:
 **Sprint-backlog:**
+
+
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/2doSprint.jpg) 
 
 
@@ -326,6 +330,8 @@ Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por real
 
 ### Tercer Sprint:
 **Sprint-backlog:**
+
+
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/3Sprint.jpg) 
 
 
