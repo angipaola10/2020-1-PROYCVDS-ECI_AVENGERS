@@ -18,13 +18,13 @@ de la Escuela Colombiana de Ingenieria Julio Garavito pueden registrar sus inici
 proyectos para ser desarrollados o gestionados por la PMO de la Escuela._
 
 
-## Manual de usuario: 💁
+### Manual de usuario: 💁
 _Al ingresar al link de la aplicación veremos la página inicial del Banco Iniciativas ECI. Al presionar el botón que indica la flecha nos llevará a la página de autenticación:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/iniciall.jpg) 
 _Digitaremos nuestras credenciales y luego presionaremos el botón que indica la flecha para ingresar a nuestra cuenta:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicial2.jpg) 
 _Dependiendo de nuestro tipo de cuenta, iremos a las especificaciones del usuario correspondiente._
-### Usuario Administrador:
+#### Usuario Administrador:
 _Al ingresar con tu cuenta de Administrador verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialAdmi.jpg) 
 _Si queremos ver los usuarios registrados nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
@@ -63,7 +63,7 @@ _Si queremos accceder de manera rápida a agrupar iniciativas, pondremos el curs
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiAR.jpg) 
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha, no importa la pestaña en la que estemos:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiCS.jpg)
-### Usuario PMO:
+#### Usuario PMO:
 _Al ingresar con tu cuenta de PMO verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPMO.jpg) 
 _Si queremos interactuar con las iniciativas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
@@ -96,7 +96,7 @@ _Si queremos exportar el excel de alguna de las tablas (areas o estados) presion
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoEXCEL.jpg) 
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoCS.jpg)
-### Usuario Proponente:
+#### Usuario Proponente:
 _Al ingresar con tu cuenta de Proponente verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPro.jpg) 
 _Si queremos ver las iniciativas registradas por nosotros nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
@@ -139,7 +139,7 @@ _Para terminar el registro de la iniciativa, seleccionaremos donde indica la fle
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoRegiFin.jpg) 
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proCS.jpg)
-### Usuario Publico:
+#### Usuario Publico:
 _Al ingresar con tu cuenta de Publico verás inicialmente las iniciativas registradas:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPub.jpg) 
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
@@ -164,7 +164,7 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubCS.jpg)
 
 
-## Arquitectura y Diseño detallado. 🔧
+### Arquitectura y Diseño detallado. 🔧
 **MD:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/md.jpg) 
 
@@ -175,7 +175,7 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/bd.jpg) 
 
 
-## Descripción de la arquitectura y tecnologías utilizadas. 🛠️
+### Descripción de la arquitectura y tecnologías utilizadas. 🛠️
 _La aplicación está construida en 3 capas: Aplicación, Presentación y Persistencia sobre los Datos. A continuación explicaremos las tecnologias usadas en cada una de ellas._
 
 **Capa de aplicación:**
@@ -199,9 +199,7 @@ https://cvds-proyecto-eci.herokuapp.com
 [![CircleCI](https://circleci.com/gh/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS.svg?style=svg)](https://circleci.com/gh/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS)
 
 
-## Descripción del proceso. 📋
-_**Responsabilidades de los integrantes:**_
-_Angi Jiménez (Views). Daniela Ruiz (Back y BD). Edwin Rodríguez (Back). Henry Sánchez (Back).
+**Descripción del proceso.** 📋 _Las responsabilidades de los integrantes fueron: Angi Jiménez (Views). Daniela Ruiz (Back y BD). Edwin Rodríguez (Back). Henry Sánchez (Back)._
 
 
 **Descripción de la Metodología:**
@@ -216,8 +214,8 @@ https://tree.taiga.io/project/angiedanielar-plataforma-banco-de-iniciativas-de-p
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlogTotal.jpg) 
 
 
-## SPRINTS. ⚙️
-### Primer Sprint:
+### SPRINTS. ⚙️
+#### Primer Sprint:
 **Sprint-backlog:** _Nos quedó pendiente por realizar la asociación las palabras claves a la iniciativa porque aún no entendemos bien como realizarlo.Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar la historia de usuario número 5. Por esta razón se movió esta historia de usuario al segundo sprint y se creo aparte en el segundo sprint una historia de usuario nueva para el trabajo de las correcciones del primer sprint que nos indicó nuestro profesor._
 
 
@@ -230,7 +228,7 @@ https://tree.taiga.io/project/angiedanielar-plataforma-banco-de-iniciativas-de-p
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog.jpeg) 
 
 
-### Segundo Sprint:
+#### Segundo Sprint:
 **Sprint-backlog:** _Nos quedó pendiente generar el reporte de las estadísticas en excel porque aún no entendemos bien como realizarlo.
 Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente, por esta razón se movió esta historia de usuario al tercer sprint y se creo aparte en el tercer sprint una historia de usuario nueva para el trabajo de las correcciones del segundo sprint que nos indicó nuestro profesor._
 
@@ -245,7 +243,7 @@ Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por real
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog2.jpg) 
 
 
-### Tercer Sprint:
+#### Tercer Sprint:
 **Sprint-backlog:**
 
 
