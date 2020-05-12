@@ -21,132 +21,50 @@ proyectos para ser desarrollados o gestionados por la PMO de la Escuela._
 
 ## Manual de usuario: 💁
 _Al ingresar al link de la aplicación veremos la página inicial del Banco Iniciativas ECI. Al presionar el botón que indica la flecha nos llevará a la página de autenticación:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/iniciall.jpg) 
-
-
 _Digitaremos nuestras credenciales y luego presionaremos el botón que indica la flecha para ingresar a nuestra cuenta:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicial2.jpg) 
-
-
 _Dependiendo de nuestro tipo de cuenta, iremos a las especificaciones del usuario correspondiente._
 
 
 ### Usuario Administrador:
 _Al ingresar con tu cuenta de Administrador verás inicialmente:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialAdmi.jpg) 
-
-
 _Si queremos ver los usuarios registrados nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiSelUsu.jpg) 
-
-
 _Si queremos volver al inicio presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiVol.jpg) 
-
-
 _Si queremos asignar o cambiar un perfil de un usuario, presionaremos donde indica la flecha, seleccionaremos el rol deseado de la lista que se desplegará automáticamente y luego presionaremos asignar donde indica el circulo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiCR.jpg) 
-
-
 _Si queremos buscar un usuario dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiUsFil.jpg) 
-
-
 _Si queremos interactuar con las iniciativas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiSel.jpg)
-
-
 _Si queremos ver todas las iniciativas registradas, presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiVerTodo.jpg) 
-
-
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiFil.jpg) 
-
-
 _Si queremos ver más información relacionada a una iniciativa presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiMasInfo.jpg)
-
-
 _Si queremos cambiar el estado de una iniciativa presionaremos donde indica la flecha para seleccionar primero la iniciativa deseada:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiSelIni.jpg)
-
-
 _Luego presionamos donde indica la flecha, seleccionaremos un estado de la lista que se desplegará automáticamente y presionaremos actualizar donde indica el círculo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiCE.jpg)
-
-
 _Si queremos consultar las iniciativas dada una palabra clave presionaremos donde indica la flecha, seleccionaremos la palabra deseada y presionaremos consultar donde indica el círculo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiPC.jpg) 
-
-
 _Si queremos ver los comentarios de una iniciativa presionaremos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiVerC.jpg) 
-
-
 _Si queremos dar Me Gusta a una iniciativa presionaremos donde indica la flecha, y se le pondrá color a la imagen para que sepas que ya reaccionaste:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiMG.jpg) 
-
-
 _Si queremos retirar nuestro Me Gusta de una iniciativa presionaremos nuevamente donde indica la flecha, y se pondrá gris la imagen para que sepas que no has reaccionado a esa iniciativa:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiNMG.jpg) 
-
-
 _Si queremos agrupar las iniciativas nos pararemos donde indica la flecha:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiSelAgru.jpg) 
-
-
 _No se puede hacer la agrupacion de solo una iniciativa, se necesitan como mínimo 2 iniciativas, y las iniciativas no deben estar en otra agrupación para que permita agrupar el sistema, para ello seleccionaremos las que deseemos presionando donde indican las flechas, pondremos el nombre de la agrupación donde indica el circulo y luego presionaremos agrupar donde indica el rombo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiAI.jpg) 
-
-
 _Si queremos accceder de manera rápida a agrupar iniciativas, pondremos el cursor donde nos indica la flecha y presionaremos donde indica el círculo:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiAR.jpg) 
-
-
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha, no importa la pestaña en la que estemos:_
-
-
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiCS.jpg)
 
 
