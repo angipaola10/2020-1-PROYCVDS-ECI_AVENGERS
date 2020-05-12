@@ -5,14 +5,11 @@ _ECI_AVENGERS: 2020-1._
 
 
 ### Integrantes: ✒️
-+ _Angi Jiménez. (Team developer)_
-+ _Daniela Ruiz. (Team developer)_
-+ _Edwin Rodríguez. (Team developer)_
-+ _Henry Sánchez. (Team developer)_
+_Angi Jiménez. (Team developer) Daniela Ruiz. (Team developer) Edwin Rodríguez. (Team developer) Henry Sánchez. (Team developer)_
 
 
 ### Profesor: 📌
-+ _Julián Mauricio Velazco Briceño. (Product Owner)_
+_Julián Mauricio Velazco Briceño. (Product Owner)_
 
 
 ## Descripción del producto. 📄
@@ -468,15 +465,15 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 _La aplicación está construida en 3 capas: Aplicación, Presentación y Persistencia sobre los Datos. A continuación explicaremos las tecnologias usadas en cada una de ellas._
 
 ### Capa de aplicación:
-+ _Java. Google Guice (Un framework para la inyección de dependencias). Maven (Herramienta para la gestión de dependencias). Apache Shiro (Framework para la autentiticación)._
+_Java. Google Guice (Un framework para la inyección de dependencias). Maven (Herramienta para la gestión de dependencias). Apache Shiro (Framework para la autentiticación)._
 
 
 ### Capa de presentación:
-+ _JSF (Java Server Faces) y Primefaces._
+_JSF (Java Server Faces) y Primefaces._
 
 
 ### Capa de persistencia sobre los datos:
-+ _Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**, la cual se encarga de la persistencia 
+_Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**, la cual se encarga de la persistencia 
 (mappea sentencias SQL y procedimientos almacenados con objetos a partir de ficheros XML o anotaciones)._
 
 
@@ -490,7 +487,7 @@ https://cvds-proyecto-eci.herokuapp.com
 
 ## Descripción del proceso. 📋
 _**Responsabilidades de los integrantes:**_
-+ _Angi Jiménez (Views). Daniela Ruiz (Back y BD). Edwin Rodríguez (Back). Henry Sánchez (Back).
+_Angi Jiménez (Views). Daniela Ruiz (Back y BD). Edwin Rodríguez (Back). Henry Sánchez (Back).
 
 
 ### Descripción de la Metodología:
