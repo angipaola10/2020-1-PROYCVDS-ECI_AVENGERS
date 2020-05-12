@@ -12,7 +12,7 @@ _Angi Jiménez (Team developer), Daniela Ruiz (Team developer), Edwin Rodríguez
 _Julián Mauricio Velazco Briceño (Product Owner)._
 
 
-## Descripción del producto. 📄
+**Descripción del producto.** 📄
 _La Plataforma banco de iniciativas de proyectos, es una herramienta donde la comunidad universitaria 
 de la Escuela Colombiana de Ingenieria Julio Garavito pueden registrar sus iniciativas e ideas de 
 proyectos para ser desarrollados o gestionados por la PMO de la Escuela._
