@@ -301,6 +301,8 @@ https://tree.taiga.io/project/angiedanielar-plataforma-banco-de-iniciativas-de-p
 ### Primer Sprint:
 **Sprint-backlog:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/1erSprint.jpeg) 
+
+
 _Nos quedó pendiente por realizar la asociación las palabras claves a la iniciativa porque aún no entendemos bien como realizarlo.
 Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar la historia de usuario número 5. Por esta razón se movió esta historia de usuario al segundo sprint y se creo aparte en el segundo sprint una historia de usuario nueva para el trabajo de las correcciones del primer sprint que nos indicó nuestro profesor._
 
@@ -312,6 +314,8 @@ Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por re
 ### Segundo Sprint:
 **Sprint-backlog:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/2doSprint.jpg) 
+
+
 _Nos quedó pendiente generar el reporte de las estadísticas en excel porque aún no entendemos bien como realizarlo.
 Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente, por esta razón se movió esta historia de usuario al tercer sprint y se creo aparte en el tercer sprint una historia de usuario nueva para el trabajo de las correcciones del segundo sprint que nos indicó nuestro profesor._
 
@@ -323,6 +327,8 @@ Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por real
 ### Tercer Sprint:
 **Sprint-backlog:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/3Sprint.jpg) 
+
+
 _Se cumplió con la totalidad de las historias de usuario y tareas asginadas._
 
 
