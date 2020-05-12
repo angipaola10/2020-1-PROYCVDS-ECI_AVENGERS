@@ -4,11 +4,11 @@ _Banco de Iniciativas Escuela Colombiana de Ingeniería Julio Garavito._
 _ECI_AVENGERS: 2020-1._
 
 
-### Integrantes: ✒️
+**Integrantes:** ✒️
 _Angi Jiménez. (Team developer) Daniela Ruiz. (Team developer) Edwin Rodríguez. (Team developer) Henry Sánchez. (Team developer)_
 
 
-### Profesor: 📌
+**Profesor:** 📌
 _Julián Mauricio Velazco Briceño. (Product Owner)_
 
 
@@ -24,8 +24,6 @@ _Al ingresar al link de la aplicación veremos la página inicial del Banco Inic
 _Digitaremos nuestras credenciales y luego presionaremos el botón que indica la flecha para ingresar a nuestra cuenta:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicial2.jpg) 
 _Dependiendo de nuestro tipo de cuenta, iremos a las especificaciones del usuario correspondiente._
-
-
 ### Usuario Administrador:
 _Al ingresar con tu cuenta de Administrador verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialAdmi.jpg) 
@@ -65,8 +63,6 @@ _Si queremos accceder de manera rápida a agrupar iniciativas, pondremos el curs
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiAR.jpg) 
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha, no importa la pestaña en la que estemos:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiCS.jpg)
-
-
 ### Usuario PMO:
 _Al ingresar con tu cuenta de PMO verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPMO.jpg) 
@@ -230,8 +226,6 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 
 
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proCS.jpg)
-
-
 ### Usuario Publico:
 _Al ingresar con tu cuenta de Publico verás inicialmente las iniciativas registradas:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPub.jpg) 
@@ -258,11 +252,11 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 
 
 ## Arquitectura y Diseño detallado. 🔧
-### MD:
+**MD:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/md.jpg) 
 
 
-### BD: 
+**BD:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/bd.jpg) 
 
 
