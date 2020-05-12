@@ -136,6 +136,8 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha, no 
 #### Usuario Publico:
 _Al ingresar con tu cuenta de Publico verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPub.jpg) 
+_Si queremos interactuar con las iniciativas pondremos el cursor donde indica la flecha y presioanremos donde indica el círculo:_
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubVerIni.jpg) 
 _Si queremos ver todas las iniciativas registradas presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubVerTodo.jpg) 
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
@@ -150,14 +152,16 @@ _Si queremos dar Me Importa a una iniciativa, para indicar nuestro interés en p
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubMI.jpg) 
 _Si queremos retirar nuestro Me Importa de una iniciativa presionaremos nuevamente donde indica la flecha y se pondrá gris la imagen para que sepas que no has reaccionado a esa iniciativa:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubNMI.jpg) 
-_Si queremos dejar un comentario en una iniciativa presionaremos donde indica la flecha :_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubCom.jpg)
-
-
 _Si queremos ver los comentarios de una iniciativa presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubVerCom.jpg) 
+_Si queremos dejar un comentario en una iniciativa presionaremos donde indica la flecha, rellenaremos el campo con nuestro comentario y luego presioanremos donde indica el circulo para enviar el comentario:_
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubCom.jpg)
+_Si queremos regresar atrás presionaremos donde indica el circulo:_
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubVolverIni.jpg)
 _Si queremos consultar las iniciativas dada una palabra clave presionaremos donde indica la flecha, seleccionaremos la palabra deseada y presionaremos consultar donde indica el círculo:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubPC.jpg) 
+_Si queremos volver al inicio presionaremos donde indica la flecha:_
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubVol.jpg) 
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha, no importa la pestaña en la que estemos:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubCS.jpg)
 
