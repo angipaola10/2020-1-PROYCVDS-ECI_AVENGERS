@@ -90,13 +90,9 @@ _Si queremos volver al inicio presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoVolver.jpg) 
 _Si queremos mirar las gráficas de las estadísticas y los reportes presionaremos donde indica la flecha y seleccionaremos donde nos indica el circulo:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoGR.jpg) 
-_Veremos:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoAreas.jpg) 
-_También veremos:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoEstados.jpg) 
-_Si queremos exportar el pdf de alguna de las tablas presionaremos donde indican las flechas dependiendo del reporte que deseemos:_
+_Si queremos exportar el pdf de alguna de las tablas (areas o estados) presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoPDF.jpg) 
-_Si queremos exportar el excel de alguna de las tablas presionaremos donde indican las flechas dependiendo del reporte que deseemos:_
+_Si queremos exportar el excel de alguna de las tablas (areas o estados) presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoEXCEL.jpg) 
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoCS.jpg)
