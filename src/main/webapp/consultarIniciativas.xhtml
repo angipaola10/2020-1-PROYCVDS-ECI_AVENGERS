@@ -120,9 +120,9 @@
 					<p:commandButton value="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}"  style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
 				</p:column>
 				
-				<p:column headerText="Comentarios" style="width:80px;text-align: center" sortBy="#{BancoPropuestasBean.consultarNumComentarios(iniciativa.id)}">
+				<p:column headerText="Comentarios" style="width:80px;text-align: center">
 					<p:commandButton  update=":form:iniComentDetail" oncomplete="PF('iniComentDialog').show()" title="" class="comentario"
-						style="background:transparent;text-shadow:none;box-shadow:none;border:none;">
+						style="background:transparent;text-shadow:none;box-shadow:none;border:none;" action="#{BancoPropuestasBean.consultarComentarios(iniciativa.id)}">
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 					<style type="text/css">
@@ -173,17 +173,32 @@
 					opacity:0.9;
 				}
 			</style>
-			<p:dialog header="Comentarios" widgetVar="iniComentDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			<p:dialog header="Iniciativa info" widgetVar="iniComentDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" closable="false">
 				<p:scrollPanel id="iniComentDetail" style="width:550px;height:50vh;">
-					<div style="position:absolute;left:5px;top:2px;width:530px">
-						<h:outputText value="Iniciativa No. " style="color:#b80f22;font-family:impact;margin-left:10px;"/>
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.id}" binding="#{iniID}" style="color:#b80f22;font-family:impact;margin-right:10px;"/>
-						<h:outputText value="#{BancoPropuestasBean.selectedIniciativa.nombrePropuesta}" style="color:#b80f22;font-family:impact;"/>
+					<div style="position:absolute;left:5px;top:2px;width:480px;background:transparent;">
+						<h:outputText value="Comentarios" style="font-family:impact; font-size:18px; color:#b80f22;margin-left:230px;margin-top:10px;"/>
+						<p:panelGrid  columns="1" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="value"
+								layout="grid">
+							<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.id}"  binding="#{iniID}" readonly="false"
+											style="font-size:3px;visibility:hidden;"/>
+						</p:panelGrid>
+						<p:commandButton value="" update=":form" onclick="location.reload()" style="background:transparent;text-shadow :none;box-shadow:none;border:none;font-family:impact;margin-left:5px;" class="atras"/>
+						<style type="text/css">
+							.atras{
+								position:absolute;top:7px;left:0px;
+								height:15px; width:28px;
+								background-image: url("assets/img/atrasN.png") !important;
+							}
+							.atras:hover{
+								height:20px; width:38px;
+								background-image: url("assets/img/atrasH.png") !important;
+							}
+						</style>
 					</div>
-					<p:dataView var="comenIni" value="#{BancoPropuestasBean.consultarComentarios()}" style="width:530px;margin-left:10px;">						
+					<p:dataView var="comenIni" value="#{BancoPropuestasBean.comentarios}" style="width:530px;margin-left:10px;">						
 						<p:dataViewListItem>
 							<h:panelGrid columns="2" style="width:100%;" columnClasses="detail">
-								<p:outputPanel style ="margin-bottom:2px;">
+								<p:outputPanel style ="margin-bottom:2px;" id ="gg">
 									<h:panelGrid columns="2" cellpadding="5">
 										<p:outputPanel>
 											<h:panelGrid columns="1" style="width:100%;" columnClasses="detail">

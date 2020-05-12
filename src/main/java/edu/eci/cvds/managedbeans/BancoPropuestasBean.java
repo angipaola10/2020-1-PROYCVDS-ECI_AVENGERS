@@ -48,6 +48,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	private List <Iniciativa> pcclaveini;
 	private List <Iniciativa> inisagrupar;
 	private List <Iniciativa> iniciativasConsultadas;
+	private List <Comentario> comentarios;
 
 
     public List<Usuario> consultarUsuarios(){
@@ -461,6 +462,7 @@ public class BancoPropuestasBean extends BasePageBean {
 	public void comentar(int ini, String user, String comentario) throws BancoPropuestasException {
 		try {
 			bancoPropuesta.comentar(ini,user,comentario);
+			consultarComentarios(ini);
 	       } catch (BancoPropuestasException e) {
 	    	   setErrorMessage(e);
 	       }
@@ -496,16 +498,15 @@ public class BancoPropuestasBean extends BasePageBean {
 		return comentarios.size();
 	}
 	
-	public List<Comentario> consultarComentarios() throws BancoPropuestasException {
-		List<Comentario> comentarios = new ArrayList<Comentario>();
+	public void consultarComentarios(int ini) throws BancoPropuestasException {
+		List<Comentario> c = new ArrayList<Comentario>();
 		try {
-			if(selectedIniciativa!=null) {
-				comentarios = bancoPropuesta.consultarComentarios(selectedIniciativa.getId());
-			}
-	       } catch (BancoPropuestasException e) {
-	    	   setErrorMessage(e);
-	       }
-		return comentarios;
+			c = bancoPropuesta.consultarComentarios(ini);
+	    } catch (BancoPropuestasException e) {
+	    	setErrorMessage(e);
+	    }
+		
+		comentarios = c;
 	}
  
 	public List<PalabraClave> consultarPalabrasClaveIniciativa() throws BancoPropuestasException {
@@ -572,5 +573,13 @@ public class BancoPropuestasBean extends BasePageBean {
 
 	public void setIniciativasConsultadas(List <Iniciativa> iniciativasConsultadas) {
 		this.iniciativasConsultadas = iniciativasConsultadas;
+	}
+
+	public List <Comentario> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(List <Comentario> comentarios) {
+		this.comentarios = comentarios;
 	}
 }
