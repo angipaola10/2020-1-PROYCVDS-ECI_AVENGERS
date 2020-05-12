@@ -269,15 +269,15 @@ _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha:_
 ## Descripción de la arquitectura y tecnologías utilizadas. 🛠️
 _La aplicación está construida en 3 capas: Aplicación, Presentación y Persistencia sobre los Datos. A continuación explicaremos las tecnologias usadas en cada una de ellas._
 
-### Capa de aplicación:
+**Capa de aplicación:**
 _Java. Google Guice (Un framework para la inyección de dependencias). Maven (Herramienta para la gestión de dependencias). Apache Shiro (Framework para la autentiticación)._
 
 
-### Capa de presentación:
+**Capa de presentación:**
 _JSF (Java Server Faces) y Primefaces._
 
 
-### Capa de persistencia sobre los datos:
+**Capa de persistencia sobre los datos:**
 _Se usó un motor de bases de datos **PostgreSQL** y la herramienta **myBatis**, la cual se encarga de la persistencia 
 (mappea sentencias SQL y procedimientos almacenados con objetos a partir de ficheros XML o anotaciones)._
 
@@ -295,55 +295,55 @@ _**Responsabilidades de los integrantes:**_
 _Angi Jiménez (Views). Daniela Ruiz (Back y BD). Edwin Rodríguez (Back). Henry Sánchez (Back).
 
 
-### Descripción de la Metodología:
+**Descripción de la Metodología:**
 _Durante la realización del proyecto se trabajó mediante la metodología ágil de: **Scrum**. Se hicieron 3 sprints, de los cuales cada uno tuvo una duración de 2 semanas._
 
 
-### Enlace a Taiga:
+**Enlace a Taiga:**
 https://tree.taiga.io/project/angiedanielar-plataforma-banco-de-iniciativas-de-proyectos/backlog
 
 
-### Release-burndown chart:
+**Release-burndown chart:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlogTotal.jpg) 
 
 
-# SPRINTS. ⚙️
-## Primer Sprint:
-### Sprint-backlog:
+## SPRINTS. ⚙️
+### Primer Sprint:
+**Sprint-backlog:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/1erSprint.jpeg) 
 _Nos quedó pendiente por realizar la asociación las palabras claves a la iniciativa porque aún no entendemos bien como realizarlo.
 Y por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar la historia de usuario número 5. Por esta razón se movió esta historia de usuario al segundo sprint y se creo aparte en el segundo sprint una historia de usuario nueva para el trabajo de las correcciones del primer sprint que nos indicó nuestro profesor._
 
 
-### Sprint-burndown chart:
+**Sprint-burndown chart:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog.jpeg) 
 
 
-## Segundo Sprint:
-### Sprint-backlog:
+### Segundo Sprint:
+**Sprint-backlog:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/2doSprint.jpg) 
 _Nos quedó pendiente generar el reporte de las estadísticas en excel porque aún no entendemos bien como realizarlo.
 Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por realizar de la historia de usuario 7 lo siguiente, por esta razón se movió esta historia de usuario al tercer sprint y se creo aparte en el tercer sprint una historia de usuario nueva para el trabajo de las correcciones del segundo sprint que nos indicó nuestro profesor._
 
 
-### Sprint-burndown chart:
+**Sprint-burndown chart:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog2.jpg) 
 
 
-## Tercer Sprint:
-### Sprint-backlog:
+### Tercer Sprint:
+**Sprint-backlog:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/3Sprint.jpg) 
 _Se cumplió con la totalidad de las historias de usuario y tareas asginadas._
 
 
-### Sprint-burndown chart:
+**Sprint-burndown chart:**
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/backlog3.jpg) 
 
 
-## Reporte de pruebas y de cubrimiento. 📖
+### Reporte de pruebas y de cubrimiento. 📖
 aca va el reporte (sólo la foto del reporte principal). ---> ponerlo al final 
 Para la cobertura, pueden usar los plugins disponibles (EclEmma, Jacoco, etc.)
 
 
-## Reporte de análisis estático de código. 🎁
+### Reporte de análisis estático de código. 🎁
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a70a519783d4905a1dc5140955316dd)](https://app.codacy.com/manual/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS?utm_source=github.com&utm_medium=referral&utm_content=Edyesid/2020-1-PROYCVDS-ECI_AVENGERS&utm_campaign=Badge_Grade_Dashboard)
