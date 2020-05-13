@@ -2,21 +2,11 @@
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
-	  xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<title>Banco de iniciativas ECI</title>
 		<link href="assets/css/general.css" rel="stylesheet"/>
-		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />
-
-	    
-	    <script type="text/javascript">
-			function alerta() {
-				location.reload(true)
-				
-			}
-		</script>
-		
+		<link  rel="icon"   href="assets/img/favicon.png" type="image/png" />		
 	</h:head>
 	<body>
 		<h:form id="form"> 
@@ -24,17 +14,23 @@
 				<img src= "assets/img/cabecera.jpg"/>
 			</div>
 			<div class = "header">
-				<b>Iniciativas</b>
-					<ul class="nav">
-						<li><a href="inicioPublico.xhtml">Inicio</a></li>
+				<b>Consultar iniciativas</b>
+				<ul class="nav">
+						<li><a href="inicioinicioUsuarioProponente.xhtml">Inicio</a></li>
 						<li><a href="">Iniciativas</a>
 							<ul>
-								<li><a href="../faces/iniciativasPublico.xhtml">Consultar iniciativas</a></li>
+								<li><a href="../faces/registrarIniciativa.xhtml">Registrar iniciativa</a></li>
+							</ul>
+							<ul>
+								<li><a href="../faces/MisIniciativas.xhtml">Mis iniciativas</a></li>
+							</ul>
+							<ul>
+								<li><a href="../faces/iniciativasProponente.xhtml">Consultar iniciativas</a></li>
 							</ul>
 						</li>
 						<li>
 							<h:outputText value="#{shiroBean.username}" style="color:transparent;" binding="#{usuariosesion}"/>
-							<p:commandButton value="Cerrar sesion"
+							<p:commandButton value="Cerrar sesión"
 										class="btn btn-rose btn-simple btn-wd btn-lg"
 										action="#{shiroBean.doLogOut()}"/>					
 						</li>
@@ -49,31 +45,32 @@
 						<f:selectItem itemLabel="Seleccione una palabra clave" itemValue="Palabra" noSelectionOption="true" />
 						<f:selectItems value="#{BancoPropuestasBean.consultarPalabrasClavesString()}" />
 					</p:selectOneMenu>
-					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;" 
+					<p:commandButton value="Consultar" style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none; margin-right:60px;" 
 									actionListener="#{BancoPropuestasBean.consultarIniciativaPalabraClave(pclaveini.getValue())}"  update=":form">
 					</p:commandButton>
+					
 					<h:commandLink value="Ver todas" style="color:#b80f22; margin-left:60px;"
-									actionListener="#{BancoPropuestasBean.consultarIniciativas()}" update=":form"/>		
+									actionListener="#{BancoPropuestasBean.consultarIniciativas()}" update=":form"/>
 				</f:facet>
 				
 				<p:column headerText="Nombre" filterBy="#{iniciativa.nombrePropuesta}" sortBy="#{iniciativa.nombrePropuesta}">
 					<h:outputText value="#{iniciativa.nombrePropuesta}"/>
 				</p:column>
 				
-				<p:column headerText="Nombre proponente" filterBy="#{iniciativa.nombreProponente}">
-					<h:outputText value="#{iniciativa.nombreProponente}"  />
-				</p:column>
-				
-				<p:column headerText="Usuario proponente" filterBy="#{iniciativa.usuario}">
+				<p:column headerText="Proponente" filterBy="#{iniciativa.usuario}" sortBy="#{iniciativa.usuario}">
 					<h:outputText value="#{iniciativa.usuario}" />
 				</p:column>
+				
+				<p:column headerText="Fecha inicio" filterBy="#{iniciativa.getFechaInicioString()}" sortBy="#{iniciativa.fechaInicio}">
+					<h:outputText value="#{iniciativa.getFechaInicioString()}" />
+				</p:column>
 			 
-				<p:column headerText="Descripción" filterBy="#{iniciativa.descripcion}">
+				<p:column headerText="Descripción" filterBy="#{iniciativa.descripcion}" sortBy="#{iniciativa.descripcion}">
 					<h:outputText value="#{iniciativa.descripcion}" />
 				</p:column>
 			 
-				<p:column headerText="Área" filterBy="#{iniciativa.area}" >
-					<h:outputText value="#{iniciativa.area}" />
+				<p:column headerText="Área" filterBy="#{iniciativa.area}" sortBy="#{iniciativa.area}">
+					<h:outputText value="#{iniciativa.area}"/>
 				</p:column>
 
 				<p:column headerText="Estado" filterBy="#{iniciativa.estado_Propuesta}" sortBy="#{iniciativa.estado_Propuesta}">
@@ -117,41 +114,17 @@
 					<p:commandButton value="#{BancoPropuestasBean.consultarNumLikes(iniciativa.id)}" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
 				</p:column>
 				
-				<p:column headerText="Me interesa" sortBy="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}"
+				<p:column headerText="Me importa" sortBy="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}"
 							style="width:45px;text-align: center">
-					<p:commandButton id="nomeInteresa" value="" class="nomeInteresa" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
-								action="#{BancoPropuestasBean.darInteres(usuariosesion.value)}" update=":form" rendered="#{BancoPropuestasBean.isNotInteres(iniciativa.id, usuariosesion.value)}">
-								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
-					</p:commandButton>
+					<p:commandButton id="meImporta" value="" class="meImporta" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
 					<style type="text/css">
-						.nomeInteresa {
+						.meImporta {
 							width:30px;
 							height:30px;
 							background-image: url("assets/img/darInteresN.png") !important;
 						}
-						.nomeInteresa:hover {
-							width:35px;
-							height:35px;
-							background-image: url("assets/img/interesHover.png") !important;
-						}
 					</style>
-					<p:commandButton id="meInteresa" value="" class="meInteresa" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
-								action="#{BancoPropuestasBean.darInteres(usuariosesion.value)}" update=":form" rendered="#{BancoPropuestasBean.isInteres(iniciativa.id, usuariosesion.value)}">
-								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
-					</p:commandButton>
-					<style type="text/css">
-						.meInteresa {
-							width:30px;
-							height:30px;
-							background-image: url("assets/img/quitarInteresN.png") !important;
-						}
-						.meInteresa:hover {
-							width:35px;
-							height:35px;
-							background-image: url("assets/img/interesHover.png") !important;
-						}
-					</style>
-					<p:commandButton value="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
+					<p:commandButton value="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}"  style="background:transparent;text-shadow:none;box-shadow:none;border:none;"/>
 				</p:column>
 				
 				<p:column headerText="Comentarios" style="width:80px;text-align: center">
@@ -191,76 +164,76 @@
 							background-image: url("assets/img/detalleH.png") !important;
 						}
 					</style>
-				</p:column>
-				
+				</p:column>				
 			</p:dataTable>   
 			<style type="text/css">
 				.ui-datatable-header{
 					box-shadow:none; text-shadow:none; background:#fff;border:none;
 				}
 			</style>
+			<p:growl id="growl" showDetail="true" sticky="true" life="4000"/>  
+			<style>
+				div[id="form:growl_container"] > div {
+					background: #ABCADB !important;
+					color: #000;
+					text-shadow:none;
+					opacity:0.9;
+				}
+			</style>
 			<p:dialog header="Iniciativa info" widgetVar="iniComentDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" closable="false">
-				<p:outputPanel id="comentinfo">
+				<p:scrollPanel id="iniComentDetail" style="width:550px;height:50vh;">
 					<div style="position:absolute;left:5px;top:2px;width:480px;background:transparent;">
-							<h:outputText value="Comentarios" style="font-family:impact; font-size:18px; color:#b80f22;margin-left:230px;margin-top:15px;"/>
-							<p:panelGrid  columns="1" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="value"
-									layout="grid">
-								<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.id}"  binding="#{iniID}" readonly="false"
-												style="font-size:3px;visibility:hidden;"/>
-							</p:panelGrid>
-							<p:commandButton value="" update=":form" onclick="location.reload()" style="background:transparent;text-shadow :none;box-shadow:none;border:none;font-family:impact;margin-left:5px;" class="atras"/>
-							<style type="text/css">
-								.atras{
-									position:absolute;top:7px;left:0px;
-									height:15px; width:28px;
-									background-image: url("assets/img/atrasN.png") !important;
-								}
-								.atras:hover{
-									height:20px; width:38px;
-									background-image: url("assets/img/atrasH.png") !important;
-								}
-							</style>
-					</div>
-					<p:scrollPanel id="iniComentDetail" style="width:550px;height:50vh;">
-						<p:dataView var="comenIni" value="#{BancoPropuestasBean.comentarios}" style="width:530px;margin-left:10px;">						
-							<p:dataViewListItem>
-								<h:panelGrid columns="2" style="width:100%;" columnClasses="detail">
-									<p:outputPanel style ="margin-bottom:2px;" id ="gg">
-										<h:panelGrid columns="2" cellpadding="5">
-											<p:outputPanel>
-												<h:panelGrid columns="1" style="width:100%;" columnClasses="detail">
-													<h:outputText value="#{comenIni.idusuario}" style="color:#b80f22;font-family:impact;font-size:12px;margin-left:60px" />
-													<h:outputText  value="#{comenIni.getFechaString()}" 
-														style="color:#9A9A9A;border:none;font-family:calibri;font-size:12px;margin-left:60px"/>
-												</h:panelGrid>
-											</p:outputPanel>
-											<p:inputTextarea rows="1" cols="42" value="#{comenIni.comentario}" readonly="true" 
-													style="box-shadow:none;background:#E5E5E5;border:none;font-family:calibri;font-size:16px;"/>	
-										</h:panelGrid>
-									</p:outputPanel>	
-								</h:panelGrid>
-							</p:dataViewListItem>
-						</p:dataView>
-						<style type="text/css"> 
-							.ui-dataview-header	{
-								visibility:hidden;
-								border:none;
+						<h:outputText value="Comentarios" style="font-family:impact; font-size:18px; color:#b80f22;margin-left:230px;margin-top:10px;"/>
+						<p:panelGrid  columns="1" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="value"
+								layout="grid">
+							<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.id}"  binding="#{iniID}" readonly="false"
+											style="font-size:3px;visibility:hidden;"/>
+						</p:panelGrid>
+						<p:commandButton value="" update=":form" onclick="location.reload()" style="background:transparent;text-shadow :none;box-shadow:none;border:none;font-family:impact;margin-left:5px;" class="atras"/>
+						<style type="text/css">
+							.atras{
+								position:absolute;top:7px;left:0px;
+								height:15px; width:28px;
+								background-image: url("assets/img/atrasN.png") !important;
 							}
-							.ui-dataview-content{
-								border:none;
+							.atras:hover{
+								height:20px; width:38px;
+								background-image: url("assets/img/atrasH.png") !important;
 							}
 						</style>
-					</p:scrollPanel>
-					<style type="text/css">
-						.ui-scrollpanel{border:none;}
+					</div>
+					<p:dataView var="comenIni" value="#{BancoPropuestasBean.comentarios}" style="width:530px;margin-left:10px;">						
+						<p:dataViewListItem>
+							<h:panelGrid columns="2" style="width:100%;" columnClasses="detail">
+								<p:outputPanel style ="margin-bottom:2px;" id ="gg">
+									<h:panelGrid columns="2" cellpadding="5">
+										<p:outputPanel>
+											<h:panelGrid columns="1" style="width:100%;" columnClasses="detail">
+												<h:outputText value="#{comenIni.idusuario}" style="color:#b80f22;font-family:impact;font-size:12px;margin-left:60px" />
+												<h:outputText  value="#{comenIni.getFechaString()}" 
+													style="color:#9A9A9A;border:none;font-family:calibri;font-size:12px;margin-left:60px"/>
+											</h:panelGrid>
+										</p:outputPanel>
+										<p:inputTextarea rows="1" cols="42" value="#{comenIni.comentario}" readonly="true" 
+												style="box-shadow:none;background:#E5E5E5;border:none;font-family:calibri;font-size:16px;"/>	
+									</h:panelGrid>
+								</p:outputPanel>	
+							</h:panelGrid>
+						</p:dataViewListItem>
+					</p:dataView>
+					<style type="text/css"> 
+						.ui-dataview-header	{
+							visibility:hidden;
+							border:none;
+						}
+						.ui-dataview-content{
+							border:none;
+						}
 					</style>
-					<p:inputTextarea rows="1" cols="54" readonly="false" binding="#{newComent}" id="newComent"
-						style="box-shadow:none;background:#E5E5E5;border:1px solid #AAAAAA;font-family:calibri;font-size:16px;margin-left:65px;margin-top:10px;height:32px;" placeholder="Ingrese un comentario..."/>
-					<p:commandButton id="mensaje" value="" class="comentario" update="form:comentinfo" 
-								style="background:transparent;text-shadow :none;box-shadow:none;border:none;font-family:impact;margin-left:5px;"
-								actionListener="#{BancoPropuestasBean.comentar(iniID.value, usuariosesion.value, newComent.value)}">
-					</p:commandButton>
-				</p:outputPanel>	
+				</p:scrollPanel>
+				<style type="text/css">
+					.ui-scrollpanel{border:none;}
+				</style>
 			</p:dialog>
 			<style type="text/css">
 				.ui-dataview{ border:none; }
@@ -322,13 +295,13 @@
 							<h:outputText value="#{pclaveinic.palabraClave}" />
 						</p:column>
 					</p:dataTable>
-				</p:scrollPanel>	
+				</p:scrollPanel>		
 				<style type="text/css">
 					.ui-scrollpanel{border:none;}
 				</style>
 			</p:dialog>
-	        
-         </h:form>        
+			
+        </h:form>  
         <p class="copyright text-muted">Daniela Ruiz - Angie Jiménez  - Henry Sánchez - Edwin Rodríguez</p>
 	</body>
 </html>

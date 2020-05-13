@@ -85,4 +85,6 @@ public interface BancoPropuestas {
 
 	public abstract List<Iniciativa> consultarInisAgru(int id, String grupo) throws BancoPropuestasException;
 
+	public abstract Iniciativa consultarIniciativaPorId(int ini) throws BancoPropuestasException;
+
 }

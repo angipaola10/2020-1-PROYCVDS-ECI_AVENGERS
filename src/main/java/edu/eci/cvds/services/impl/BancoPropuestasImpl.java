@@ -354,5 +354,14 @@ public class BancoPropuestasImpl implements BancoPropuestas {
         }
 		return res;
 	}
+
+	@Override
+	public Iniciativa consultarIniciativaPorId(int ini) throws BancoPropuestasException {
+		try {
+			return iniciativaDAO.consultarIniciativaPorId(ini);
+        } catch (PersistenceException e) {
+            throw new BancoPropuestasException("Error al consultar iniciativa ",e);
+        }
+	}
 	
 }

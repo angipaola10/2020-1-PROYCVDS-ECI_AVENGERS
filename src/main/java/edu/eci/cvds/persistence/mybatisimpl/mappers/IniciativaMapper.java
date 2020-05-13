@@ -70,4 +70,6 @@ public interface IniciativaMapper {
 	public List<Grupo> consultarGrupo(@Param("ini_id")int id);
 
 	public List<Iniciativa> consultarInisAgru(@Param("ini_id")int id, @Param("grupo")String grupo);
+
+	public Iniciativa consultarIniciativaPorId(@Param("idiniciativa")int ini);
 }

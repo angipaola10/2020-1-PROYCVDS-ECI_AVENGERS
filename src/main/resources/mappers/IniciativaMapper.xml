@@ -72,8 +72,8 @@
     </select>
 	
 	<insert id="insertarIniciativa" parameterType="Iniciativa">
-		INSERT INTO Iniciativa (id, nombrePropuesta, descripcion, fechaInicio, area, usuario, estado_Propuesta) 
-		VALUES((select count(*)+1 from Iniciativa),#{nombrePropuesta}, #{descripcion}, #{fechaInicio}, #{area}, #{usuario}, #{estadoPropuesta});
+		INSERT INTO Iniciativa (nombrePropuesta, descripcion, fechaInicio, area, usuario, estado_Propuesta) 
+		VALUES(#{nombrePropuesta}, #{descripcion}, #{fechaInicio}, #{area}, #{usuario}, #{estadoPropuesta});
 	</insert>
 	
 	<select id="consultarPropuestaPorUsuario" resultMap="IniciativaResult" parameterType="map">
@@ -113,6 +113,19 @@
 		i.estado_Propuesta
 	    FROM iniciativa as i
 		WHERE i.nombrePropuesta = #{nombrePropuesta};
+    </select>
+	
+	<select id="consultarIniciativaPorId" resultMap="IniciativaResult" parameterType="map">
+		SELECT 
+		i.id,
+	    i.nombrePropuesta,
+		i.descripcion,
+		i.fechaInicio,
+		i.area,
+		i.usuario,
+		i.estado_Propuesta
+	    FROM iniciativa as i
+		WHERE i.id = #{idiniciativa};
     </select>
 	
 	<select id="consultarPalabrasClaveInciativa" resultMap="PalabraClaveResult" parameterType="map">

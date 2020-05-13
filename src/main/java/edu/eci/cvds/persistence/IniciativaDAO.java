@@ -72,4 +72,6 @@ public interface IniciativaDAO {
 
 	public List<Iniciativa> consultarInisAgru(int id, String grupo) throws PersistenceException;
 
+	public Iniciativa consultarIniciativaPorId(int ini) throws PersistenceException;
+
 }

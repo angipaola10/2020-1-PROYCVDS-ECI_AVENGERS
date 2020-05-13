@@ -25,9 +25,10 @@ body{
 }
 
 .registrar-iniciativa p{
+	position: absolute;
 	color: #727070;
-	padding-left: 184px;
 	font-family: Impact;
+	left:0px;
 }
 
 .registrar-iniciativa label{
@@ -69,23 +70,6 @@ body{
 	height:90px;
 	padding-bottom: 15px;
 	padding-left: calc(50% - 40px);
-}
-
-.header button{
-	width: 140px;
-	background: #b80f22;
-	top: 140px;
-	left: calc(100% - 150px);
-	box-shadow: none;
-	text-shadow:none;
-	color: #C0C0C0;
-	border:none;
-	font-family: impact;
-	position:absolute;
-}
-
-.header button:hover{
-	color: #fff;
 }
 
 .cabecera img{
@@ -172,47 +156,5 @@ body{
 	color:#000;
 }
 
-.header{
-	padding:0px;
-	width: 100%;
-	background-color: #b80f22;
-	height: 36px;
-}
 
-ul, ol{
-	list-style:none;
-}
-
-.nav li a{
-	text-align: center;
-	height:16px;
-	width: 140px;
-	padding:0px;
-	background-color: #b80f22;
-	color: #fff;
-	text-decoration:none;
-	padding:10px 15px;
-	display:block;
-	font-family: impact;
-}
-
-.nav > li{
-	float:left;
-}
-
-.nav li a:hover{
-	background-color: #DBDBDB;
-	color: #000;
-}
-
-.nav li ul{
-	padding:0px;
-	display:none;
-	position:absolute;
-	min-width:140px;
-}
-
-.nav li:hover > ul{
-	display: block;
-}
 

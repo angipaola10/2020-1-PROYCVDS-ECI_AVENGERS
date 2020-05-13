@@ -38,9 +38,9 @@
 						</li>
 					</ul>
 			</div>
-			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.iniciativasConsultadas}" class="tabla"
+			<p:dataTable var="iniciativa" value="#{BancoPropuestasBean.iniciativasConsultadas}" class="tabla" style="margin-top:75px;"
 				paginator="true" paginatorPosition = "bottom" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-				rows="15" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
+				rows="10" selectionMode="single" id="tablaConsulta" selection="#{BancoPropuestasBean.selectedIniciativa}" rowKey="#{iniciativa.nombrePropuesta}">
 				
 				<f:facet name="header" >
 					<p:selectOneMenu id="cons-ini" binding="#{pclaveini}">
@@ -240,6 +240,9 @@
 						}
 					</style>
 				</p:scrollPanel>
+				<style type="text/css">
+					.ui-scrollpanel{border:none;}
+				</style>
 			</p:dialog>
 			<style type="text/css">
 				.ui-dataview{ border:none; }
@@ -302,9 +305,12 @@
 						</p:column>
 					</p:dataTable>
 				</p:scrollPanel>		
+				<style type="text/css">
+					.ui-scrollpanel{border:none;}
+				</style>
 			</p:dialog>
 			
         </h:form>  
-        <p class="copyright text-muted">Daniela Ruiz - Angie Jimenez  - Henry Sanchez - Edwin Rodriguez</p>
+        <p class="copyright text-muted">Daniela Ruiz - Angie Jiménez  - Henry Sánchez - Edwin Rodríguez</p>
 	</body>
 </html>

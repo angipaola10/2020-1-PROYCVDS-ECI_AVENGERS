@@ -34,6 +34,52 @@ CREATE TABLE IF NOT EXISTS MeInteresa (id SERIAl PRIMARY KEY, idIniciativa INT N
 
 CREATE TABLE IF NOT EXISTS Grupo (id SERIAL PRIMARY KEY, idiniciativa INT NOT NULL REFERENCES Iniciativa(id),nombre varchar(30) NOT NULL);
 
+
+ALTER TABLE Usuario ADD CONSTRAINT CK_Usuario_Id CHECK (id > 0 AND id <= 9999999999);
+
+ALTER TABLE Usuario ADD CONSTRAINT CK_Usuario_Tid CHECK (tid IN ('CC', 'CE', 'TI'));
+
+ALTER TABLE Usuario ADD CONSTRAINT CK_Usuario_Telefono CHECK (telefono > 0 AND telefono <= 9999999999);
+
+ALTER TABLE Usuario ADD CONSTRAINT CK_Usuario_Clave CHECK (LENGTH(clave) > 7);
+
+ALTER TABLE Rol ADD CONSTRAINT CK_Rol_Tipo CHECK (tipo IN ('Administrador', 'Proponente', 'PersonalPMO', 'Publico'));
+
+ALTER TABLE Usuario ADD CONSTRAINT CK_Usuario_Estado CHECK (estado IN ('Activo', 'Inactivo'));
+
+ALTER TABLE Iniciativa ADD CONSTRAINT CK_Iniciativa_Estado CHECK (estado_Propuesta IN ('En espera de revisión', 'En revisión', 'Proyecto', 'Solucionado'));                                                       
+
+ALTER TABLE Iniciativa ADD CONSTRAINT CK_Iniciativa_Area CHECK (area IN ('Matemáticas', 'Ciencias Naturales', 'Ciencias Sociales', 'Artes', 'Ciencias de la salud', 'Economía', 'Administración', 'Ingeniería'));   
+
+
+
+CREATE OR REPLACE FUNCTION funcionFecha() RETURNS trigger AS
+$$
+BEGIN
+	NEW.fechainicio:= current_date;
+	RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER tb_fecha_inicio
+BEFORE INSERT ON public.iniciativa 
+FOR EACH ROW
+EXECUTE PROCEDURE funcionFecha();
+
+CREATE OR REPLACE FUNCTION funcionFechaComentario() RETURNS trigger AS
+$$
+BEGIN
+	NEW.fecha:= current_date;
+	RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER tb_fecha_comentario
+BEFORE INSERT ON public.comentario
+FOR EACH ROW
+EXECUTE PROCEDURE funcionFechaComentario();
+
+
 INSERT INTO Rol(tipo) VALUES ('Administrador');
 INSERT INTO Rol(tipo) VALUES ('Proponente');
 INSERT INTO Rol(tipo) VALUES ('PersonalPMO');
@@ -41,17 +87,17 @@ INSERT INTO Rol(tipo) VALUES ('Publico');
 
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (9303130, 'CC', 'Angi Jimenez', 3186759533, 'angi.jimenez', '51588ae1ff9e45374efe138a856eec0479efc67a22de0f251e0021a9a2396dc2', 'Activo', 'Administrador'); 
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1019150998, 'CC', 'Daniela Ruiz', 3178484579, 'angied.ruiz', 'ceb55d033d440973d9c051a93c4300c977403b0681815564680b02056c01a29a', 'Activo', 'Proponente');
-INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1003587553, 'CC', 'Edwin Yesid', 3008427536, 'edwin.rodriguez', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'Activo', 'Administrador'); clave 123456789
-INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1015442700, 'CC', 'Henry Sanchez', 3057786453, 'henry.sanchez', 'f0cb88954b657d42ce1903e0eb4f819d6270314309ad7bdb7ce50e40db4325d8', 'Activo', 'Proponente'); clave santafe1948
-INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1015442711, 'CC', 'Tony Stark', 3108427536, 'tony.stark', '8a9bcf1e51e812d0af8465a8dbcc9f741064bf0af3b3d08e6b0246437c19f7fb', 'Activo', 'Publico'); clave 987654321
-INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1015411111, 'CC', 'Sylvester Stallone', 3007527536, 'sylvester.stallone', 'c775e7b757ede630cd0aa1113bd102661ab38829ca52a6422ab782862f268646', 'Activo', 'Publico'); clave 1234567890
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1003587553, 'CC', 'Edwin Yesid', 3008427536, 'edwin.rodriguez', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'Activo', 'Administrador');
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1015442700, 'CC', 'Henry Sanchez', 3057786453, 'henry.sanchez', 'f0cb88954b657d42ce1903e0eb4f819d6270314309ad7bdb7ce50e40db4325d8', 'Activo', 'Proponente'); 
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1015442711, 'CC', 'Tony Stark', 3108427536, 'tony.stark', '8a9bcf1e51e812d0af8465a8dbcc9f741064bf0af3b3d08e6b0246437c19f7fb', 'Activo', 'Publico'); 
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1015411111, 'CC', 'Sylvester Stallone', 3007527536, 'sylvester.stallone', 'c775e7b757ede630cd0aa1113bd102661ab38829ca52a6422ab782862f268646', 'Activo', 'Publico'); 
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0000000001, 'CC', 'Micke Lauren', 3007527000, 'micke.lauren', '83F7DF5566A3370312E8B04EA062F65AE5519B1122E78B2C5A4E5AB5A1B21A58', 'Activo', 'Publico');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0000000011, 'CC', 'Leonel Messi', 3003337000, 'leo.messi', '19DDD05D90BBA86BCB51ED0F8CAC69B05419F0870EF3325DC5E54F1F84566597', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0000000111, 'CC', 'Homero Simpson', 3003337100, 'homero.simpson', '8246A162C5036E6ED1438150C7FFB0ECD5335C36AC23F68FAC87E9F972A2FE40', 'Activo', 'Publico');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0000001111, 'CC', 'Ruben Angel', 3013337100, 'ruben.angel', 'D33FAE508CB2CC2813B14E85F434513B1CBD5C776EC372259F6C05EF3B9F1208', 'Activo', 'Publico');
-INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0000011111, 'CC', 'Gustavo Petro', 3113337100, 'gustavo.petro', 'B229498D5544C2979CE8255ABF8E18880BC7AB8731C07FC97AE81624E543DAE7', 'Activo', 'Publico'); clave petrosky
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0000011111, 'CC', 'Gustavo Petro', 3113337100, 'gustavo.petro', 'B229498D5544C2979CE8255ABF8E18880BC7AB8731C07FC97AE81624E543DAE7', 'Activo', 'Publico');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0000111111, 'CC', 'Simon Bolivar', 3223337100, 'simon.bolivar', '49209538EF921DAA90A1F6290F8589EC3E803D326887BAE9207ACDA1A6576A69', 'Activo', 'Publico');
-INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0001111111, 'CC', 'Jessy Pinkman', 3003338000, 'jessy.pinkman', '08683A28DEBE09AA26B5F9CD0609E5F8217CBF4014069BC12F1E06575C3E2A41', 'Activo', 'Administrador'); clave chapas
+INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0001111111, 'CC', 'Jessy Pinkman', 3003338000, 'jessy.pinkman', '08683A28DEBE09AA26B5F9CD0609E5F8217CBF4014069BC12F1E06575C3E2A41', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0011111111, 'CC', 'Raul Chaparro', 3003377000, 'raul.chaparro', 'EC408E3EF15C219435D4CD84F1603FA700013CD0E673A35A2A384859FF2097F1', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (0111111111, 'CC', 'Oscar Cordoba', 3003377333, 'oscar.cordoba', 'D9EE6370ACF34BDCAE16A61354C73EB1EE735DED71C5AB8F8CDEAB724A252646', 'Activo', 'Administrador');
 INSERT INTO Usuario (id, tid, nombre, telefono, correo, clave, estado, rol) VALUES (1111111111, 'CC', 'Juan Londoño', 3003399333, 'juan.londoño', '0E68C8A1ECA762565DE23D19827FB4D20DCE31B2529D5142793838881B18DAFA', 'Activo', 'Administrador');
@@ -75,14 +121,16 @@ INSERT INTO Iniciativa (nombrePropuesta, descripcion, area, usuario, estado_Prop
 INSERT INTO Iniciativa (nombrePropuesta, descripcion, area, usuario, estado_Propuesta) VALUES ('Curso teatral', 'Que los estudiantes puedan abrir un curso teatral', 'Artes', 'pilar.trujillo', 'En espera de revisión');
 INSERT INTO Iniciativa (nombrePropuesta, descripcion, area, usuario, estado_Propuesta) VALUES ('Mejorar estado de las canchas', 'Hacer un mejoramiento a las canchas de la escuela', 'Ciencias Naturales', 'steve.jobs', 'En espera de revisión');
 
-INSERT INTO PalabraClave (id, palabraClave) VALUES (1, 'Equipo');
-INSERT INTO PalabraClave (id, palabraClave) VALUES (2, 'Tecnología');
-INSERT INTO PalabraClave (id, palabraClave) VALUES (3, 'Ingeniería');
-INSERT INTO PalabraClave (id, palabraClave) VALUES (4, 'Salud');
-INSERT INTO PalabraClave (id, palabraClave) VALUES (5, 'Estudiantes');
 
-INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (1, 'tony.stark', 'Primer comentario iniciativa 1', null);
-INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (1, 'tony.stark', 'segundo comentario iniciativa 1', null);
-INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (1, 'tony.stark', 'Tercer comentario iniciativa 1', null);
-INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (2, 'tony.stark', 'Primer comentario iniciativa 2', null);
-INSERT INTO comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (2, 'tony.stark', 'Segundo comentario iniciativa 2', null);
+INSERT INTO PalabraClave (palabraClave) VALUES ('Equipo');
+INSERT INTO PalabraClave (palabraClave) VALUES ('Tecnología');
+INSERT INTO PalabraClave (palabraClave) VALUES ('Ingeniería');
+INSERT INTO PalabraClave (palabraClave) VALUES ('Salud');
+INSERT INTO PalabraClave (palabraClave) VALUES ('Estudiantes');
+
+
+INSERT INTO Comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (1, 'tony.stark', 'Primer comentario iniciativa 1', null);
+INSERT INTO Comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (1, 'tony.stark', 'segundo comentario iniciativa 1', null);
+INSERT INTO Comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (1, 'tony.stark', 'Tercer comentario iniciativa 1', null);
+INSERT INTO Comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (2, 'tony.stark', 'Primer comentario iniciativa 2', null);
+INSERT INTO Comentario (idIniciativa, idUsuario, comentario, fecha) VALUES (2, 'tony.stark', 'Segundo comentario iniciativa 2', null);

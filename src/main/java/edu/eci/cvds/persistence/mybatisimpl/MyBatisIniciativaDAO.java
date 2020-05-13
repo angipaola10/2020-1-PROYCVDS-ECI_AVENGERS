@@ -321,5 +321,15 @@ public class MyBatisIniciativaDAO implements IniciativaDAO {
          }
 		return res;
 	}
+
+	@Override
+	public Iniciativa consultarIniciativaPorId(int ini) throws PersistenceException {
+		try{	 
+			return iniciativaMapper.consultarIniciativaPorId(ini);
+         }
+         catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar grupo:",e);   
+         }
+	}
 	
 }
