@@ -97,15 +97,31 @@
 				
 				<p:column headerText="Me gusta" sortBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}"
 							style="width:40px;text-align: center">
+					<p:commandButton id="notlike" value="" class="notlike" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
+								action="#{BancoPropuestasBean.darLike(usuariosesion.value)}" update=":form" rendered="#{BancoPropuestasBean.isNotLike(iniciativa.id, usuariosesion.value)}">
+								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
+					</p:commandButton>
+					<style type="text/css">
+						.notlike {
+							width:30px;
+							height:30px;
+							background-image: url("assets/img/darLikeN.png") !important;
+						}
+						.notlike:hover {
+							width:35px;
+							height:35px;
+							background-image: url("assets/img/likeHover.png") !important;
+						}
+					</style>
 					<p:commandButton id="like" value="" class="like" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
-								action="#{BancoPropuestasBean.darLike(usuariosesion.value)}" update=":form">
+								action="#{BancoPropuestasBean.darLike(usuariosesion.value)}" update=":form" rendered="#{BancoPropuestasBean.isLike(iniciativa.id, usuariosesion.value)}">
 								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 					<style type="text/css">
 						.like {
 							width:30px;
 							height:30px;
-							background-image: url("assets/img/darLikeN.png") !important;
+							background-image: url("assets/img/quitarLikeN.png") !important;
 						}
 						.like:hover {
 							width:35px;

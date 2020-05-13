@@ -542,13 +542,41 @@ public class BancoPropuestasBean extends BasePageBean {
 	
 	public boolean isLike (int idIniciativa, String usuario) throws IOException{
 		try {
+			if (bancoPropuesta.consultarLikePorIds(idIniciativa, usuario).size() == 1) {
+				return true;
+			}
+		} catch(BancoPropuestasException e) {
+		}
+		return false;
+	}
+	
+	public boolean isNotLike (int idIniciativa, String usuario) {
+		try {
+			if(isLike(idIniciativa, usuario) == false) {
+				return true;
+			}
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		} return false;
+	}
+	
+	public boolean isInteres (int idIniciativa, String usuario) throws IOException{
+		try {
 			if (bancoPropuesta.consultarInteresPorIds(idIniciativa, usuario).size() == 1) {
 				return true;
-			} return false;
+			}
 		} catch(BancoPropuestasException e) {
-			setErrorMessage(e);
-			return false;
 		}
+		return false;
+	}
+	
+	public boolean isNotInteres (int idIniciativa, String usuario) {
+		try {
+			if(isInteres(idIniciativa, usuario) == false) {
+				return true;
+			}
+		} catch (IOException e) {
+		} return false;
 	}
 	
 	public List <Iniciativa> getPcclaveini() {

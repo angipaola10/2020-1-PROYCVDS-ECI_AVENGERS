@@ -82,15 +82,31 @@
 				
 				<p:column headerText="Me gusta" sortBy="#{BancoPropuestasBean.consultarLikes(iniciativa.id)}"
 							style="width:40px;text-align: center">
+					<p:commandButton id="notlike" value="" class="notlike" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
+								action="#{BancoPropuestasBean.darLike(usuariosesion.value)}" update=":form" rendered="#{BancoPropuestasBean.isNotLike(iniciativa.id, usuariosesion.value)}">
+								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
+					</p:commandButton>
+					<style type="text/css">
+						.notlike {
+							width:30px;
+							height:30px;
+							background-image: url("assets/img/darLikeN.png") !important;
+						}
+						.notlike:hover {
+							width:35px;
+							height:35px;
+							background-image: url("assets/img/likeHover.png") !important;
+						}
+					</style>
 					<p:commandButton id="like" value="" class="like" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
-								action="#{BancoPropuestasBean.darLike(usuariosesion.value)}" update=":form">
+								action="#{BancoPropuestasBean.darLike(usuariosesion.value)}" update=":form" rendered="#{BancoPropuestasBean.isLike(iniciativa.id, usuariosesion.value)}">
 								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 					<style type="text/css">
 						.like {
 							width:30px;
 							height:30px;
-							background-image: url("assets/img/darLikeN.png") !important;
+							background-image: url("assets/img/quitarLikeN.png") !important;
 						}
 						.like:hover {
 							width:35px;
@@ -103,15 +119,31 @@
 				
 				<p:column headerText="Me interesa" sortBy="#{BancoPropuestasBean.consultarNumInteres(iniciativa.id)}"
 							style="width:45px;text-align: center">
+					<p:commandButton id="nomeInteresa" value="" class="nomeInteresa" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
+								action="#{BancoPropuestasBean.darInteres(usuariosesion.value)}" update=":form" rendered="#{BancoPropuestasBean.isNotInteres(iniciativa.id, usuariosesion.value)}">
+								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
+					</p:commandButton>
+					<style type="text/css">
+						.nomeInteresa {
+							width:30px;
+							height:30px;
+							background-image: url("assets/img/darInteresN.png") !important;
+						}
+						.nomeInteresa:hover {
+							width:35px;
+							height:35px;
+							background-image: url("assets/img/interesHover.png") !important;
+						}
+					</style>
 					<p:commandButton id="meInteresa" value="" class="meInteresa" style="background:transparent;text-shadow:none;box-shadow:none;border:none;"
-								action="#{BancoPropuestasBean.darInteres(usuariosesion.value)}" update=":form">
+								action="#{BancoPropuestasBean.darInteres(usuariosesion.value)}" update=":form" rendered="#{BancoPropuestasBean.isInteres(iniciativa.id, usuariosesion.value)}">
 								<f:setPropertyActionListener value="#{iniciativa}" target="#{BancoPropuestasBean.selectedIniciativa}"/>
 					</p:commandButton>
 					<style type="text/css">
 						.meInteresa {
 							width:30px;
 							height:30px;
-							background-image: url("assets/img/darInteresN.png") !important;
+							background-image: url("assets/img/quitarInteresN.png") !important;
 						}
 						.meInteresa:hover {
 							width:35px;
@@ -168,63 +200,64 @@
 				}
 			</style>
 			<p:dialog header="Iniciativa info" widgetVar="iniComentDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" closable="false">
-				<p:scrollPanel id="iniComentDetail" style="width:550px;height:50vh;">
-					<div style="position:absolute;left:5px;top:2px;width:480px;background:transparent;">
-						<h:outputText value="Comentarios" style="font-family:impact; font-size:18px; color:#b80f22;margin-left:230px;margin-top:10px;"/>
-						<p:panelGrid  columns="1" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="value"
-								layout="grid">
-							<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.id}"  binding="#{iniID}" readonly="false"
-											style="font-size:3px;visibility:hidden;"/>
-						</p:panelGrid>
-						<p:commandButton value="" update=":form" onclick="location.reload()" style="background:transparent;text-shadow :none;box-shadow:none;border:none;font-family:impact;margin-left:5px;" class="atras"/>
-						<style type="text/css">
-							.atras{
-								position:absolute;top:7px;left:0px;
-								height:15px; width:28px;
-								background-image: url("assets/img/atrasN.png") !important;
+				<p:outputPanel id="comentinfo">
+					<p:scrollPanel id="iniComentDetail" style="width:550px;height:50vh;">
+						<div style="position:absolute;left:5px;top:2px;width:480px;background:transparent;">
+							<h:outputText value="Comentarios" style="font-family:impact; font-size:18px; color:#b80f22;margin-left:230px;margin-top:10px;"/>
+							<p:panelGrid  columns="1" rendered="#{not empty BancoPropuestasBean.selectedIniciativa}" columnClasses="value"
+									layout="grid">
+								<p:inputTextarea rows="1" cols="20" value="#{BancoPropuestasBean.selectedIniciativa.id}"  binding="#{iniID}" readonly="false"
+												style="font-size:3px;visibility:hidden;"/>
+							</p:panelGrid>
+							<p:commandButton value="" update=":form" onclick="location.reload()" style="background:transparent;text-shadow :none;box-shadow:none;border:none;font-family:impact;margin-left:5px;" class="atras"/>
+							<style type="text/css">
+								.atras{
+									position:absolute;top:7px;left:0px;
+									height:15px; width:28px;
+									background-image: url("assets/img/atrasN.png") !important;
+								}
+								.atras:hover{
+									height:20px; width:38px;
+									background-image: url("assets/img/atrasH.png") !important;
+								}
+							</style>
+						</div>
+						<p:dataView var="comenIni" value="#{BancoPropuestasBean.comentarios}" style="width:530px;margin-left:10px;">						
+							<p:dataViewListItem>
+								<h:panelGrid columns="2" style="width:100%;" columnClasses="detail">
+									<p:outputPanel style ="margin-bottom:2px;" id ="gg">
+										<h:panelGrid columns="2" cellpadding="5">
+											<p:outputPanel>
+												<h:panelGrid columns="1" style="width:100%;" columnClasses="detail">
+													<h:outputText value="#{comenIni.idusuario}" style="color:#b80f22;font-family:impact;font-size:12px;margin-left:60px" />
+													<h:outputText  value="#{comenIni.getFechaString()}" 
+														style="color:#9A9A9A;border:none;font-family:calibri;font-size:12px;margin-left:60px"/>
+												</h:panelGrid>
+											</p:outputPanel>
+											<p:inputTextarea rows="1" cols="42" value="#{comenIni.comentario}" readonly="true" 
+													style="box-shadow:none;background:#E5E5E5;border:none;font-family:calibri;font-size:16px;"/>	
+										</h:panelGrid>
+									</p:outputPanel>	
+								</h:panelGrid>
+							</p:dataViewListItem>
+						</p:dataView>
+						<style type="text/css"> 
+							.ui-dataview-header	{
+								visibility:hidden;
+								border:none;
 							}
-							.atras:hover{
-								height:20px; width:38px;
-								background-image: url("assets/img/atrasH.png") !important;
+							.ui-dataview-content{
+								border:none;
 							}
 						</style>
-					</div>
-					<p:dataView var="comenIni" value="#{BancoPropuestasBean.comentarios}" style="width:530px;margin-left:10px;">						
-						<p:dataViewListItem>
-							<h:panelGrid columns="2" style="width:100%;" columnClasses="detail">
-								<p:outputPanel style ="margin-bottom:2px;" id ="gg">
-									<h:panelGrid columns="2" cellpadding="5">
-										<p:outputPanel>
-											<h:panelGrid columns="1" style="width:100%;" columnClasses="detail">
-												<h:outputText value="#{comenIni.idusuario}" style="color:#b80f22;font-family:impact;font-size:12px;margin-left:60px" />
-												<h:outputText  value="#{comenIni.getFechaString()}" 
-													style="color:#9A9A9A;border:none;font-family:calibri;font-size:12px;margin-left:60px"/>
-											</h:panelGrid>
-										</p:outputPanel>
-										<p:inputTextarea rows="1" cols="42" value="#{comenIni.comentario}" readonly="true" 
-												style="box-shadow:none;background:#E5E5E5;border:none;font-family:calibri;font-size:16px;"/>	
-									</h:panelGrid>
-								</p:outputPanel>	
-							</h:panelGrid>
-						</p:dataViewListItem>
-					</p:dataView>
-					<style type="text/css"> 
-						.ui-dataview-header	{
-							visibility:hidden;
-							border:none;
-						}
-						.ui-dataview-content{
-							border:none;
-						}
-					</style>
-				</p:scrollPanel>
-				<p:inputTextarea rows="1" cols="54" readonly="false" binding="#{newComent}" id="newComent"
-					style="box-shadow:none;background:#E5E5E5;border:1px solid #AAAAAA;font-family:calibri;font-size:16px;margin-left:65px;margin-top:10px;height:32px;" placeholder="Ingrese un comentario..."/>
-				<p:commandButton id="mensaje" value="" class="comentario" update="form:iniComentDetail" 
-							style="background:transparent;text-shadow :none;box-shadow:none;border:none;font-family:impact;margin-left:5px;"
-							actionListener="#{BancoPropuestasBean.comentar(iniID.value, usuariosesion.value, newComent.value)}">
-				</p:commandButton>
-				
+					</p:scrollPanel>
+					<p:inputTextarea rows="1" cols="54" readonly="false" binding="#{newComent}" id="newComent"
+						style="box-shadow:none;background:#E5E5E5;border:1px solid #AAAAAA;font-family:calibri;font-size:16px;margin-left:65px;margin-top:10px;height:32px;" placeholder="Ingrese un comentario..."/>
+					<p:commandButton id="mensaje" value="" class="comentario" update="form:comentinfo" 
+								style="background:transparent;text-shadow :none;box-shadow:none;border:none;font-family:impact;margin-left:5px;"
+								actionListener="#{BancoPropuestasBean.comentar(iniID.value, usuariosesion.value, newComent.value)}">
+					</p:commandButton>
+				</p:outputPanel>	
 			</p:dialog>
 			<style type="text/css">
 				.ui-dataview{ border:none; }
