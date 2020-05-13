@@ -133,7 +133,7 @@ _Si queremos volver al inicio presionaremos donde indica la flecha:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proVolverIni.jpg) 
 _Y si queremos salir de nuestra cuenta presionaremos donde indica la flecha, no importa la pestaña en la que estemos:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proCS.jpg)
-#### Usuario Publico:
+#### Usuario Público:
 _Al ingresar con tu cuenta de Publico verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPub.jpg) 
 _Si queremos interactuar con las iniciativas pondremos el cursor donde indica la flecha y presioanremos donde indica el círculo:_
