@@ -39,10 +39,8 @@ _Si queremos buscar un usuario dado alguno de los campos que indican las flechas
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiUsFil.jpg) 
 _Si queremos interactuar con las iniciativas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiSel.jpg)
-
 _Si queremos ver todas las iniciativas registradas, presionaremos donde indica la flecha:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiVerTodo.jpg) PENDIENTE
-
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiVerTodo.jpg) 
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/admiFil.jpg) 
 _Si queremos ver más información relacionada a una iniciativa presionaremos donde indica la flecha:_
@@ -70,10 +68,8 @@ _Al ingresar con tu cuenta de PMO verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPMO.jpg) 
 _Si queremos interactuar con las iniciativas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoSel.jpg) 
-
 _Si queremos ver las iniciativas registradas presionaremos donde indica la flecha:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoVerTodo.jpg) PENDIENTE
-
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoVerTodo.jpg) 
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoFil.jpg) 
 _Si queremos ver más información relacionada a una iniciativa presionaremos donde indica la flecha:_
@@ -103,10 +99,8 @@ _Al ingresar con tu cuenta de Proponente verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPro.jpg) 
 _Si queremos interactuar con las iniciativas registradas por nosotros nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proSel.jpg) 
-
 _Si queremos ver las iniciativas registradas por nosotros nos pararemos donde indica la flecha:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proVerTodoMio.jpg) PENDIENTE
-
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proVerTodoMio.jpg)
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proFil.jpg) 
 _Si queremos ver los comentarios de una iniciativa:_
@@ -123,11 +117,8 @@ _Si queremos consultar por palabra clave presionaremos donde indica la flecha, s
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proPCM.jpg) 
 _Si queremos interactuar con todas las iniciativas registradas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proSelTodo.jpg) 
-
-
 _Si queremos ver todas las iniciativas registradas nos pararemos donde indica la flecha:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proVerTodo.jpg) PENDIENTE
-
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proVerTodo.jpg) 
 _Si queremos dar Me Gusta a una iniciativa presionaremos donde indica la flecha y se pondrá la imagen con color para que sepas que ya reaccionaste a la iniciativa:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proMGT.jpg) 
 _Si queremos retirar nuestro Me Gusta de una iniciativa presionaremos nuevamente donde indica la flecha  y se pondrá gris la imagen para que sepas que no has reaccionado a esa iniciativa:_
@@ -153,10 +144,8 @@ _Al ingresar con tu cuenta de Publico verás inicialmente:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/inicialPub.jpg) 
 _Si queremos interactuar con las iniciativas pondremos el cursor donde indica la flecha y presioanremos donde indica el círculo:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubverIni.jpg) 
-
 _Si queremos ver todas las iniciativas registradas presionaremos donde indica la flecha:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubVerTodo.jpg) PENDIENTE
-
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubVerTodo.jpg) 
 _Si queremos buscar una iniciativa dado alguno de los campos que indican las flechas, presionaremos el campo deseado y lo llenaremos:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pubFil.jpg) 
 _Si queremos ver más información relacionada a una iniciativa presionaremos donde indica la flecha:_
