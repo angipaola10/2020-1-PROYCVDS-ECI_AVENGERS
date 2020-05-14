@@ -60,13 +60,21 @@
 				rows="10" selectionMode="single" id="correo" selection="#{BancoPropuestasBean.selectedUsuario}" rowKey="#{usuario.correo}">
 				
 				<f:facet name="header">
-					<p:selectOneMenu id="act-rol" binding="#{perfil}">
-						<f:selectItem itemLabel="Seleccione un rol" itemValue="" noSelectionOption="true" />
-						<f:selectItems value="#{BancoPropuestasBean.roles}" />
-					</p:selectOneMenu>
-					<p:commandButton value="Asignar perfil" update=":busquedaUsuarioForm"
-									style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;"
-									action="#{BancoPropuestasBean.modificarUsuario(perfil.value)}"/>
+					<p:fieldset legend="Modificar perfil de usuario" style="margin-bottom:20px;border-color:#b80f22;">
+						<p:selectOneMenu id="act-rol" binding="#{perfil}">
+							<f:selectItem itemLabel="Seleccione un rol" itemValue="" noSelectionOption="true" />
+							<f:selectItems value="#{BancoPropuestasBean.roles}" />
+						</p:selectOneMenu>
+						<p:commandButton value="Asignar perfil" update=":busquedaUsuarioForm"
+										style="background:#b80f22;color: #fff;text-shadow:none;box-shadow:none;margin-left: 10px;border:none;font-family:impact;"
+										action="#{BancoPropuestasBean.modificarUsuario(perfil.value)}"/>
+					</p:fieldset>
+					<style type="text/css">
+						.ui-fieldset{
+							width:50%;margin-left:25%;}
+							.ui-fieldset .ui-fieldset-legend{
+							background:#fff;border:none;text-shadow:none;box-shadow:none;font-family:impact;color:#b80f22;font-size:12px;left:0px;}
+					</style>
 				</f:facet>
 				
 				<p:column headerText="No. Documento" filterBy="#{usuario.getId()}">
