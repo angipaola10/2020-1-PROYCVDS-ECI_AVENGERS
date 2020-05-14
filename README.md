@@ -112,9 +112,9 @@ _Si queremos consultar por palabra clave presionaremos donde indica la flecha, s
 _Si queremos modificar una propuesta, solo se puede si esta en estado de: "En espera de revisión", para hacerlo, presionaremos donde indica la flecha dependiendo la que queramos modificar:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proMODI.jpg)
 _Podemos modificar el nombre, la descripción y el área seleccionandola de la lista que se despliega automáticamente, y presionaremos modificar como indica el círculo para salvar la modificación:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoMod.jpg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proMod.jpg) 
 _Si queremos vovler atrás presionaremos donde indica el círculo:_
-![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/pmoModVolv.jpg) 
+![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proModVolv.jpg) 
 _Si queremos interactuar con todas las iniciativas registradas nos pararemos donde indica la flecha y presionaremos donde indica el círculo:_
 ![alt text](https://raw.githubusercontent.com/Edyesid/2020-1-PROYCVDS-ECI_AVENGERS/master/Imagenes/proSelTodo.jpg) 
 _Si queremos ver todas las iniciativas registradas nos pararemos donde indica la flecha:_
