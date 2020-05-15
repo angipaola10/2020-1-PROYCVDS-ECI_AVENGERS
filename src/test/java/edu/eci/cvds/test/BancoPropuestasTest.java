@@ -13,6 +13,7 @@ import com.google.inject.Inject;
 import edu.eci.cvds.services.BancoPropuestas;
 import edu.eci.cvds.services.BancoPropuestasException ;
 import edu.eci.cvds.services.BancoPropuestasFactory;
+import edu.eci.cvds.entities.Grupo;
 import edu.eci.cvds.entities.Iniciativa;
 import edu.eci.cvds.entities.PalabraClave;
 import edu.eci.cvds.entities.Usuario;
@@ -26,7 +27,7 @@ public class BancoPropuestasTest {
     public BancoPropuestasTest() throws BancoPropuestasException {
 		banco  = BancoPropuestasFactory.getInstance().getBancoPropuestasTest();
 	}
-	/**
+
     @Test
     public void NoDeberiaConsultar() {
     	try {
@@ -35,12 +36,11 @@ public class BancoPropuestasTest {
     		assertTrue(true);
     	}
     }
-    
+
     @Test
     public void DeberiaConsultariniciativas() throws BancoPropuestasException {
     	List<Iniciativa> prueba = banco.consultarIniciativas();
-    	assertEquals(prueba.size(),7);
-   	
+    	assertEquals(prueba.size(),13);
     }
     
     @Test
@@ -68,14 +68,109 @@ public class BancoPropuestasTest {
     	if (nombre1=="Proponente") {assertTrue(prueba1.getRol().name()==prueba2.getRol().name());}
     	if (nombre1=="Administrador") {assertTrue(prueba1.getRol().name()!=prueba2.getRol().name());}
 
-       	
-   	
     }
     
     @Test
     public void IniciarSesionBien() throws BancoPropuestasException {
-    Usuario prueb = banco.consultarUsuarioLog("henry.sanchez", "santafe1948");
-    assertTrue(prueb.getRol().name()=="Proponente");
-  }
-	*/
+	    Usuario prueb = banco.consultarUsuarioLog("henry.sanchez", "santafe1948");
+	    assertTrue(prueb.getRol().name()=="Proponente");
+    }
+    
+    @Test
+    public void DeberiaConsultarUsuarios() throws BancoPropuestasException {
+    	List<Usuario> lista = banco.consultarUsuarios();
+    	if (lista.size() > 4) {
+    		assertTrue(true);
+    	} else {
+    		assertTrue(false);
+    	}
+    }
+    
+    /**
+    @Test
+    public void DeberiaconsultarIniciativasDeUnGrupo()throws BancoPropuestasException {
+    	
+    }
+    */
+    
+    @Test
+    public void NoDeberiaConsultarUsuario()throws BancoPropuestasException {
+    	try {
+    		Usuario prueba = banco.consultarUsuario("pepito.perez");}
+    	
+    	catch(Exception e) {
+    		assertTrue(true);
+    	}
+    }
+    
+    @Test
+    public void NoCambiarDeRol()throws BancoPropuestasException {
+    	try {
+        	banco.modificarUsuario("Administrador", "hola.mundo");}
+    	catch(Exception e) {
+    		assertTrue(true);
+    	}
+    }
+    
+    @Test
+    public void DeberiaCambiaElEstadoDeUsuario() throws BancoPropuestasException {
+    	
+    	Usuario prueba1 = banco.consultarUsuario("henry.sanchez");
+    	String nombre1 = prueba1.getEstado();
+    	String estado="Inactivo";
+    	banco.modificarUsuarioEstado(estado,"henry.sanchez");
+    	Usuario prueba2 = banco.consultarUsuario("henry.sanchez");
+    	String nombre2=prueba2.getEstado();
+    	
+    	if (nombre1.equals("Inactivo")) {
+    		System.out.println("entro1");
+    		assertTrue(nombre1.equals(nombre2));
+    		}
+    	else if (nombre1.equals("Activo")) {
+    		System.out.println("Entro");
+    		assertFalse(nombre1.equals(nombre2));
+    		banco.modificarUsuarioEstado("Activo","henry.sanchez");
+    		}
+    	else {
+    		assertTrue(false);
+    	}
+    }
+    
+    public void NoDeberiaCambiarEstadoDeUsuario() throws BancoPropuestasException {
+    	
+    	try {
+    		String estado="hola";
+    		banco.modificarUsuarioEstado(estado,"henry.sanchez");
+    	} catch(Exception e) {
+    		assertTrue(true);
+    	}
+    }
+    
+    @Test
+    public void DeberiaHacerConsultaDeGrupos() throws BancoPropuestasException {
+    	List<Grupo> lista = banco.consultarGrupo(5);
+    	if (lista.size() >= 1) {
+    		assertTrue(true);
+    	} else {
+    		assertTrue(false);
+    	}
+    }
+    
+    @Test
+    public void NoDeberiaHacerConsultaDeGrupos() throws BancoPropuestasException {
+    	try {
+    		List<Grupo> lista = banco.consultarGrupo(100);
+    	} catch (Exception e) {
+    		assertTrue(true);
+    	}
+    }
+    
+    @Test
+
+    public void NoDeberiaConsultarUsuarioporNombre() throws BancoPropuestasException {
+    	Usuario prueba = banco.consultarUsuario("henry.sanchez");
+    	assertEquals(prueba.getId(),1015442700);
+   	
+    }
+    
 }

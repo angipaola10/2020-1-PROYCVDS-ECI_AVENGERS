@@ -51,7 +51,6 @@ public class BancoPropuestasBean extends BasePageBean {
 	private List <Iniciativa> iniciativasConsultadasPropias;
 	private List <Comentario> comentarios;
 
-
     public List<Usuario> consultarUsuarios(){
         List<Usuario> clientes = null;
         try{
@@ -184,7 +183,7 @@ public class BancoPropuestasBean extends BasePageBean {
 		}
     }
 	
-	public void modificarUsuarioEstado(String estado){
+	public void modificarUsuarioEstado(String estado) {
         try{
             bancoPropuesta.modificarUsuarioEstado(estado, selectedUsuario.getCorreo());
         } catch (BancoPropuestasException e) {
