@@ -265,6 +265,7 @@ Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por real
 
 
 **Reporte de pruebas y de cubrimiento:** 📖
+
 ![alt text](https://i.ibb.co/6mGhMzv/Sin-t-tulo.png)
 
 
