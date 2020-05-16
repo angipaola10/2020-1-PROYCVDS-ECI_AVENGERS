@@ -265,8 +265,7 @@ Por problemas con el tiempo y el trabajo en equipo nos quedó pendiente por real
 
 
 **Reporte de pruebas y de cubrimiento:** 📖
-aca va el reporte (sólo la foto del reporte principal). ---> ponerlo al final 
-Para la cobertura, pueden usar los plugins disponibles (EclEmma, Jacoco, etc.)
+![alt text](https://i.ibb.co/6mGhMzv/Sin-t-tulo.png)
 
 
 **Reporte de análisis estático de código:** 🎁
