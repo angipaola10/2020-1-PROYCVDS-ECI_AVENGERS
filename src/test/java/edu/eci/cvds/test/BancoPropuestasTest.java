@@ -29,7 +29,11 @@ public class BancoPropuestasTest {
 	}
 
     @Test
-    public void NoDeberiaConsultar() {
+    /**
+     * Se realiza la consulta de una iniciativa con un codigo que no existe
+     * @throws BancoPropuestasException
+     */
+    public void NoDeberiaConsultar() throws BancoPropuestasException {
     	try {
 		banco.consultarIniciativa("1234567");}
     	catch(Exception e) {
@@ -38,12 +42,24 @@ public class BancoPropuestasTest {
     }
 
     @Test
+    /**
+     * Se realiza la consulta de todas las iniciativas que existen
+     * @throws BancoPropuestasException
+     */
     public void DeberiaConsultariniciativas() throws BancoPropuestasException {
     	List<Iniciativa> prueba = banco.consultarIniciativas();
-    	assertEquals(prueba.size(),13);
+    	if (prueba.size() > 4) {
+    		assertTrue(true);
+    	} else {
+    		assertTrue(false);
+    	}
     }
     
     @Test
+    /**
+     * Se Se hace la consulta de de un usuario por el correo
+     * @throws BancoPropuestasException
+     */
     public void DeberiaConsultarUsuarioporNombre() throws BancoPropuestasException {
     	Usuario prueba = banco.consultarUsuario("henry.sanchez");
     	assertEquals(prueba.getId(),1015442700);
@@ -51,6 +67,10 @@ public class BancoPropuestasTest {
     }
     
     @Test
+    /**
+     * Se realiza la consulta de las iniciativas de un usuario especifico "angied.ruiz"
+     * @throws BancoPropuestasException
+     */
     public void DeberiaConsultarIniciativaUsuario() throws BancoPropuestasException {
     	List<Iniciativa> prueba = banco.consultarIniciativa("angied.ruiz");
     	assertEquals(prueba.get(0).getNombrePropuesta(),"HoloLens Aid");
@@ -58,6 +78,10 @@ public class BancoPropuestasTest {
     }
     
     @Test
+    /**
+     * Se realiza la actualizacion del rol de un usuario
+     * @throws BancoPropuestasException
+     */
     public void DeberiaCambiarRol() throws BancoPropuestasException {
     	Usuario prueba1 = banco.consultarUsuario("henry.sanchez");
     	String nombre1=prueba1.getRol().name();
@@ -67,16 +91,23 @@ public class BancoPropuestasTest {
     	String nombre2=prueba2.getRol().name();
     	if (nombre1=="Proponente") {assertTrue(prueba1.getRol().name()==prueba2.getRol().name());}
     	if (nombre1=="Administrador") {assertTrue(prueba1.getRol().name()!=prueba2.getRol().name());}
-
     }
     
     @Test
+    /**
+     * Se realiza el inicio de sesion del usuarui henry.sanchez
+     * @throws BancoPropuestasException
+     */
     public void IniciarSesionBien() throws BancoPropuestasException {
 	    Usuario prueb = banco.consultarUsuarioLog("henry.sanchez", "santafe1948");
 	    assertTrue(prueb.getRol().name()=="Proponente");
     }
     
     @Test
+    /**
+     * Se hace la consulta de todos los usuarios existentes
+     * @throws BancoPropuestasException
+     */
     public void DeberiaConsultarUsuarios() throws BancoPropuestasException {
     	List<Usuario> lista = banco.consultarUsuarios();
     	if (lista.size() > 4) {
@@ -87,12 +118,9 @@ public class BancoPropuestasTest {
     }
     
     /**
-    @Test
-    public void DeberiaconsultarIniciativasDeUnGrupo()throws BancoPropuestasException {
-    	
-    }
-    */
-    
+     * Se realiza la consulta de un usuario que no existe
+     * @throws BancoPropuestasException
+     */
     @Test
     public void NoDeberiaConsultarUsuario()throws BancoPropuestasException {
     	try {
@@ -104,6 +132,10 @@ public class BancoPropuestasTest {
     }
     
     @Test
+    /**
+     * Se realiza la actualizacion de rol de un ususario que no existe
+     * @throws BancoPropuestasException
+     */
     public void NoCambiarDeRol()throws BancoPropuestasException {
     	try {
         	banco.modificarUsuario("Administrador", "hola.mundo");}
@@ -113,6 +145,10 @@ public class BancoPropuestasTest {
     }
     
     @Test
+    /**
+     * Se realiza la actualizacion del estado de un usuario
+     * @throws BancoPropuestasException
+     */
     public void DeberiaCambiaElEstadoDeUsuario() throws BancoPropuestasException {
     	
     	Usuario prueba1 = banco.consultarUsuario("henry.sanchez");
@@ -136,6 +172,11 @@ public class BancoPropuestasTest {
     	}
     }
     
+    @Test
+    /**
+     * Se realiza el cambio de estado de un usuario, con el estado "hola" que no es permitido
+     * @throws BancoPropuestasException
+     */
     public void NoDeberiaCambiarEstadoDeUsuario() throws BancoPropuestasException {
     	
     	try {
@@ -147,6 +188,10 @@ public class BancoPropuestasTest {
     }
     
     @Test
+    /**
+     * Se realiza la consulta de los grupos de una iniciativa
+     * @throws BancoPropuestasException
+     */
     public void DeberiaHacerConsultaDeGrupos() throws BancoPropuestasException {
     	List<Grupo> lista = banco.consultarGrupo(5);
     	if (lista.size() >= 1) {
@@ -157,6 +202,10 @@ public class BancoPropuestasTest {
     }
     
     @Test
+    /**
+     * Se realiza la consulta de los grupos de una iniciativa que no existe
+     * @throws BancoPropuestasException
+     */
     public void NoDeberiaHacerConsultaDeGrupos() throws BancoPropuestasException {
     	try {
     		List<Grupo> lista = banco.consultarGrupo(100);
@@ -166,11 +215,14 @@ public class BancoPropuestasTest {
     }
     
     @Test
-
+    /**
+     * se realiza 
+     * @throws BancoPropuestasException
+     */
     public void NoDeberiaConsultarUsuarioporNombre() throws BancoPropuestasException {
-    	Usuario prueba = banco.consultarUsuario("henry.sanchez");
-    	assertEquals(prueba.getId(),1015442700);
-   	
+    	try {
+    		Usuario prueba = banco.consultarUsuario("sanchez");
+    	} catch(Exception e) {
+    		assertTrue(true);}
     }
-    
 }
