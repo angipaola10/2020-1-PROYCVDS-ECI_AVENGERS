@@ -4,15 +4,12 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
 import org.apache.ibatis.annotations.Param;
-
 import edu.eci.cvds.entities.Comentario;
 import edu.eci.cvds.entities.Grupo;
 import edu.eci.cvds.managedbeans.ShiroBean;
@@ -135,11 +132,6 @@ public class BancoPropuestasBean extends BasePageBean {
     }
 	
 	public void modificarPropuesta(int ini, String nombrePropuesta, String descripcion, String area, String estado){
-		System.out.println("ID "+ini);
-		System.out.println("NOMBRE "+nombrePropuesta);
-		System.out.println("DESCRIPCION "+descripcion);
-		System.out.println("AREA "+area);
-		System.out.println("ESTADO "+estado);
 		if(nombrePropuesta != "") {
 			if (descripcion != "") {
 				if(area != "") {
