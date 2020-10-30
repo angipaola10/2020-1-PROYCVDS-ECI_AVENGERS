@@ -135,11 +135,6 @@ public class BancoPropuestasBean extends BasePageBean {
     }
 	
 	public void modificarPropuesta(int ini, String nombrePropuesta, String descripcion, String area, String estado){
-		System.out.println("ID "+ini);
-		System.out.println("NOMBRE "+nombrePropuesta);
-		System.out.println("DESCRIPCION "+descripcion);
-		System.out.println("AREA "+area);
-		System.out.println("ESTADO "+estado);
 		if(nombrePropuesta != "") {
 			if (descripcion != "") {
 				if(area != "") {
