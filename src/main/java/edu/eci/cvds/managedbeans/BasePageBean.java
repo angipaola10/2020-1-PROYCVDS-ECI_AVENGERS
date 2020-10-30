@@ -17,15 +17,20 @@
 package edu.eci.cvds.managedbeans;
 
 import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
+
 import javax.faces.context.FacesContext;
+
 import javax.servlet.ServletContext;
+
 import com.google.inject.Injector;
+
 
 public abstract class BasePageBean implements Serializable {
 
-  
     private Injector injector;
+
 
     public Injector getInjector() {
         if (injector == null) {
@@ -43,4 +48,5 @@ public abstract class BasePageBean implements Serializable {
     public void init() {
         getInjector().injectMembers(this);
     }
+	
 }
