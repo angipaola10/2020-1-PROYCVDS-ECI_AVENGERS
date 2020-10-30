@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.cvds.managedbeans;
+
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
@@ -26,6 +22,7 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
+
 @Named
 @Stateless
 @SessionScoped
@@ -39,9 +36,6 @@ public class ShiroBean implements Serializable {
     private String redirectUrl = "/faces/index.html";
     static Subject subject;
 
-    /**
-     * Try and authenticate the user
-     */
     public void doLogin() {
     	subject = SecurityUtils.getSubject();
     	if (getUsername()=="") {
@@ -135,4 +129,6 @@ public class ShiroBean implements Serializable {
     public void setRedirectUrl(String redirectUrl) {
         this.redirectUrl = redirectUrl;
     }
+	
+	
 }
