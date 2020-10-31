@@ -1,11 +1,14 @@
 package edu.eci.cvds.entities;
 
+
+
 public class ReporteArea {
 	
 	private String area;
 	private int numIniciativas;
 	
 	public ReporteArea() {}
+	
 	
 	public ReporteArea(String area, int numIniciativas) {
 		this.area = area;
@@ -15,6 +18,7 @@ public class ReporteArea {
 	public String getArea() {
 		return area;
 	}
+
 
 	public void setArea(String area) {
 		this.area = area;
