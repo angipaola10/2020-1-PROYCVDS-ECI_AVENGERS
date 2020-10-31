@@ -1,9 +1,13 @@
 package edu.eci.cvds.persistence;
 
 import edu.eci.cvds.entities.Rol;
+
 import edu.eci.cvds.entities.Usuario;
+
 import java.util.*;
+
 import java.lang.String;
+
 import java.math.BigInteger;
 
 public interface UsuarioDAO {
