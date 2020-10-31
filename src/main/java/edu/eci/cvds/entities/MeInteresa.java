@@ -18,6 +18,7 @@ public class MeInteresa {
 		return usuario;
 	}
 
+
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
