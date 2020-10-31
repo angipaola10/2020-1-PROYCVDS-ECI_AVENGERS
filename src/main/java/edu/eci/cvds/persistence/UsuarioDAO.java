@@ -9,7 +9,6 @@ import java.math.BigInteger;
 
 public interface UsuarioDAO {
 	
-	
 	public List<Usuario> obtenerUsuarios() throws PersistenceException;
 
     public Usuario obtenerUsuario(String correo) throws PersistenceException;
