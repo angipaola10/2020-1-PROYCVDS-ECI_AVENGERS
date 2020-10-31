@@ -1,12 +1,9 @@
 package edu.eci.cvds.persistence;
 
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
-
 import java.sql.Date;
 import java.lang.String;
-
 import edu.eci.cvds.entities.Comentario;
 import edu.eci.cvds.entities.Grupo;
 import edu.eci.cvds.entities.ReporteEstado;
@@ -73,5 +70,6 @@ public interface IniciativaDAO {
 	public List<Iniciativa> consultarInisAgru(int id, String grupo) throws PersistenceException;
 
 	public Iniciativa consultarIniciativaPorId(int ini) throws PersistenceException;
+
 
 }
