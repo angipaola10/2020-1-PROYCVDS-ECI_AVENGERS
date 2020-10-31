@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import org.primefaces.model.SelectableDataModel;
 
+
 public class Iniciativa implements SelectableDataModel{
 	private int id;
 	private String nombrePropuesta;
