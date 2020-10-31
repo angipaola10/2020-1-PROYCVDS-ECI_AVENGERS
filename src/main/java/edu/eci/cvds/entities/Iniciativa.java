@@ -18,6 +18,7 @@ public class Iniciativa implements SelectableDataModel{
 	private String nombreProponente;
 	private int likes;
 
+
 	public Iniciativa() {}
 	
 	public Iniciativa(int id, String nombrePropuesta, String descripcion, Date fechaInicio, String area, String usuario, String estado_Propuesta, String nombreProponente){
