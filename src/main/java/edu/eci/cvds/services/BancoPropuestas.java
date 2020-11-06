@@ -18,7 +18,6 @@ import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
 
 public interface BancoPropuestas {
-	
 
     public abstract Usuario consultarUsuario(String correo) throws BancoPropuestasException;
 	
