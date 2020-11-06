@@ -18,6 +18,7 @@ import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
 
 public interface BancoPropuestas {
+	
 
     public abstract Usuario consultarUsuario(String correo) throws BancoPropuestasException;
 	
@@ -86,5 +87,4 @@ public interface BancoPropuestas {
 	public abstract List<Iniciativa> consultarInisAgru(int id, String grupo) throws BancoPropuestasException;
 
 	public abstract Iniciativa consultarIniciativaPorId(int ini) throws BancoPropuestasException;
-
 }
