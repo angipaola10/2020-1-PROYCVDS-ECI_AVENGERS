@@ -19,7 +19,6 @@ import edu.eci.cvds.persistence.PersistenceException;
 
 public interface BancoPropuestas {
 
-	
     public abstract Usuario consultarUsuario(String correo) throws BancoPropuestasException;
 	
 	public abstract Usuario consultarUsuarioLog(String correo, String clave) throws BancoPropuestasException;
