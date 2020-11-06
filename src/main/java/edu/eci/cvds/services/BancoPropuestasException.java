@@ -6,8 +6,7 @@ public class BancoPropuestasException extends Exception {
     
     public static final String CONTRASENA_INCORRECTA = "La contraseña ingresada es incorrecta";
 
-    public BancoPropuestasException() {
-    }
+    public BancoPropuestasException() { }
 
     public BancoPropuestasException(String message) {
         super(message);

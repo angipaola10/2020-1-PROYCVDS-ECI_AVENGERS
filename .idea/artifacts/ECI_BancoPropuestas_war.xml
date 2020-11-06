@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ECI-BancoPropuestas:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ECI-BancoPropuestas</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ECI-BancoPropuestas-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ECI-BancoPropuestas:war exploded" />
+    </root>
+  </artifact>
+</component>
